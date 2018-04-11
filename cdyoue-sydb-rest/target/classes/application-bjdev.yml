@@ -1,0 +1,58 @@
+spring:
+  datasource:
+    jdbc-url: jdbc:mysql://103.235.234.108:13013/lgsq?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: youedata2015_
+  datasource-icnpp:
+    jdbc-url: jdbc:mysql://103.235.234.108:13013/icnpp?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: youedata2015_
+audience:
+   webId: 098f6bcd4621d373cade4e832627b4f6
+   appId: 098f6bcd4621d373cade4e832627b4f65
+   base64Secret: MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=
+   name: restapiuser
+   expiresSecond: 172800
+default:
+  icnpp:
+    file-address: /opt/saveWordFolder
+  front:
+    remoteUrl: http://103.235.234.108:13056
+  sms:
+    apikey: a77950fc8780e2c22bcb6891bde13d2b
+  eventTracking:
+    piwikUrl: http://103.235.234.108:13073/piwik/piwik.php
+    remoteUrl: http://127.0.0.1:9201/
+  recommend:
+    remoteUrl: http://103.235.234.108:13009/recommendSystem/data
+  #文件上传地址
+  commonUpload:
+    driver: /mnt/NFS_Share/
+    server: http://103.235.234.108:13012/
+    fileAddress: lgsq
+    compress: mobile
+  #在线客服
+  customerService:
+    #客户服务QQ
+    QQ: 3375396327   #youedata2017
+    #是否开启网页QQ
+    QQ_WEB: false
+server:
+  network-address: http://103.235.234.108:13008
+  port: 8080
+  context-path: /oddjobs/api
+  #ueditor
+ueditor:
+   url: ckeditor/
+   path: /mnt/NFS_Share/
+   ip: 103.235.234.108:13012//
+   config: '{"snapscreenInsertAlign":"none","videoPathFormat":"/ueditor/jsp/upload/video/{yyyy}{mm}{dd}/{time}{rand:6}","videoFieldName":"upfile","fileManagerActionName":"listfile","fileUrlPrefix":"","imageUrlPrefix":"http://","imageAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp"],"videoAllowFiles":[".flv",".swf",".mkv",".avi",".rm",".rmvb",".mpeg",".mpg",".ogg",".ogv",".mov",".wmv",".mp4",".webm",".mp3",".wav",".mid"],"filePathFormat":"/ueditor/jsp/upload/file/{yyyy}{mm}{dd}/{time}{rand:6}","fileMaxSize":51200000,"fileManagerListPath":"/ueditor/jsp/upload/file/","catcherUrlPrefix":"","videoActionName":"uploadvideo","scrawlInsertAlign":"none","videoUrlPrefix":"","imageManagerUrlPrefix":"","scrawlUrlPrefix":"","imageFieldName":"upfile","fileManagerAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp",".flv",".swf",".mkv",".avi",".rm",".rmvb",".mpeg",".mpg",".ogg",".ogv",".mov",".wmv",".mp4",".webm",".mp3",".wav",".mid",".rar",".zip",".tar",".gz",".7z",".bz2",".cab",".iso",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".pdf",".txt",".md",".xml"],"imageMaxSize":2048000,"catcherPathFormat":"/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}","imageManagerInsertAlign":"none","scrawlFieldName":"upfile","imagePathFormat":"/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}","scrawlActionName":"uploadscrawl","imageManagerActionName":"listimage","imageActionName":"uploadimage","imageManagerListSize":20,"imageManagerAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp"],"fileAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp",".flv",".swf",".mkv",".avi",".rm",".rmvb",".mpeg",".mpg",".ogg",".ogv",".mov",".wmv",".mp4",".webm",".mp3",".wav",".mid",".rar",".zip",".tar",".gz",".7z",".bz2",".cab",".iso",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".pdf",".txt",".md",".xml"],"snapscreenActionName":"uploadimage","fileFieldName":"upfile","fileActionName":"uploadfile","catcherActionName":"uploadimage","fileManagerListSize":20,"catcherAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp"],"snapscreenPathFormat":"/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}","imageCompressBorder":1600,"snapscreenUrlPrefix":"","imageCompressEnable":true,"catcherLocalDomain":["127.0.0.1","localhost","img.baidu.com"],"imageManagerListPath":"/ueditor/jsp/upload/image/","imageInsertAlign":"none","catcherMaxSize":2048000,"videoMaxSize":102400000,"fileManagerUrlPrefix":"","scrawlPathFormat":"/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}","scrawlMaxSize":2048000,"catcherFieldName":"source"}'
+logging:
+  config: classpath:logback-spring.xml
+  path: ./logs
+  level:
+    root: info
+    org:
+      springframework:
+        web: info
+      hibernate: error

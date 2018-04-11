@@ -1,0 +1,79 @@
+spring:
+      # 连接池配置
+      datasource:
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1 FROM DUAL
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxPoolPreparedStatementPerConnectionSize: 20
+        filters: stat,wall,log4j
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlM
+        useGlobalDataSourceStat: true
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+      #邮箱服务配置
+      mail:
+        host: smtp.youedata.com
+        username: linggongshequ@youedata.com
+        password: youedata2015_
+        properties:
+          mail:
+            smtp:
+              auth: true
+              starttls:
+                enable: false
+                required: false
+      jackson:
+        serialization.write_dates_as_timestamps: false
+      #jpa  配置
+      jpa:
+        show-sql: true
+        generate-ddl: false
+        database-platform: MYSQL
+        properties:
+            hibernate:
+              dialect: org.hibernate.dialect.MySQLDialect
+        hibernate:
+            ddl-auto: none
+            naming:
+              physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      http:
+        multipart:
+          enabled: true
+          max-file-size: 500Mb
+          max-request-size: 500Mb
+      profiles:
+        active: dev
+      application:
+        name:  rest-provider
+#服务注册中心配置 暂时不用
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:123456@localhost:8090/eureka/  #注册 中心已经开启认证
+  instance:
+    prefer-ip-address: true
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /swagger/
+
+#logging:
+#  config: classpath:logback-spring.xml
+#  path: E:/logs
+#  level:
+#    root: warn
+#    org:
+#      springframework:
+#        web: debug
+#      hibernate: error

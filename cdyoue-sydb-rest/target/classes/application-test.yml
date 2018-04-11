@@ -1,0 +1,81 @@
+spring:
+  #数据源配置
+  datasource:
+    jdbc-url: jdbc:mysql://172.16.0.241:3306/sydb?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 1qaz@WSX
+  datasource-icnpp:
+    jdbc-url: jdbc:mysql://172.16.0.241:3306/sydb?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 1qaz@WSX
+#
+default:
+  hosts:
+    pc:
+      - 127.0.0.1
+      - 103.235.234.108
+  password: youedata@2015
+  icnpp:
+    file-address: L:\web\web-9007\apache-tomcat-8.0.30\webapps\ICNPP\SCData\PolicyTextImg\saveWordFolder
+  #前台地址
+  front:
+    remoteUrl: http://127.0.0.1:9206
+  #短信服务码
+  sms:
+    apikey: 81f90096d7f12247783baa81735148ee
+  #埋服务服务器地址
+  eventTracking:
+    piwikUrl: http://103.235.234.108:13073/piwik/piwik.php
+    remoteUrl: http://127.0.0.1:9201/
+  #推荐系统服务器地址
+  recommend:
+    remoteUrl: http://103.235.234.108:13009/recommendSystem/data
+  #文件上传地址
+  commonUpload:
+    driver: /mnt/NFS_Client/
+    server: http://172.16.0.240:80/
+    fileAddress: sy
+    compress: mobile
+  #在线客服
+  customerService:
+    #客户服务QQ
+    QQ: 3575396327   #youedata2017
+    #是否开启网页QQ
+    QQ_WEB: false
+#认证配置
+audience:
+  # web端 认证id
+  webId: 098f6bcd4621d373cade4e832627b4f6
+  # app端 认证id
+  appId: 098f6bcd4621d373cade4e832627b4f65
+  # 加密密室
+  base64Secret: MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=
+  name: restapiuser
+  #过期时间
+  expiresSecond: 172800
+#
+server:
+  network-address: http://localhost:8063
+  port: 8063
+  context-path: /sy/api
+#  ssl:
+#    key-store: classpath:keystore.p12
+#    key-store-password: 123456
+#    key-store-type: PKCS12
+#    key-alias: oddjobs
+
+#ueditor
+ueditor:
+  url: ckeditor/
+  path: /mnt/NFS_Client/
+  ip: 172.16.0.240:80//
+  config: '{"snapscreenInsertAlign":"none","videoPathFormat":"/ueditor/jsp/upload/video/{yyyy}{mm}{dd}/{time}{rand:6}","videoFieldName":"upfile","fileManagerActionName":"listfile","fileUrlPrefix":"","imageUrlPrefix":"http://","imageAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp"],"videoAllowFiles":[".flv",".swf",".mkv",".avi",".rm",".rmvb",".mpeg",".mpg",".ogg",".ogv",".mov",".wmv",".mp4",".webm",".mp3",".wav",".mid"],"filePathFormat":"/ueditor/jsp/upload/file/{yyyy}{mm}{dd}/{time}{rand:6}","fileMaxSize":51200000,"fileManagerListPath":"/ueditor/jsp/upload/file/","catcherUrlPrefix":"","videoActionName":"uploadvideo","scrawlInsertAlign":"none","videoUrlPrefix":"","imageManagerUrlPrefix":"","scrawlUrlPrefix":"","imageFieldName":"upfile","fileManagerAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp",".flv",".swf",".mkv",".avi",".rm",".rmvb",".mpeg",".mpg",".ogg",".ogv",".mov",".wmv",".mp4",".webm",".mp3",".wav",".mid",".rar",".zip",".tar",".gz",".7z",".bz2",".cab",".iso",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".pdf",".txt",".md",".xml"],"imageMaxSize":2048000,"catcherPathFormat":"/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}","imageManagerInsertAlign":"none","scrawlFieldName":"upfile","imagePathFormat":"/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}","scrawlActionName":"uploadscrawl","imageManagerActionName":"listimage","imageActionName":"uploadimage","imageManagerListSize":20,"imageManagerAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp"],"fileAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp",".flv",".swf",".mkv",".avi",".rm",".rmvb",".mpeg",".mpg",".ogg",".ogv",".mov",".wmv",".mp4",".webm",".mp3",".wav",".mid",".rar",".zip",".tar",".gz",".7z",".bz2",".cab",".iso",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".pdf",".txt",".md",".xml"],"snapscreenActionName":"uploadimage","fileFieldName":"upfile","fileActionName":"uploadfile","catcherActionName":"uploadimage","fileManagerListSize":20,"catcherAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp"],"snapscreenPathFormat":"/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}","imageCompressBorder":1600,"snapscreenUrlPrefix":"","imageCompressEnable":true,"catcherLocalDomain":["127.0.0.1","localhost","img.baidu.com"],"imageManagerListPath":"/ueditor/jsp/upload/image/","imageInsertAlign":"none","catcherMaxSize":2048000,"videoMaxSize":102400000,"fileManagerUrlPrefix":"","scrawlPathFormat":"/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}","scrawlMaxSize":2048000,"catcherFieldName":"source"}'
+logging:
+  config: classpath:logback-spring.xml
+  path: /var/log
+#    org:
+#      springframework:
+#        web: info
+#      hibernate: error
+http:
+  userUrl: http://syds.youedata.com:9093/user/saveAccount
