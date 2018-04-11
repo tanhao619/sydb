@@ -1,0 +1,92 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+</style>
+<div class="top_div">
+    <h4>编辑设备</h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm" class="modalStyle1">
+                <div style="padding: 1px 15px;" >
+                    <input type="hidden" ng-model="vm.equipment.id">
+                    <div class="col-sm-9">
+                        <p><span style="color: red">*</span>设备名称：<input style="width: 500px" name="name" type="text" ng-model ="vm.equipment.name"  ng-minlength="1" ng-maxlength="50" required></p>
+                    </div>
+                    <div class="col-sm-3">
+                        <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+                            <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+                                <br/><span ng-show="myForm.name.$error.required">设备名称是必须的。</span>
+                                <br/><span ng-show="myForm.name.$error.minlength">长度最短为1。</span>
+                                <br/><span ng-show="myForm.name.$error.maxlength">长度最长为50。</span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-sm-9">
+                        <p><span style="color: red">*</span>所属单位：<input style="width: 500px" name="owner" type="text" ng-model ="vm.equipment.owner" ng-minlength="1" ng-maxlength="50" required> </p>
+                        <span class="w_tipsExist w_offset" ng-if="vm.equipment.owner.length>0">您还可以输入<b class="w_required">{{50 - vm.equipment.owner.length}}</b>个字</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span style="color:red" ng-show="myForm.owner.$dirty && myForm.owner.$invalid">
+                            <span style="color:red" ng-show="myForm.owner.$dirty && myForm.owner.$invalid">
+                                <br/><span ng-show="myForm.owner.$error.required">所属单位是必须的。</span>
+                                <br/><span ng-show="myForm.owner.$error.minlength">长度最短为1。</span>
+                                <br/><span ng-show="myForm.owner.$error.maxlength">长度最长为50。</span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-sm-12">
+                        <p><span style="color: red">*</span>设备所属行业：<select ng-model="vm.equipmentType" id="seId" ng-change="vm.industryChange()"><option value="{{x.id}}" ng-selected="x.name == vm.equipment.type" ng-repeat="x in vm.industryList">{{x.name}}</option></select></p></div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="">
+                            <span><span style="color: red">*</span>图片：</span>
+                            <img ng-if="vm.equipment.imgUrl && !vm.uploadA.file" ngf-src="SY_UploadBasePath+vm.equipment.imgUrl" style="width:200px;height:150px;vertical-align: top;">
+                            <img ng-if="vm.uploadA.file" ngf-src="vm.uploadA.file" style="width:200px;height:150px;vertical-align: top;">
+                        </div>
+                        <div class="" style="margin-top: 10px;">
+                            <input type="file" class="button_upload" ngf-select="vm.uploadImage()" ng-model="vm.uploadA.file" name="image"/>图片上传
+                        </div>
+                    </div>
+                    <div class="col-sm-12"><p>设备型号：<input style="width: 500px" type="text"  ng-model ="vm.equipment.model"> </p></div>
+                    <div class="col-sm-12"><p>仪器类别：<input style="width: 500px" type="text"  ng-model ="vm.equipment.category"> </p></div>
+                    <div class="col-sm-9">
+                        <p>仪器价值：<input style="width: 500px" name="value" type="number" ng-model ="vm.equipment.value" ng-pattern = "/^([1-9]\d*(\.\d*[1-9])?)|(0\.\d*[1-9])$/" > </p>
+                    </div>
+                    <div class="col-sm-3">
+                        <span style="color: red"  ng-if="myForm.value.$dirty && myForm.value.$error.pattern">融资必须为正数</span>
+                    </div>
+                    <div class="col-sm-9"><p><span style="color: red">*</span>收费标准：<input style="width: 500px" name="price" type="number" ng-model ="vm.equipment.price" required  ng-pattern = "/^([1-9]\d*(\.\d*[1-9])?)|(0\.\d*[1-9])$/"> </p></div>
+                    <div class="col-sm-3">
+                        <span style="color: red" ng-show="myForm.price.$dirty && myForm.price.$error.required">设备价格是必须的。</span>
+                        <span style="color: red"  ng-show="myForm.price.$dirty && myForm.price.$error.pattern">融资必须为正数</span>
+                    </div>
+                    <div class="col-sm-12"><p>生产厂商：<input style="width: 500px" type="text" ng-model ="vm.equipment.manufacturer"> </p></div>
+                    <div class="col-sm-12"><p><span style="color: red">*</span>仪器状态：
+                        <select ng-model="vm.equipment.status">
+                            <option value="0" ng-selected="vm.status == 0">未租赁</option>
+                            <option value="1" ng-selected="vm.status == 1">已租赁</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <span style="color: red">*</span>设备详情：<ueditor name="container" id="container"></ueditor>
+                    </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+        <button  class="btn btn-lm btn-warn" type="button"  ng-disabled=" myForm.$invalid " ng-click="vm.save()" >提交</button>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<style>
+    .top_a_element {
+        color: #f18d0d
+    }
+
+    .top_a_element:hover {
+        color: #dd514c;
+    }
+    .move-removed-top{
+        color: red;
+        cursor: pointer;
+    }
+    .move-removed-top:hover{
+        color: #f18d0d;
+    }
+    .delete-admin{
+        color: #bdbdbd;
+    }
+    .move{
+        cursor: pointer;
+    }
+    .sort_a_ele {
+        color: #f18d0d;
+    }
+    .sort_a_ele:hover {
+        color: #000000;
+    }
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="{{SY_CrumbsData.oneLevel.uiSref}}">{{SY_CrumbsData.oneLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.twoLevel">＞</span>
+    <a class="top_a_element" ng-if="SY_CrumbsData.twoLevel" ui-sref="{{SY_CrumbsData.twoLevel.uiSref}}">{{SY_CrumbsData.twoLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.threeLevel">＞</span>
+    <span ng-if="SY_CrumbsData.threeLevel">{{SY_CrumbsData.threeLevel.name}}</span>
+</div>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div class="widget-group m-b-xs">
+                <div class="input-group widget-search">
+                    <input type="text" ng-model="vm.initList.q" ng-change="vm.inputSearch()"
+                           class="input-sm form-control" placeholder="请输入角色名称">
+                    <span class="input-group-btn">
+                        <button class="btn btn-sm btn-warn" type="button" ng-click="vm.search()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="widget-group m-b-xs">
+                 <span class="inline">
+                    <button style="height: 40px" class="btn btn-sm btn-warn" type="button" ng-click="vm.openModal()">
+                        <span style="font-size: 14px">新增</span></button>
+                </span>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table ng-show="!vm.dataShow">
+                <tr collapse=" 3">
+                    <td colspan="5" style="text-align: center;color: red">{{vm.msg}}</td>
+                </tr>
+            </table>
+            <table class="table table-striped b-t b-light" ng-show="vm.dataShow">
+                <thead>
+                <tr>
+                    <th> ID</th>
+                    <th> 角色名称</th>
+                    <th> 创建人</th>
+                    <th class="move" ng-click="vm.sortField()"> 创建时间
+                        <a class="glyphicon glyphicon-arrow-up sort_a_ele" ng-show="!vm.sortDown"></a>
+                        <a class="glyphicon glyphicon-arrow-down sort_a_ele" ng-show="vm.sortDown"></a>
+                    </th>
+                    <th> 简介</th>
+                    <th> 操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="tr in vm.pager.list">
+                    <td>{{tr.id}}</td>
+                    <td>{{tr.name}}</td>
+                    <td>{{tr.creator}}</td>
+                    <td>{{tr.createTime}}</td>
+                    <td>{{tr.intro}}</td>
+                    <td>
+                        <a ng-click="vm.openModal(tr.id,'show')">查看</a>&nbsp;|&nbsp;
+                        <a ng-if="tr.id != 1" ng-click="vm.openModal(tr.id)">编辑</a>
+                        <span ng-if="tr.id == 1" class="delete-admin" title="超级管理员不能被编辑！">编辑</span>&nbsp;|&nbsp;
+                        <a ng-if="tr.id != 1" ng-click="vm.deleteData(tr.id)">删除</a>
+                        <span ng-if="tr.id == 1" class="delete-admin" title="超级管理员不能被删除！">删除</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="widget-page" ng-show="vm.dataShow">
+                <youe-page pageinfo="vm.pager" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+            </div>
+
+        </div>
+    </div>
+</div>

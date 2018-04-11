@@ -1,0 +1,50 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+    .red{
+        color:red;
+    }
+</style>
+<div class="top_div">
+    <h4> 网址站-<span>{{vm.syBannerDetail.name}}</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <div style="padding: 1px 15px;">
+                    <!--查看时显示-->
+                    <p ng-show="!vm.isEditor">网址站类别：{{vm.syBannerDetail.name}}</p>
+                    <p ng-show="!vm.isEditor">网址站内容：{{vm.syBannerDetail.content}}</p>
+                    <!--新增/编辑时显示-->
+                    <p ng-show="vm.isEditor"><span class="red">*</span>网址站类别：<input style="width: 500px" type="text" ng-model ="vm.updateItems.name" ng-maxlength="50" name="name" ng-required="true">
+                        <span class="red" ng-if="myForm.name.$error.required && myForm.name.$touched">名称不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.name.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.name.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.name.$error.maxlength">名称请限制在50个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor"><span class="red">*</span>网址站内容：
+                    <span class="w_tips">例如：“{{vm.updateItems.contentReg}}”，多个请用英文分号隔开</span>
+                    <textarea  rows="10" cols="70" ng-model ="vm.updateItems.content" name="content" ng-required="true"/>
+                        <span class="red" ng-if="myForm.content.$error.required && myForm.content.$touched">内容不能为空！</span>
+                    </p>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+        <button ng-show="!vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.editor()">编辑</button>
+        <button ng-show="vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="myForm.$invalid">提交</button>
+    </div>
+</div>

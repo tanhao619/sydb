@@ -1,0 +1,51 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+</style>
+<div class="top_div">
+    <h4> 技术融资 <a ng-click="vm.cancel()"  class="top_a_ele"></a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <div style="padding: 1px 15px;">
+                    <p>项目名称：{{vm.financingMessage.name}}</p>
+                    <p>发布时间：{{vm.financingMessage.createTime}}</p>
+                    <p>融资需求：{{vm.financingMessage.fund}}</p>
+                    <p>知产类型：<span ng-show="vm.financingMessage.type == 0">专利</span>
+                                 <span ng-show="vm.financingMessage.type == 1">商标</span>
+                                 <span ng-show="vm.financingMessage.type == 2">著作权</span>
+                    </p>
+                    <p>专利号：{{vm.financingMessage.patentNum}}</p>
+                    <div class="col-sm-12">
+                        <div class="">
+                            <span>图片：</span>
+                            <img ng-if="vm.financingMessage.imgUrl" ngf-src="SY_UploadBasePath+vm.financingMessage.imgUrl" style="width:200px;height:150px;vertical-align: top;">
+                        </div>
+                    </div>
+                    <span>项目详情：</span><p ng-bind-html="vm.financingMessage.detail | elementsIntro"></p>
+                    <p>附件：
+                     <a ng-href="{{vm.financingMessage.file}}" download="{{vm.financingMessage.file}}" style="color:#333;">{{vm.financingMessage.file}}</a></td>
+                    </p>
+                    <p>联系人：{{vm.financingMessage.contacts}}</p>
+                    <p>联系电话：{{vm.financingMessage.phone}}</p>
+                    <p>联系邮箱：{{vm.financingMessage.email}}</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">确定</button>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+    .red{
+        color:red;
+    }
+</style>
+<div class="top_div">
+    <h4> 项目讲座-<span>{{vm.ProjectLectureDetail.name}}</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <div style="padding: 1px 15px;">
+                    <p ng-show="!vm.isEditor">&emsp;名称：{{vm.ProjectLectureDetail.name}}</p>
+                    <p ng-show="!vm.isEditor">&emsp;时间：{{vm.ProjectLectureDetail.time}}</p>
+                    <p ng-show="!vm.isEditor">&emsp;地点：{{vm.ProjectLectureDetail.address}}</p>
+                    <p ng-show="!vm.isEditor">&emsp;简介：{{vm.ProjectLectureDetail.info}}</p>
+                    <p ng-show="!vm.isEditor">&emsp;详情：</p>
+                    <p ng-show="!vm.isEditor" ng-bind-html="vm.ProjectLectureDetail.content | elementsIntro"></p>
+                    <p ng-show="!vm.isEditor">&emsp;图片：<img class="zoomImages" ng-src="{{SY_UploadBasePath}}{{vm.ProjectLectureDetail.image}}"></p>
+                    <!--修改时显示-->
+                    <!--<p ng-show="vm.isEditor">&emsp;名称：<input style="width: 500px" type="text" ng-model ="vm.updateItems.title"></p>-->
+                    <p ng-show="vm.isEditor">&emsp;名称：<input style="width: 500px" type="text" ng-model ="vm.updateItems.name" ng-maxlength="50" name="adName" ng-required="true">
+                        <span class="red" ng-if="myForm.adName.$error.required && myForm.adName.$touched">名称不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.name.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.name.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.adName.$error.maxlength">名称请限制在50个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor" id="datepicker">&emsp;时间：<input style="width: 500px;cursor: pointer" type="text" ng-model ="vm.updateItems.time" ng-required="true" name="lectureTime" id="start">
+                        <span class="red" ng-if="myForm.lectureTime.$error.required && myForm.lectureTime.$touched">时间不能为空！</span>
+                    </p>
+                    <p ng-show="vm.isEditor">&emsp;地点：<input style="width: 500px" type="text" ng-model ="vm.updateItems.address" ng-maxlength="50" name="address" ng-required="true" >
+                        <span class="red" ng-if="myForm.address.$error.required && myForm.address.$touched">地点不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.address.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.address.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.address.$error.maxlength">地点请限制在50个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor">&emsp;简介：<input style="width: 500px" type="text" ng-model ="vm.updateItems.info" ng-maxlength="200" name="info" ng-required="true">
+                        <span class="red" ng-if="myForm.info.$error.required && myForm.info.$touched">简介不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.info.length>0">您还可以输入<b class="w_required">{{200 - vm.updateItems.info.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.info.$error.maxlength">简介请限制在200个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor">&emsp;详情：<span class="red" ng-if="vm.editShow">详情不能为空！</span>
+                        <ueditor id="newsAddContainer" style="height: 250px"></ueditor>
+                    </p>
+                    <p ng-show="vm.isEditor">&emsp;图片：
+                        <button class="button_orange" ngf-select="vm.uploadImage()" ng-model="vm.dataImage.file" name="image" ngf-max-size="8MB">上传图片</button>
+                        <span class="w_tips">支持jpg/gif/png格式的图片,图片应小于8MB。</span>
+                    </p>
+                    <p ng-show="vm.isEditor">&emsp;预览：
+                        <!--<img class="zoomImages" ngf-src="vm.dataImage.file" ng-if="vm.dataImage.file">-->
+                        <img class="zoomImages" ng-if="vm.updateItems.image" ng-src="{{SY_UploadBasePath}}{{vm.updateItems.image}}">
+                        <span class="red" ng-if="myForm.image.$touched && !vm.updateItems.image">请上传图片</span>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+        <button ng-show="!vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.editor()">编辑</button>
+        <button ng-show="vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="myForm.$invalid || !vm.updateItems.image">提交</button>
+    </div>
+</div>

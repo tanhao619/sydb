@@ -1,0 +1,54 @@
+<style>
+    .top_a_element {
+        color: #f18d0d
+    }
+
+    .top_a_element:hover {
+        color: #dd514c;
+    }
+
+    .input-width {
+        width: 300px;
+    }
+
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="{{SY_CrumbsData.oneLevel.uiSref}}">{{SY_CrumbsData.oneLevel.name}}</a>
+    <span>＞</span>
+    <span >{{SY_CrumbsData.twoLevel.name}}</span>
+</div>
+
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="table-responsive">
+
+            <div class="col-md-12">
+                <div class="row">
+                    <form name="myForm">
+                        <div class="col-md-12">
+                            <span ng-if="vm.msg" style="color: red">{{vm.msg}}</span>
+                            <p>联系电话：<input class="input-width" type="text" name="phone" placeholder='请输入移动电话'
+                                           ng-model='vm.myInfo.tel'
+                                           ng-pattern="/^1\d{10}$/">
+                                <span style="color: red" ng-if="myForm.phone.$error.pattern">请输入正确的电话号码！</span>
+                            </p>
+                            <p>所在行业：
+                                <select style="width: 296px" ng-model="vm.expectFunctionCategory">
+                                    <option value="" selected="selected">请选择行业</option>
+                                    <option value="{{da.id}}" ng-repeat="da in vm.domainsShow">{{da.name}}</option>
+                                </select>
+                            </p>
+                            <p>个人简介：<textarea style="width: 740px;height: 90px;vertical-align:top" ng-model='vm.myInfo.info'></textarea></p>
+                            <p>详细介绍：
+                                <ueditor id="ueContent"></ueditor>
+                            </p>
+                            <button class="btn btn-lm btn-warn" type="button" ng-click="vm.submit()">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

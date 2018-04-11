@@ -1,0 +1,78 @@
+<style>
+    .top_a_element{color: #f18d0d}
+    .top_a_element:hover { color: #dd514c; }
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="{{SY_CrumbsData.oneLevel.uiSref}}">{{SY_CrumbsData.oneLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.twoLevel">＞</span>
+    <a class="top_a_element" ng-if="SY_CrumbsData.twoLevel" ui-sref="{{SY_CrumbsData.twoLevel.uiSref}}">{{SY_CrumbsData.twoLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.threeLevel">＞</span>
+    <span ng-if="SY_CrumbsData.threeLevel">{{SY_CrumbsData.threeLevel.name}}</span>
+</div>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="table-responsive">
+            <div class="row wrapper">
+                <div class="widget-group m-b-xs">
+                    <div class="input-group widget-search">
+                        <input type="text" ng-model="vm.questionsObj.q"
+                               class="input-sm form-control" placeholder="请输入查询">
+                        <span class="input-group-btn">
+                        <button class="btn btn-sm btn-warn" type="button" ng-click="vm.search()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                    </div>
+                    <!--<button class="btn btn-success" style="width: 100px;margin-top: 20px;color: #ffffff !important;background-color: #27c24c;border-color: #27c24c;"ng-click="vm.dels()">批量删除</button>-->
+                </div>
+                <div class="widget-group m-b-xs">
+                    <div class="widget-group m-b-xs">
+                    <span class="inline">
+                        <button style="height: 40px" class="btn btn-sm btn-warn" type="button" ng-click="vm.dels()">
+                            <span style="font-size: 14px">批量删除</span></button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped b-t b-light" >
+                <thead>
+                <tr>
+                    <th style="width:90px;">
+                        <label class="i-checks m-b-none">
+                            <input type="checkbox" ng-model="vm.selectCheckedAll" ng-click="vm.checkedAll(vm.selectCheckedAll)"><i></i>全选
+                        </label>
+                    </th>
+                    <th> ID </th>
+                    <th> 申报名称</th>
+                    <th> 创建企业 </th>
+                    <th> 创建时间 </th>
+                    <th> 操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="tr in vm.pager.list">
+                    <td>
+                        <label class="i-checks m-b-none">
+                            <input type="checkbox" ng-click="vm.checkedOne(tr.id,$index,tr.checked)" ng-checked="tr.checked" ng-model="tr.checked"><i></i>
+                        </label>
+                    </td>
+
+                    <td>{{$index+1}}</td>
+                    <td>{{tr.projectInfo.name}}</td>
+                    <td>{{tr.enterpriseInfo.name}}</td>
+                    <td>{{tr.createTime | medium}}</td>
+                    <td>
+                        <a ng-click="vm.openModal(tr.id)">查看</a>&nbsp;|&nbsp;
+                        <a ng-click="vm.delActivity(tr.id)">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h4 class="text-danger" ng-if = "!vm.pager.list.length">抱歉！暂无数据！</h4>
+            <div ng-if="vm.pager.list.length" class="widget-page">
+                <youe-page pageinfo="vm.pager" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+            </div>
+        </div>
+    </div>
+</div>

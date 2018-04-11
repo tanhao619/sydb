@@ -1,0 +1,48 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+</style>
+<div class="top_div">
+    <h4> 详细信息</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <span ng-show="vm.data.type == 1">
+                    <p>商标名称：{{vm.data.brandName}}</p>
+                    <p>商标ID：{{vm.data.brandId}}</p>
+                    <p>商标类别：{{vm.data.brandType}}</p>
+                </span>
+
+                <span ng-show="vm.data.type == 2">
+                    <p>专利号：{{vm.data.patentNum}}</p>
+                    <p>专利信息：{{vm.data.patentInfo}}</p>
+                </span>
+
+                 <span ng-show="vm.data.type == 3">
+                    <p>评估项目：{{vm.data.assessProject}}</p>
+                    <p>项目信息：{{vm.data.assessInfo}}</p>
+                 </span>
+
+                    <p>备注：{{vm.data.remark}}</p>
+                    <p>创建时间：{{vm.data.publishTime}}</p>
+                    <p>申请人：{{vm.data.applyPerson}}</p>
+                    <p>联系电话：{{vm.data.tel}}</p>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+    </div>
+</div>

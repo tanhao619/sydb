@@ -1,0 +1,50 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+</style>
+<div class="top_div">
+    <h4> 需求大厅-<span>{{vm.syBannerDetail.title}}</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <div style="padding: 1px 15px;">
+                    <p ng-show="!vm.isEditor">&emsp;名称：{{vm.syBannerDetail.title}}</p>
+                    <p ng-show="!vm.isEditor">&emsp;链接：{{vm.syBannerDetail.link}}</p>
+                    <p ng-show="!vm.isEditor">排序值：{{vm.syBannerDetail.orderBy}}</p>
+                    <p ng-show="!vm.isEditor">广告图：<img class="zoomImages" ng-src="{{vm.syBannerDetail.coverImg}}"></p>
+                    <!--修改时显示-->
+                    <!--<p ng-show="vm.isEditor">&emsp;名称：<input style="width: 500px" type="text" ng-model ="vm.updateItems.title"></p>-->
+                    <p ng-show="vm.isEditor">&emsp;名称：<input style="width: 500px" type="text" ng-model ="vm.updateItems.title" ng-maxlength="50" name="adName">
+                        <span style="color: red" ng-if="myForm.adName.$invalid">名称请限制在50个字符以内！</span>
+                    <p ng-show="vm.isEditor">&emsp;链接：<input style="width: 500px" type="text" ng-model ="vm.updateItems.link"></p>
+
+                    <p ng-show="vm.isEditor">广告图：
+                        <button class="button_orange" ngf-select="vm.uploadImage()" ng-model="vm.dataImage.file" name="image" ngf-max-size="8MB">上传图片</button>
+                        <span class="w_tips">支持jpg/gif/png格式的图片,图片应小于8MB。</span>
+                    </p>
+                    <p ng-show="vm.isEditor">&emsp;预览：
+                        <img class="zoomImages" ngf-src="vm.dataImage.file" ng-if="vm.dataImage.file">
+                        <img class="zoomImages" ng-if="!vm.dataImage.file" ng-src="{{vm.updateItems.coverImg}}">
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+        <button ng-show="!vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.editor()">编辑</button>
+        <button ng-show="vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="myForm.$invalid">提交</button>
+    </div>
+</div>

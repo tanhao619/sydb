@@ -1,0 +1,57 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+    .red{
+        color: red;
+    }
+</style>
+<div class="top_div">
+    <h4> <span>置顶</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <!--<div class="">-->
+                    <!--&lt;!&ndash;<p>图片预览：&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img class="zoomImages" ngf-src="vm.uploadA.file" ng-if="vm.uploadA.file">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img class="zoomImages" ng-if="!vm.uploadA.file" ng-src="{{SY_UploadBasePath}}{{vm.topImage}}">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                    <!--<p>预览：-->
+                        <!--<img class="zoomImages" ng-if="vm.topImage" ng-src="{{SY_UploadBasePath}}{{vm.topImage}}">-->
+                        <!--<span class="red" ng-if="!vm.topImage">未上传图片或上传图片失败！</span>-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="" style="margin-top: 10px;">-->
+                    <!--<input type="file" class="button_upload" ngf-select="vm.uploadImage()" ng-model="vm.uploadA.file" name="image"/>图片上传-->
+                <!--</div>-->
+                <div style="padding: 1px 15px;">
+                    <div class="oldPicture">
+                        <p><span class="red">*</span>上传图片：
+                            <button class="button_orange" ngf-select="vm.uploadImage()" ng-model="vm.uploadA.file" name="image" ngf-max-size="8MB">上传图片</button>
+                            <span class="w_tips">支持jpg/gif/png格式的图片,图片应小于8MB。</span>
+                        </p>
+                        <p>预览：
+                            <img class="zoomImages" ng-if="vm.topImage" ng-src="{{SY_UploadBasePath}}{{vm.topImage}}">
+                            <span class="red" ng-if="myForm.image.$touched && !vm.topImage">未上传图片或上传图片失败！</span>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="!vm.topImage">确定置顶</button>
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()" >取消</button>
+    </div>
+</div>

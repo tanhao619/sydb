@@ -1,0 +1,115 @@
+<style>
+    .top_a_element{color: #f18d0d}
+    .top_a_element:hover { color: #dd514c; }
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="{{SY_CrumbsData.oneLevel.uiSref}}">{{SY_CrumbsData.oneLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.twoLevel">＞</span>
+    <a class="top_a_element" ng-if="SY_CrumbsData.twoLevel" ui-sref="{{SY_CrumbsData.twoLevel.uiSref}}">{{SY_CrumbsData.twoLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.threeLevel">＞</span>
+    <span ng-if="SY_CrumbsData.threeLevel">{{SY_CrumbsData.threeLevel.name}}</span>
+</div>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+        <div class="table-responsive">
+            <div class="widget-group m-b-xs">
+                <div class="input-group widget-search">
+                    <input type="text" ng-model="vm.q"
+                           class="input-sm form-control" placeholder="请输入关键字">
+                    <span class="input-group-btn">
+                        <button class="btn btn-sm btn-warn" type="button" ng-click="vm.findTitle()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="widget-group m-b-xs">
+                     <span class="inline">
+                        <button style="height: 40px" class="btn btn-sm btn-warn" type="button" ng-click="vm.deleteAll()">
+                            <span style="font-size: 14px">批量删除</span></button>
+                    </span>
+            </div>
+            <!--<div class="input-group widget-search">-->
+                <!--<input type="text" ng-model="vm.q" class="input-sm form-control" placeholder="请输入关键字">-->
+                <!--<span class="input-group-btn">-->
+                        <!--<button class="btn btn-sm btn-warn" type="button" ng-click="vm.findTitle()">-->
+                            <!--<i class="fa fa-search"></i>-->
+                        <!--</button>-->
+                <!--</span>-->
+                <!--<span class="input-group-btn">-->
+                    <!--<button style="height: 40px" class="btn btn-sm btn-warn" type="button" ng-click="vm.deleteAll()">-->
+                        <!--<span style="font-size: 14px">批量删除</span></button>-->
+            <!--</span>-->
+            <!--</div>-->
+
+            <table class="table table-striped b-t b-light" >
+                <thead>
+                <tr>
+                    <th style="width:90px;">
+                        <label class="i-checks m-b-none">
+                            <input type="checkbox"  ng-model="vm.selectCheckedAll" ng-click="vm.checkedAll(vm.selectCheckedAll)"><i></i>全选
+                        </label>
+                    </th>
+                    <th> 序号 </th>
+                    <th> 项目名称 </th>
+                    <th> 融资需求 </th>
+                    <th> 发布人 </th>
+                    <th> 创建时间 </th>
+                    <th> 浏览次数</th>
+                    <th> 状态
+                        <select ng-change="vm.findTitle()" ng-model="vm.statusSelect">
+                            <option value="">全部</option>
+                            <option value="0">未审核</option>
+                            <option value="1">未通过</option>
+                            <option value="2">已通过</option>
+                        </select>
+                    </th>
+                    <th> 操作 </th>
+                    <th>备注</th>
+                </tr>
+                </thead>
+                <tbody >
+                <tr ng-repeat="tr in vm.financingList" ng-show="vm.boolean">
+                    <td>
+                        <label class="i-checks m-b-none">
+                            <input type="checkbox" ng-click="vm.checkedOne(tr.id,$index,tr.checked)" ng-checked="tr.checked" ng-model="tr.checked"><i></i>
+                        </label>
+                    </td>
+                    <td>{{$index+1}}</td>
+                    <td>{{tr.name | lengthFilter: 8:'...' }}</td>
+                    <td>{{tr.fund }}万</td>
+                    <td>{{tr.createBy }}</td>
+                    <td>{{tr.createTime }}</td>
+                    <td>{{tr.viewCount}}</td>
+                    <td>
+                            <option ng-if="tr.status == 0">待审核</option>
+                            <option ng-if="tr.status == 1">未通过</option>
+                            <option ng-if="tr.status == 2">已通过</option>
+                    </td>
+                    <td>
+                        <a ng-click="vm.openModal(tr.id)">查看</a>&nbsp;|&nbsp;
+                        <a ng-click="vm.openModal1(tr.id)" ng-show="tr.status == 0">审核&nbsp;|&nbsp;</a>
+                        <a ng-show="tr.status == 2">已通过&nbsp;|&nbsp;</a>
+                        <a ng-show="tr.status == 1">未通过&nbsp;|&nbsp;</a>
+                        <a ng-show="tr.top == 0 && tr.status == 2" ng-click="vm.openTopModal(tr.id,0)">置顶&nbsp;|&nbsp;</a>
+                        <a ng-show="tr.top == 1 && tr.status == 2" ng-click="vm.openTopModal(tr.id,1)">取消置顶&nbsp;|&nbsp;</a>
+                        <a ng-click="vm.delete(tr.id)">删除</a>
+                    </td>
+                    <td>{{tr.remarks}}</td>
+                </tr>
+                <tr ng-show="!vm.boolean">
+                    <td style="width: 500px">
+                        <h4 class="text-danger" style="margin-top: 100px">抱歉！暂无数据！</h4>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="widget-page" ng-show="vm.boolean">
+                <youe-page pageinfo="vm.page" select-page="vm.selectPage"  ></youe-page>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

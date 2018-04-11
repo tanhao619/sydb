@@ -1,0 +1,252 @@
+/* base */
+@backgroundColor:        #ecedf0;
+@headerColor:            #181c21;
+@navbarColor:            #354358;
+@navbarActiveColor:      #4a607c;
+@menuActiveColor:        #65c3df;
+@footerColor:            #365a7c;
+@whiteColor:             #ffffff;
+@blackColor:             #000000;
+@panelHeadColor:         #324057;
+@tdColor:                #f6f8fa;
+@placeholderColor:       #a8bdcf;
+@panelBtnColor:          #6a7b8f;
+@theadColor:             #d9e0e8;
+@borderColor:            #9fb0bd;
+@textColor1:             #333333;
+@textColor2:             #666666;
+@textColor3:             #999999;
+@btnAddColor:            #65c3df;
+@btnDelColor:            #ed5565;
+@btnWarnColor:           #fbb44c;
+@checkedColor:           #2d3f51;
+@buildColor:             #90c6fc;
+@buildTextColor:         #08f88f;
+
+body{
+  min-width: 1200px;
+  font-family: "Microsoft YaHei";
+  background-color: @navbarColor;
+  //overflow-x: auto;
+}
+a{
+  color: @whiteColor;
+}
+a:hover{
+  text-decoration: none;
+}
+.nopadding{
+  padding: 0;
+}
+.main-content{
+  height: 100%;
+  position: relative;
+}
+img{
+  max-width:100%;
+}
+/* header */
+.navbar{
+  background-color: @headerColor;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  position: fixed;
+  width: 100%;
+  min-width: 1200px;
+  z-index: 1020;
+  .container-fluid{
+    .navbar-header{
+      float: left;
+      height: 80px;
+      .navbar-brand{
+        padding: 20px 30px;
+      }
+    }
+    .navbar-menu{
+      float: left;
+      line-height: 80px;
+      ul{
+        margin-bottom: 0;
+        li{
+          display: inline-block;
+          padding-right: 16px;
+          a{
+            font-size: 16px;
+            color: @whiteColor;
+            padding-bottom: 10px;
+          }
+          a:hover{
+            color: @menuActiveColor;
+            border-bottom: 2px solid @menuActiveColor;
+          }
+        }
+        li.active{
+          a{
+            color: @menuActiveColor;
+            border-bottom: 2px solid @menuActiveColor;
+          }
+        }
+      }
+    }
+    .navbar-right{
+      float: right;
+      line-height: 80px;
+      ul{
+        margin-bottom: 0;
+        li{
+          display: inline-block;
+          float: left;
+          padding-right: 20px;
+          a{
+            font-size: 16px;
+            color: @whiteColor;
+            i{
+              font-size: 30px;
+              padding-right: 5px;
+              float: left;
+            }
+          }
+          a:hover{
+            color: @menuActiveColor;
+          }
+        }
+      }
+    }
+  }
+}
+/*顶部退出样式*/
+.top-logout{
+  color: #f18d0d;
+}
+.top-logout:hover{
+  cursor: pointer;
+  color: #dd514c;
+}
+/*登陆的内容样式*/
+.content-login {
+  background-color: #ecedf0;
+  position: relative;
+  /*padding-top: 120px;*/
+  padding-bottom: 40px;
+  width: -moz-calc(100% - 300px);
+}
+/* sidebar */
+.sidebar{
+  width: 300px;
+  float: left;
+  background-color: @navbarColor;
+  position: absolute;
+  height: 100%;
+  padding-top: 80px;
+  z-index: 1010;
+  .user{
+    height: 50px;
+    padding-left: 35px;
+    margin-top: 30px;
+    .user-information{
+      height: 100%;
+      .user-info{
+        display: block;
+        color: @whiteColor;
+        padding-bottom: 10px;
+      }
+    }
+  }
+  .linear-line{
+    background: linear-gradient(to right, #33455b, #4b5564, #33455b);
+    height: 1px;
+    margin: 30px 0 20px 0;
+  }
+  .sidebar-menu{
+    list-style-type: none;
+    overflow: hidden;
+    .ngsb-scrollbar{
+      z-index: 9999;
+      background-color: @navbarColor;
+    }
+    li.nav-item{
+      padding-left: 35px;
+      line-height: 50px;
+      position: relative;
+      i{
+        color: @whiteColor;
+        width: 20px;
+        font-size: 16px;
+        z-index: 999;
+        position: relative;
+      }
+      i.fa-angle-down, i.fa-angle-up{
+        float: right;
+        line-height: 50px;
+        right: 6px;
+      }
+      a{
+        font-size: 14px;
+        margin-left: 10px;
+        z-index: 999;
+        position: relative;
+      }
+      a:hover{
+        color: @menuActiveColor;
+      }
+      a:focus{
+        color: @whiteColor;
+        text-decoration: none;
+      }
+      ul.sub-menu{
+        li{
+          padding-left: 10px;
+          line-height: 45px;
+          list-style-type: none;
+          i{
+            font-size: 12px;
+            width: 15px;
+          }
+          a{
+            font-size: 14px;
+            margin-left: 0;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+    li.nav-item.active{
+      .bg-li{
+        height: 50px;
+        background: @navbarActiveColor;
+        position: absolute;
+        width: 100%;
+        margin-left: -35px;
+        z-index: 1;
+      }
+      ul.sub-menu{
+        li.active{
+          i{
+            color: @menuActiveColor;
+          }
+          a{
+            color: @menuActiveColor;
+          }
+        }
+      }
+    }
+  }
+  .copyright{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: @footerColor;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    p{
+      color: @whiteColor;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+  }
+}
+.datepicker{
+  z-index:1020!important;
+}

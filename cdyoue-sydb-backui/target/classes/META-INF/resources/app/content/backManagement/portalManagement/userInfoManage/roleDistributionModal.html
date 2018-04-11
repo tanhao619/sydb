@@ -1,0 +1,126 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+
+    .top_a_ele:hover {
+        color: #000000;
+    }
+    .operation_a_ele{
+        color: #333333;
+    }
+    .operation_a_ele:hover{
+        color: #f18d0d;
+    }
+</style>
+<div class="top_div">
+    <h4>{{vm.items.accountBase.name}}-分配管理员角色<a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div style="padding: 1px 15px;">
+                <div style="padding: 0;" class="col-md-12">
+                    <div class="col-md-6" style="padding: 0;margin-bottom: 20px">
+                        <p>已有角色：</p>
+                        <div style="border: 1px solid rosybrown;">
+                            <div ng-if="!vm.selectRole.length" style="color: #dd514c">没有角色！</div>
+                            <table class="table table-striped b-t b-light" ng-if="vm.selectRole.length">
+                                <thead>
+                                <tr>
+                                    <th> 序号</th>
+                                    <th> 角色名称</th>
+                                    <th> 操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="selectRole in vm.selectRole">
+                                    <td>{{$index+1}}</td>
+                                    <td>{{selectRole.name}}</td>
+                                    <td>
+                                        <a class="operation_a_ele" ng-click="vm.viewRole($index,'true')">查看</a>&nbsp;|&nbsp;
+                                        <a class="operation_a_ele" ng-click="vm.removeRole($index)">删除</a>&nbsp;&nbsp;
+                                        <a class="operation_a_ele" title="描述：{{selectRole.intro}}"><i class="fa fa-question-circle"></i></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p ng-if="vm.userSelectRole" style="margin: 15px 0 5px 0;">{{vm.userSelectRole.creator}}-角色的资源：</p>
+                        <div ng-if="vm.userSelectRole" style="border: 1px solid rosybrown;">
+                            <div ng-if="vm.userSelectRole" style="color: #dd514c">
+                                <div style="text-indent: 2em;" ng-repeat="levelOne in vm.userSelectRole.menu">
+                                    {{$index+1}}.{{levelOne.name}}
+                                    <div style="text-indent: 4em; color: #f18d0d" ng-repeat="levelTwo in levelOne.leftMenus">
+                                        {{$index+1}}.{{levelTwo.name}}
+                                        <i ng-if="!levelTwo.menus && levelTwo.isShow" class="fa fa-plus add-i-ele" ng-click="vm.addMenu(levelTwo.uiSref,levelTwo.id)" title="添加菜单资源"></i>
+                                        <div style="text-indent: 6em; color: #dd514c" ng-repeat="levelThree in levelTwo.menus">
+                                            {{$index+1}}.{{levelThree.name}}
+                                            <i ng-if="!levelThree.menus && levelThree.isShow" class="fa fa-plus add-i-ele" ng-click="vm.addMenu(levelThree.uiSref,levelThree.id)" title="添加菜单资源"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 20px">
+                        <p>所有角色：</p>
+                        <div style="border: 1px solid rosybrown;">
+                            <div ng-if="!vm.roles.length" style="color: #dd514c">没有角色！</div>
+                            <table class="table table-striped b-t b-light" ng-if="vm.roles.length">
+                                <thead>
+                                <tr>
+                                    <th> 序号</th>
+                                    <th> 角色名称</th>
+                                    <th> 操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="userRole in vm.roles">
+                                    <td>{{$index+1}}</td>
+                                    <td>{{userRole.name}}</td>
+                                    <td>
+                                        <a class="operation_a_ele" ng-click="vm.viewRole($index)">查看</a>&nbsp;|&nbsp;
+                                        <span ng-if="userRole.isSelect" style="color: #bdbdbd;">添加</span>
+                                        <a ng-if="!userRole.isSelect" class="operation_a_ele" ng-click="vm.addRole($index)">添加</a>&nbsp;&nbsp;
+                                        <a class="operation_a_ele" title="描述：{{userRole.intro}}"><i class="fa fa-question-circle"></i></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p ng-if="vm.userRole" style="margin: 15px 0 5px 0;">{{vm.userRole.creator}}-角色的资源：</p>
+                        <div ng-if="vm.userRole" style="border: 1px solid rosybrown;">
+                            <div ng-if="vm.userRole" style="color: #dd514c">
+                                <div style="text-indent: 2em;" ng-repeat="levelOne in vm.userRole.menu">
+                                    {{$index+1}}.{{levelOne.name}}
+                                    <div style="text-indent: 4em; color: #f18d0d" ng-repeat="levelTwo in levelOne.leftMenus">
+                                        {{$index+1}}.{{levelTwo.name}}
+                                        <i ng-if="!levelTwo.menus && levelTwo.isShow" class="fa fa-plus add-i-ele" ng-click="vm.addMenu(levelTwo.uiSref,levelTwo.id)" title="添加菜单资源"></i>
+                                        <div style="text-indent: 6em; color: #dd514c" ng-repeat="levelThree in levelTwo.menus">
+                                            {{$index+1}}.{{levelThree.name}}
+                                            <i ng-if="!levelThree.menus && levelThree.isShow" class="fa fa-plus add-i-ele" ng-click="vm.addMenu(levelThree.uiSref,levelThree.id)" title="添加菜单资源"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.save()">提交</button>
+    </div>
+</div>

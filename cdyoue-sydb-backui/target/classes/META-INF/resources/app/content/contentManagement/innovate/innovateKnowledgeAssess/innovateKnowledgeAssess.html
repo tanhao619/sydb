@@ -1,0 +1,96 @@
+<style>
+    .top_a_element{color: #f18d0d}
+    .top_a_element:hover { color: #dd514c; }
+    .btn-success{
+        color: #fff;
+        background-color: #36c6d3;
+        border-color: #2bb8c4;
+    }
+    .btn-success:hover,.btn-success:focus{
+        color: #fff;
+        background-color: #36c6d3;
+        border-color: #2bb8c4;
+    }
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="{{SY_CrumbsData.oneLevel.uiSref}}">{{SY_CrumbsData.oneLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.twoLevel">＞</span>
+    <a class="top_a_element" ng-if="SY_CrumbsData.twoLevel" ui-sref="{{SY_CrumbsData.twoLevel.uiSref}}">{{SY_CrumbsData.twoLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.threeLevel">＞</span>
+    <span ng-if="SY_CrumbsData.threeLevel">{{SY_CrumbsData.threeLevel.name}}</span>
+</div>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="table-responsive">
+            <div class="row wrapper">
+                <div class="widget-group m-b-xs">
+                    <div class="input-group widget-search">
+                        <input type="text" ng-model="vm.questionsObj.q"
+                               class="input-sm form-control" placeholder="请输入查询">
+                        <span class="input-group-btn">
+                        <button class="btn btn-sm btn-warn" type="button" ng-click="vm.search()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                    </div>
+                </div>
+                    <div class="widget-group m-b-xs">
+                    <span class="inline">
+                        <button style="height: 40px" class="btn btn-sm btn-warn" type="button" ng-click="vm.openNewModal()">
+                            <span style="font-size: 14px">新增</span></button>
+                    </span>
+                    </div>
+                <div class="widget-group m-b-xs">
+                    <span class="inline">
+                        <button style="height: 40px" class="btn btn-sm btn-warn" type="button" ng-click="vm.dels()">
+                            <span style="font-size: 14px">批量删除</span></button>
+                    </span>
+                </div>
+                    <!--<button class="btn btn-success" style="width: 100px;margin-top: 20px;"ng-click="vm.openNewModal()">新增</button>-->
+                    <!--<button class="btn btn-success" style="width: 100px;margin-top: 20px;"ng-click="vm.dels()">批量删除</button>-->
+                <!--</div>-->
+            </div>
+            <table class="table table-striped b-t b-light" >
+                <thead>
+                <tr>
+                    <th style="width:90px;">
+                        <label class="i-checks m-b-none">
+                            <input type="checkbox" ng-model="vm.selectCheckedAll" ng-click="vm.checkedAll(vm.selectCheckedAll)"><i></i>全选
+                        </label>
+                    </th>
+                    <th> 序号 </th>
+                    <th> 合作伙伴名称 </th>
+                    <th> 发布人 </th>
+                    <th> 创建时间 </th>
+                    <th> 浏览次数 </th>
+                    <th> 操作</th>
+                </tr>
+                </thead>
+                <tbody ng-if="!vm.tipPop">
+                <tr ng-repeat="tr in vm.pager.list">
+                    <td>
+                        <label class="i-checks m-b-none">
+                            <input type="checkbox" ng-click="vm.checkedOne(tr.id,$index,tr.checked)" ng-checked="tr.checked" ng-model="tr.checked"><i></i>
+                        </label>
+                    </td>
+                    <td>{{$index+1}}</td>
+                    <td>{{tr.name}}</td>
+                    <td>{{tr.creatBy}}</td>
+                    <td>{{tr.publishTime | medium}}</td>
+                    <td>{{tr.viewCount}}</td>
+                    <td>
+                        <a ng-click="vm.openModal(tr.id)">查看</a>&nbsp;|&nbsp;
+                        <a  ng-click="vm.openUpdateModal(tr.id)">编辑&nbsp;|&nbsp;</a>
+                        <a ng-click="vm.deleteSale(tr.id)">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h4 class="text-danger" ng-if = "vm.tipPop">抱歉！暂无数据！</h4>
+            <div ng-if="!vm.tipPop" class="widget-page">
+                <youe-page pageinfo="vm.pager" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+            </div>
+        </div>
+    </div>
+</div>

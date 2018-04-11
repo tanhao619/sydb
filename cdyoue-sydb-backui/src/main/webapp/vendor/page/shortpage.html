@@ -1,0 +1,24 @@
+<nav>
+    <ul class="pager">
+        <li ng-if="pageinfo.prePage!=0">
+            <a href="javascript:;" class="previousPage"
+               ng-click="selectPage(pageinfo.prePage,pageinfo.pageNum,pageinfo.pages)">前一页</a>
+        </li>
+        <li ng-if="pageinfo.prePage==0">
+            <a href="javascript:;" class="previousPage">前一页</a>
+        </li>
+        <li>{{pageinfo.pageNum}}</li>
+        <li ng-if="pageinfo.nextPage!=0"><a href="javascript:;" class="previousPage"
+               ng-click="selectPage(pageinfo.nextPage,pageinfo.pageNum,pageinfo.pages)">下一页</a>
+        </li>
+        <li ng-if="pageinfo.nextPage==0">
+            <a href="javascript:;" class="previousPage">下一页</a>
+        </li>
+        <li>共 {{pageinfo.pages}} 页</li>
+        <li>
+            <input type="text" ng-model="goPage" class="form-control go-page">
+            <button class="btn goToPage btn-pager"
+                    ng-click="selectPage(goPage,pageinfo.pageNum,pageinfo.pages)">GO</button>
+        </li>
+    </ul>
+</nav>

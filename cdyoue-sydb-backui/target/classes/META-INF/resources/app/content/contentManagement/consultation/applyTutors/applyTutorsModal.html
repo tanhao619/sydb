@@ -1,0 +1,32 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+</style>
+<div class="top_div">
+    <h4> 申请创业导师-<span>{{vm.syBannerDetail.createEnter}}</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <div style="padding: 1px 15px;">
+                    <p>企业联系人：{{vm.syBannerDetail.contactPeople}}</p>
+                    <p>联系电话：{{vm.syBannerDetail.contactNumber}}</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+    </div>
+</div>

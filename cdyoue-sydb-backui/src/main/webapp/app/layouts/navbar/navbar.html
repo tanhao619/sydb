@@ -1,0 +1,23 @@
+<div>
+    <div style="height: 4px"></div>
+    <ul class="sidebar-menu scrollme sidebarHeight" ng-scrollbar rebuild-on="rebuild:me" rebuild-on-resize>
+        <!--<li class="nav-item" ng-repeat="navItem in vm.navItems" ng-class="{active: vm.selectedNavItem == navItem.uiSref}">-->
+        <li class="nav-item" ng-repeat="navItem in vm.navItems" ng-class="{active: navItem.isActive}">
+            <div class="bg-li"></div>
+            <i class="fa" ng-class="navItem.icon"></i>
+            <a ui-sref="{{navItem.uiSref}}">{{navItem.name}}</a>
+            <i class="fa" ng-class="{'fa-angle-down': navItem.isActive, 'fa-angle-up': !navItem.isActive}" ng-if="navItem.menus.length > 0"></i>
+            <ul class="sub-menu" ng-if="navItem.isActive">
+                <li ng-repeat="item in navItem.menus" ng-class="{active: item.isActive}">
+                    <i class="fa" ng-class="item.icon"></i>
+                    <a ui-sref="{{item.uiSref}}">{{item.name}}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="copyright">
+        <p>Copyright © 沈阳优易数据有限公司</p>
+        <p>京ICP备 15024075号-1</p>
+    </div>
+    <toaster-container></toaster-container>
+</div>

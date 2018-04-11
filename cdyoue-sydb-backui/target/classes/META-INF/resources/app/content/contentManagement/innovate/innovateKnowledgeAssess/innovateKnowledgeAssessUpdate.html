@@ -1,0 +1,78 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+    .red{
+        color:red;
+    }
+    .item{
+        margin-top: 20px;
+    }
+    .item input{
+        width:200px;
+        height:35px;
+        border:1px solid #dcdcdc;
+    }
+    .item img{
+        width:200px;
+        height:160px;
+        border:1px solid #dcdcdc;
+        vertical-align: top;
+    }
+</style>
+<div class="top_div">
+    <h4> 知产评估<span>{{vm.syBannerDetail.title}}</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <div style="padding: 1px 15px;">
+                  <div class="item" style="margin-left: 53px;">
+                      <span class="red">*</span>
+                      <span>链接：</span>
+                      <input name="urlName" ng-model="vm.assess.url" type="text"  required>
+                      <span style="color: red" ng-if="myForm.urlName.$touched && myForm.urlName.$error.required">链接必填</span>
+                  </div>
+
+                    <div class="item" style="margin-left: 53px;">
+                        <span class="red">*</span>
+                        <span>logo:</span>
+                        <!--<img src="{{SY_UploadBasePath}}{{vm.data.logoImg}}">-->
+                    </div>
+
+                    <div class="col-sm-9">
+                        <button class="button_upload" ngf-select="vm.uploadImage()" ng-model="vm.dataImage.file" name="image" ngf-max-size="2MB"><i class="w_icon_plus"></i>点击上传logo</button>
+                        <div class="w_uploadImg_w w_saleIP_upload" >
+                            <img ngf-src="vm.dataImage.file" ngf-resize="{width: 130, quality: 0.9}" width="130"
+                                 ng-if="vm.dataImage.file">
+                            <img ng-if="!vm.dataImage.file && vm.assess.logoImg"  width="130"
+                                 ng-src="{{SY_UploadBasePath}}{{vm.assess.logoImg}}">
+                        </div>
+
+                    <div class="item">
+                        <span class="red">*</span>
+                        <span>合作伙伴名称：</span>
+                        <input name="partnerName" ng-maxlength="50" ng-model="vm.assess.name" type="text"  required>
+                        <span style="color: red" ng-if="myForm.partnerName.$touched && myForm.partnerName.$error.required">合作伙伴名称必填</span>
+                        <span style="color: red" ng-show="myForm.partnerName.$error.maxlength">合作伙伴名称最大长度为50</span>
+                    </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="myForm.$invalid">提交</button>
+    </div>
+</div>

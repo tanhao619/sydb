@@ -1,0 +1,98 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+    .required-data{
+        color: red;
+        padding: 0px 5px;
+    }
+    .add-i-ele{
+        text-indent: 1em;
+        cursor: pointer;
+    }
+    .add-i-ele:hover{
+        color: #000000;
+    }
+</style>
+<div class="top_div">
+    <h4 ng-if="vm.items.id && !vm.isEditor">查看角色<a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+    <h4 ng-if="vm.items.id && vm.isEditor">修改角色<a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+    <h4 ng-if="!vm.items.id">新增角色<a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div style="padding: 1px 15px;">
+                <p ng-if="!vm.isEditor">角色名称：{{vm.items.name}}</p>
+                <p ng-if="!vm.isEditor">&emsp;创建人：{{vm.items.creator}}</p>
+                <p ng-if="!vm.isEditor">创建时间：{{vm.items.createTime}}</p>
+                <p ng-if="!vm.isEditor">角色简介：{{vm.items.intro}}</p>
+                <p ng-if="!vm.isEditor">菜单权限：
+                    <div ng-if="!vm.isEditor" style="text-indent: 2em;" ng-repeat="levelOne in vm.items.menu">{{$index+1}}.{{levelOne.name}}
+                        <div style="text-indent: 4em; color: #f18d0d" ng-repeat="levelTwo in levelOne.leftMenus">{{$index+1}}.{{levelTwo.name}}
+                            <div style="text-indent: 6em; color: #dd514c" ng-repeat="levelThree in levelTwo.menus">{{$index+1}}.{{levelThree.name}}</div>
+                        </div>
+                    </div>
+                </p>
+
+                <!--修改时显示-->
+                <form name="myForm">
+                    <p ng-if="vm.isEditor"><span class="required-data">※</span>角色名称：<input style="width: 500px" type="text" ng-model ="vm.updateItems.name" required></p>
+                    <div ng-if="vm.isEditor" style="padding: 0;" class="col-md-12">
+                        <div class="col-md-6" style="padding: 0;margin-bottom: 20px">
+                            <p><span class="required-data">※</span>已选菜单资源：</p>
+                            <div style="border: 1px solid rosybrown;">
+                                <div ng-if="!vm.Menus.length" style="color: #dd514c">没有菜单资源</div>
+                                <div style="text-indent: 2em;" ng-repeat="levelOne in vm.Menus">{{$index+1}}.{{levelOne.name}}
+                                    <div style="text-indent: 4em; color: #f18d0d" ng-repeat="levelTwo in levelOne.leftMenus">
+                                        <span ng-if="!levelTwo.isShow">{{$index+1}}.{{levelTwo.name}}</span>
+                                        <i ng-if="!levelTwo.menus && !levelTwo.isShow" class="fa fa-minus add-i-ele" ng-click="vm.removeMenu(levelTwo.uiSref,levelTwo.id)" title="删除菜单资源"></i>
+                                        <div style="text-indent: 6em; color: #dd514c" ng-repeat="levelThree in levelTwo.menus">
+                                            <span ng-if="!levelThree.menus &&!levelThree.isShow">{{$index+1}}.{{levelThree.name}}</span>
+                                            <i ng-if="!levelThree.menus && !levelThree.isShow" class="fa fa-minus add-i-ele" ng-click="vm.removeMenu(levelThree.uiSref,levelThree.id)" title="删除菜单资源"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom: 20px">
+                            <p>所有菜单资源：</p>
+                            <div style="border: 1px solid rosybrown;">
+                                <div ng-if="!vm.Menus" style="color: #dd514c">没有菜单资源</div>
+                                <div style="text-indent: 2em;" ng-repeat="levelOne in vm.Menus">
+                                    {{$index+1}}.{{levelOne.name}}
+                                    <div style="text-indent: 4em; color: #f18d0d" ng-repeat="levelTwo in levelOne.leftMenus">
+                                        {{$index+1}}.{{levelTwo.name}}
+                                        <i ng-if="!levelTwo.menus && levelTwo.isShow" class="fa fa-plus add-i-ele" ng-click="vm.addMenu(levelTwo.uiSref,levelTwo.id)" title="添加菜单资源"></i>
+                                        <div style="text-indent: 6em; color: #dd514c" ng-repeat="levelThree in levelTwo.menus">
+                                            {{$index+1}}.{{levelThree.name}}
+                                            <i ng-if="!levelThree.menus && levelThree.isShow" class="fa fa-plus add-i-ele" ng-click="vm.addMenu(levelThree.uiSref,levelThree.id)" title="添加菜单资源"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p ng-if="vm.isEditor"><span class="required-data">※</span>角色简介：</p>
+                    <textarea ng-if="vm.isEditor" rows="5" cols="110" ng-model ="vm.updateItems.intro" required></textarea>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+        <button ng-if="!vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.editor()">编辑</button>
+        <button ng-if="vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="myForm.$invalid">提交</button>
+    </div>
+</div>

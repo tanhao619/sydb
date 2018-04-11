@@ -1,0 +1,68 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+    .red{
+        color:red;
+    }
+</style>
+<div class="top_div">
+    <h4> 专家解读-<span>{{vm.syBannerDetail.name}}</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <div style="padding: 1px 15px;">
+                    <p ng-show="!vm.isEditor">解读名称：{{vm.syBannerDetail.name}}</p>
+                    <p ng-show="!vm.isEditor">解读简介：{{vm.syBannerDetail.introduction}}</p>
+                    <p ng-show="!vm.isEditor">解读详情：</p>
+                    <p ng-show="!vm.isEditor" ng-bind-html="vm.syBannerDetail.content | elementsIntro"></p>
+                    <!--<p ng-show="!vm.isEditor">封面图片：<img class="zoomImages" ng-src="{{SY_UploadBasePath}}{{vm.syBannerDetail.imgUrl}}"></p>-->
+                    <p ng-show="!vm.isEditor">所属专家：{{vm.syBannerDetail.author}}</p>
+                    <!--修改时显示-->
+                    <p ng-show="vm.isEditor"><span class="red">*</span>解读名称：<input style="width: 510px" type="text" ng-model ="vm.updateItems.name" ng-maxlength="50" name="name" required>
+                        <span class="red" ng-if="myForm.name.$error.required && myForm.name.$touched">名称不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.name.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.name.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.name.$error.maxlength">名称请限制在50个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor"><span class="red">*</span>解读简介：<textarea rows="6" cols="70" ng-model ="vm.updateItems.introduction" ng-maxlength="200" name="introduction" required/>
+                        <span class="red" ng-if="myForm.introduction.$error.required && myForm.introduction.$touched">简介不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.introduction.length>0">您还可以输入<b class="w_required">{{200 - vm.updateItems.introduction.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.introduction.$error.maxlength">简介请限制在200个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor"><span class="red">*</span>解读详情：<span class="red" ng-if="vm.editShow">详细信息不能为空！</span>
+                        <ueditor id="newsAddContainer" style="height: 250px"></ueditor>
+                    </p>
+                    <!--<p ng-show="vm.isEditor"><span class="red">*</span>上传图片：
+                        <button class="button_orange" ngf-select="vm.uploadImage()" ng-model="vm.dataImage.file" name="image" ngf-max-size="8MB">上传图片</button>
+                        <span class="w_tips">支持jpg/gif/png格式的图片,图片应小于8MB。</span>
+                    </p>
+                    <p ng-show="vm.isEditor">预览：
+                        <img class="zoomImages" ngf-src="vm.dataImage.file" ng-if="vm.dataImage.file">
+                        <img class="zoomImages" ng-if="!vm.dataImage.file" ng-src="{{SY_UploadBasePath}}{{vm.updateItems.imgUrl}}">
+                        <span class="red" ng-if="myForm.image.$touched" ng-show="vm.dataImage.file == null && (vm.updateItems.imgUrl == '' || vm.updateItems.imgUrl == null)">请上传图片</span>
+                    </p>-->
+                    <p ng-show="vm.isEditor">选择专家：
+                        <select ng-model="vm.updateItems.expertId" ng-options="ex.id as ex.name for ex in vm.updateItems.expertSelect"></select>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+        <button ng-show="!vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.editor()">编辑</button>
+        <!--<button ng-show="vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="myForm.$invalid || (vm.dataImage.file == null && (vm.updateItems.imgUrl == '' || vm.updateItems.imgUrl == null))">提交</button>-->
+        <button ng-show="vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="myForm.$invalid">提交</button>
+    </div>
+</div>

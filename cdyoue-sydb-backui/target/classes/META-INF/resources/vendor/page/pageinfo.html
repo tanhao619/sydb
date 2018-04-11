@@ -1,0 +1,51 @@
+<!--<div ng-if="selectPageSize" class="pull-right page-info" style="margin: 20px 0;">-->
+    <!--<span class="pageStyle">共{{pageinfo.pages}}页，{{pageinfo.total}}条</span>-->
+<!--<div ng-if="selectPageSize" class="pull-right page-info" style="padding: 29px 0 0 5px;">-->
+<!--<span>共{{pageinfo.pages}}页，{{pageinfo.total}}条</span>-->
+    <!--<span>/{{pageinfo.pages}}页-</span>-->
+    <!--<span>-->
+         <!--&lt;!&ndash;<select class="stats-form-control form-control" ng-model="myValue" ng-change="selectPageSize(myValue)" ng-options="val.number as val.number for val in values"></select>&ndash;&gt;-->
+        <!--<button ng-class="{true: 'active'}[pageinfo.pageSize==var.number]" class="pageStyle" ng-repeat="var in values" ng-click="selectPageSize(var.number)">{{var.number}}</button>-->
+    <!--</span>-->
+<!--</div>-->
+<nav class="pull-right">
+    <ul class="pagination pagination-sm">
+        <li ng-class={"disabled":pageinfo.isFirstPage}>
+            <a ng-if="pageinfo.isFirstPage" href="javascript:;" aria-label="Previous">
+                <span aria-hidden="true">首页</span>
+            </a>
+            <a ng-if="!pageinfo.isFirstPage" href="javascript:;" ng-click="selectPage(0,1)" aria-label="Previous">
+                <span aria-hidden="true">首页</span>
+            </a>
+        </li>
+        <li ng-class={"disabled":pageinfo.isFirstPage}>
+            <a ng-if="pageinfo.isFirstPage" href="javascript:;" aria-label="Previous"><span aria-hidden="true">上一页</span></a>
+            <a ng-if="!pageinfo.isFirstPage" href="javascript:;" ng-click="selectPage(pageinfo.prePage,pageinfo.pageNum)" aria-label="Previous"><span aria-hidden="true">上一页</span></a>
+        </li>
+        <li ng-class={"active":pageinfo.pageNum==number-1} ng-repeat="number in pageinfo.navigatepageNums">
+            <a ng-if="pageinfo.pageNum!=number-1" ng-click="selectPage(number-1,pageinfo.pageNum)" href="javascript:;">{{number}}</a>
+            <a ng-if="pageinfo.pageNum==number-1" href="javascript:;">{{number}} <span class="sr-only">(current)</span></a>
+        </li>
+        <!--<li ng-class={"disabled":pageinfo.isLastPage}>-->
+            <!--<a ng-if="pageinfo.isLastPage" href="javascript:;" aria-label="Next"><span aria-hidden="true">下一页</span></a>-->
+            <!--<a ng-if="!pageinfo.isLastPage" href="javascript:;" ng-click="selectPage(pageinfo.nextPage,pageinfo.pageNum)" aria-label="Next"><span aria-hidden="true">下一页</span></a>-->
+        <!--</li>-->
+        <!--<li ng-class={"disabled":pageinfo.isLastPage}>-->
+            <!--<a ng-if="pageinfo.isLastPage" href="javascript:;" aria-label="Next" style="border-radius: 0px 5px 5px 0px"> <span aria-hidden="true">末页</span> </a>-->
+            <!--<a ng-if="!pageinfo.isLastPage" href="javascript:;" ng-click="selectPage(pageinfo.pages-1,pageinfo.pages)" aria-label="Next" style="border-radius: 0px 5px 5px 0px">-->
+                <!--<span aria-hidden="true">末页</span> </a>-->
+        <!--</li>-->
+        <li ng-class={"disabled":pageinfo.isLastPage}>
+            <a ng-if="pageinfo.isLastPage" href="javascript:;" aria-label="Next"><span aria-hidden="true">下一页</span></a>
+            <a ng-if="!pageinfo.isLastPage" href="javascript:;" ng-click="selectPage(pageinfo.nextPage,pageinfo.pageNum)" aria-label="Next"><span aria-hidden="true">下一页</span></a>
+        </li>
+        <li ng-class={"disabled":pageinfo.isLastPage}>
+            <a ng-if="pageinfo.isLastPage" href="javascript:;" aria-label="Next" > <span aria-hidden="true">末页</span> </a>
+            <a ng-if="!pageinfo.isLastPage" href="javascript:;" ng-click="selectPage(pageinfo.pages-1,pageinfo.pages)" aria-label="Next">
+                <span aria-hidden="true">末页</span> </a>
+        </li>
+        <li class="disabled">
+            <span style="border-radius: 0 5px 5px 0;padding: 10px;border-color: #9fb0bd;">共{{pageinfo.pages}}页，{{pageinfo.total}}条</span>
+        </li>
+    </ul>
+</nav>

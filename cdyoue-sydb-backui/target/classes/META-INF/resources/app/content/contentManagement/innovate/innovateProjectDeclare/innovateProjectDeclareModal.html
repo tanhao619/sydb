@@ -1,0 +1,94 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+    .red{
+        color:red;
+    }
+</style>
+<div class="top_div">
+    <h4> 项目申报-<span>{{vm.ProjectDeclareDetail.name}}</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm" class="modalStyle">
+                <div style="padding: 1px 15px;">
+                    <p ng-show="!vm.isEditor">&emsp;名称：{{vm.ProjectDeclareDetail.name}}</p>
+                    <p ng-show="!vm.isEditor">&emsp;发文号：{{vm.ProjectDeclareDetail.projectNumber}}</p>
+                    <p ng-show="!vm.isEditor">&emsp;信息来源：{{vm.ProjectDeclareDetail.source}}</p>
+                    <p ng-show="!vm.isEditor">&emsp;发布时间：{{vm.ProjectDeclareDetail.publishTime}}</p>
+                    <p ng-show="!vm.isEditor">&emsp;浏览量：{{vm.ProjectDeclareDetail.viewCount}}</p>
+                    <p ng-show="!vm.isEditor">&emsp;申报内容：</p>
+                    <p ng-show="!vm.isEditor" ng-bind-html="vm.ProjectDeclareDetail.content | elementsIntro"></p>
+                        <!--<a ng-show="!vm.isEditor" href="{{SY_UploadBasePath}}">点击查看附件</a>-->
+                        <!--<img class="zoomImages" ng-src="{{SY_UploadBasePath}}{{vm.ProjectDeclareDetail.attachmentUrl}}">-->
+                    <!--修改时显示-->
+                    <!--<p ng-show="vm.isEditor">&emsp;名称：<input style="width: 500px" type="text" ng-model ="vm.updateItems.title"></p>-->
+                    <p ng-show="vm.isEditor" class="projectDeclare">&emsp;<span>名称：</span><input style="width: 500px" type="text" ng-model ="vm.updateItems.name" ng-maxlength="50" name="adName" ng-required="true">
+                        <span class="red" ng-if="myForm.adName.$error.required && myForm.adName.$touched">名称不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.name.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.name.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.adName.$error.maxlength">名称请限制在50个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor" class="projectDeclare">&emsp;<span>发布部门：</span><input style="width: 500px" type="text" ng-model ="vm.updateItems.department" ng-maxlength="50" name="department" ng-required="true">
+                        <span class="red" ng-if="myForm.department.$error.required && myForm.department.$touched">发布部门不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.department.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.department.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.department.$error.maxlength">发布部门请限制在50个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor" class="projectDeclare">&emsp;<span>发文号</span>：<input style="width: 500px" type="text" ng-model ="vm.updateItems.projectNumber" ng-maxlength="50" name="projectNumber" ng-required="true">
+                        <span class="red" ng-if="myForm.projectNumber.$error.required && myForm.projectNumber.$touched">发文号不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.projectNumber.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.projectNumber.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.projectNumber.$error.maxlength">发文号请限制在50个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor" class="projectDeclare">&emsp;<span>信息来源：</span><input style="width: 500px" type="text" ng-model ="vm.updateItems.source" ng-maxlength="50" name="source" ng-required="true">
+                        <span class="red" ng-if="myForm.source.$error.required && myForm.source.$touched">信息来源不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.source.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.source.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.source.$error.maxlength">信息来源请限制在50个字符以内！</span>
+                    </p>
+
+                    <div ng-show="vm.isEditor" id="datepicker" class="projectDeclare">
+                        <p >
+                            &emsp;<span>申报开始时间：</span>
+                        <input style="width: 500px;cursor: pointer;" readonly="readonly" class="" type="text" ng-model ="vm.updateItems.startTime"  name="start" id="start">
+                            <span class="red" ng-if="myForm.startTime.$error.required && myForm.start.$touched">申报开始时间不能为空！</span>
+                        </p>
+                        <p ng-show="vm.isEditor" style="margin-top: 30px;">
+                            &emsp;<span>申报结束时间：</span><input style="width: 500px;cursor: pointer;"readonly="readonly" class="" type="text" ng-model ="vm.updateItems.endTime" name="end" ng-required="true" id="end">
+                            <span class="red" ng-if="myForm.endTime.$error.required && myForm.end.$touched">申报结束时间不能为空！</span>
+                        </p>
+                    </div>
+
+                    <p ng-show="vm.isEditor" class="projectDeclare">&emsp;<span>申报内容：</span><span class="red" ng-if="vm.editShow">申报内容不能为空！</span>
+                        <ueditor id="newsAddContainer" style="height: 250px"></ueditor>
+                    </p>
+
+                    <p ng-show="vm.isEditor" class="projectDeclare"><span>附件：</span>
+                        <button class="button_orange" ngf-select="vm.uploadImage()" ng-model="vm.dataImage.file" name="image" ngf-max-size="1024MB">上传附件</button>
+                        <span class="w_tips" style="margin-left: 155px;">支持jpg/gif/png格式的图片,图片应小于8MB。</span>
+                    </p>
+                    <p ng-show="vm.isEditor" class="projectDeclare">
+                        <!--<img class="zoomImages" ngf-src="vm.dataImage.file" ng-if="vm.dataImage.file">-->
+                        <!--<img class="zoomImages" ng-if="vm.updateItems.attachmentUrl" ng-src="{{SY_UploadBasePath}}{{vm.updateItems.attachmentUrl}}">-->
+                        <span class="red" ng-if="myForm.image.$touched && !vm.updateItems.attachmentUrl">请上传附件</span>
+                        <span style="color: green" ng-if="vm.dataImage.file && vm.updateItems.attachmentUrl">上传附件成功</span>
+
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+        <button ng-show="!vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.editor()">编辑</button>
+        <button ng-show="vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="myForm.$invalid || !vm.updateItems.attachmentUrl">提交</button>
+    </div>
+</div>

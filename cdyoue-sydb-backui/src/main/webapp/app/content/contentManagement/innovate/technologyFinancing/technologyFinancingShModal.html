@@ -1,0 +1,39 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+</style>
+<div class="top_div">
+    <h4> 审核名称</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+               <div class="">
+                   <span>审核状态：</span>
+                   <input ng-model="vm.financingMessage.status" type="radio" value="0" name="pass"> 待审核
+                   <input ng-model="vm.financingMessage.status" type="radio" value="1" name="pass"> 审核不通过
+                   <input ng-model="vm.financingMessage.status" type="radio" value="2" name="pass"> 审核通过
+               </div>
+                <div>
+                    <span>审核备注：</span>
+                    <textarea ng-model="vm.financingMessage.remarks" style="width:300px;height:100px;vertical-align: top"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.save()">提交</button>
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">关闭</button>
+    </div>
+</div>

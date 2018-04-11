@@ -1,0 +1,44 @@
+<style>
+    .top_a_element{color: #f18d0d}
+    .top_a_element:hover { color: #dd514c; }
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="{{SY_CrumbsData.oneLevel.uiSref}}">{{SY_CrumbsData.oneLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.twoLevel">＞</span>
+    <a class="top_a_element" ng-if="SY_CrumbsData.twoLevel" ui-sref="{{SY_CrumbsData.twoLevel.uiSref}}">{{SY_CrumbsData.twoLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.threeLevel">＞</span>
+    <span ng-if="SY_CrumbsData.threeLevel">{{SY_CrumbsData.threeLevel.name}}</span>
+</div>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="table-responsive">
+            <table class="table table-striped b-t b-light" ng-show="vm.dataShow">
+                <thead>
+                <tr>
+                    <th> 序号 </th>
+                    <th> 广告名称 </th>
+                    <th> 排序值 </th>
+                    <th> 发布人 </th>
+                    <th> 创建时间 </th>
+                    <th> 操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="tr in vm.syBanner">
+                    <td>{{$index+1}}</td>
+                    <td title="{{tr.title}}">{{tr.title | lengthFilter:15}}</td>
+                    <td>{{tr.orderBy}}</td>
+                    <td>{{tr.createBy}}</td>
+                    <td>{{tr.refreshTime | date:'yyyy-MM-dd HH:mm'}}</td>
+                    <td>
+                        <a ng-click="vm.openModal($index,'show')">查看</a>&nbsp;|&nbsp;
+                        <a ng-click="vm.openModal($index,'editor')">编辑</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h4 class="text-danger" ng-show="!vm.dataShow">{{vm.msg}}</h4>
+        </div>
+    </div>
+</div>

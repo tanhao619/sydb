@@ -1,0 +1,59 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+</style>
+<div class="top_div">
+    <h4> 需求大厅-<span>{{vm.syBannerDetail.title}}</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm" class="modalStyle">
+                <div class="clearfix">
+                    <div class="pull-left w_img_w">
+                        <img ng-src="{{SY_UploadBasePath}}{{vm.place.coverImgUrl}}" width="540" height="260" w-img-error>
+                    </div>
+                    <div class="pull-right w_abstract">
+                        <p class="w_h">
+                    <span class="pull-right">
+                        {{vm.place.rent}}
+                        <i ng-if="vm.place.type == 1">
+                            元/m²/每天
+                        </i>
+                        <i ng-if="vm.place.type == 2">
+                            元/工位/每月
+                        </i>
+                    </span>
+                            <span class="w_name">{{vm.place.title}}</span>
+                        </p>
+                        <div class="w_detail">
+                            <p>所属区域：{{vm.place.address | areaFilter}}</p>
+                            <p>详细地址：<span class="w_address">{{vm.place.address | workPlaceDetailFilter}}</span></p>
+                            <p>在租工位：<span class="w_orange w_amount">{{vm.place.number}}</span>个</p>
+                            <p>联系人：{{vm.place.contactor}}</p>
+                            <p>联系方式：<span class="w_orange">{{vm.place.contact}}</span></p>
+                        </div>
+                    </div>
+
+
+                </div>
+                <h6 class="w_headline">详细信息</h6>
+                <div class="w_content" ng-bind-html="vm.place.introduction | elementsIntro">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+    </div>
+</div>

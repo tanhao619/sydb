@@ -1,0 +1,139 @@
+<div class="wrap bgGray">
+    <div class="layout w_publishEvents w_distributeNews">
+        <!--breadcrumb-->
+        <div class="breadcrumb">
+            <span>发布活动</span>
+        </div>
+
+        <div class="w_publishEvents_form roadShowEdit">
+            <form name="myForm" class="">
+                <div class="row">
+                    <span ><span class="w_emphasis">*</span><b>填写名称：</b></span>
+                    <!--<td width="894">-->
+                        <input type="text" name="name" placeholder="活动标题（不少于5个字）" maxlength="50" ng-maxlength="50" ng-minlength="5" ng-model="vm.entity.title" required>
+                        <span class="w_tips_w" ng-if="myForm.name.$touched">
+                            <span style="color: red" ng-if="myForm.name.$error.required">请输入活动标题</span>
+                            <span style="color: red" ng-if="myForm.name.$error.minlength">活动标题不少于5个字</span>
+                            <span style="color: red" ng-if="myForm.name.$error.maxlength">活动标题不超过50个字</span>
+                        </span>
+                    <!--</td>-->
+                </div>
+                <div class="row">
+                   <span class="w_emphasis">*</span><b>填写地点：</b>
+                    <!--<td class="w_location">-->
+                        <div id="locations" class="w_city" style="display: inline-block">
+                            <select name="province" style="height: 26px;"></select>
+                            <select name="city" required style="height: 26px;"></select><br/>
+                            <input type="text" name="address" placeholder="填写详细地址(不超过30字)" ng-maxlength="30" class="w_address" maxlength="50" ng-maxlength="50" ng-model="vm.address" required>
+                        <span class="w_tips_w" ng-if="myForm.address.$touched">
+                            <span style="color: red" ng-if="myForm.address.$error.required">请输入详细地址</span>
+                            <span style="color: red" ng-if="myForm.address.$error.maxlength">活动标题不超过30个字</span>
+                        </span>
+                        </div>
+
+                    <!--</td>-->
+                </div>
+              <div class="row">
+                  <span class="w_emphasis">*</span><b>活动人数：</b>
+                      <label class="w_peopleNumber">
+                          <input type="text" ng-model="vm.entity.peopleNumber" id="peopleNumber"  name="peopleNumber" ng-pattern="/^\d{1,}$/" required>
+                          <span class="w_unit">人</span>
+                      </label>
+                      <span class="w_tips_w" ng-if="myForm.peopleNumber.$touched">
+                            <span style="color: red" ng-if="myForm.peopleNumber.$error.required">请输入活动人数</span>
+                            <span style="color: red" ng-if="myForm.peopleNumber.$error.pattern">请输入正确的活动人数</span>
+                        </span>
+              </div>
+              <div class="row">
+                  <span><span class="w_emphasis">*</span><b>活动时间：</b></span>
+                      <input  name="startTime" id="start"  bs-Datepicker
+                              placeholder="请选择活动开始时间" config="vm.startConfig" class="w_date"
+                              ng-model="vm.entity.startTime" required>
+                      <i class="w_icon_arrow"></i>
+                      <input id="end" name="endTime"  bs-Datepicker
+                             placeholder="请选择活动结束时间" config="vm.endConfig" ng-model="vm.entity.endTime" class="w_date"  required>
+
+                      <span >{{vm.timeremind}}</span>
+                      <span class="w_tips_w" ng-if="myForm.startTime.$touched || myForm.endTime.$touched ">
+                            <span ng-if="myForm.startTime.$invalid && myForm.startTime.$error.required" style="color: red">请选择活动开始时间与结束时间</span>
+                            <span ng-if="vm.twoTime<=0" style="color: red" >结束时间要大于开始时间</span>
+                        </span>
+              </div>
+
+               <div class="row">
+                   <span><span class="w_emphasis">*</span><b>联系电话：</b></span>
+                       <label>
+                           <input type="text" name="phone" ng-pattern="/(^1[34578]\d{9}$)$|(\d{3}-\d{8}|\d{4}-\d{7})/" ng-minlength="7" placeholder="" class="w_name" ng-model="vm.entity.contact.phone" required>
+                           <i class="w_clear" ng-click="vm.entity.contact.phone = ''">×</i>
+                       </label>
+                       <span class="w_tips_w" ng-show="myForm.phone.$touched">
+                           <span style="color: red" ng-show="myForm.phone.$error.required">请输入联系方式</span>
+                            <span style="color: red" ng-if="myForm.phone.$error.pattern && myForm.phone.$touched">电话格式不正确！</span>
+                        </span>
+               </div>
+                <div class="row">
+                    <span><span class="w_emphasis">*</span><b>活动联系人：</b></span>
+                    <label>
+                        <input type="text" name="person" placeholder="" class="w_name" ng-maxlength="20" ng-model="vm.entity.contact.person" required>
+                        <i class="w_clear" ng-click="vm.entity.contact.person = ''">×</i>
+                    </label>
+
+                    <span class="w_tips_w" ng-show="myForm.person.$touched">
+                            <span class="w_tips w_required" ng-show="myForm.person.$error.maxlength">联系人最大长度为20</span>
+                           <span ng-show="myForm.person.$error.required" style="color: red">请输入活动联系人</span>
+                        </span>
+                </div>
+              <div class="row">
+                  <span  class="w_subTitle" ><b>活动封面</b><i class="w_icon_tips"></i>
+                  </span>
+                  <div class="w_img_upload">
+                        <button class="button_upload" ngf-select="vm.uploadImage()" ng-model="vm.dataImage.file" name="image" ngf-max-size="2MB"><i class="w_icon_plus"></i>点击上传封面</button>
+                        <br>
+                      <div class="w_uploadImg_w w_publishEvent_upload" >
+                            <img ngf-src="vm.dataImage.file" ngf-resize="{width: 174, quality: 0.9}" ng-if="vm.dataImage.file">
+                            <img ng-src="{{SY_UploadBasePath}}{{vm.details.coverImgUrl}}" ng-if="vm.dataImage.file == null && vm.details.coverImgUrl">
+                        </div>
+
+                        <span class="w_tipsExist">可上传一张jpg/gif/png格式图片，RGB模式，单张建议采用（长174，宽123），大小<2M。</span>
+                    </div>
+              </div>
+              <div class="row">
+                  <span class="w_subTitle" colspan="2"><b>活动详情</b>
+                  </span>
+              </div>
+              <div class="row">
+                  <div class="text-area" colspan="2">
+                      <div class="w_textarea">
+                          <textarea id="containerContent" ueditor  ></textarea>
+                      </div>
+                      <span ng-if="vm.ueditorShow" style="color: red">请输入活动详情</span>
+                  </div>
+              </div>
+              <div class="row">
+                  <span class="w_subTitle" colspan="2"><b>摘要</b>
+                      <span >选填、如不填、系统将默认抓取正文前140个字</span>
+                  </span>
+              </div>
+            <div class="row">
+                <div class="text-area" colspan="2">
+                    <div class="w_textarea">
+                        <textarea id="briefing" name="briefing" ng-model="vm.entity.briefing" class="w_abstract" maxlength="200"></textarea>
+                    </div>
+                    <span class="w_tips_w" ng-show="myForm.briefing.$touched">
+                         <span class="w_tips w_required" ng-show="myForm.briefing.$error.maxlength">最大长度为200</span>
+                     </span>
+                </div>
+            </div>
+               <div class="row">
+                   <div  align="center">
+                       <button class="button_orange w_publish" ng-click="vm.save()" ng-disabled="myForm.$invalid||vm.twoTime<=0">发布</button>
+                       <button class="button_orange w_publish" ng-click="vm.cancel()" >取消</button>
+                   </div>
+               </div>
+
+           </form>
+
+        </div>
+
+    </div>
+</div>

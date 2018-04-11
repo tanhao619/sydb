@@ -1,0 +1,116 @@
+<style>
+    .top_a_element {
+        color: #f18d0d
+    }
+
+    .top_a_element:hover {
+        color: #dd514c;
+    }
+    .move-removed-top{
+        color: red;
+        cursor: pointer;
+    }
+    .move-removed-top:hover{
+        color: #f18d0d;
+    }
+    .move{
+        cursor: pointer;
+    }
+    .sort_a_ele {
+        color: #f18d0d;
+    }
+    .sort_a_ele:hover {
+        color: #000000;
+    }
+    .function-disable{
+        color: #bdbdbd
+    }
+    .user-type{
+        color: #f18d0d;
+    }
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="{{SY_CrumbsData.oneLevel.uiSref}}">{{SY_CrumbsData.oneLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.twoLevel">＞</span>
+    <a class="top_a_element" ng-if="SY_CrumbsData.twoLevel" ui-sref="{{SY_CrumbsData.twoLevel.uiSref}}">{{SY_CrumbsData.twoLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.threeLevel">＞</span>
+    <span ng-if="SY_CrumbsData.threeLevel">{{SY_CrumbsData.threeLevel.name}}</span>
+</div>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div class="widget-group m-b-xs">
+                <label>用户类型：</label>
+                <select class="input-sm form-control w-sm inline v-middle widget-select ng-pristine ng-valid ng-empty ng-touched"
+                        ng-model="vm.initList.role" ng-options="type.value as type.key for type in vm.userType"
+                        ng-change="vm.changeState()" ng-init="vm.initList.role"></select>
+            </div>
+            <div class="widget-group m-b-xs">
+                <div class="input-group widget-search">
+                    <input type="text" ng-model="vm.initList.account" ng-change="vm.inputSearch()"
+                           class="input-sm form-control" placeholder="请输入邮箱地址或电话号码">
+                    <span class="input-group-btn">
+                        <button class="btn btn-sm btn-warn" type="button" ng-click="vm.search()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table ng-show="!vm.dataShow">
+                <tr collapse=" 3">
+                    <td colspan="5" style="text-align: center;color: red">{{vm.msg}}</td>
+                </tr>
+            </table>
+            <table class="table table-striped b-t b-light" ng-show="vm.dataShow">
+                <thead>
+                <tr>
+                    <th> ID</th>
+                    <th> 姓名</th>
+                    <th> 用户类型</th>
+                    <th> 邮箱地址</th>
+                    <th> 联系电话</th>
+                    <th class="move" ng-click="vm.sortField()"> 创建时间
+                        <a class="glyphicon glyphicon-arrow-up sort_a_ele" ng-show="!vm.sortDown"></a>
+                        <a class="glyphicon glyphicon-arrow-down sort_a_ele" ng-show="vm.sortDown"></a>
+                    </th>
+                    <!--<th> 用户状态</th>-->
+                    <th> 操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="tr in vm.pager.list">
+                    <td>{{tr.id}}</td>
+                    <td>{{tr.accountBase.name}}</td>
+                    <td ng-class="{'user-type':tr.accountBase.role==1}">{{tr.accountBase.role | role}}</td>
+                    <td>{{tr.accountBase.email}}</td>
+                    <td>{{tr.accountBase.tel}}</td>
+                    <td>{{tr.accountBase.createTime | medium}}</td>
+                    <!--<td ng-if="tr.reviewStatus == 1" class="move-removed-top" ng-click="vm.statusAudit(tr.reviewStatus,tr.id)" title="点击禁用账户">-->
+                        <!--{{tr.reviewStatus | accountStatus}}-->
+                    <!--</td>-->
+                    <!--<td ng-if="tr.reviewStatus == 2" class="move-removed-top" ng-click="vm.statusAudit(tr.reviewStatus,tr.id)" title="点击启用账户">-->
+                        <!--{{tr.reviewStatus | accountStatus}}-->
+                    <!--</td>-->
+                    <!--<td ng-if="tr.reviewStatus == 0">{{tr.reviewStatus | accountStatus}}</td>-->
+                    <td>
+                        <a ng-if="tr.referCert" ng-click="vm.editor(tr.id,tr.accountBase.role)">查看认证信息</a>
+                        <span ng-if="!tr.referCert" class="function-disable">没有认证信息</span>&nbsp;|&nbsp;
+                        <a ng-if="tr.accountBase.role == 2" ng-click="vm.roleDistributionModal($index)">分配角色</a>
+                        <span ng-if="tr.accountBase.role == 2">&nbsp;|&nbsp;</span>
+                        <a ng-click="vm.userInfoUpdate(tr.id,tr.accountBase.role)">编辑</a>&nbsp;|&nbsp;
+                        <a ng-click="vm.resetPassword(tr.id)">重置密码</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="widget-page" ng-show="vm.dataShow">
+                <youe-page pageinfo="vm.pager" select-page="vm.selectPage"></youe-page>
+            </div>
+
+        </div>
+    </div>
+</div>

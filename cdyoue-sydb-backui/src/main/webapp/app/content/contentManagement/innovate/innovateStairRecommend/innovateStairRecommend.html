@@ -1,0 +1,73 @@
+<style>
+    .top_a_element{color: #f18d0d}
+    .top_a_element:hover { color: #dd514c; }
+    tbody a{
+        color:#333;
+    }
+    tbody td:first-of-type{
+        color:#333;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="{{SY_CrumbsData.oneLevel.uiSref}}">{{SY_CrumbsData.oneLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.twoLevel">＞</span>
+    <a class="top_a_element" ng-if="SY_CrumbsData.twoLevel" ui-sref="{{SY_CrumbsData.twoLevel.uiSref}}">{{SY_CrumbsData.twoLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.threeLevel">＞</span>
+    <span ng-if="SY_CrumbsData.threeLevel">{{SY_CrumbsData.threeLevel.name}}</span>
+</div>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="table-responsive">
+            <table ng-show="!vm.dataShow">
+                <tr collapse=" 3">
+                    <td colspan="5" style="text-align: center;color: red">{{vm.msg}}</td>
+                </tr>
+            </table>
+            <table class="table table-striped b-t b-light" >
+                <tbody>
+                <tr>
+                    <td> <a href="" ui-sref="experts">专家库</a> </td>
+                </tr>
+                <tr>
+                    <td> <a href="" ui-sref="innovateProjectDeclare">项目申报库</a> </td>
+                </tr>
+                <tr>
+                    <td> <a href="" ui-sref="equipment">设备库</a> </td>
+                </tr>
+                <tr>
+                    <td> <a href="" ui-sref="innovateKnowledgeAssess">知产评估</a> </td>
+                </tr>
+                <tr>
+                    <td> <a href="" ui-sref="fruits">专家成果</a> </td>
+                </tr>
+                <tr>
+                    <td> <a href="" ui-sref="unscramble">专家解读</a> </td>
+                </tr>
+                <tr>
+                    <td> <a href="" ui-sref="lecture">项目讲座</a> </td>
+                </tr>
+                <tr>
+                    <td> <a href="" ui-sref="projectUnscramble">项目解读</a> </td>
+                </tr>
+                <tr>
+                    <td> <a href="" ui-sref="knowledgeBuy">知产求购</a> </td>
+                </tr>
+                <tr>
+                    <td> <a href="" ui-sref="knowledgeSell">知产出售</a> </td>
+                </tr>
+                <tr>
+                    <td> <a href="" ui-sref="technologyFinancing">技术融资</a> </td>
+
+                </tr>
+                </tbody>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

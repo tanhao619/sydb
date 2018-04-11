@@ -1,0 +1,151 @@
+<div class="wrap bgGray w_distributeNews w_publishPlace">
+    <div class="layout" style="height: 40px;
+    background: #f6f6f6;
+    font-size: 18px;
+    color: #333;
+    padding: 10px 10px;">
+            <span >发布场地</span>
+        </div>
+        <div class="bgWhite w_publish_IP">
+            <form name="myForm" novalidate class="modalStyle siteModal">
+                <div class="w_subTitle">出租方式</div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label class="w_radio" style="position: relative">
+                            <input type="radio" ng-model="vm.space.type" value="1" name="type"  ng-checked="vm.space.type == 1" />
+                            <i class="w_icon_radio"></i>
+                            <span style="position: absolute;width:75px;display: inline-block;left:30px;top:10px;">场地出租</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="w_radio" style="position: relative">
+                            <input type="radio" ng-model="vm.space.type" value="2" name="type" ng-checked="vm.space.type == 2"/>
+                            <i class="w_icon_radio"></i>
+                            <span style="position: absolute;width:75px;display: inline-block;left:30px;top:10px;">工位出租</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="w_subTitle">基础信息</div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span><b class="w_required">*</b>楼宇名称</span>
+                    </div>
+                    <div class="col-sm-7">
+                        <input  type="text" ng-model="vm.space.title" name="title" ng-maxlength="20" required>
+                        <span style="color: red" ng-if="myForm.title.$error.required && myForm.title.$touched">请输入楼宇名称</span>
+                        <span style="color: red" ng-if="myForm.title.$error.maxlength && myForm.title.$touched">楼宇名称不能超出20个字符</span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span><b class="w_required">*</b>所属区域</span>
+                    </div>
+                    <div class="col-sm-8" id="locations">
+                        <select name="province" ng-model="vm.space.province"></select>
+                        <select name="city" ng-model="vm.space.city"></select><br/>
+                        <input type="text" placeholder="填写详细地址" class="w_need" ng-model="vm.address" required name="address">
+                        <span style="color: red" ng-if="myForm.address.$error.required && myForm.address.$touched">请输入详细地址</span>
+                    </div>
+                </div>
+                <!--<div class="row">-->
+                    <!--<div class="col-sm-2">-->
+                        <!--<span><b class="w_required">*</b>详细地址</span>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-7">-->
+                      <!---->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span><b class="w_required">*</b>租金</span>
+                    </div>
+                    <div class="col-sm-7 w_nowrap">
+                        <input type="text" class="w_need" ng-model="vm.space.rent" name="rent"
+                               ng-pattern="/^\d+(\.\d+)?$/" required ng-pattern="/^\d+(\.\d+)?$/">元 / ㎡ / 月
+                        <span ng-if=" myForm.rent.$touched">
+                            <span style="color: red" ng-if="myForm.rent.$error.required">请输入租金</span>
+                            <span style="color: red" ng-if="myForm.rent.$error.pattern">租金格式验证错误，请重新输入</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span ng-if="vm.space.type ==1"><b class="w_required">*</b>房源数量</span>
+                        <span ng-if="vm.space.type ==2"><b class="w_required">*</b>工位数量</span>
+                    </div>
+                    <div class="col-sm-6 w_nowrap">
+                        <input type="text" class="w_need" ng-model="vm.space.number" ng-pattern="/^\d+(\.\d+)?$/" name="number" required>套
+                        <span style="color: red" ng-if="myForm.number.$error.required && myForm.number.$touched">请输入数量</span>
+                        <span style="color: red" ng-if="myForm.number.$error.pattern">数量格式验证错误，请重新输入</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span><b class="w_required">*</b>详细信息</span>
+                    </div>
+                    <div class="col-sm-10">
+                        <textarea  ueditor id="spaceEdit" ng-trim="true"></textarea>
+                        <span style="color: red" ng-show="vm.spaceEditShow">详细信息不能为空</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span><b class="w_required">*</b>上传图片</span>
+                    </div>
+                    <div class="col-sm-9">
+                        <button class="button_upload" ngf-select="vm.uploadImage()" ng-model="vm.dataImage.file"
+                                name="image" accept="image/gif,image/jpeg,image/png,image/jpg,image/psd,image/bmp"><i class="w_icon_plus"></i>点击上传图片</button>
+                        <div class="w_uploadImg_w w_place_upload">
+                            <img ngf-src="vm.dataImage.file" ngf-resize="{width: 540, quality: 0.9}" ng-if="vm.dataImage.file">
+                            <img ng-if="vm.dataImage.file == null && vm.space.coverImgUrl" ng-resize="{width: 540, quality: 0.9}"
+                                 ng-src="{{SY_UploadBasePath}}{{vm.space.coverImgUrl}}">
+                        </div>
+
+                        <span class="w_tipsExist">1.只能上传房屋图片，不能包含有文字、数字、网址、名片等，每张最大10M<br/>
+                            2.可上传一张jpg/gif/png格式图片，RGB模式，单张建议采用（长540，宽260），
+                                大小<2M。</span>
+                        <br><span style="color: red" ng-if="myForm.image.$touched" ng-show="vm.dataImage.file == null && vm.space.coverImgUrl == ''">请上传图片</span>
+                    </div>
+                </div>
+                <div class="w_subTitle">联系人信息</div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span><b class="w_required">*</b>联系人</span>
+                    </div>
+                    <div class="col-sm-6 w_linkInfo_w">
+                        <input type="text" name="contact" class="w_link" ng-model="vm.space.contactor" ng-maxlength="20" required>
+                        <i class="w_clear" ng-click="vm.space.contactor = ''">×</i>
+                        <span ng-show="myForm.contact.$touched">
+                            <span class="w_tips w_required" ng-show="myForm.contact.$error.maxlength">联系人最大长度为20</span>
+                            <span style="color: red" ng-show="myForm.contact.$invalid && myForm.contact.$error.required ">联系人必填</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span><b class="w_required">*</b>联系电话</span>
+                    </div>
+                    <div class="col-sm-6 w_linkInfo_w">
+                        <input type="text" name="phone" class="w_link" ng-model="vm.space.contact" ng-pattern="/(^1[34578]\d{9}$)$|(\d{3}-\d{8}|\d{4}-\d{7})/" required >
+                        <i class="w_clear" ng-click="vm.space.contact = ''">×</i>
+                        <span ng-show="myForm.phone.$touched">
+                            <span ng-if="myForm.phone.$invalid && myForm.phone.$touched">
+                             <span style="color: red" ng-if="myForm.phone.$error.pattern && myForm.phone.$touched">电话格式不正确！</span>
+                            <span style="color: red" ng-show="myForm.phone.$error.required">联系电话必填</span>
+                        </span>
+
+                            </span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-offset-3">
+                        <button class="button_orange w_button_submit" ng-click="vm.save()" ng-disabled="myForm.$invalid">提交</button>
+                        <button class="button_orange w_button_submit" ng-click="vm.cancel()">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

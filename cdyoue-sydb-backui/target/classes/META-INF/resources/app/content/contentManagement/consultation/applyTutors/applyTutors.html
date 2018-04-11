@@ -1,0 +1,73 @@
+<style>
+    .top_a_element{color: #f18d0d}
+    .top_a_element:hover { color: #dd514c; }
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="{{SY_CrumbsData.oneLevel.uiSref}}">{{SY_CrumbsData.oneLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.twoLevel">＞</span>
+    <a class="top_a_element" ng-if="SY_CrumbsData.twoLevel" ui-sref="{{SY_CrumbsData.twoLevel.uiSref}}">{{SY_CrumbsData.twoLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.threeLevel">＞</span>
+    <span ng-if="SY_CrumbsData.threeLevel">{{SY_CrumbsData.threeLevel.name}}</span>
+</div>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div class="widget-group m-b-xs">
+                <div class="input-group widget-search">
+                    <input type="text" ng-model="vm.q" class="input-sm form-control" placeholder="请输入关键字">
+                    <span class="input-group-btn">
+                            <button class="btn btn-sm btn-warn" type="button" ng-click="vm.query()">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                </div>
+            </div>
+            <div class="widget-group m-b-xs">
+                    <span class="inline">
+                        <button style="height: 40px" class="btn btn-sm btn-warn" type="button" ng-click="vm.dels()">
+                            <span style="font-size: 14px">批量删除</span></button>
+                    </span>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped b-t b-light" ng-show="vm.dataShow">
+                <thead>
+                <tr>
+                    <th style="width:90px;">
+                        <label class="i-checks m-b-none">
+                            <input type="checkbox" ng-model="vm.selectCheckedAll" ng-click="vm.checkedAll(vm.selectCheckedAll)"><i></i>全选
+                        </label>
+                    </th>
+                    <th> 序号 </th>
+                    <th> 创建企业 </th>
+                    <th> 创建时间 </th>
+                    <th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+                    <th> 管理操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="tr in vm.syBanner.list">
+                    <td>
+                        <label class="i-checks m-b-none">
+                            <input type="checkbox" ng-click="vm.checkedOne(tr.id,$index,tr.checked)" ng-checked="tr.checked" ng-model="tr.checked"><i></i>
+                        </label>
+                    </td>
+                    <td>{{$index+1}}</td>
+                    <td title="{{tr.createEnter}}">{{tr.createEnter | lengthFilter:15}}</td>
+                    <td>{{tr.createTime | date:'yyyy-MM-dd HH:mm'}}</td>
+                    <td>{{tr.status | newFilter}}</td>
+                    <td>
+                        <a ng-click="vm.openModal($index)">查看</a>&nbsp;|&nbsp;
+                        <a ng-click="vm.del($index)">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h4 class="text-danger" ng-show="!vm.dataShow">{{vm.msg}}</h4>
+            <div class="widget-page" ng-show="vm.dataShow">
+                <youe-page pageinfo="vm.syBanner" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+            </div>
+        </div>
+    </div>
+</div>

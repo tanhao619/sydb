@@ -1,0 +1,118 @@
+<style>
+    .top_a_element {
+        color: #f18d0d
+    }
+
+    .top_a_element:hover {
+        color: #dd514c;
+    }
+
+    .required-data {
+        color: red;
+    }
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="backManagement">后台管理</a>
+    <span>＞</span>
+    <a class="top_a_element" ui-sref="userInformation">门户后台管理</a>
+    <span>＞</span>
+    <a class="top_a_element" ui-sref="userInformation">用户信息管理</a>
+    <span>＞</span>
+    <span>编辑用户信息</span>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="enterpriseForm" ng-show="vm.role==1">
+                <div style="padding: 1px 15px;">
+                    <p><span class="required-data">※</span>企业名称：<input style="width: 500px" type="text" ng-model="vm.enterpriseData.name" required></p>
+                    <p><span class="required-data">※</span>企业法人：<input style="width: 500px" type="text" ng-model="vm.enterpriseData.legalPerson" required></p>
+                    <p id="enterpriseCity"><span class="required-data">※</span>所在地址：
+                        <select name="province"></select>
+                        <select name="city"></select>
+                    </p>
+                    <p><span class="required-data">※</span>企业类型：<input style="width: 500px" type="text" ng-model="vm.enterpriseData.enterType" required></p>
+                    <p><span class="required-data">※</span>所属行业：
+                        <select style="width: 496px" ng-model="vm.enterpriseData.expectFunctionCategory"
+                                ng-change='vm.enterpriseData.categoryId=vm.enterpriseData.expectFunctionCategory'
+                                ng-options="level.id as level.name for level in vm.enterpriseCategorie">
+                        </select>
+                    </p>
+                    <p><span class="required-data">※</span>经营范围：<input style="width: 500px" type="text" ng-model="vm.enterpriseData.business" required></p>
+                    <p><span class="required-data">※</span>成立时间：<input style="width: 500px" type="date" ng-model="vm.enterpriseData.establishmentTime" required></p>
+                    <p><span class="required-data">※</span>组织机构代码：
+                        <input style="width: 472px" type="text" name="organizationCode" ng-model="vm.enterpriseData.organizationCode" ng-pattern="/^[A-Za-z0-9]+$/" required>
+                        <span style="color: red" ng-if="enterpriseForm.organizationCode.$error.pattern">请输入数字或字母！</span>
+                    </p>
+                    <p><span class="required-data">※</span>注册资金：<input style="width: 130px" type="number" min="1" ng-model="vm.enterpriseData.registeredCapital" required>元</p>
+                    <p><span class="required-data">※</span>头像图片：
+                        <button class="button_orange" ngf-select="vm.uploadImage()" ng-model="vm.dataImage.file" name="image" ngf-max-size="8MB">上传图片</button>
+                        <span class="w_tips">支持jpg/gif/png格式的图片,图片应小于8MB。</span>
+                    </p>
+                    <p style="text-indent: 1em;">图片预览：
+                        <img class="zoomImages" ngf-src="vm.dataImage.file" ng-if="vm.dataImage.file">
+                        <img class="zoomImages" ng-if="!vm.dataImage.file" ng-src="{{SY_UploadBasePath}}{{vm.enterpriseData.headImg}}">
+                    </p>
+
+                    <p><span class="required-data">※</span>企业简介：</p>
+                    <textarea rows="5" cols="110" ng-model="vm.enterpriseData.info" required></textarea>
+                    <p><span class="required-data">※</span>详细内容：
+                        <ueditor style="height: 200px" id="enterpriseContent"></ueditor>
+                    </p>
+                </div>
+            </form>
+
+            <form name="personForm" ng-show="vm.role==0 || vm.role==2">
+                <div style="padding: 1px 15px;">
+                    <p><span class="required-data">※</span>用户名称：<input style="width: 500px" type="text" ng-model="vm.personData.name" required></p>
+                    <p><span class="required-data">※</span>用户昵称：<input style="width: 500px" type="text" ng-model="vm.personData.nickName" required></p>
+                    <p><span class="required-data">※</span>&emsp;&emsp;性别：
+                        <input type="radio" name="userSex" ng-model="vm.userSexRadio" value="0">男
+                        <input type="radio" name="userSex" ng-model="vm.userSexRadio" value="1">女
+                    </p>
+                    <p><span class="required-data">※</span>&emsp;&emsp;年龄：<input style="width: 60px" type="text" name="age" ng-model="vm.personData.age" ng-pattern="/^([1-9]\d|\d)$/" required>&nbsp;岁
+                        <span style="color: red" ng-if="personForm.age.$error.pattern">请输入正确的年龄！</span>
+                    </p>
+                    <p><span class="required-data">※</span>工作年限：<input style="width: 60px" type="text" name="workingLife" ng-model="vm.personData.workingLife" ng-pattern="/^([1-9]\d|\d)$/" required>&nbsp;年
+                        <span style="color: red" ng-if="personForm.workingLife.$error.pattern">请输入纯数字！</span>
+                    </p>
+
+                    <p id="personCity"><span class="required-data">※</span>所在地址：
+                        <select name="province" ></select>
+                        <select name="city"></select>
+                    </p>
+                    <p id="homeTownCity"><span class="required-data">※</span>家乡地址：
+                        <select name="province"></select>
+                        <select name="city"></select>
+                    </p>
+                    <p><span class="required-data">※</span>所属行业：
+                        <select style="width: 496px" ng-model="vm.personData.expectFunctionCategory"
+                                ng-options="level.id as level.name for level in vm.enterpriseCategorie">
+                        </select>
+                    </p>
+
+                    <p><span class="required-data">※</span>头像图片：
+                        <button class="button_orange" ngf-select="vm.uploadImage()" ng-model="vm.dataImage.file" name="image" ngf-max-size="8MB">上传图片</button>
+                        <span class="w_tips">支持jpg/gif/png格式的图片,图片应小于8MB。</span>
+                    </p>
+                    <p style="text-indent: 1em;">图片预览：
+                        <img class="zoomImages" ngf-src="vm.dataImage.file" ng-if="vm.dataImage.file">
+                        <img class="zoomImages" ng-if="!vm.dataImage.file" ng-src="{{vm.personData.headImg}}">
+                    </p>
+
+                    <p><span class="required-data">※</span>个人简介：</p>
+                    <textarea rows="5" cols="110" ng-model="vm.personData.info" required></textarea>
+                    <p><span class="required-data">※</span>详细内容：
+                        <ueditor style="height: 200px" id="personContent"></ueditor>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: left; padding: 0px 40px;">
+        <button class="btn btn-lm btn-warn" type="button" ui-sref="userInformation">取消</button>
+        <button ng-if="vm.role==2" class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="personForm.$invalid">提交</button>
+        <button ng-if="vm.role==1" class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="enterpriseForm.$invalid">提交</button>
+    </div>
+</div>

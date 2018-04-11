@@ -1,0 +1,120 @@
+<style xmlns="http://www.w3.org/1999/html">
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+    .red{
+        color:red;
+    }
+</style>
+<div class="top_div">
+    <h4> 专家-<span>{{vm.syBannerDetail.name}}</span><a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <div style="padding: 1px 15px;">
+                    <!--查看时显示-->
+                    <p ng-show="!vm.isEditor">姓名：{{vm.syBannerDetail.name}}</p>
+                    <p ng-show="!vm.isEditor">职位：{{vm.syBannerDetail.job}}</p>
+                    <p ng-show="!vm.isEditor">性别：{{vm.syBannerDetail.gender|genderFilter}}</p>
+                    <p ng-show="!vm.isEditor">工作经验：{{vm.syBannerDetail.workYear}}</p>
+                    <p ng-show="!vm.isEditor">所在行业：{{vm.syBannerDetail.industry}}</p>
+                    <p ng-show="!vm.isEditor">专家简介：{{vm.syBannerDetail.introduction}}</p>
+                    <p ng-show="!vm.isEditor">专家详情：</p>
+                    <p ng-show="!vm.isEditor" ng-bind-html="vm.syBannerDetail.content | elementsIntro"></p>
+                    <p ng-show="!vm.isEditor">头像图片：<img class="zoomImages" ng-src="{{SY_UploadBasePath}}{{vm.syBannerDetail.headImgUrl}}"></p>
+                    <div ng-show="!vm.isEditor">职业经历：
+                        <div ng-show="!vm.isEditor" ng-repeat="career in vm.syBannerDetail.careers">
+                            <hr/>
+                            <p>{{career.brief}}</p>
+                            <p>{{career.detail}}</p>
+                        </div>
+                    </div>
+                    <!--修改新增时显示-->
+                    <p ng-show="vm.isEditor"><span class="red">*</span>姓名：<input style="width: 510px" type="text" ng-model ="vm.updateItems.name" ng-maxlength="50" name="name" required>
+                        <span class="red" ng-if="myForm.name.$error.required && myForm.name.$touched">姓名不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.name.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.name.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.name.$error.maxlength">姓名请限制在50个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor"><span class="red">*</span>职位：<input style="width: 510px" type="text" ng-model ="vm.updateItems.job" ng-maxlength="50" name="job" required>
+                        <span class="red" ng-if="myForm.job.$error.required && myForm.job.$touched">职位不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.job.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.job.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.job.$error.maxlength">职位请限制在50个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor"><span class="red">*</span>性别：
+                        <select ng-model="vm.updateItems.gender" name="gender" ng-options="ex.key as ex.val for ex in vm.updateItems.genderSelect" required></select>
+                        <span class="red" ng-if="myForm.gender.$error.required && myForm.gender.$touched">请选择性别！</span>
+                    </p>
+                    <p ng-show="vm.isEditor">工作经验：<input style="width: 510px" type="text" ng-model ="vm.updateItems.workYear" ng-maxlength="50" name="workYear">
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.workYear.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.workYear.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.workYear.$error.maxlength">经验请限制在50个字符以内！</span>
+                    </p>
+                    <p ng-show="vm.isEditor"><span class="red">*</span>选择行业类别：
+                        <select ng-model="vm.updateItems.industryType" name="industryType" ng-options="ex.id as ex.name for ex in vm.updateItems.industrySelect" required></select>
+                        <span class="red" ng-if="myForm.industryType.$error.required && myForm.industryType.$touched">请选择行业类别！</span>
+                    </p>
+                    <p ng-show="vm.isEditor"><span class="red">*</span>专家简介：<textarea rows="6" cols="70" ng-model ="vm.updateItems.introduction" ng-maxlength="200" name="introduction" required/>
+                        <span class="red" ng-if="myForm.introduction.$error.required && myForm.introduction.$touched">简介不能为空！</span>
+                        <span class="w_tipsExist w_offset" ng-if="vm.updateItems.introduction.length>0">您还可以输入<b class="w_required">{{200 - vm.updateItems.introduction.length}}</b>个字</span>
+                        <span class="red" ng-if="myForm.introduction.$error.maxlength">简介请限制在200个字符以内！</span>
+                    </p>
+
+                    <p ng-show="vm.isEditor"><span class="red">*</span>专家详情：<span class="red" ng-if="vm.editShow">详细信息不能为空！</span>
+                        <ueditor id="newsAddContainer" style="height: 250px"></ueditor>
+                    </p>
+                    <p ng-show="vm.isEditor"><span class="red">*</span>上传图片：
+                        <button class="button_orange" ngf-select="vm.uploadImage()" ng-model="vm.dataImage.file" name="image" ngf-max-size="8MB" accept="image/*">上传图片</button>
+                        <span class="w_tips">支持jpg/gif/png格式的图片,图片应小于8MB。</span>
+                    </p>
+                    <p ng-show="vm.isEditor">预览：
+                        <img class="zoomImages" ng-if="vm.updateItems.headImgUrl" ng-src="{{SY_UploadBasePath}}{{vm.updateItems.headImgUrl}}">
+                        <span class="red" ng-if="myForm.image.$touched && !vm.updateItems.headImgUrl">未上传图片或上传图片失败！</span>
+                    </p>
+                    <div ng-show="vm.isEditor">职业经历：
+                        <button ng-click="vm.addCareer()">添加一条经历</button>
+                        <span class="w_tips">编辑规则：经历（yyyy.MM至yyyy.MM XX公司·XX职位）；详细（1.XXXX；2.XXXX；）</span>
+                        <div ng-show="vm.isEditor" ng-repeat="career in vm.updateItems.careers">
+                            <hr/>
+                            <p><span class="red">*</span>经历：
+                                <input style="width: 510px" type="text" ng-model ="vm.updateItems.careers[$index].brief"  name="brief" required maxlength="50">
+                                <!--<input style="width: 510px" type="text" ng-model ="vm.updateItems.careers[$index].brief"  name="brief_{{$index}}" required ng-keydown="vm.repeatValidate($index)" ng-keyup="vm.repeatValidate($index)" ng-blur="vm.repeatValidate($index)">-->
+                                <span class="red" ng-if="!vm.updateItems.careers[$index].brief">经历不能为空！</span>
+                                <!--<span class="red" ng-if="vm.showNull[$index]">经历不能为空！</span>-->
+                                <span class="w_tipsExist w_offset" ng-if="vm.updateItems.careers[$index].brief.length>0">您还可以输入<b class="w_required">{{50 - vm.updateItems.careers[$index].brief.length}}</b>个字</span>
+                                <!--<span class="w_tipsExist w_offset" ng-if="vm.showRemainWord[$index]">您还可以输入<b class="w_required">{{50 - vm.updateItems.careers[$index].brief.length}}</b>个字</span>-->
+                                <!--<span class="red" ng-if="myForm.brief.$error.maxlength">经历请限制在50个字符以内！</span>-->
+                                <!--<span class="red" ng-if="vm.showMoreLength[$index]">经历请限制在50个字符以内！</span>-->
+                            </p>
+                            <p><span class="red">*</span>详细：
+                                <textarea rows="6" cols="70" ng-model ="vm.updateItems.careers[$index].detail"  name="detail" required maxlength="200"/>
+                                <!--<textarea rows="6" cols="70" ng-model ="vm.updateItems.careers[$index].detail"  name="detail_[[$index]]" required ng-keydown="vm.repeatValidate($index)" ng-keyup="vm.repeatValidate($index)" ng-blur="vm.repeatValidate($index)"/>-->
+                                <!--<span class="red" ng-if="myForm.detail_$index.$error.required && myForm.detail_$index.$touched">详细不能为空！</span>-->
+                                <span class="red" ng-if="!vm.updateItems.careers[$index].detail">详细不能为空！</span>
+                                <span class="w_tipsExist w_offset" ng-if="vm.updateItems.careers[$index].detail.length>0">您还可以输入<b class="w_required">{{200 - vm.updateItems.careers[$index].detail.length}}</b>个字</span>
+                                <!--<span class="w_tipsExist w_offset" ng-if="vm.showDetailRemainWord[$index]">您还可以输入<b class="w_required">{{200 - vm.updateItems.careers[$index].detail.length}}</b>个字</span>-->
+                                <!--<span class="red" ng-if="myForm.detail_$index.$error.maxlength">详细请限制在200个字符以内！</span>-->
+                                <!--<span class="red" ng-if="vm.showDetailMoreLength[$index]">详细请限制在200个字符以内！</span>-->
+                            </p>
+                            <button ng-click="vm.delCareer($index)">删除本条经历</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+        <button ng-show="!vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.editor()">编辑</button>
+        <button ng-show="vm.isEditor" class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="myForm.$invalid || !vm.updateItems.headImgUrl">提交</button>
+    </div>
+</div>

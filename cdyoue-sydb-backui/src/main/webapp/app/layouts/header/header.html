@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="personalPanel" style="width:330px;height:75px;">
+                <img alt="Brand" ng-src="{{vm.logo}}" style="width:100%;height:100%;">
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <ul style="padding-left: 30px">
+                <li ng-repeat="headerNavItem in vm.headerNavItems" ng-class="{active: headerNavItem.isActive}">
+                    <a ui-sref="{{headerNavItem.uiSref}}">{{headerNavItem.name}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <ul style="padding: 0px;">
+                <li>
+                    <div>
+                        <p style="line-height: 20px;margin-bottom: 0;margin-top: 20px;">{{vm.date | date:'yyyy年MM月dd日 HH:mm:ss EEEE'}}</p>
+                        <p style="line-height: 20px;margin-bottom: 0;">
+                            <span>您好！{{vm.myInfo.nickName?vm.myInfo.nickName:vm.myInfo.name}}</span> <!--有昵称就显示昵称，没有就显示真实名称-->
+                            <span ng-if="vm.myInfo.role">[ 管理员 ]</span>
+                            &emsp;<span class="top-logout" ng-click="vm.logout()">退出</span>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <toaster-container></toaster-container>
+</nav>

@@ -1,0 +1,457 @@
+/* widget */
+.widget-group{
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  label{
+    font-size: 16px;
+  }
+}
+.widget-btn-group{
+  background-color: @panelBtnColor;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px 5px 0 0;
+  .btn{
+    border-color: @whiteColor;
+    color: @whiteColor;
+  }
+}
+
+/* widget-btn */
+.btn{
+  background-color: transparent;
+  border: 1px solid @borderColor;
+  border-radius: 5px;
+  color: @textColor1;
+  a{
+    color: inherit;
+  }
+}
+.btn-lg{
+  width: 90px;
+  height: 40px;
+  font-size: 16px;
+  padding: 0;
+  margin-right: 5px;
+}
+.btn-md{
+  width: 60px;
+  height: 30px;
+  font-size: 16px;
+  padding: 0;
+  margin-right: 5px;
+}
+.btn-build-edit{
+  width: 150px;
+  height: 35px;
+  font-size: 16px;
+  color: @buildTextColor;
+  border: none;
+  border-radius: 0;
+  background-color: rgba(8, 248, 143, .1);
+}
+.btn-build-cancel, .btn-build-submit{
+  width: 80px;
+  height: 35px;
+  font-size: 16px;
+  color: @buildTextColor;
+  border: none;
+  border-radius: 0;
+  background-color: rgba(8, 248, 143, .1);
+}
+.btn-build-edit:hover, .btn-build-cancel:hover, .btn-build-submit:hover{
+  color: @whiteColor;
+  background-color: rgba(8, 248, 143, .5);
+}
+.btn-selectFile{
+  color: @btnAddColor;
+  border-color: @btnAddColor;
+}
+.btn-selectFile:hover{
+  color: @whiteColor;
+  border-color: @btnAddColor;
+  background-color: @btnAddColor;
+}
+.btn-upload{
+  color: @btnWarnColor;
+  border-color: @btnWarnColor;
+}
+.btn-upload:hover{
+  color: @whiteColor;
+  border-color: @btnWarnColor;
+  background-color: @btnWarnColor;
+}
+.btn-file{
+  position: absolute;
+  color: @btnAddColor;
+  border-color: @btnAddColor;
+}
+.btn-file:hover{
+  color: @whiteColor;
+  border-color: @btnAddColor;
+  background-color: @btnAddColor;
+}
+.btn-add:hover{
+  color: @whiteColor;
+  border-color: @btnAddColor;
+  background-color: @btnAddColor;
+}
+.btn-del:hover{
+  color: @whiteColor;
+  border-color: @btnDelColor;
+  background-color: @btnDelColor;
+}
+.btn-warn:hover{
+  color: @whiteColor;
+  background-color: @btnWarnColor;
+  border-color: @btnWarnColor;
+}
+.btn-cancel{
+  color: @btnDelColor;
+  border-color: @btnDelColor;
+}
+.btn-cancel:hover{
+  color: @whiteColor;
+  border-color: @btnDelColor;
+  background-color: @btnDelColor;
+}
+.btn-submit{
+  color: @btnAddColor;
+  border-color: @btnAddColor;
+}
+.btn-submit:hover{
+  color: @whiteColor;
+  border-color: @btnAddColor;
+  background-color: @btnAddColor;
+}
+
+/* widget-timepicker */
+.input-daterange{
+  input:first-child{
+    border-radius: 5px 0 0 5px;
+  }
+  input:last-child{
+    border-radius: 0 5px 5px 0;
+  }
+  .time-input-control{
+    height: 40px;
+    font-size: 16px;
+    width: 140px;
+    border-color: @borderColor;
+  }
+  .input-group-addon{
+    width: auto;
+    border-color: @borderColor;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+/* widget-select */
+select.widget-select{
+  height: 40px;
+  width: 120px;
+  font-size: 16px;
+  border-radius: 5px;
+  border-color: @borderColor;
+  margin-right: 5px;
+}
+
+/* widget-search */
+.widget-search{
+  width: 300px;
+  input{
+    height: 40px;
+    border-radius: 5px 0 0 5px;
+    border-color: @borderColor;
+    font-size: 16px;
+    border-right: none;
+  }
+  .input-group-btn{
+    button{
+      height: 40px;
+      font-size: 16px;
+      i{
+        font-size: 24px;
+        color: @borderColor;
+      }
+    }
+    button:hover{
+      background-color: @btnAddColor;
+      border-color: @btnAddColor;
+      i{
+        color: @whiteColor;
+      }
+    }
+  }
+}
+
+.widget-calendar{
+  input{
+    height: 40px;
+    border-radius: 5px 0 0 5px!important;
+    border-color: @borderColor;
+    font-size: 16px;
+    border-right: none;
+  }
+  ul.uib-datepicker-popup{
+    .btn-info{
+      color: #ffffff !important;
+      background-color: #23b7e5;
+      border-color: #23b7e5;
+    }
+    .btn-danger {
+      color: #ffffff !important;
+      background-color: #f05050;
+      border-color: #f05050;
+    }
+    .btn-success {
+      color: #fff;
+      background-color: #5cb85c;
+      border-color: #4cae4c;
+    }
+    .btn-default {
+      color: #333;
+      background-color: #fff;
+      border-color: #ccc;
+      border-radius: 0;
+    }
+  }
+  .input-group-btn{
+    button{
+      height: 40px;
+      font-size: 16px;
+      i{
+        font-size: 24px;
+        color: @borderColor;
+      }
+    }
+    button:hover{
+      background-color: @btnAddColor;
+      border-color: @btnAddColor;
+      i{
+        color: @whiteColor;
+      }
+    }
+  }
+}
+
+/* widget-check */
+label.i-checks{
+  i{
+    border-radius: 5px;
+    border-color: @borderColor;
+  }
+  i:before{
+    top: 0;
+    left: 0;
+  }
+  input:checked + i{
+    border-color: @checkedColor;
+  }
+  input:checked + i:before{
+    content:"\f00c";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: @checkedColor;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: transparent;
+  }
+}
+
+/* widget-page */
+.widget-page{
+  width: 100%;
+  height: 60px;
+  position: relative;
+  margin-top: 30px;
+  youe-page{
+    float: left;
+    position: relative;
+    left: 50%;
+    .page-info{
+      position: relative;
+      left: -50%;
+      .pageStyle{
+        padding: 10px;
+        line-height: 17px;
+        border-color: @borderColor;
+        color: @panelHeadColor;
+      }
+      .pageStyle.active, .pageStyle:hover{
+        border-color: @panelHeadColor;
+        background-color: @panelHeadColor;
+        color: @whiteColor;
+      }
+      span{
+        button:last-child{
+          border-radius: 0 5px 5px 0;
+        }
+      }
+    }
+    nav{
+      position: relative;
+      left: -50%;
+      ul{
+        li{
+          a{
+            padding: 10px;
+            border-color: @borderColor;
+            color: @panelHeadColor;
+          }
+          a:hover{
+            background-color: @panelHeadColor;
+            border-color: @panelHeadColor;
+            color: @whiteColor;
+          }
+        }
+        li:first-child{
+          a{
+            border-radius: 5px 0 0 5px;
+          }
+        }
+        li:last-child{
+          a{
+            border-radius: 0;
+          }
+        }
+        li.active{
+          a, a:hover{
+            background-color: @panelHeadColor;
+            border-color: @panelHeadColor;
+          }
+        }
+        li.disabled{
+          a, a:hover{
+            border-color: @borderColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* widget-modal */
+.modal{
+  .modal-dialog{
+    .modal-content{
+      border: none;
+      .modal-header{
+        border-radius: 5px 5px 0 0;
+        background-color: @panelHeadColor;
+        font-size: 16px;
+        button{
+          text-shadow: none;
+          opacity: 1;
+          color: @whiteColor;
+          width: 25px;
+          height: 25px;
+          line-height: 25px;
+        }
+        button:hover{
+          background-color: @whiteColor;
+          border-radius: 100%;
+          color: @panelHeadColor;
+        }
+      }
+      .modal-body{
+        .form-group{
+          font-size: 16px;
+          .img-banner{
+            width: 150px;
+            height: 150px;
+            max-width: 500px;
+            margin-bottom: 10px;
+          }
+          label{
+            text-align: center;
+            padding-top: 7px;
+          }
+          input, select{
+            border-radius: 5px;
+            height: 40px;
+            font-size: 16px;
+            border: 1px solid @borderColor;
+            float: none;
+          }
+          input:focus, select:focus{
+            border-color: @navbarActiveColor;
+          }
+        }
+        .table-responsive{
+          margin-left: 20px;
+          margin-right: 20px;
+          overflow-x: hidden;
+          table{
+            thead{
+              background-color: @theadColor;
+              color: @textColor1;
+              font-size: 16px;
+              th{
+                padding: 13px 15px;
+                border: none;
+                vertical-align: middle;
+              }
+            }
+            tbody{
+              tr{
+                td{
+                  padding: 15px;
+                  border: none;
+                  vertical-align: middle;
+                  input, select{
+                    border-radius: 5px;
+                    height: 40px;
+                    font-size: 16px;
+                    border: 1px solid @borderColor;
+                    float: none;
+                  }
+                  input:focus, select:focus{
+                    border-color: @navbarActiveColor;
+                  }
+                  a{
+                    color: @textColor1;
+                  }
+                  i{
+                    font-size: 24px;
+                    cursor: pointer;
+                  }
+                  a.icon-delete, i.icon-delete{
+                    color: @btnDelColor;
+                  }
+                  a.icon-edit, i.icon-edit{
+                    color: @btnAddColor;
+                  }
+                  a.icon-templatedefault, i.icon-templatedefault{
+                    color: @btnAddColor;
+                  }
+                  a.icon-rejectedorder, i.icon-rejectedorder{
+                    color: @btnWarnColor;
+                  }
+                }
+              }
+              tr:nth-child(odd){
+                td{
+                  background-color: @whiteColor;
+                }
+              }
+              tr:nth-child(even){
+                td{
+                  background-color: @tdColor;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+    .oldPicture span{
+        font-size:16px;
+        color:#333;
+    }
+    .oldPicture .picture{
+        display: inline-block;
+        margin-left: 20px;
+        width:200px;
+        height:160px;
+        vertical-align: top;
+    }
+    .oldPicture .picture img{
+        width:100%;
+        height:100%;
+    }
+    .red{
+        color:red;
+    }
+</style>
+<div class="top_div">
+    <h4> 置顶图片<a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <div style="padding: 1px 15px;">
+                    <div class="oldPicture">
+
+                        <p><span class="red">*</span>上传图片：
+                            <button class="button_orange" ngf-select="vm.uploadImage()" ng-model="vm.dataImage.file" name="image" ngf-max-size="8MB" accept="image/*">上传图片</button>
+                            <span class="w_tips">支持jpg/gif/png格式的图片,图片应小于8MB。</span>
+                        </p>
+                        <p>预览：
+                            <img class="zoomImages" ng-if="vm.updateItems.topImgUrl" ng-src="{{SY_UploadBasePath}}{{vm.updateItems.topImgUrl}}">
+                            <span class="red" ng-if="myForm.image.$touched && !vm.updateItems.topImgUrl">未上传图片或上传图片失败！</span>
+                        </p>
+
+                        <!--<span>原图片：</span>
+                        <div class="picture">
+                            <img src="">
+                        </div>
+                        <div style="margin-top: 16px;">
+                            <span>上传图片：</span>
+                            <button class="btn btn-primary" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;">点击上传</button>
+                        </div>-->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="!vm.updateItems.topImgUrl">确定</button>
+
+    </div>
+</div>

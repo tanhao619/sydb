@@ -1,0 +1,732 @@
+/* content */
+.content{
+  background-color: @backgroundColor;
+  @diff : 300px;
+  position: relative;
+  left: 300px;
+  padding-top: 120px;
+  padding-bottom: 40px;
+  width: calc(~"100% - @{diff}");
+  .bg-light.lter{
+    background-color: @whiteColor;
+  }
+  svg#building{
+    background: url("/content/images/building.jpg");
+    margin-top: -39px;
+    margin-bottom: -45px;
+  }
+  .wrapper-md{
+    background-color: @whiteColor;
+    margin: 0 20px;
+    .panel-default{
+      border: none;
+      box-shadow: none;
+      .panel-heading{
+        margin: -20px -20px 20px -20px;
+        background-color: @panelHeadColor;
+        border-color: @panelHeadColor;
+        color: @whiteColor;
+        font-size: 16px;
+        font-weight: normal;
+        border-radius: 5px 5px 0 0;
+        .park-add{
+          float: right;
+          color: @whiteColor;
+          margin-top: -3px;
+        }
+      }
+      .panel-body{
+        .form-horizontal{
+          .park-group{
+            border-bottom: 1px dashed @borderColor;
+            padding-top: 20px;
+            padding-bottom: 10px;
+            position: relative;
+            i{
+              cursor: pointer;
+            }
+            i:hover{
+              color: @menuActiveColor;
+            }
+            i.fa-trash-o{
+              position: absolute;
+              right: 10px;
+              font-size: 24px;
+              display: none;
+            }
+            i.fa-plus-square-o, i.fa-minus-square-o{
+              position: absolute;
+              right: 40px;
+              font-size: 24px;
+            }
+          }
+          .park-group:hover{
+            border: 1px dashed @borderColor;
+            i.fa-trash-o{
+              display: block;
+            }
+          }
+          .form-group{
+            .resumeImg{
+              display: inline-block;
+            }
+            .resumeInfo{
+              float: right;
+            }
+            .eduResume{
+              margin-bottom: 15px;
+              margin-left: 15px;
+              margin-right: 15px;
+            }
+            .control-label{
+              font-size: 16px;
+            }
+            .dis-textarea{
+              height: 220px;
+              overflow: scroll;
+            }
+            .img-banner{
+              width: 150px;
+              height: 150px;
+              max-width: 500px;
+              margin-bottom: 10px;
+            }
+            .file-group{
+              display: inline-block;
+              margin-top: 10px;
+              margin-right: 10px;
+              span{
+                a{
+                  color: @textColor1;
+                }
+                i.fa-close{
+                  cursor: pointer;
+                }
+                i.fa-close:hover{
+                  color: @btnDelColor;
+                }
+              }
+            }
+            input, select{
+              border-radius: 5px;
+              height: 40px;
+              font-size: 16px;
+              border-color: @borderColor;
+            }
+            input:focus, select:focus{
+              border-color: @navbarActiveColor;
+            }
+            input[type=file]{
+              position: relative;
+              opacity: 0;
+              width: 90px;
+              cursor: pointer;
+              font-size: 0;
+            }
+            .btn-sub-group{
+              text-align: center;
+              margin-top: 10px;
+              margin-bottom: -30px;
+            }
+          }
+        }
+      }
+      .wrapper{
+        padding: 20px 30px 30px 35px;
+      }
+      .table-responsive{
+        margin-left: 20px;
+        margin-right: 20px;
+        overflow-x: hidden;
+        table{
+          thead{
+            background-color: @theadColor;
+            color: @textColor1;
+            font-size: 16px;
+            th{
+              padding: 13px 15px;
+              border: none;
+              vertical-align: middle;
+            }
+          }
+          tbody{
+            tr{
+              td{
+                padding: 15px;
+                border: none;
+                vertical-align: middle;
+                a{
+                  color: @textColor1;
+                }
+                i{
+                  font-size: 24px;
+                  cursor: pointer;
+                }
+                a.icon-delete, i.icon-delete{
+                  color: @btnDelColor;
+                }
+                a.icon-edit, i.icon-edit{
+                  color: @btnAddColor;
+                }
+                a.icon-templatedefault, i.icon-templatedefault{
+                  color: @btnAddColor;
+                }
+                a.icon-rejectedorder, i.icon-rejectedorder{
+                  color: @btnWarnColor;
+                }
+              }
+            }
+            tr:nth-child(odd){
+              td{
+                background-color: @whiteColor;
+              }
+            }
+            tr:nth-child(even){
+              td{
+                background-color: @tdColor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .build-search{
+    position: absolute;
+    margin-left: 60px;
+    .widget-search{
+      width: 650px;
+      input{
+        border-radius: 0;
+        border-color: @whiteColor;
+      }
+      .input-group-btn{
+        .clearInput{
+          height: 40px;
+          display: inline-block;
+          background-color: @whiteColor;
+          i{
+            font-size: 24px;
+            cursor: pointer;
+            border-left: 1px solid @borderColor;
+            padding: 2px 10px;
+            margin-top: 6px;
+          }
+          i:hover{
+            color: @buildColor;
+          }
+        }
+        .btn-selectFile{
+          margin-top: -19px;
+          width: 90px;
+          height: 40px;
+          border-radius: 0;
+          border: none;
+          background-color: #2583da;
+          color: #ffffff;
+          border-bottom: 3px solid #055fb3;
+          font-size: 16px;
+          margin-right: 20px;
+        }
+        .btn-selectFile:hover{
+          background-color: #196fbf;
+        }
+        //button.btn-warn{
+        //  border-radius: 0;
+        //  background-color: @whiteColor;
+        //
+        //}
+        //button.btn-warn:hover{
+        //  background-color: @whiteColor;
+        //}
+      }
+    }
+    .search-list{
+      width: 430px;
+      height: 225px;
+      background-color: @whiteColor;
+      margin-top: 5px;
+    }
+  }
+  .build-box{
+    width: 550px;
+    height: 360px;
+    background-color: rgba(4, 38, 83, .8);
+    position: absolute;
+    border-radius: 10px;
+    z-index: 1020;
+    padding: 35px 30px;
+    i.fa-close{
+      color: @buildTextColor;
+      font-size: 24px;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      cursor: pointer;
+    }
+    i.fa-close:hover{
+      color: @whiteColor;
+    }
+    .build-img{
+      width: 150px;
+      height: 135px;
+      border-radius: 5px;
+      overflow: hidden;
+      background-color: @whiteColor;
+      float: left;
+      margin-right: 15px;
+    }
+    ul{
+      li{
+        font-size: 16px;
+        color: @buildColor;
+        margin-bottom: 13px;
+        line-height: 16px;
+        .build-area{
+          margin-right: 10px;
+        }
+        .build-pot{
+          color: @buildColor;
+        }
+      }
+    }
+    .btn-build-edit{
+      margin-top: 20px;
+      margin-left: 170px;
+    }
+  }
+  .build-edit-box{
+    width: 440px;
+    background-color: rgba(4, 38, 83, .8);
+    position: absolute;
+    border-radius: 10px;
+    z-index: 1020;
+    padding: 45px 10px 35px 20px;
+    left: 100px;
+    top: 200px;
+    i.fa-close{
+      color: @buildTextColor;
+      font-size: 24px;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      cursor: pointer;
+    }
+    i.fa-close:hover{
+      color: @whiteColor;
+    }
+    form{
+      .form-group{
+        margin-bottom: 20px;
+        .build-area{
+          margin-right: 10px;
+          line-height: 30px;
+          vertical-align: top;
+          color: @buildColor;
+        }
+        .build-pot{
+          vertical-align: middle;
+          color: @buildColor;
+        }
+        .resumeImg{
+          display: inline-block;
+        }
+        .resumeInfo{
+          float: right;
+        }
+        .eduResume{
+          margin-bottom: 15px;
+          margin-left: 15px;
+          margin-right: 15px;
+        }
+        .control-label{
+          color: @buildColor;
+          font-size: 16px;
+          line-height: 16px;
+        }
+        .dis-textarea{
+          height: 220px;
+          overflow: scroll;
+        }
+        .img-banner{
+          width: 100px;
+          height: 100px;
+          max-width: 100px;
+          margin-bottom: 10px;
+          margin-right: 10px;
+          float: left;
+        }
+        .btn-selectFile, .btn-upload{
+          margin-bottom: 12px;
+          width: 90px;
+          height: 30px;
+          border-radius: 0;
+          border: none;
+          background-color: #2583da;
+          color: @whiteColor;
+          border-bottom: 3px solid #055fb3;
+          font-size: 14px;
+        }
+        .btn-selectFile:hover, .btn-upload:hover{
+          background-color: #196fbf;
+          color: @whiteColor;
+        }
+        .file-group{
+          display: inline-block;
+          margin-top: 10px;
+          margin-right: 10px;
+          span{
+            a{
+              color: @textColor1;
+            }
+            i.fa-close{
+              cursor: pointer;
+            }
+            i.fa-close:hover{
+              color: @btnDelColor;
+            }
+          }
+        }
+        input, select{
+          height: 30px;
+          border-radius: 0;
+          background-color: #072c64;
+          border-color: #033884;
+          font-size: 14px;
+          color: @buildColor;
+        }
+        input:focus, select:focus{
+          border-color: @navbarActiveColor;
+        }
+        input[type=file]{
+          position: relative;
+          opacity: 0;
+          width: 90px;
+          cursor: pointer;
+          font-size: 0;
+        }
+        .btn-sub-group{
+          text-align: center;
+          margin-top: 10px;
+          margin-bottom: -30px;
+          .btn-build-submit{
+            margin-left: 45px;
+          }
+        }
+      }
+    }
+  }
+  .fa-map-marker{
+    color: rgb(8, 248, 143);
+    position: absolute;
+    font-size: 36px;
+  }
+  .active-build{
+    stroke: rgb(8, 248, 143)!important;
+  }
+  .cls-1 {
+    stroke: aqua;
+    stroke-width: 4px;
+    fill: transparent;
+    fill-rule: evenodd;
+    cursor: pointer;
+  }
+  .cls-1:hover {
+    stroke: rgb(8, 248, 143);
+  }
+}
+
+.modal{
+  .modal-dialog{
+    .modal-content{
+      .modal-body{
+        .form-group{
+          ul.ul-tab{
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid @menuActiveColor;
+            li{
+              display: inline-block;
+              padding-bottom: 9px;
+              a{
+                color: @menuActiveColor;
+                padding: 10px;
+              }
+            }
+            li.active{
+              a{
+                color: @whiteColor;
+                background-color: @menuActiveColor;
+              }
+            }
+          }
+          .resumeImg{
+            display: inline-block;
+          }
+          .resumeInfo{
+            float: right;
+          }
+          a.viewResume{
+            float: right;
+            cursor: pointer;
+            color: @btnAddColor;
+          }
+          a.viewResume:hover{
+            color: @menuActiveColor;
+          }
+        }
+      }
+    }
+  }
+}
+.enterpriseIndex {
+  background: @whiteColor;
+  margin-left: 20px;
+  margin-right: 20px;
+  .enterpriseIndexTitle {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 20px;
+    color: @textColor1;
+  }
+  .enterprisBenefit {
+    margin-left: 70px;
+    margin-top: 30px;
+    clear: both;
+    .enterBenefitTitle {
+      font-size: 16px;
+      color: @textColor1;
+      &:before {
+        content: '';
+        width: 5px;
+        height: 20px;
+        background: @btnAddColor;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+      button {
+        padding: 7px 15px;
+        background: @btnAddColor;
+        color: @whiteColor;
+        outline: none;
+        border-radius: 5px;
+        border: none;
+        margin-left: 45px;
+      }
+    }
+    .enterSocialBenefitCon {
+      min-height: 100px;
+      .social{
+        margin-right:122px;
+        float: left;
+        &:last-of-type{
+          margin-right: 0;
+        }
+      }
+      .economicBenefit {
+        float: left;
+        p {
+          color: @textColor1;
+          font-size: 14px;
+          font-weight: bold;
+          display: inline-block;
+        }
+        .numAdd {
+          display: inline-block;
+          margin-left: 10px;
+          input {
+            width: 60px;
+            height: 30px;
+            padding-left: 5px;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+          }
+          .economicBenefiticon {
+            display: inline-block;
+            position: relative;
+            width: 30px;
+            height: 40px;
+            span {
+              position: absolute;
+              color: #9fb0bd;
+              cursor: pointer;
+              &:first-of-type {
+                top: 22px;
+              }
+              &:last-of-type {
+                top: 35px;
+              }
+            }
+          }
+        }
+      }
+      .revenue {
+        margin-left: 30px;
+        margin-top: -15px;
+        ul {
+          li {
+            margin-top: -15px;
+            p {
+              color: @textColor2;
+              font-size: 14px;
+              display: inline-block;
+            }
+            .numAdd {
+              display: inline-block;
+              margin-left: 10px;
+              input {
+                width: 60px;
+                height: 30px;
+                padding-left: 5px;
+                border-radius: 5px;
+                outline: none;
+                text-align: center;
+              }
+              .economicBenefiticon {
+                display: inline-block;
+                position: relative;
+                width: 30px;
+                height: 40px;
+                span {
+                  position: absolute;
+                  color: #9fb0bd;
+                  cursor: pointer;
+                  &:first-of-type {
+                    top: 22px;
+                  }
+                  &:last-of-type {
+                    top: 35px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//弹框样式调整
+.modalStyle1{
+  .edui-editor{
+    right: 2px!important;
+    width:800px!important;
+    .edui-editor-iframeholder{
+      width:800px!important;
+    }
+  }
+}
+.modalStyle{
+  p{
+    font-size: 16px;
+    //font-weight: bold;
+    span{
+      font-size: 14px;
+    }
+  }
+  input{
+    height:35px;
+    padding-left:10px;
+  }
+  .col-sm-2{
+    span{
+      font-size: 16px;
+    }
+
+  }
+  .col-sm-8,.col-sm-10{
+    select,input{
+      height: 35px;
+      padding-left: 10px;
+    }
+  }
+  .edui-editor{
+    right: 2px!important;
+    width:700px!important;
+    .edui-editor-iframeholder{
+      width:700px!important;
+    }
+  }
+  .projectDeclare{
+    position: relative;
+    margin-top: 30px;
+    span:first-of-type{
+      position: absolute;
+    }
+    input{
+      position: absolute;
+      left:120px;
+    }
+    span.red,span.w_offset{
+      float: right;
+      margin-right: 76px;
+    }
+    button{
+      position: absolute;
+      left: 50px;
+    }
+  }
+}
+//场地弹框
+.siteModal{
+  padding: 20px 20px;
+  .w_subTitle{
+    font-size: 16px;
+    color:#333;
+    font-weight: bold;
+  }
+  .row{
+    margin-bottom: 10px;
+    .col-sm-2{
+      span{
+        font-size: 16px;
+      }
+      .w_required{
+        color:red;
+      }
+    }
+    .col-sm-10{
+      .edui-editor{
+        right: 2px!important;
+        width:700px!important;
+      }
+    }
+  }
+}
+//路演活动
+.roadShowEdit{
+  .row{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding:5px 20px;
+    .w_emphasis{
+      color:red;
+    }
+    input,select{
+      height:26px;
+      padding-left: 5px;
+    }
+    textarea{
+      width:835px;
+      height:160px;
+      resize: none;
+    }
+    .w_img_upload{
+      display: inline-block;
+      margin-left: 76px;
+      margin-top: -20px;
+      /* width: 200px; */
+      vertical-align: top;
+      div{
+        margin-top: 10px;
+        display: inline-block;
+        width:200px;
+      }
+    }
+  }
+}
+

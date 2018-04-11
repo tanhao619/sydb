@@ -1,0 +1,52 @@
+<style>
+    .logo-img {
+        text-align: center;
+        padding: 120px 0 50px;
+    }
+
+    .form {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .error-message{
+        padding: 5px 0 15px;
+        font-size: 15px;
+        color: red;
+    }
+    .logo-img img{
+        /*vertical-align: bottom;*/
+    }
+    .logo-img b{
+        font-size:36px;
+        margin:0 10px;
+    }
+    .logo-img{
+        font-size:24px;
+    }
+    .input-style{
+        width: 200px;
+        height: 30px;
+        padding-left: 2px;
+    }
+    .button-style{
+        height: 30px;
+    }
+</style>
+<div class="logo-img">
+    <img style="height: 70px" src="vendor/ico/favicon.ico">
+        <b>助力创新+助力创业</b>综合管理系统
+</div>
+
+<div class="row">
+    <div class="col-md-12 form">
+        <form name="loginForm">
+            <div class="error-message">{{vm.errorMessage}}</div>
+            <span>账号：<input class="input-style" type="text" placeholder='请输入用户名' ng-model="vm.user.userName" required></span>
+            <span>密码：<input class="input-style" type="password" placeholder='请输入密码' ng-model='vm.user.password' required></span>
+            <!--<span>验证码：<input type="text" placeholder='请输入验证码' ng-model='vm.user.verification' required></span>-->
+            <!--<img ng-src="logIn.png">-->
+            <button class="button-style" type="button" ng-click="vm.logIn()" ng-disabled="loginForm.$invalid">登录</button>
+        </form>
+    </div>
+</div>

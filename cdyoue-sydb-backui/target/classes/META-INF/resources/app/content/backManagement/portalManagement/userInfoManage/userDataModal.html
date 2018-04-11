@@ -1,0 +1,56 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color:#000000;
+    }
+</style>
+<div class="top_div">
+    <h4>{{vm.data.name}}的资料<a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div style="padding:1px 15px;" ng-if="vm.items.role==1">
+                <p>企业名称：{{vm.data.name}}</p>
+                <p>企业法人：{{vm.data.legalPerson}}</p>
+                <p>经营范围：{{vm.data.business}}</p>
+                <p>成立时间：{{vm.data.establishmentTime | timeFilter}}</p>
+                <p>企业地址：{{vm.addressConversion}}</p>
+                <p>联系电话：{{vm.data.tel}}</p>
+                <p>联系邮箱：{{vm.data.email}}</p>
+                <p>企业类型：{{vm.data.enterType}}</p>
+                <p>企业简介：{{vm.data.info}}</p>
+                <p>企业详情：
+                    <span ng-bind-html="vm.data.enterpriseDetail | elementsIntro"></span>
+                </p>
+                <p>组织机构代码：{{vm.data.organizationCode}}</p>
+            </div>
+            <div style="padding: 1px 15px;" ng-if="vm.items.role==0">
+                <p>姓名：{{vm.data.name}}</p>
+                <p>昵称：{{vm.data.nickName}}</p>
+                <p>性别：{{vm.data.sex==0?'男':'女'}}</p>
+                <p>年龄：{{vm.data.age}}</p>
+                <p>职务：{{vm.data.job}}</p>
+                <p>工作年限：{{vm.data.workingLife}}</p>
+                <p>所在地址：{{vm.addressConversion}}</p>
+                <p>联系电话：{{vm.data.tel}}</p>
+                <p>联系邮箱：{{vm.data.email}}</p>
+                <p>个人简介：{{vm.data.info}}</p>
+                <p>个人详情:
+                    <span ng-bind-html="vm.data.introduction | elementsIntro"></span>
+                </p>
+        </div>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+    </div>
+</div>

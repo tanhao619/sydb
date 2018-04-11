@@ -1,0 +1,37 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+</style>
+<div class="top_div">
+    <h4> 活动详情<a ng-click="vm.cancel()" class="top_a_ele">×</a></h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div style="padding: 1px 15px;">
+                <p>活动名称：{{vm.items.title}}</p>
+                <p>&emsp;发布人：{{vm.items.createBy}}</p>
+                <p>活动人数：{{vm.items.peopleNumber}}</p>
+                <p>&emsp;浏览量：{{vm.items.reviewStatus}}</p>
+                <p>活动链接：{{vm.items.link}}</p>
+                <p>活动地址：{{vm.location}}</p>
+                <p>活动时间：{{vm.items.publishTime | medium}}</p>
+                <p>活动摘要：{{vm.items.briefing}}</p>
+                <p>封面图片：<img class="zoomImages" ng-src="{{SY_UploadBasePath}}{{vm.items.coverImgUrl}}"></p>
+            </div>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>
+    </div>
+</div>

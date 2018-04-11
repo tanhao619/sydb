@@ -1,0 +1,77 @@
+<style>
+    .top_a_element {
+        color: #f18d0d
+    }
+
+    .top_a_element:hover {
+        color: #dd514c;
+    }
+    .move-removed-top{
+        color: red;
+        cursor: pointer;
+    }
+    .move-removed-top:hover{
+        color: #f18d0d;
+    }
+    .img-style{
+        height: 60px;
+        cursor: pointer;
+    }
+    .img-style:hover{
+        box-shadow:0px 0px 2px 3px rgba(241, 141, 13, 0.67);
+    }
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="backManagement">后台管理</a>
+    <span>＞</span>
+    <a class="top_a_element" ui-sref="userInformation">门户后台管理</a>
+    <span>＞</span>
+    <a class="top_a_element" ui-sref="userInformation">用户信息管理</a>
+    <span>＞</span>
+    <span>用户认证信息审核</span>
+</div>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="table-responsive">
+            <table ng-show="!vm.dataShow">
+                <tr collapse=" 3">
+                    <td colspan="5" style="text-align: center;color: red">{{vm.msg}}</td>
+                </tr>
+            </table>
+            <table class="table table-striped b-t b-light" ng-show="vm.dataShow">
+                <thead>
+                <tr>
+                    <th> ID</th>
+                    <th> 身份证/营业执照</th>
+                    <th> 正面照</th>
+                    <th> 认证类型 </th>
+                    <th> 审核备注 </th>
+                    <th> 审核状态</th>
+                    <th> 操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="tr in vm.pager">
+                    <td>{{tr.id}}</td>
+                    <td>{{tr.cardNo}}</td>
+                    <td><img class="img-style" ng-src="{{SY_UploadBasePath}}{{tr.frontImg}}" ng-click="vm.imageModal(SY_UploadBasePath+tr.frontImg,'正面照')"></td>
+                    <td>{{tr.type | authenticationType}}</td>
+                    <td>{{tr.reviewReason}}</td>
+                    <td ng-class="{'move-removed-top':tr.reviewStatus == 0}" ng-click="vm.authenticationModal(tr.type,tr.id,tr.reviewStatus)">
+                        {{tr.reviewStatus | reviewStatus}}
+                    </td>
+
+                    <td>
+                        <a ng-click="vm.userDataModal()">查看详细信息</a>&nbsp;|&nbsp;
+                        <a ng-if="tr.reviewStatus == 0" ng-click="vm.authenticationModal(tr.type,tr.id,tr.reviewStatus)">审核</a>
+                        <span ng-if="tr.reviewStatus == 0">&nbsp;|&nbsp;</span>
+                        <a ui-sref="userInformation">返回</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

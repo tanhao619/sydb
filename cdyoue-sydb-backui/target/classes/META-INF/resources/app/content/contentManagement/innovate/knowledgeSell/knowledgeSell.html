@@ -1,0 +1,90 @@
+<style>
+    .top_a_element{color: #f18d0d}
+    .top_a_element:hover { color: #dd514c; }
+</style>
+<div class="breadcrumb">
+    <span>当前位置：</span>
+    <a class="top_a_element" ui-sref="{{SY_CrumbsData.oneLevel.uiSref}}">{{SY_CrumbsData.oneLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.twoLevel">＞</span>
+    <a class="top_a_element" ng-if="SY_CrumbsData.twoLevel" ui-sref="{{SY_CrumbsData.twoLevel.uiSref}}">{{SY_CrumbsData.twoLevel.name}}</a>
+    <span ng-if="SY_CrumbsData.threeLevel">＞</span>
+    <span ng-if="SY_CrumbsData.threeLevel">{{SY_CrumbsData.threeLevel.name}}</span>
+</div>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="table-responsive">
+            <div class="row wrapper">
+                <div class="widget-group m-b-xs">
+                    <div class="input-group widget-search">
+                        <input type="text" ng-model="vm.questionsObj.q"
+                               class="input-sm form-control" placeholder="请输入查询">
+                        <span class="input-group-btn">
+                        <button class="btn btn-sm btn-warn" type="button" ng-click="vm.search()">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped b-t b-light" >
+                <thead>
+                <tr>
+                    <th> 序号 </th>
+                    <th> 内容名称 </th>
+                    <th> 发布人 </th>
+                    <th> 创建时间 </th>
+                    <th> 浏览次数 </th>
+                    <th> 状态 </th>
+                    <th> 操作</th>
+                </tr>
+                </thead>
+                <tbody ng-if="!vm.tipPop">
+                <tr ng-repeat="tr in vm.pager.list">
+                    <td>{{$index+1}}</td>
+                    <td ng-model="vm.access.name">{{tr.name}}</td>
+                    <td>{{tr.publisher}}</td>
+                    <td>{{tr.createTime}}</td>
+                    <td>{{tr.viewCount}}</td>
+                    <td>{{tr.reviewStatus | saleStatusFilter}}</td>
+                    <td>
+                        <a ng-click="vm.openModal(tr.id,tr.category)">查看</a>&nbsp;|&nbsp;
+                        <a ng-if="tr.reviewStatus == 0" ng-click="vm.getAcc(tr.id,tr.category,tr.name)" data-toggle="modal" data-target="#examine">审核&nbsp;|&nbsp;</a>
+                        <a ng-if="tr.reviewStatus == 1 && tr.top == 0" ng-click="vm.top(tr.id,tr.category,tr.top,tr.topImg)">置顶&nbsp;|&nbsp;</a>
+                        <a ng-if="tr.reviewStatus == 1 && tr.top == 1" ng-click="vm.top(tr.id,tr.category,tr.top,tr.topImg)">取消置顶&nbsp;|&nbsp;</a>
+                        <a ng-click="vm.deleteSale(tr.id,tr.category)">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h4 class="text-danger" ng-if = "vm.tipPop">抱歉！暂无数据！</h4>
+            <div ng-if="!vm.tipPop" class="widget-page">
+                <youe-page pageinfo="vm.pager" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="examine">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>{{vm.access.name}}</h4>
+            </div>
+            <div class="modal-body">
+                 <p>
+                     <span>审核状态：</span>
+                     <input ng-model="vm.access.status" value="1" type="radio" name="examine" checked> 审核通过
+                     <input ng-model="vm.access.status" value="2" type="radio" name="examine"> 审核不通过
+                 </p>
+                    <p>
+                        <span>审核备注：</span>
+                        <textarea ng-model = "vm.access.reviewReason" style="width:460px;height:150px;vertical-align: top;"></textarea>
+                    </p>
+
+            </div>
+            <div class="modal-footer">
+                <button  class="btn btn-warning" data-dismiss="modal" style="background: #fad733;color:#333;border:none;">取消</button>
+                <button class="btn btn-success" ng-click="vm.save()" ng-disabled="myForm.$invalid"  data-dismiss="modal" style="background: #27c24c;color:#fff;border:none;" >提交</button>
+            </div>
+        </div>
+    </div>
+</div>

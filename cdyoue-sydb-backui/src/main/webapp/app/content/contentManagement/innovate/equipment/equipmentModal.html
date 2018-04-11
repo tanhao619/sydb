@@ -1,0 +1,48 @@
+<style>
+    .top_div {
+        background-color: #f5f5f5;
+        padding: 1px 15px;
+        border-radius: 4px;
+    }
+    .top_a_ele {
+        color: #f18d0d;
+        float: right;
+    }
+    .top_a_ele:hover {
+        color: #000000;
+    }
+</style>
+<div class="top_div">
+    <h4> 查看设备</h4>
+</div>
+<div class="wrapper-md" style="padding:20px 20px 50px 20px">
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <form name="myForm">
+                <div style="padding: 1px 15px;">
+                    <div class="col-sm-12"><p>设备名称：{{vm.equipment.name}}</p></div>
+                    <div class="col-sm-12"><p>所属单位：{{vm.equipment.owner}}</p></div>
+                    <div class="col-sm-12"><p>设备所属行业：{{vm.equipment.type}}</p></div>
+                    <div class="col-sm-12">
+                        <div class="">
+                            <span>图片：</span>
+                            <img ng-if="vm.equipment.imgUrl" ngf-src="SY_UploadBasePath+vm.equipment.imgUrl" style="width:200px;height:150px;vertical-align: top;">
+                        </div>
+                    </div>
+                    <div class="col-sm-12"><p>设备型号：{{vm.equipment.model}} </p></div>
+                    <div class="col-sm-12"><p>仪器类别：{{vm.equipment.category}} </p></div>
+                    <div class="col-sm-12"><p>仪器价值：{{vm.equipment.value}} </p></div>
+                    <div class="col-sm-12"><p>收费标准：{{vm.equipment.price}} </p></div>
+                    <div class="col-sm-12"><p>生产厂商：{{vm.equipment.manufacturer}} </p></div>
+                    <div class="col-sm-12"><p>仪器状态：{{vm.equipment.status}} </p></div>
+                    <div class="col-sm-12">
+                        设备详情：<p ng-bind-html="vm.equipment.detail | elementsIntro"></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="float: right;">
+        <button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">确定</button>
+    </div>
+</div>

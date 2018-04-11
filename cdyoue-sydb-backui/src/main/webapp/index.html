@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh" ng-app="oddApp" id="ng-app">
+<head>
+    <meta charset="UTF-8">
+    <title>助力创新+助力创业综合管理系统</title>
+    <!--<link rel="shortcut icon" href="./content/images/favicon.png">-->
+    <!--<link rel="bookmark" href="./content/images/favicon.png" type="image/x-icon">-->
+    <script src="vendor/base/jquery-2.1.0.js"></script>
+    <link rel="stylesheet" href="/content/css/bootstrap-datepicker.css"/>
+
+    <link rel="stylesheet" href="vendor/loadbar/loading-bar.min.css">
+    <!--图标-->
+    <link rel="icon" type="image/x-icon" href="vendor/ico/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="/content/css/simple-line-icons.css" type="text/css"/>
+    <link rel="stylesheet" href="/content/css/font.css" type="text/css"/>
+    <link rel="stylesheet" href="/content/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/vendor/IconFont/iconfont.css" type="text/css"/>
+    <link rel="stylesheet" href="/vendor/bootstrap-datepicker/bootstrap-datepicker.css" type="text/css"/>
+    <link rel="stylesheet" href="/content/css/app.css" type="text/css"/>
+    <link rel="stylesheet" href="/content/css/application.css" type="text/css"/>
+    <link rel="stylesheet" href="/vendor/angular/angular-toaster/toaster.css" type="text/css"/>
+    <link rel="stylesheet" href="/vendor/angular/angular-scrollbar/ng-scrollbar.css" type="text/css"/>
+    <!-- datetimepicker -->
+    <link rel="stylesheet" href="vendor/datetimepicker/css/bootstrap-datetimepicker.css" >
+    <!--树形插件-->
+    <link rel="stylesheet" href="/vendor/zTree_v3-master/css/demo.css">
+    <link rel="stylesheet" href="/vendor/zTree_v3-master/css/zTreeStyle/zTreeStyle.css">
+
+    <!--ueditor-->
+    <script type="text/javascript" src="vendor/utf8-jsp/ueditor.config.js"></script>
+    <script type="text/javascript" src="vendor/utf8-jsp/ueditor.all.js"></script>
+</head>
+<style>
+    .modal{
+        top:70px;
+    }
+</style>
+<body>
+
+<div ui-view="header" class="nopadding"></div>
+<div class="container-fluid nopadding main-content">
+    <div ui-view="navbar" class="sidebar autoHeight" id="navbar"></div>
+    <div ui-view="content" class="content autoHeight"></div>
+</div>
+
+<!--初始化UEditor配置-->
+<script type="text/javascript" src="app/commons/ueditor.init.js"></script>
+<!--end-->
+<!-- bootstrap -->
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="vendor/bootstrap-datepicker/bootstrap-datepicker.zh-CN.js"></script>
+<script src="vendor/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="vendor/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<!--end -->
+<!--vendor base-->
+<script src="vendor/base/angular.min.js"></script>
+<script src="vendor/base/angular-resource.min.js"></script>
+<script src="vendor/base/angular-ui-router.min.js"></script>
+
+<!--plugin-->
+<script src="vendor/angular/angular-translate/angular-translate.js"></script>
+<script src="vendor/angular/angular-scrollbar/ng-scrollbar.min.js"></script>
+
+<!--ocLazyLoad-->
+<script src="vendor/angular/oclazyload/ocLazyLoad.js"></script>
+
+<!--ng-file-upload-->
+<script src="vendor/angular/ng-file-upload.js"></script>
+<script src="vendor/angular/ng-file-upload-all.min.js"></script>
+<script src="vendor/angular/angular-file-upload/angular-file-upload.min.js"></script>
+
+<script src="vendor/loadbar/loading-bar.min.js"></script>
+<!--toaster.js-->
+<script src="vendor/angular/angular-toaster/toaster.js"></script>
+
+<!--Echarts-->
+<script src="vendor/echarts/echarts.js"></script>
+<!-- ui-bootstarp begin -->
+<script src="vendor/base/ui-bootstrap-tpls.min.js"></script>
+<script src="vendor/base/angular-locale_zh-cn.js"></script>
+
+<!--Ztree-->
+<script src="vendor/zTree_v3-master/js/jquery.ztree.core.js"></script>
+<script src="vendor/zTree_v3-master/js/jquery.ztree.excheck-3.5.js"></script>
+
+<!--moment-->
+<script src="vendor/moment/moment.min.js"></script>
+<script src="vendor/city/jquery.citys.js"></script>
+
+<!--app-->
+<script src="app/app.module.js"></script>
+<script src="app/app.state.js"></script>
+<script src="app/app.constant.js"></script>
+<script src="app/app.filter.js"></script>
+<script src="app/app.directive.js"></script>
+<script src="app/config/http.config.js"></script>
+<script src="app/config/load.config.js"></script>
+<script src="app/time.select.service.js"></script>
+<script src="app/commons/app.intercept.js"></script>
+<script src="app/commons/common.service.js"></script>
+
+<!--cdyoue-model-->
+<script src="vendor/cdyoue-angular/youe-angular-module.js"></script>
+<script src="vendor/cdyoue-angular/angular-deleteModel/angular-deleteModel.js"></script>
+<!-- ueditor directive -->
+<script src="app/ueditor.directive.js"></script>
+<!--/page-->
+<script src="vendor/page/page.directive.js"></script>
+<!--登录-->
+<script src="app/content/logIn/logIn.state.js"></script>
+<script src="app/content/logIn/logIn.service.js"></script>
+<!--头部菜单-->
+<script src="app/layouts/header/header.controller.js"></script>
+<script src="app/layouts/header/header.state.js"></script>
+<!--左侧菜单-->
+<script src="app/layouts/navbar/navbar.controller.js"></script>
+<script src="app/layouts/navbar/navbar.state.js"></script>
+
+<!--创新管理 -->
+<script src="app/content/contentManagement/innovate/innovate.state.js"></script>
+<!--创业管理 -->
+<script src="app/content/contentManagement/business/business.state.js"></script>
+<!--用户咨询管理 -->
+<script src="app/content/contentManagement/consultation/consultation.state.js"></script>
+<!--后台管理 -->
+<script src="app/content/backManagement/portalManagement/portalManageService.state.js"></script>
+<!---->
+<script src="app/layouts/messageTips/messageTips.controller.js"></script>
+</body>
+</html>
