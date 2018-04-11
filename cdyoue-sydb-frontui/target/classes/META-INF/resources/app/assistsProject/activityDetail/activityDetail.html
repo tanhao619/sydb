@@ -1,0 +1,31 @@
+<div class="wrap bgGray">
+ <div class="layout w_detailPage w_placeDetail">
+  <div class="breadcrumb">
+   <a ui-sref="">双创服务</a>
+   <span>＞</span>
+   <a ui-sref="">路演活动</a>
+   <span>></span>
+   <span>活动详情</span>
+  </div>
+  <div class="clearfix">
+   <div class="pull-right w_abstract">
+    <p class="w_h"><span class="w_name">{{vm.place.title}}</span></p>
+    <div class="w_detail">
+     <p>{{place.title}}</p>
+     <p>浏览次数:<b class="w_orange">{{vm.place.viewsCount}}</b></p>
+     <p>发布时间:<b class="w_orange">{{vm.place.publishTime}}</b></p>
+      <p>活动时间：<b class="w_orange">{{vm.place.startTime}}</b></p>
+      <p>活动地点：<b class="w_orange">{{vm.place.location | workPlaceDetailFilter}}</b></p>
+      <p>联系人：<b class="w_orange">{{vm.place.contact.person}}</b></p>
+      <p>联系电话:<b class="w_orange">{{vm.place.contact.phone}}</b></p>
+      <p>活动规模:<b class="w_orange">{{vm.place.peopleNumber}}人</b></p>
+   </div>
+
+
+  </div>
+  <h6 class="w_headline">详细信息</h6>
+  <div class="w_content" ng-bind-html="vm.place.content">
+  </div>
+
+ </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="financing">
+    <div class="bottom">
+        <div class="financingTitle">
+            我的融资
+        </div>
+    </div>
+
+    <div class="publishFinancing">
+        <button class="btn btn-primary" ui-sref="publishNeed">发布融资</button>
+    </div>
+    <div class="content">
+        <table class="table table-responsive">
+            <thead class="headContent">
+            <tr>
+                <th width="300">项目名称</th>
+                <th width=440>项目概述</th>
+                <th width="124">融资需求</th>
+                <th width="100">审核状态</th>
+            </tr>
+            </thead>
+        </table>
+        <div class="detailContent">
+            <table class="table table-responsive" ng-repeat="item in vm.pager.list">
+                <tbody>
+                <tr  ui-sref="financingDetail({id:item.id})">
+                    <td width="300">
+                        <div class="picture">
+                            <img src="{{SY_UploadBasePath}}{{item.imgUrl}}">
+                            <span title="{{item.name}}">{{item.name}}</span>
+                        </div>
+                    </td>
+                    <td width=440>
+                        {{item.summary}}
+                    </td>
+                    <td width="124">{{item.fund}}</td>
+                    <td ng-if="item.status == 0" title="{{item.status|approveStatusFilter}}" width="100"><img src="/assets/images/personalCenter/icon2.png"></td>
+                    <td ng-if="item.status == 2" title="{{item.status|approveStatusFilter}}" width="100"><img src="/assets/images/personalCenter/icon3.png"></td>
+                    <td ng-if="item.status == 1" title="{{item.status|approveStatusFilter}}" width="100"><img src="/assets/images/personalCenter/icon4.png"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h4 class="text-danger" ng-if = "!vm.pager.list.length">抱歉！暂无数据！</h4>
+        <div ng-if="vm.pager.list.length" class="widget-page">
+            <youe-page pageinfo="vm.pager" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+        </div>
+    </div>
+</div>

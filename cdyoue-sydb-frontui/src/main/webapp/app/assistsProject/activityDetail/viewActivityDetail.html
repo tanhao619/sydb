@@ -1,0 +1,76 @@
+<div class="bgGray wrap w_list_public">
+    <div class="layout w_innovation w_IP_buy">
+        <div class="breadcrumb">
+            <a ui-sref="assistsProject">助力创业</a>
+            <span>＞</span>
+            <span><a ui-sref="ActivitiesList">路演活动</a></span>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">活动详情</span>
+        </div>
+        <div class="titleAndSearch">
+            <!--<p class="secondActive">活动详情</p>-->
+            <div class="search setShare">
+                <section>
+                    <a class="share"><img src="/assets/images/assistsInnovation/share.png"></a>
+                    <div class="jiathis_style_32x32">
+                        <a class="jiathis_button_tsina"></a>
+                        <a class="jiathis_button_qzone"></a>
+                        <a class="jiathis_button_cqq"></a>
+                        <a class="jiathis_button_weixin"></a>
+                        <!--<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>-->
+                        <!--<a class="jiathis_counter_style"></a>-->
+                    </div>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                </section>
+            </div>
+        </div>
+       <div class="viewActivityDetail">
+           <div class="title">
+               <p class="">
+                   <span>{{vm.place.title}}</span>
+                   <span class="view_num"><img src="/assets/images/assistsProject/sprites.png">{{vm.place.viewsCount}}</span>
+               </p>
+              <p>发布时间：{{vm.place.publishTime}}</p>
+           </div>
+           <div class="viewActivityContent">
+               <p>
+                   <span class="span">
+                       <span class="arrow_title">【活动时间】</span>{{vm.place.startTime}}
+                   </span>
+                   <span class="span">
+                       <span class="arrow_title">【活动规模】</span>{{vm.place.peopleNumber}}人
+                   </span>
+               </p>
+               <p>
+                   <span class="span">
+                       <span class="arrow_title">【联系人】</span>{{vm.place.contact.person}}
+                   </span>
+                   <span class="span">
+                       <span class="arrow_title">【联系电话】</span>{{vm.place.contact.phone}}
+                   </span>
+               </p>
+               <p>
+                   <span class="activtyPlace span">
+                       <span class="arrow_title">【活动地点】</span>{{vm.place.location | workPlaceDetailFilter}}
+                   </span>
+               </p>
+               <div class="detailContent" ng-bind-html="vm.place.content"></div>
+               <div class="erweima">
+                    <span>
+                       <span class="arrow_title"><img src="/assets/images/assistsProject/shaoma.png">扫码报名</span>
+                   </span>
+                   <div class="code">
+                       <div>
+                           <img src="/assets/images/assistsProject/qrCode.png">
+                       </div>
+
+                   </div>
+               </div>
+           </div>
+       </div>
+
+
+        <!--<div class="w_noList" ng-if = 'vm.tipPop || !vm.pager.list.length > 0'>查询结果为空</div>-->
+    </div>
+</div>
+<!--<script src="/vendor/share/share.js"></script>-->

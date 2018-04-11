@@ -1,0 +1,30 @@
+<div class="wrap bgGray">
+    <div class="layout">
+        <!--breadcrumb-->
+        <div class="breadcrumb">
+            <a ui-sref="intellectualProperty">知识产权</a>
+            <span>＞</span>
+            <a ui-sref="buyIP">知产求购</a>
+        </div>
+        <!--breadcrumb end-->
+    </div>
+</div>
+
+<div class="wrap w_postProjectInfo">
+    <!--发布后界面  系统出错-->
+    <div class="layout" ng-if="!vm.showContent">
+        <i class="w_icon_error"></i>
+        <p class="w_info">系统出错了<br/>请联系管理员：010-131551345</p>
+    </div>
+    <!--发布后界面 正常 -->
+    <div class="layout" ng-if="vm.showContent">
+        <i class="w_icon_success"></i>
+        <p class="w_info">恭喜您，需求发布成功，并提交平台审核,我们将在 3 个<br/>工作日内完成审核，请您及时关注审核动态。</p>
+        <div class="w_moreInfo">
+            <p>点击 <button class="button_orange" ui-sref="personalBuy">我求购知产</button> 可查看需求详情。</p>
+            <p class="w_APPQR">您也可以扫描下方<br/>二维码，下载APP，及时查看审核动态。</p>
+        </div>
+    </div>
+
+</div>
+<div class="wrap bgGray w_info_gap"></div>

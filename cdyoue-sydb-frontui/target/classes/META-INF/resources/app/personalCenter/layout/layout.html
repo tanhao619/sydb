@@ -1,0 +1,11 @@
+<div>
+    <p class="userCenter">用户中心</p>
+    <ul class="sidebar-menu">
+        <li class="nav-item" ng-repeat="navItem in vm.navItems" ng-class="{active: vm.selectedNavItem == navItem.name}">
+            <!--<div class="bg-li"></div>-->
+            <a  href="" ng-if="$index<6" ui-sref="{{navItem.href}}" ui-sref-opts="{reload:true}" ng-click="vm.navClick(navItem.name, $index)">{{navItem.name}}</a>
+            <!--<a ng-if="navItem.targetBlank" href="" ui-sref="{{navItem.href}}" ui-sref-opts="{reload:true}" ng-click="vm.navClick(navItem.name, $index)" target="_blank">{{navItem.name}}</a>-->
+          <a ng-if="navItem.url" href="{{navItem.url}}">{{navItem.name}}</a>
+        </li>
+    </ul>
+</div>

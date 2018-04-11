@@ -1,0 +1,17 @@
+logging:
+  level:
+    org:
+      springframework:
+        security: debug
+server:
+  port: 9206
+  session:
+    timeout: 300
+
+
+spring:
+  http:
+    multipart:
+      max-file-size: 500Mb
+      max-request-size: 500Mb
+

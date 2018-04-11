@@ -1,0 +1,52 @@
+<div class="wrap">
+    <div class="layout">
+        <div class="login">
+            <div class="title">
+                用户注册
+            </div>
+            <div class="content">
+                <div class="banner">
+                    <img src="/assets/images/login/register.png">
+                </div>
+                <div class="rightContent">
+                    <form name="myForm">
+                        <p>
+                            <span>手机号码</span>
+                            <input type="text" name="tel" ng-model="vm.telRequest.tel" required ng-pattern="/^1[34578]\d{9}$/">
+                        </p>
+                        <span class="w_tips w_required" style="color: red" ng-show="myForm.tel.$touched && myForm.tel.$error.pattern">手机格式不对</span>
+                        <span class="w_tips w_required" style="color: red" ng-show="myForm.tel.$touched && myForm.tel.$error.required">手机号必填</span>
+                        <p>
+                            <span>验证码</span>
+                            <input type="text" ng-model="vm.telRequest.captcha" name="captcha"  class="validateCode" required>
+                            <button ng-click="vm.telCaptcha(vm.telRequest.tel)"  ng-disabled="vm.b" ng-bind = "vm.paracont" class="getCode">获取验证码</button>
+                            <span class="w_tips w_required" style="color: red" ng-show="myForm.captcha.$touched && myForm.captcha.$error.required">验证码必填</span>
+                        </p>
+                        <p>
+                            <span>密码</span>
+                            <input type="password" ng-model="vm.telRequest.password" class="registerPassword" required>
+                            <span class="w_tips w_required" style="color: red" ng-show="myForm.password.$touched && myForm.password.$error.required">密码必填</span>
+                        </p>
+                        <p>
+                            <span style="margin-left: 0">确认密码</span>
+                            <input type="password" name="rePassword" ng-model="vm.telRequest.rePassword" required>
+                            <span class="w_tips w_required" style="color: red"   ng-show="myForm.rePassword.$touched && myForm.rePassword.$error.required">请再次填写密码</span>
+                        </p>
+                        <div class="wrapCheck">
+                            <div class="check" ng-class="{active:vm.showCheckbox}">
+                                <input type="checkbox" ng-model="vm.telRequest.agree" ng-click="vm.show()">
+                            </div>
+                            <span>同意</span>
+                            <span>《协议》</span>
+                        </div>
+                        <div class="registerBtn">
+                            <button class="btn btn-lm btn-warn" ng-disabled="!vm.telRequest.agree || myForm.$invalid || !myForm.$dirty" ng-click="vm.save()">注 册</button>
+                        </div>
+                        <div class="register">已有账号？立即<a ui-sref="login">登录</a></div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

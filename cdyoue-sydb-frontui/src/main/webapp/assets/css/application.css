@@ -1,0 +1,4920 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft YaHei";
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+a:hover {
+  text-decoration: none;
+}
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+img {
+  border: none;
+}
+ul,
+ol,
+dl {
+  list-style: none;
+}
+input,
+select,
+button,
+textarea {
+  outline: none;
+  background: none;
+  box-shadow: none;
+}
+label {
+  cursor: pointer;
+}
+.wrap {
+  width: 100%;
+  min-width: 1200px;
+}
+.layout {
+  width: 1200px;
+  margin: 0 auto;
+}
+.header_w {
+  transition: all 0.5s;
+  position: static;
+  height: 100px;
+  padding-top: 17px;
+  background-color: #122d4b;
+  background: url('/assets/images/header/heards.png');
+}
+a.logo {
+  display: block;
+  color: #c8e6ff;
+  font-size: 16px;
+  width: 330px;
+  height: 50px;
+}
+a.logo .icon {
+  float: left;
+  width: 41px;
+  height: 41px;
+  margin-left: -55px;
+  display: block;
+  background-image: url("/assets/images/header/logos.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+a.logo:hover {
+  color: #c8e6ff;
+}
+a.logo img {
+  width: 100%;
+  height: 100%;
+}
+a.logo b {
+  display: block;
+  line-height: 21px;
+  font-size: 18px;
+}
+.logo_nav {
+  color: #e6e6e6;
+  font-size: 18px;
+}
+.logo_nav .navTitle {
+  height: 47px;
+}
+.logo_nav a {
+  display: block;
+  border-bottom: 2px solid transparent;
+  position: relative;
+  padding-top: 1px;
+  vertical-align: bottom;
+}
+.logo_nav a:focus {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+.logo_nav .active a,
+.logo_nav li:hover a {
+  color: #fff;
+  border-color: #FFF;
+}
+.logo_nav li {
+  float: left;
+  line-height: 57px;
+  margin-left: 40px;
+}
+.logo_nav li.header_log {
+  color: #419cea;
+  font-size: 16px;
+  font-weight: normal;
+}
+.logo_nav li.header_log a {
+  display: inline-block;
+  border-color: transparent;
+}
+.logo_nav li.header_log a:first-child {
+  max-width: 68px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+.logo_nav li.header_log span {
+  margin: 0 5px;
+}
+#j_two_nav .j_ul {
+  position: absolute;
+  top: 57px;
+  left: -12px;
+  width: 140%;
+  max-width: 100px ;
+  z-index: 100;
+  background: #262629;
+  display: none;
+}
+#j_two_nav .j_ul .j_li {
+  color: #fff;
+  float: none;
+  height: 40px;
+  line-height: 40px;
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 100;
+}
+#j_two_nav .j_ul .j_li:hover {
+  background: #2598f2;
+  cursor: pointer;
+}
+.footer_w {
+  height: 110px;
+  padding-top: 27px;
+  background-color: #0d426f;
+  color: #fff;
+  text-align: center;
+}
+.footR {
+  padding-top: 10px;
+  font-size: 12px;
+  line-height: 30px;
+}
+.breadcrumb {
+  background: none;
+  margin-top: 20px;
+  font-size: 14px;
+  padding: 0;
+}
+.breadcrumbActive {
+  color: #467aa6;
+}
+.widget-page {
+  width: 1200px;
+  height: 81px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.widget-page .pull-right {
+  float: none!important;
+  position: relative;
+}
+.widget-page .pull-right ul {
+  position: absolute;
+  left: 37%;
+}
+.titleAndSearch {
+  margin-bottom: 50px;
+  clear: both;
+}
+.titleAndSearch .secondActive {
+  color: #084d88;
+  font-size: 16px;
+  font-weight: bolder;
+  float: left;
+}
+.titleAndSearch .search {
+  width: 310px;
+  height: 30px;
+  float: right;
+  margin-top: -20px;
+}
+.titleAndSearch .search input {
+  width: 230px;
+  height: 30px;
+  border: 1px solid #084d88;
+  padding-left: 5px;
+  border-radius: 5px 0 0 5px;
+}
+.titleAndSearch .search button {
+  padding: 0px 20px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  font-size: 15px;
+  vertical-align: bottom;
+  border-radius: 0 5px 5px 0;
+  background: #084d88;
+  border: none;
+  margin-left: -4px;
+}
+.titleAndSearch .search .publishSaleIP {
+  width: 115px;
+  height: 35px;
+  background: red;
+  color: #fff;
+  text-align: center;
+  padding: 8px 15px;
+}
+.modal .modal-dialog .modal-content {
+  border-radius: 0;
+}
+.modal .modal-dialog .modal-content .modal-header {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #bcbcbc;
+}
+.modal .modal-dialog .modal-content .modal-header h4 {
+  font-size: 30px;
+  color: #e20315;
+}
+.modal .modal-dialog .modal-content .modal-body {
+  padding: 30px 40px;
+}
+.modal .modal-dialog .modal-content .modal-body .content_tips {
+  font-size: 18px;
+  padding-bottom: 15px;
+}
+.modal .modal-dialog .modal-content .modal-body .content_tips .gray {
+  color: #9A9A9A;
+}
+.modal .modal-dialog .modal-content .modal-body .content p span {
+  font-size: 18px!important;
+  width: 110px;
+  display: inline-block;
+}
+.modal .modal-dialog .modal-content .modal-body .content p input {
+  margin-left: 15px;
+  padding-left: 5px;
+}
+.modal .modal-dialog .modal-content .modal-body .content p textarea {
+  margin-left: 15px;
+  padding-left: 5px;
+  resize: none;
+}
+.modal .modal-dialog .modal-content .modal-body .modal-footer {
+  border-top: none;
+  text-align: center;
+}
+.modal .modal-dialog .modal-content .modal-body .modal-footer button {
+  border: none;
+  width: 200px;
+  height: 55px;
+  color: #ffffff;
+  font-size: 24px;
+  border-radius: 0;
+  font-weight: normal;
+  background-color: #e20315;
+}
+.modal .modal-dialog .modal-content .modal-body .modal-footer button:hover {
+  background-color: #c90315;
+}
+#loginModal .modal-dialog {
+  width: 300px!important;
+}
+#loginModal .modal-content .modal-header {
+  padding: 0px;
+  height: 40px;
+}
+#loginModal .modal-content .modal-header h4 {
+  display: inline-block;
+  color: red;
+  font-size: 21px!important;
+  text-align: center;
+}
+#loginModal .modal-content .modal-header span {
+  float: right;
+  color: #333;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+#loginModal .modal-content .modal-body {
+  padding: 10px 40px;
+}
+#loginModal .modal-content .modal-body h3 {
+  text-align: center;
+  color: #666;
+}
+#loginModal .modal-content .modal-footer {
+  text-align: center;
+  border-top: none;
+}
+#loginModal .modal-content .modal-footer a {
+  width: 130px;
+  height: 40px;
+  border: none;
+  background: red;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  margin-left: 25px;
+  cursor: pointer;
+  padding: 8px 35px;
+  font-size: 16px;
+}
+#loginModal .contentTips .modal-header {
+  height: 40px;
+}
+#loginModal .contentTips .modal-header h3 {
+  display: inline-block;
+  margin-top: -5px;
+  color: red;
+  font-size: 21px!important;
+  text-align: center;
+}
+#loginModal .contentTips .modal-header span {
+  float: right;
+  color: #333;
+  cursor: pointer;
+}
+#loginModal .contentTips .tips {
+  height: 75px;
+  text-align: center;
+}
+#loginModal .contentTips .tips div {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-top: 20px;
+}
+#loginModal .contentTips .tips h3 {
+  display: inline-block;
+  color: #666;
+  font-size: 18px!important;
+  vertical-align: bottom;
+  font-weight: bold;
+  margin-left: 6px;
+}
+#loginModal .contentTips .modal-footer {
+  padding: 2px;
+  border-top: none;
+}
+#loginModal .contentTips .modal-footer div {
+  border-top: 1px solid #ececec;
+}
+#loginModal .contentTips .modal-footer a {
+  width: 130px;
+  height: 40px;
+  border: none;
+  background: red;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  margin-left: 25px;
+  cursor: pointer;
+  padding: 6px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.assistsInnovation .container {
+  width: 1200px !important;
+}
+.assistsInnovation .innovationBanner {
+  margin-top: 20px;
+}
+.assistsInnovation .innovationBanner .asideLeft {
+  width: 900px;
+  float: left;
+}
+.assistsInnovation .innovationBanner .asideLeft .sliderImg {
+  height: 340px;
+  width: 900px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 10px;
+}
+.assistsInnovation .innovationBanner .asideLeft .sliderImg .sliderContent .item {
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+.assistsInnovation .innovationBanner .asideLeft .sliderImg .sliderContent .item img {
+  width: 900px;
+  height: 340px;
+}
+.assistsInnovation .innovationBanner .asideLeft .sliderImg .sliderContent .item.active {
+  left: 0;
+}
+.assistsInnovation .innovationBanner .asideLeft .sliderImg .sliderInput {
+  position: absolute;
+  bottom: 7px;
+  right: 10px;
+  left: 40%;
+  list-style: none;
+}
+.assistsInnovation .innovationBanner .asideLeft .sliderImg .sliderInput li {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  background: #000;
+  opacity: .5;
+  margin: 0 5px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.assistsInnovation .innovationBanner .asideLeft .sliderImg .sliderInput li.active {
+  background: #076bc1;
+  border: none;
+}
+.assistsInnovation .innovationBanner .asideLeft .sliderImg .sliderLeft {
+  cursor: pointer;
+}
+.assistsInnovation .innovationBanner .asideLeft .sliderImg .sliderRight {
+  cursor: pointer;
+}
+.assistsInnovation .innovationBanner .asideRight {
+  margin-left: 30px;
+  width: 270px;
+  float: left;
+}
+.assistsInnovation .innovationBanner .asideRight .rightItem {
+  width: 270px;
+  height: 70px;
+  line-height: 70px;
+  background: #0f6eb1;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.assistsInnovation .innovationBanner .asideRight .rightItem .icon {
+  width: 94px;
+  float: left;
+  text-align: center;
+}
+.assistsInnovation .innovationBanner .asideRight .rightItem .icon img {
+  width: 34px;
+  height: 33px;
+}
+.assistsInnovation .innovationBanner .asideRight .rightItem p {
+  float: left;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+.assistsInnovation .content {
+  margin-top: 30px;
+}
+.assistsInnovation .content .contentLeft {
+  float: left;
+  width: 760px;
+  margin-bottom: 18px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation {
+  margin-top: 20px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation.professionalInterpretation {
+  margin-top: 58px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation.projectLecture {
+  margin-top: 30px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .title {
+  width: 760px;
+  height: 40px;
+  border-bottom: 1px solid #dcdcdc;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .title p {
+  color: #084d88;
+  padding-bottom: 18px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .title p:first-of-type {
+  font-size: 15px;
+  font-weight: bold;
+  float: left;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .title a {
+  font-size: 14px;
+  float: right;
+  color: #084d88;
+  padding-bottom: 18px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent {
+  margin-top: 10px;
+  width: 760px;
+  height: 170px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .item {
+  width: 240px;
+  height: 170px;
+  margin-left: 20px;
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .item:first-of-type {
+  margin-left: 0;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .item .itemPicture {
+  width: 240px;
+  height: 170px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .item .itemPicture img {
+  width: 100%;
+  height: 100%;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .item .mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  padding-top: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  -moz-transition: background 0.5s;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .item .mask p {
+  color: #fff;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .readLeft {
+  float: left;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .readLeft .readImg {
+  width: 240px;
+  height: 170px;
+  cursor: pointer;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .readLeft .readImg img {
+  width: 100%;
+  height: 100%;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .readRight {
+  float: left;
+  margin-left: 20px;
+  width: 500px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .readRight div {
+  border-bottom: 1px solid #dcdcdc;
+  cursor: pointer;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .readRight div p.listName {
+  font-size: 15px;
+  color: #333;
+  font-weight: bold;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .readRight div p.listIntro {
+  font-size: 14px;
+  color: #666;
+  width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 60px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectLeft {
+  width: 320px;
+  height: 170px;
+  float: left;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectLeft .readImg {
+  width: 320px;
+  height: 170px;
+  cursor: pointer;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectLeft .readImg img {
+  width: 100%;
+  height: 100%;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectRight {
+  width: 420px;
+  float: left;
+  margin-left: 20px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectRight div {
+  cursor: pointer;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectRight div p:first-of-type {
+  font-size: 15px;
+  font-weight: bold;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectRead {
+  margin-top: 10px;
+  position: relative;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectRead ul {
+  background: #f8f8f8;
+  width: 760px;
+  position: absolute;
+  left: 0;
+  height: 170px;
+  padding-left: 0;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectRead ul li {
+  border-bottom: 1px solid #fff;
+  height: 35px;
+  padding-top: 7px;
+  cursor: pointer;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectRead ul li:last-of-type {
+  border-bottom: none;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectRead ul li p {
+  color: #666;
+  font-size: 14px;
+  float: left;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectRead ul li p:first-of-type {
+  width: 300px;
+  padding-left: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectRead ul li p:nth-of-type(2) {
+  margin-left: 240px;
+}
+.assistsInnovation .content .contentLeft .ExpertRecommendation .recomentdationContent .projectRead ul li p:nth-of-type(3) {
+  margin-left: 46px;
+}
+.assistsInnovation .content .contentRight {
+  float: left;
+  margin-left: 40px;
+  width: 400px;
+}
+.assistsInnovation .content .contentRight .expertAchievement {
+  width: 400px;
+  margin-top: 20px;
+}
+.assistsInnovation .content .contentRight .expertAchievement.projectDeclaration {
+  margin-top: 30px;
+}
+.assistsInnovation .content .contentRight .expertAchievement .rightTitle {
+  width: 400px;
+  height: 40px;
+  border-bottom: 1px solid #dcdcdc;
+}
+.assistsInnovation .content .contentRight .expertAchievement .rightTitle p {
+  color: #084d88;
+  padding-bottom: 18px;
+}
+.assistsInnovation .content .contentRight .expertAchievement .rightTitle p:first-of-type {
+  font-size: 15px;
+  font-weight: bold;
+  float: left;
+}
+.assistsInnovation .content .contentRight .expertAchievement .rightTitle a {
+  color: #084d88;
+  padding-bottom: 18px;
+  font-size: 14px;
+  float: right;
+}
+.assistsInnovation .content .contentRight .expertAchievement .achievement {
+  margin-top: 20px;
+  width: 400px;
+  height: 208px;
+  position: relative;
+  cursor: pointer;
+}
+.assistsInnovation .content .contentRight .expertAchievement .achievement .achievementImg {
+  width: 400px;
+  height: 208px;
+}
+.assistsInnovation .content .contentRight .expertAchievement .achievement .achievementImg img {
+  width: 100%;
+  height: 100%;
+}
+.assistsInnovation .content .contentRight .expertAchievement .achievement .mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  padding-top: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  -moz-transition: background 0.5s;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+.assistsInnovation .content .contentRight .expertAchievement .achievement .mask p {
+  color: #fff;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+.assistsInnovation .content .contentRight .reportingItems .rightTitle {
+  border-bottom: none;
+}
+.assistsInnovation .content .contentRight .reportingItems .reportProject {
+  background: #f8f8f8;
+}
+.assistsInnovation .content .contentRight .reportingItems .reportProject .projectList {
+  padding-left: 15px;
+  width: 400px;
+}
+.assistsInnovation .content .contentRight .reportingItems .reportProject .projectList li {
+  height: 60px;
+  line-height: 49px;
+  padding-left: 10px;
+  width: 370px;
+  cursor: pointer;
+  border-bottom: 1px solid #dcdcdc;
+}
+.assistsInnovation .content .contentRight .reportingItems .reportProject .projectList li:last-of-type {
+  border-bottom: none;
+}
+.assistsInnovation .content .contentRight .reportingItems .reportProject .projectList li p {
+  float: left;
+  color: #666;
+  font-size: 15px;
+  width: 330px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.assistsInnovation .content .contentRight .reportingItems .reportProject .projectList li p:before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #076bc1;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.assistsInnovation .content .contentRight .reportingItems .reportProject .projectList li:hover p:before {
+  background: #076bc1;
+}
+.assistsInnovation .deviceRecommendation {
+  width: 1200px;
+  margin-top: 20px;
+  clear: both;
+}
+.assistsInnovation .deviceRecommendation .title {
+  width: 1200px;
+  height: 40px;
+  border-bottom: 1px solid #dcdcdc;
+}
+.assistsInnovation .deviceRecommendation .title p {
+  color: #084d88;
+  padding-bottom: 18px;
+}
+.assistsInnovation .deviceRecommendation .title p:first-of-type {
+  font-size: 15px;
+  font-weight: bold;
+  float: left;
+}
+.assistsInnovation .deviceRecommendation .title a {
+  color: #084d88;
+  padding-bottom: 18px;
+  font-size: 14px;
+  float: right;
+}
+.assistsInnovation .deviceRecommendation .deviceContent {
+  width: 1200px;
+  margin-top: 20px;
+}
+.assistsInnovation .deviceRecommendation .deviceContent .deviceLeft {
+  width: 240px;
+  height: 265px;
+  float: left;
+}
+.assistsInnovation .deviceRecommendation .deviceContent .deviceLeft img {
+  width: 100%;
+  height: 100%;
+}
+.assistsInnovation .deviceRecommendation .deviceRight {
+  margin-left: 20px;
+  width: 940px;
+  height: 265px ;
+  float: left;
+}
+.assistsInnovation .deviceRecommendation .deviceRight .smallItem {
+  width: 300px;
+  height: 122px;
+  margin-right: 20px;
+  float: left;
+  margin-bottom: 20px;
+  position: relative;
+}
+.assistsInnovation .deviceRecommendation .deviceRight .smallItem:nth-of-type(3n) {
+  margin-right: 0px;
+}
+.assistsInnovation .deviceRecommendation .deviceRight .smallItem .itemPicture {
+  width: 300px;
+  height: 122px;
+}
+.assistsInnovation .deviceRecommendation .deviceRight .smallItem .itemPicture img {
+  width: 100%;
+  height: 100%;
+}
+.assistsInnovation .deviceRecommendation .deviceRight .smallItem .mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  padding-top: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  -moz-transition: background 0.5s;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+.assistsInnovation .deviceRecommendation .deviceRight .smallItem .mask p {
+  color: #fff;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  font-size: 13px;
+}
+.assistsInnovation .deviceRecommendation .deviceRight .smallItem .mask p .colorMoney {
+  color: #bf9a1c;
+}
+.assistsInnovation .knowledgeAndFinancing {
+  margin-top: 20px;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy {
+  width: 360px;
+  float: left;
+  margin-top: 20px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .title {
+  width: 360px;
+  height: 40px;
+  border-bottom: 1px solid #dcdcdc;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .title p {
+  color: #084d88;
+  padding-bottom: 18px;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .title p:first-of-type {
+  font-size: 15px;
+  font-weight: bold;
+  float: left;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .title a {
+  color: #084d88;
+  padding-bottom: 18px;
+  font-size: 14px;
+  float: right;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .assetBuyContent {
+  margin-top: 20px;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .assetBuyContent .assetItem {
+  width: 170px;
+  height: 120px;
+  float: left;
+  margin-right: 20px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .assetBuyContent .assetItem:nth-of-type(2n) {
+  margin-right: 0px;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .assetBuyContent .assetItem .itemImg {
+  width: 170px;
+  height: 120px;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .assetBuyContent .assetItem .itemImg img {
+  width: 100%;
+  height: 100%;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .assetBuyContent .assetItem .mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  padding-top: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  -moz-transition: background 0.5s;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .assetBuyContent .assetItem .mask p {
+  color: #fff;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  font-size: 13px;
+}
+.assistsInnovation .knowledgeAndFinancing .assetBuy .assetBuyContent .assetItem .mask p .colorMoney {
+  color: #bf9a1c;
+}
+.assistsInnovation .knowledgeAndFinancing .FinancingRecommend {
+  margin-left: 30px;
+}
+.assistsInnovation .knowledgeAndFinancing .FinancingRecommend .title {
+  width: 400px;
+}
+.assistsInnovation .knowledgeAndFinancing .FinancingRecommend .RecommendItem {
+  width: 400px;
+  height: 250px;
+  margin-top: 20px;
+  position: relative;
+}
+.assistsInnovation .knowledgeAndFinancing .FinancingRecommend .RecommendItem .itemImg {
+  width: 400px;
+  height: 250px;
+}
+.assistsInnovation .knowledgeAndFinancing .FinancingRecommend .RecommendItem .itemImg img {
+  width: 100%;
+  height: 100%;
+}
+.assistsInnovation .knowledgeAndFinancing .FinancingRecommend .RecommendItem .mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  padding-top: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  -moz-transition: background 0.5s;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+.assistsInnovation .knowledgeAndFinancing .FinancingRecommend .RecommendItem .mask p {
+  color: #fff;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  font-size: 13px;
+}
+.assistsInnovation .knowledgeAndFinancing .FinancingRecommend .RecommendItem .mask p .colorMoney {
+  color: #bf9a1c;
+}
+.deviceLibrary ul li {
+  float: left;
+  margin-right: 20px;
+}
+.f_deviceDetailContent .industryCategory {
+  width: 1200px;
+  height: 90px;
+  background: #f8f8f8;
+  border: 1px solid #dcdcdc;
+  padding-top: 10px;
+}
+.f_deviceDetailContent .industryCategory p {
+  float: left;
+  width: 90px;
+  color: #666;
+  font-size: 15px;
+  margin-left: 10px;
+}
+.f_deviceDetailContent .industryCategory .deviceLibrary {
+  float: left;
+  width: 1050px;
+  margin-top: -3px;
+}
+.f_deviceDetailContent .industryCategory .deviceLibrary ul {
+  padding-left: 0px;
+}
+.f_deviceDetailContent .industryCategory .deviceLibrary ul li {
+  float: left;
+  margin-right: 30px;
+  color: #666;
+  font-size: 15px;
+  cursor: pointer;
+  line-height: 30px;
+}
+.f_deviceDetailContent .industryCategory .deviceLibrary ul li.active {
+  font-weight: bold;
+  color: #076bc1;
+}
+.f_deviceDetailContent .allCategory {
+  margin-top: 32px;
+  margin-bottom: 75px;
+}
+.f_deviceDetailContent .allCategory p {
+  font-size: 16px;
+  color: #666;
+}
+.f_deviceDetailContent .allCategory .newDeviceLibrary {
+  margin-top: 20px;
+  width: 1200px;
+}
+.f_deviceDetailContent .allCategory .newDeviceLibrary ul {
+  padding-left: 0;
+}
+.f_deviceDetailContent .allCategory .newDeviceLibrary ul li {
+  width: 600px;
+  background: #f8f8f8;
+  text-align: center;
+  color: #333;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #dcdcdc;
+  float: left;
+}
+.f_deviceDetailContent .allCategory .newDeviceLibrary ul li.active {
+  color: #fff;
+  background: #076bc1 ;
+  border: none;
+}
+.f_deviceDetailContent .deviceContentDetail {
+  margin-top: 20px;
+  clear: both;
+}
+.f_deviceDetailContent .deviceContentDetail .item {
+  width: 224px;
+  height: 115px;
+  margin-right: 20px;
+  float: left;
+  margin-bottom: 20px;
+  position: relative;
+}
+.f_deviceDetailContent .deviceContentDetail .item:nth-of-type(5n) {
+  margin-right: 0px;
+}
+.f_deviceDetailContent .deviceContentDetail .item .itemPicture {
+  width: 224px;
+  height: 115px;
+}
+.f_deviceDetailContent .deviceContentDetail .item .itemPicture img {
+  width: 100%;
+  height: 100%;
+}
+.f_deviceDetailContent .deviceContentDetail .item .mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  padding-top: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  -moz-transition: background 0.5s;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+.f_deviceDetailContent .deviceContentDetail .item .mask p {
+  color: #fff;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  font-size: 13px;
+}
+.f_deviceDetailContent .deviceContentDetail .item .mask p .colorMoney {
+  color: #bf9a1c;
+}
+.projectLecture {
+  width: 1200px;
+  margin-top: 30px;
+  clear: both;
+}
+.projectLecture .item {
+  width: 1200px;
+  height: 160px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 20px;
+  background: #f8f8f8;
+}
+.projectLecture .item .lectureImg {
+  float: left;
+  width: 175px;
+  height: 125px;
+  margin: 20px;
+}
+.projectLecture .item .lectureImg img {
+  width: 100%;
+  height: 100%;
+}
+.projectLecture .item .lectureIntro {
+  margin-left: 20px;
+  float: left;
+  width: 950px;
+  height: 140px;
+  margin-top: 35px;
+}
+.projectLecture .item .lectureIntro p {
+  font-size: 16px;
+  color: #333;
+}
+.projectLecture .item .lectureIntro p:first-of-type {
+  font-weight: bold;
+}
+.projectLecture .item .lectureIntro p:nth-of-type(2) {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.projectLecture .item .lectureIntro p:nth-of-type(2) .gap {
+  margin-right: 170px;
+}
+.projectLecture .item .lectureIntro p:nth-of-type(2) .bold {
+  font-weight: bold;
+}
+.projectLecture .item .look {
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 0px;
+}
+.projectLecture .item .look button {
+  background: red;
+  border: none;
+  border-radius: 0;
+  padding: 5px 25px;
+  width: 115px;
+  height: 35px;
+  color: #fff;
+}
+.expertReadDetail {
+  width: 1200px;
+  margin-top: 30px;
+  clear: both;
+  height: 165px;
+}
+.expertReadDetail .item {
+  float: left;
+  width: 600px;
+  height: 200px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background: #f8f8f8;
+}
+.expertReadDetail .item:nth-of-type(2n) {
+  margin-right: 0px;
+}
+.expertReadDetail .item .lectureImg {
+  width: 175px;
+  height: 125px;
+  float: left;
+  margin: 20px;
+}
+.expertReadDetail .item .lectureImg img {
+  width: 100%;
+  height: 100%;
+}
+.expertReadDetail .item .lectureIntro {
+  width: 360px;
+  float: left;
+}
+.expertReadDetail .item .lectureIntro p {
+  margin-top: 15px;
+}
+.expertReadDetail .item .lectureIntro p:first-of-type {
+  font-size: 16px;
+  color: #333;
+}
+.expertReadDetail .item .lectureIntro p:nth-of-type(2) {
+  font-size: 14px;
+  color: #666;
+}
+.expertReadDetail .item .lectureIntro p:nth-of-type(2) span {
+  width: 360px;
+  height: 37px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.expertReadDetail .item .lectureIntro p:nth-of-type(2) a {
+  display: inline-block;
+  color: red;
+}
+.expertReadDetail .item .lectureIntro p button img {
+  margin-right: 10px;
+}
+.expertAchievements {
+  clear: both;
+  margin-top: 20px;
+  min-height: 400px;
+}
+.expertAchievements .item {
+  width: 1200px;
+  height: 165px;
+  margin-bottom: 20px;
+  background: #f8f8f8;
+  clear: both;
+  cursor: pointer;
+}
+.expertAchievements .item .lectureImg {
+  float: left;
+  width: 175px;
+  height: 125px;
+  margin: 20px;
+}
+.expertAchievements .item .lectureImg img {
+  width: 100%;
+  height: 100%;
+}
+.expertAchievements .item .lectureIntro {
+  margin-left: 20px;
+  float: left;
+  width: 963px;
+  height: 140px;
+  margin-top: 20px;
+}
+.expertAchievements .item .lectureIntro p {
+  font-size: 16px;
+  color: #333;
+}
+.expertAchievements .item .lectureIntro p:first-of-type {
+  font-size: 16px;
+  font-weight: bold;
+}
+.expertAchievements .item .lectureIntro p:first-of-type span {
+  color: #333;
+  font-size: 16px;
+}
+.expertAchievements .item .lectureIntro p:first-of-type span.itemName {
+  width: 520px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.expertAchievements .item .lectureIntro p:first-of-type span.publishTime {
+  float: right;
+  margin-right: 230px;
+}
+.expertAchievements .item .lectureIntro p:first-of-type span .red {
+  color: red;
+  font-size: 15px;
+}
+.expertAchievements .item .lectureIntro p:nth-of-type(2) {
+  width: 963px;
+  margin-top: 20px;
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.expertAchievements .item .look {
+  width: 100px;
+  float: left;
+  margin-top: 80px;
+  margin-left: 20px;
+}
+.deviceLibraryDetail .deviceDetail {
+  margin-top: 30px;
+  width: 1200px;
+  height: 210px;
+  border: 1px solid #dcdcdc;
+  clear: both;
+  background: #f8f8f8;
+}
+.deviceLibraryDetail .deviceDetail .deviceImg {
+  float: left;
+  width: 296px;
+  height: 170px;
+  margin: 20px;
+}
+.deviceLibraryDetail .deviceDetail .deviceImg img {
+  width: 100%;
+  height: 100%;
+}
+.deviceLibraryDetail .deviceInfo {
+  float: left;
+  margin-top: 40px;
+  width: 844px;
+}
+.deviceLibraryDetail .deviceInfo p {
+  margin-top: 10px;
+  color: #333;
+}
+.deviceLibraryDetail .deviceInfo p:first-of-type span {
+  display: inline-block;
+}
+.deviceLibraryDetail .deviceInfo p:first-of-type span:first-of-type {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+.deviceLibraryDetail .deviceInfo p.owner {
+  font-size: 14px;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+.deviceLibraryDetail .deviceInfo section {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+.deviceLibraryDetail .deviceInfo section .share {
+  float: left;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+.deviceLibraryDetail .deviceInfo section .share img {
+  width: 25px;
+  height: 25px;
+}
+.deviceLibraryDetail .deviceInfo section .bdsharebuttonbox {
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.deviceLibraryDetail .deviceInfo section p {
+  float: right;
+  margin-right: 20px;
+  margin-top: 8px;
+}
+.deviceLibraryDetail .deviceInfo section p button {
+  width: 110px;
+  height: 35px;
+  border: none;
+  background: red;
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+  font-size: 16px;
+}
+.deviceLibraryDetail .deviceBaseInfo {
+  margin-top: 40px;
+  clear: both;
+  height: 100px;
+}
+.deviceLibraryDetail .deviceBaseInfo p {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+.deviceLibraryDetail .deviceBaseInfo .detail {
+  width: 386px;
+  height: 75px;
+  float: left;
+  margin-right: 20px;
+  background: #f8f8f8;
+}
+.deviceLibraryDetail .deviceBaseInfo .detail table {
+  width: 100%;
+}
+.deviceLibraryDetail .deviceBaseInfo .detail table tr td:first-of-type {
+  width: 20%;
+}
+.deviceLibraryDetail .deviceBaseInfo .detail table tr td:last-of-type {
+  width: 80%;
+}
+.deviceLibraryDetail .deviceBaseInfo .detail:nth-of-type(3n) {
+  margin-right: 0px;
+}
+.deviceLibraryDetail .deviceDetailIntro {
+  margin-top: 40px;
+  clear: both;
+}
+.deviceLibraryDetail .deviceDetailIntro p {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+.deviceLibraryDetail .deviceDetailIntro div {
+  margin-top: 10px;
+  width: 1200px;
+  min-height: 600px;
+  padding: 20px;
+  background: #f8f8f8;
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+#applyDevice .modal-header {
+  height: 70px;
+}
+#applyDevice .modal-header h4 {
+  display: inline-block;
+  text-align: center;
+  color: red;
+  font-size: 22px;
+}
+#applyDevice .modal-header span {
+  float: right;
+  margin-right: 10px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+#applyDevice .modal-body .intro {
+  color: #666;
+  font-size: 16px;
+}
+#applyDevice .modal-body .content p {
+  position: relative;
+  margin-top: 10px;
+}
+#applyDevice .modal-body .content p span {
+  position: absolute;
+  font-size: 16px!important;
+  color: #333;
+  width: 120px!important;
+}
+#applyDevice .modal-body .content p input {
+  width: 400px;
+  margin-left: 123px;
+  height: 40px;
+  border: 1px solid #dcdcdc;
+  padding-left: 10px;
+}
+#applyDevice .modal-footer {
+  text-align: center;
+  border-top: none;
+}
+#applyDevice .modal-footer button {
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  background: red;
+  color: #fff;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+}
+.f_projectDetail {
+  margin-top: 20px;
+}
+.f_projectDetail .w_thead {
+  width: 1200px;
+  height: 45px;
+  background: #f8f8f8;
+}
+.f_projectDetail .w_thead table {
+  width: 100%;
+}
+.f_projectDetail .w_thead table tr th {
+  text-align: center;
+  height: 45px;
+  line-height: 45px;
+}
+.f_projectDetail .w_tbody {
+  background: #f8f8f8;
+  margin-top: 20px;
+  width: 1200px;
+}
+.f_projectDetail .w_tbody table {
+  width: 100%;
+}
+.f_projectDetail .w_tbody table tr {
+  border-bottom: 1px solid #dcdcdc;
+  height: 50px;
+  line-height: 50px;
+}
+.f_projectDetail .w_tbody table tr td {
+  text-align: center;
+  font-size: 16px;
+}
+.projectInterpretationDetail .moreHeight {
+  height: 165px!important;
+}
+.projectInterpretationDetail .interTitle {
+  margin-top: 20px;
+  height: 120px;
+  width: 1200px;
+  border: 1px solid #dcdcdc;
+  background: #f8f8f8;
+}
+.projectInterpretationDetail .interTitle p {
+  width: 1200px;
+  text-align: center;
+}
+.projectInterpretationDetail .interTitle p:first-of-type {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.projectInterpretationDetail .interTitle p:nth-of-type(2) {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.projectInterpretationDetail .interTitle p:last-of-type {
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 10px;
+}
+.projectInterpretationDetail .interTitle p:last-of-type span.publishTime {
+  margin-right: 240px;
+}
+.projectInterpretationDetail .interTitle p:last-of-type span:last-of-type {
+  cursor: pointer;
+}
+.projectInterpretationDetail .interTitle p:last-of-type span:last-of-type span {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: sub;
+  background: url('/assets/images/assistsInnovation/sprImg105.png') no-repeat 0px 10px;
+}
+.projectInterpretationDetail .interTitle p:last-of-type span:last-of-type span.active {
+  background: url('/assets/images/assistsInnovation/sprImg105.png') no-repeat -35px 10px;
+}
+.projectInterpretationDetail .interTitle section {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+.projectInterpretationDetail .interTitle section .share {
+  float: left;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+.projectInterpretationDetail .interTitle section .share img {
+  width: 25px;
+  height: 25px;
+}
+.projectInterpretationDetail .interTitle section .bdsharebuttonbox {
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.projectInterpretationDetail .interDetailIntro {
+  margin-top: 20px;
+}
+.projectInterpretationDetail .interDetailIntro div {
+  min-height: 400px;
+  background: #f8f8f8;
+  width: 1200px;
+  padding: 30px;
+}
+.f_projectDeclaration {
+  margin-top: 20px;
+}
+.f_projectDeclaration .w_thead {
+  width: 1200px;
+  height: 45px;
+  background: #f8f8f8;
+}
+.f_projectDeclaration .w_thead table {
+  width: 100%;
+}
+.f_projectDeclaration .w_thead table tr th {
+  text-align: center;
+  height: 45px;
+  line-height: 45px;
+  font-size: 16px;
+}
+.f_projectDeclaration .w_thead table tr th select {
+  width: 120px;
+  height: 30px;
+  border: 1px solid #dcdcdc;
+  padding-left: 10px;
+}
+.f_projectDeclaration .w_tbody {
+  background: #f8f8f8;
+  margin-top: 20px;
+  width: 1200px;
+}
+.f_projectDeclaration .w_tbody table {
+  width: 100%;
+}
+.f_projectDeclaration .w_tbody table tr {
+  border-bottom: 1px solid #dcdcdc;
+  height: 50px;
+  line-height: 50px;
+}
+.f_projectDeclaration .w_tbody table tr td {
+  text-align: center;
+  font-size: 15px;
+}
+.f_projectDeclaration .w_tbody table tr td .immiDeclartion {
+  color: red;
+}
+.projecDeclarationDetail .declarTitle {
+  margin-top: 20px;
+  height: 120px;
+  width: 1200px;
+  border: 1px solid #dcdcdc;
+  background: #f8f8f8;
+  text-align: center;
+}
+.projecDeclarationDetail .declarTitle div:first-of-type {
+  margin-top: 5px;
+}
+.projecDeclarationDetail .declarTitle div:first-of-type p:first-of-type {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+.projecDeclarationDetail .declarTitle div.detail {
+  border-bottom: 1px solid #dcdcdc;
+}
+.projecDeclarationDetail .declarTitle div.detail p {
+  display: inline-block;
+  color: #666;
+  font-size: 14px;
+  margin-left: 100px;
+}
+.projecDeclarationDetail .declarTitle div.detail p:first-of-type {
+  margin-left: 0px;
+}
+.projecDeclarationDetail .declarTitle section {
+  margin-left: 20px;
+}
+.projecDeclarationDetail .declarTitle section .share {
+  float: left;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+.projecDeclarationDetail .declarTitle section .share img {
+  width: 25px;
+  height: 25px;
+}
+.projecDeclarationDetail .declarTitle section .bdsharebuttonbox {
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.projecDeclarationDetail .declarTitle section p {
+  float: right;
+  margin-right: 20px;
+  margin-top: 8px;
+}
+.projecDeclarationDetail .declarTitle section p button {
+  width: 110px;
+  height: 35px;
+  border: none;
+  background: red;
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+  font-size: 16px;
+}
+.projecDeclarationDetail .declarDetailIntro {
+  margin-top: 20px;
+}
+.projecDeclarationDetail .declarDetailIntro div {
+  width: 1200px;
+  min-height: 600px;
+  padding: 20px;
+  background: #f8f8f8;
+  color: #666;
+  font-size: 15px;
+}
+.projecDeclarationDetail .declarProject {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.projecDeclarationDetail .declarProject p {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 10px;
+}
+.projecDeclarationDetail .declarProject div {
+  width: 1200px;
+}
+.projecDeclarationDetail .declarProject div table {
+  width: 100%;
+}
+.projecDeclarationDetail .declarProject div table td:first-of-type {
+  font-size: 14px;
+  color: #333;
+  width: 90%;
+}
+.projecDeclarationDetail .declarProject div table td:last-of-type {
+  width: 10%;
+}
+.projecDeclarationDetail .declarProject div table td:last-of-type a button {
+  width: 110px;
+  height: 35px;
+  background: red;
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+  border: none;
+  font-size: 16px;
+}
+#declarationDetail .modal-header,
+#expertDetailContact .modal-header,
+#userInfoModal .modal-header,
+#applyAssess .modal-header {
+  height: 70px;
+}
+#declarationDetail .modal-header h4,
+#expertDetailContact .modal-header h4,
+#userInfoModal .modal-header h4,
+#applyAssess .modal-header h4 {
+  display: inline-block;
+  text-align: center;
+  color: red;
+  font-size: 22px;
+}
+#declarationDetail .modal-header span,
+#expertDetailContact .modal-header span,
+#userInfoModal .modal-header span,
+#applyAssess .modal-header span {
+  float: right;
+  margin-right: 10px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+#declarationDetail .modal-body .intro,
+#expertDetailContact .modal-body .intro,
+#userInfoModal .modal-body .intro,
+#applyAssess .modal-body .intro {
+  color: #666;
+  font-size: 16px;
+}
+#declarationDetail .modal-body .content .title,
+#expertDetailContact .modal-body .content .title,
+#userInfoModal .modal-body .content .title,
+#applyAssess .modal-body .content .title {
+  height: 25px;
+}
+#declarationDetail .modal-body .content .title ul,
+#expertDetailContact .modal-body .content .title ul,
+#userInfoModal .modal-body .content .title ul,
+#applyAssess .modal-body .content .title ul {
+  padding-left: 0px;
+}
+#declarationDetail .modal-body .content .title ul li,
+#expertDetailContact .modal-body .content .title ul li,
+#userInfoModal .modal-body .content .title ul li,
+#applyAssess .modal-body .content .title ul li {
+  float: left;
+  margin-right: 50px;
+  cursor: pointer;
+}
+#declarationDetail .modal-body .content .title ul li input[type='radio'],
+#expertDetailContact .modal-body .content .title ul li input[type='radio'],
+#userInfoModal .modal-body .content .title ul li input[type='radio'],
+#applyAssess .modal-body .content .title ul li input[type='radio'] {
+  cursor: pointer;
+}
+#declarationDetail .modal-body .content p,
+#expertDetailContact .modal-body .content p,
+#userInfoModal .modal-body .content p,
+#applyAssess .modal-body .content p {
+  position: relative;
+  margin-top: 10px;
+}
+#declarationDetail .modal-body .content p span,
+#expertDetailContact .modal-body .content p span,
+#userInfoModal .modal-body .content p span,
+#applyAssess .modal-body .content p span {
+  position: absolute;
+  font-size: 16px!important;
+  color: #333;
+}
+#declarationDetail .modal-body .content p input,
+#expertDetailContact .modal-body .content p input,
+#userInfoModal .modal-body .content p input,
+#applyAssess .modal-body .content p input {
+  width: 385px;
+  margin-left: 123px;
+  height: 40px;
+  border: 1px solid #dcdcdc;
+  padding-left: 10px;
+}
+#declarationDetail .modal-body .content p textarea,
+#expertDetailContact .modal-body .content p textarea,
+#userInfoModal .modal-body .content p textarea,
+#applyAssess .modal-body .content p textarea {
+  width: 385px;
+  margin-left: 123px;
+  height: 200px;
+  border: 1px solid #dcdcdc;
+  padding-left: 10px;
+}
+#declarationDetail .modal-body .content p.absoluteHeight,
+#expertDetailContact .modal-body .content p.absoluteHeight,
+#userInfoModal .modal-body .content p.absoluteHeight,
+#applyAssess .modal-body .content p.absoluteHeight {
+  height: 60px;
+}
+#declarationDetail .modal-body .content p b,
+#expertDetailContact .modal-body .content p b,
+#userInfoModal .modal-body .content p b,
+#applyAssess .modal-body .content p b {
+  margin-left: 124px;
+}
+#declarationDetail .modal-body .content p:last-of-type input,
+#expertDetailContact .modal-body .content p:last-of-type input,
+#userInfoModal .modal-body .content p:last-of-type input,
+#applyAssess .modal-body .content p:last-of-type input {
+  width: 275px;
+}
+#declarationDetail .modal-body .content p:last-of-type button,
+#expertDetailContact .modal-body .content p:last-of-type button,
+#userInfoModal .modal-body .content p:last-of-type button,
+#applyAssess .modal-body .content p:last-of-type button {
+  margin-left: -4px;
+  width: 110px;
+  height: 40px;
+  border: none;
+  background: #076bc1;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  vertical-align: bottom;
+}
+#declarationDetail .modal-body .content .w_uploadImg_w,
+#expertDetailContact .modal-body .content .w_uploadImg_w,
+#userInfoModal .modal-body .content .w_uploadImg_w,
+#applyAssess .modal-body .content .w_uploadImg_w {
+  width: 110px;
+  height: 97px;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  position: relative;
+  margin-left: 123px;
+}
+#declarationDetail .modal-body .content .w_uploadImg_w img,
+#expertDetailContact .modal-body .content .w_uploadImg_w img,
+#userInfoModal .modal-body .content .w_uploadImg_w img,
+#applyAssess .modal-body .content .w_uploadImg_w img {
+  width: 100%;
+  height: 100%;
+}
+#declarationDetail .modal-body .content .upload,
+#expertDetailContact .modal-body .content .upload,
+#userInfoModal .modal-body .content .upload,
+#applyAssess .modal-body .content .upload {
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  left: 80px;
+  width: 180px;
+  height: 145px;
+  border: 1px solid #dcdcdc;
+}
+#declarationDetail .modal-body .content .uploadPicture,
+#expertDetailContact .modal-body .content .uploadPicture,
+#userInfoModal .modal-body .content .uploadPicture,
+#applyAssess .modal-body .content .uploadPicture {
+  width: 110px;
+  height: 97px;
+  border: 1px solid #dcdcdc;
+  /* position: absolute; */
+  left: 124px;
+  margin-left: 123px;
+}
+#declarationDetail .modal-body .content .uploadPicture img,
+#expertDetailContact .modal-body .content .uploadPicture img,
+#userInfoModal .modal-body .content .uploadPicture img,
+#applyAssess .modal-body .content .uploadPicture img {
+  margin-left: 8px;
+  margin-top: 5px;
+}
+#declarationDetail .modal-body .content .uploadPicture span,
+#expertDetailContact .modal-body .content .uploadPicture span,
+#userInfoModal .modal-body .content .uploadPicture span,
+#applyAssess .modal-body .content .uploadPicture span {
+  color: #076bc1;
+}
+#declarationDetail .modal-body .content .contentDetail p,
+#expertDetailContact .modal-body .content .contentDetail p,
+#userInfoModal .modal-body .content .contentDetail p,
+#applyAssess .modal-body .content .contentDetail p {
+  position: relative;
+  margin-top: 10px;
+}
+#declarationDetail .modal-body .content .contentDetail p span,
+#expertDetailContact .modal-body .content .contentDetail p span,
+#userInfoModal .modal-body .content .contentDetail p span,
+#applyAssess .modal-body .content .contentDetail p span {
+  position: absolute;
+  font-size: 16px!important;
+  color: #333;
+}
+#declarationDetail .modal-body .content .contentDetail p input,
+#expertDetailContact .modal-body .content .contentDetail p input,
+#userInfoModal .modal-body .content .contentDetail p input,
+#applyAssess .modal-body .content .contentDetail p input,
+#declarationDetail .modal-body .content .contentDetail p textarea,
+#expertDetailContact .modal-body .content .contentDetail p textarea,
+#userInfoModal .modal-body .content .contentDetail p textarea,
+#applyAssess .modal-body .content .contentDetail p textarea {
+  width: 385px;
+  margin-left: 123px;
+  height: 40px;
+  border: 1px solid #dcdcdc;
+  padding-left: 10px;
+}
+#declarationDetail .modal-body .content .contentDetail p:last-of-type input,
+#expertDetailContact .modal-body .content .contentDetail p:last-of-type input,
+#userInfoModal .modal-body .content .contentDetail p:last-of-type input,
+#applyAssess .modal-body .content .contentDetail p:last-of-type input {
+  width: 380px;
+}
+#declarationDetail .modal-body .content .contentDetail p:last-of-type button,
+#expertDetailContact .modal-body .content .contentDetail p:last-of-type button,
+#userInfoModal .modal-body .content .contentDetail p:last-of-type button,
+#applyAssess .modal-body .content .contentDetail p:last-of-type button {
+  margin-left: -4px;
+  width: 110px;
+  height: 40px;
+  border: none;
+  background: #076bc1;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  vertical-align: bottom;
+}
+#declarationDetail .modal-footer,
+#expertDetailContact .modal-footer,
+#userInfoModal .modal-footer,
+#applyAssess .modal-footer {
+  text-align: center;
+  border-top: none;
+}
+#declarationDetail .modal-footer button,
+#expertDetailContact .modal-footer button,
+#userInfoModal .modal-footer button,
+#applyAssess .modal-footer button {
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  background: red;
+  color: #fff;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  margin-right: 10px;
+}
+.expertInterpretationDetail .expertContent {
+  margin-top: 20px;
+  min-height: 1260px;
+  clear: both;
+}
+.expertInterpretationDetail .expertContent .expertLeft {
+  float: left;
+}
+.expertInterpretationDetail .expertContent .expertLeft .item {
+  width: 400px;
+  margin-left: 20px;
+  position: relative;
+  float: left;
+}
+.expertInterpretationDetail .expertContent .expertLeft .item:first-of-type {
+  margin-left: 0;
+  margin-bottom: 20px;
+}
+.expertInterpretationDetail .expertContent .expertLeft .item .itemPicture {
+  width: 400px;
+  height: 230px;
+}
+.expertInterpretationDetail .expertContent .expertLeft .item .itemPicture img {
+  width: 100%;
+  height: 100%;
+}
+.expertInterpretationDetail .expertContent .expertLeft .item .mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  padding-top: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  -moz-transition: background 0.5s;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+.expertInterpretationDetail .expertContent .expertLeft .item .mask p {
+  color: #fff;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  font-size: 13px;
+}
+.expertInterpretationDetail .expertContent .expertLeft .contactHe {
+  margin-top: 20px;
+}
+.expertInterpretationDetail .expertContent .expertLeft .contactHe button {
+  width: 400px;
+  height: 35px;
+  background: red;
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+  border: none;
+}
+.expertInterpretationDetail .expertContent .expertRight {
+  float: left;
+  margin-left: 35px;
+  width: 765px;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseNav {
+  height: 40px;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseNav ul {
+  padding-left: 0px;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseNav ul li {
+  float: left;
+  width: 190px;
+  height: 40px;
+  border: 1px solid #076bc1;
+  color: #076bc1;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseNav ul li:nth-of-type(2),
+.expertInterpretationDetail .expertContent .expertRight .baseNav ul li:nth-of-type(3) {
+  border-left: none;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseNav ul li:nth-of-type(3) {
+  border-right: none;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseNav ul li.active {
+  background: #076bc1;
+  color: #fff;
+  border: none;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseNav.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  background: #f8f8f8;
+  z-index: 999;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseInfo {
+  margin-top: 20px;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseInfo p {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseInfo .info table {
+  width: 100%;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseInfo .info table tr td {
+  font-size: 14px;
+  font-weight: bold;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseInfo .info table tr td:first-of-type,
+.expertInterpretationDetail .expertContent .expertRight .baseInfo .info table tr td:nth-of-type(2) {
+  width: 25%;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseInfo .personalIntro {
+  margin-top: 10px;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseInfo .personalIntro img {
+  width: 400px;
+  height: 245px;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseInfo .personalIntro p {
+  font-size: 14px;
+  color: #666;
+}
+.expertInterpretationDetail .expertContent .expertRight .baseInfo .personalIntro p:first-of-type {
+  font-weight: bold;
+  color: #333;
+}
+.expertInterpretationDetail .expertContent .expertRight .professionalExperience {
+  margin-top: 20px;
+}
+.expertInterpretationDetail .expertContent .expertRight .professionalExperience p {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+.expertInterpretationDetail .expertContent .expertRight .professionalExperience .content {
+  margin-left: 20px;
+  height: 100px;
+  overflow: hidden;
+}
+.expertInterpretationDetail .expertContent .expertRight .professionalExperience .content.active {
+  height: auto;
+}
+.expertInterpretationDetail .expertContent .expertRight .professionalExperience .content .item {
+  margin-bottom: 20px;
+}
+.expertInterpretationDetail .expertContent .expertRight .professionalExperience .content .item p {
+  color: #666;
+  font-size: 14px;
+}
+.expertInterpretationDetail .expertContent .expertRight .professionalExperience .content .item p span {
+  margin-right: 20px;
+}
+.expertInterpretationDetail .expertContent .expertRight .professionalExperience .openAll {
+  width: 765px;
+  height: 35px;
+  background: #f8f8f8;
+  text-align: center;
+  cursor: pointer;
+  line-height: 35px;
+  color: #666;
+  margin-top: 20px;
+}
+.expertInterpretationDetail .expertContent .expertRight .professionalExperience .openAll img.active {
+  transform: rotate(180deg);
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo {
+  margin-top: 20px;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .title {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .content {
+  margin-top: 20px;
+  height: 160px;
+  overflow: hidden;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .content .item {
+  width: 765px;
+  height: 160px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 20px;
+  display: flex;
+  background: #f8f8f8;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .content .item .lectureImg {
+  float: left;
+  width: 175px;
+  height: 120px;
+  margin: 20px;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .content .item .lectureImg img {
+  width: 100%;
+  height: 100%;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .content .item .lectureIntro {
+  margin-left: 20px;
+  float: left;
+  width: 550px;
+  height: 200px;
+  margin-top: 40px;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .content .item .lectureIntro p {
+  font-size: 16px;
+  color: #333;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .content .item .lectureIntro p:first-of-type .red {
+  color: red;
+  font-weight: 100;
+  margin-left: 10px;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .content .item .lectureIntro p:first-of-type span {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .content .item .lectureIntro p:first-of-type span:last-of-type {
+  float: right;
+  margin-right: 8px;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .content .item .lectureIntro p:nth-of-type(2) {
+  width: 550px;
+  margin-top: 20px;
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: bold;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .content.active {
+  height: auto;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .openAll {
+  width: 765px;
+  height: 35px;
+  background: #f8f8f8;
+  text-align: center;
+  cursor: pointer;
+  line-height: 35px;
+  color: #666;
+  margin-top: 20px;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertAchievementInfo .openAll img.active {
+  transform: rotate(180deg);
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti p {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti .w_head {
+  width: 765px;
+  height: 45px;
+  background: #f8f8f8;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti .w_head table {
+  width: 100%;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti .w_head table tr th {
+  text-align: center;
+  height: 45px;
+  line-height: 28px;
+  font-size: 15px;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti .w_tbody {
+  background: #f8f8f8;
+  margin-top: 20px;
+  width: 765px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  overflow: hidden;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti .w_tbody table {
+  width: 100%;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti .w_tbody table tr {
+  border-bottom: 1px solid #dcdcdc;
+  height: 50px;
+  line-height: 50px;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti .w_tbody table tr td {
+  font-size: 15px;
+  border-top: none;
+  cursor: pointer;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti .w_tbody.active {
+  height: auto;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti .openAll {
+  width: 765px;
+  height: 35px;
+  background: #f8f8f8;
+  text-align: center;
+  cursor: pointer;
+  line-height: 35px;
+  color: #666;
+  margin-top: 20px;
+}
+.expertInterpretationDetail .expertContent .expertRight .expertProfessInti .openAll img.active {
+  transform: rotate(180deg);
+}
+.knowledgeAccessContent {
+  margin-top: 20px;
+  clear: both;
+}
+.knowledgeAccessContent .firstContent {
+  width: 1200px;
+  height: 185px;
+}
+.knowledgeAccessContent .firstContent .picture {
+  float: left;
+  width: 321px;
+  height: 185px;
+}
+.knowledgeAccessContent .firstContent .picture img {
+  width: 100%;
+  height: 100%;
+}
+.knowledgeAccessContent .firstContent .title {
+  float: left;
+  margin-left: 20px;
+  margin-top: 50px;
+}
+.knowledgeAccessContent .firstContent .title p:first-of-type {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+.knowledgeAccessContent .firstContent .title p:last-of-type {
+  margin-top: 20px;
+  cursor: pointer;
+}
+.knowledgeAccessContent .firstContent .title p:last-of-type button {
+  width: 120px;
+  height: 35px;
+  background: red;
+  color: #fff;
+  border: none;
+  text-align: center;
+  line-height: 35px;
+  font-size: 15px;
+}
+.knowledgeAccessContent .secondContent {
+  clear: both;
+  width: 1200px;
+  margin-top: 20px;
+  height: 45px;
+}
+.knowledgeAccessContent .secondContent ul {
+  padding-left: 0;
+}
+.knowledgeAccessContent .secondContent ul li {
+  float: left;
+  text-align: center;
+  width: 398px;
+  height: 45px;
+  border: 1px solid #076bc1;
+  color: #076bc1;
+  line-height: 45px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.knowledgeAccessContent .secondContent ul li:nth-of-type(2) {
+  border-right: 0px;
+  border-left: 0px;
+}
+.knowledgeAccessContent .secondContent ul li.active {
+  background: #076bc1;
+  color: #fff;
+  border: none;
+}
+.knowledgeAccessContent .secondContent.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  background: #f8f8f8;
+  z-index: 999;
+}
+.knowledgeAccessContent .thirdContent {
+  margin-top: 20px;
+}
+.knowledgeAccessContent .thirdContent .detail {
+  margin-bottom: 20px;
+}
+.knowledgeAccessContent .thirdContent .detail p {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+.knowledgeAccessContent .thirdContent .detail div {
+  color: #333;
+  font-size: 14px;
+  text-indent: 2em;
+  margin-top: 10px;
+}
+.knowledgeAccessContent .thirdContent .partners .parTitle {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+.knowledgeAccessContent .thirdContent .partners .sliderContent .enterpriseApp {
+  position: relative;
+  padding: 65px 0;
+}
+.knowledgeAccessContent .thirdContent .partners .sliderContent .enterpriseApp .box {
+  height: 100px;
+  overflow: hidden;
+  width: 1115px;
+  margin: 0 auto;
+  position: relative;
+}
+.knowledgeAccessContent .thirdContent .partners .sliderContent .enterpriseApp .box #roll {
+  width: 200%;
+}
+.knowledgeAccessContent .thirdContent .partners .sliderContent .enterpriseApp .box #roll dd {
+  width: 158px;
+  height: 98px;
+  float: left;
+  margin-right: 30px;
+  border: 1px solid #dcdcdc;
+  position: relative;
+}
+.knowledgeAccessContent .thirdContent .partners .sliderContent .enterpriseApp .box #roll dd .mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  padding-top: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  -moz-transition: background 0.5s;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+.knowledgeAccessContent .thirdContent .partners .sliderContent .enterpriseApp .box #roll dd .mask p {
+  color: #fff;
+  width: 165px;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  font-size: 13px;
+}
+.knowledgeAccessContent .thirdContent .partners .sliderContent .enterpriseApp .box #roll dd img {
+  width: 100%;
+  height: 100%;
+}
+.knowledgeAccessContent .thirdContent .partners .sliderContent .enterpriseApp .jiantou {
+  position: absolute;
+  bottom: 40%;
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+  cursor: pointer;
+  opacity: .5;
+  z-index: 90;
+  color: #fff;
+}
+.knowledgeAccessContent .thirdContent .partners .sliderContent .enterpriseApp .next {
+  right: 0;
+}
+.FinancingRecommendBanner {
+  width: 1198px;
+  height: 86px;
+  background: url('/assets/images/assistsInnovation/financingBanner.jpg');
+  text-align: center;
+  position: relative;
+}
+.FinancingRecommendBanner a {
+  width: 245px;
+  height: 40px;
+  background: red;
+  text-align: center;
+  color: #fff;
+  margin: 0 auto;
+  position: absolute;
+  top: 25px;
+  left: 39%;
+  line-height: 40px;
+}
+.FinancingRecommendContent {
+  margin-top: 20px;
+}
+.FinancingRecommendContent .w_thead {
+  width: 1200px;
+  height: 45px;
+  background: #f8f8f8;
+}
+.FinancingRecommendContent .w_thead table {
+  height: 45px;
+}
+.FinancingRecommendContent .w_thead table tr th {
+  text-align: center;
+}
+.FinancingRecommendContent .w_tbody {
+  margin-top: 20px;
+}
+.FinancingRecommendContent .w_tbody table {
+  width: 1200px;
+  height: 165px;
+  background: #f8f8f8;
+  margin-bottom: 20px;
+}
+.FinancingRecommendContent .w_tbody table tr td .leftContent {
+  margin: 20px 0px 20px 20px;
+}
+.FinancingRecommendContent .w_tbody table tr td .leftContent img {
+  width: 180px;
+  height: 122px;
+  border: 1px solid #dcdcdc;
+}
+.FinancingRecommendContent .w_tbody table tr td .leftContent a {
+  margin-left: 20px;
+  color: #333;
+  font-size: 16px;
+  width: 150px;
+  height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.FinancingRecommendContent .w_tbody table tr td:nth-of-type(2) span {
+  display: inline-block;
+  width: 500px;
+}
+.f_saleIp {
+  margin-top: 20px;
+  min-height: 700px;
+}
+.f_saleIp .w_select_container {
+  height: 110px;
+  width: 1200px;
+  background: #f8f8f8;
+}
+.f_saleIp .w_select_container .w_select_option,
+.f_saleIp .w_select_container .w_select_subOption {
+  padding-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 10px;
+}
+.f_saleIp .w_select_container .w_select_option span,
+.f_saleIp .w_select_container .w_select_subOption span {
+  font-size: 16px;
+  color: #666;
+}
+.f_saleIp .w_select_container .w_select_option a,
+.f_saleIp .w_select_container .w_select_subOption a {
+  margin-left: 20px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+.f_saleIp .w_select_container .w_select_option a.active,
+.f_saleIp .w_select_container .w_select_subOption a.active {
+  color: #076bc1;
+}
+.f_saleIp .saleIpContent {
+  margin-top: 20px;
+}
+.f_saleIp .saleIpContent .w_thead {
+  width: 1200px;
+  height: 45px;
+  background: #f8f8f8;
+}
+.f_saleIp .saleIpContent .w_thead table {
+  width: 100%;
+}
+.f_saleIp .saleIpContent .w_thead table tr th {
+  text-align: center;
+  height: 45px;
+  line-height: 45px;
+  font-size: 16px;
+}
+.f_saleIp .saleIpContent .w_tbody {
+  background: #f8f8f8;
+  margin-top: 20px;
+  width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.f_saleIp .saleIpContent .w_tbody table {
+  width: 100%;
+}
+.f_saleIp .saleIpContent .w_tbody table tr {
+  border-bottom: 1px solid #dcdcdc;
+  height: 50px;
+  line-height: 50px;
+}
+.f_saleIp .saleIpContent .w_tbody table tr td {
+  text-align: center;
+  font-size: 15px;
+  border-top: none;
+  cursor: pointer;
+}
+.f_saleIp .saleIpContent .w_tbody table tr td.w_orange {
+  color: red;
+}
+.f_saleIp .saleIpContent .w_tbody table tr:last-of-type {
+  border-bottom: none;
+}
+.w_publish_IP {
+  width: 1200px;
+  min-height: 1045px;
+  background: #f8f8f8;
+  clear: both;
+}
+.w_publish_IP .content {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.w_publish_IP .content form {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.w_publish_IP .content form .w_subTitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  padding-top: 20px;
+}
+.w_publish_IP .content form .title {
+  font-size: 15px;
+  color: #333;
+  font-weight: bold;
+}
+.w_publish_IP .content form .row {
+  margin-top: 20px;
+}
+.w_publish_IP .content form .row .col-sm-2 {
+  width: 130px;
+}
+.w_publish_IP .content form .row .col-sm-2 .w_radio input[type='radio'] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+.w_publish_IP .content form .row .col-sm-2 .w_radio span {
+  vertical-align: super;
+}
+.w_publish_IP .content form .row .col-sm-10 .w_uploadImg_w {
+  width: 180px;
+  height: 145px;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  position: relative;
+}
+.w_publish_IP .content form .row .col-sm-10 .w_uploadImg_w img {
+  width: 100%;
+  height: 100%;
+}
+.w_publish_IP .content form .row .col-sm-10 .upload {
+  cursor: pointer;
+  width: 180px;
+  height: 145px;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+}
+.w_publish_IP .content form .row .col-sm-10 .upload img {
+  margin-top: 40px;
+}
+.w_publish_IP .content form .row .col-sm-10 .upload span {
+  color: #666;
+}
+.w_publish_IP .content form .row .col-sm-10 button {
+  margin-left: 10px;
+  margin-top: -28px;
+}
+.w_publish_IP .content form .row .col-sm-10 .w_tipsExist {
+  display: inline-block;
+  vertical-align: super;
+}
+.w_publish_IP .content form .row .col-sm-3 {
+  position: relative;
+}
+.w_publish_IP .content form .row .col-sm-3 span {
+  position: absolute;
+  top: 12px;
+}
+.w_publish_IP .content form .row #edui1 {
+  width: 670px!important;
+  z-index: 800!important;
+}
+.w_publish_IP .content form .row .w_required {
+  color: red;
+}
+.w_publish_IP .content form .row input[type='text'],
+.w_publish_IP .content form .row input[type='email'],
+.w_publish_IP .content form .row select,
+.w_publish_IP .content form .row input[type='number'] {
+  width: 525px;
+  height: 50px;
+  border: 1px solid #dcdcdc;
+  padding-left: 10px;
+}
+.w_publish_IP .content form .row select {
+  cursor: pointer;
+}
+.w_publish_IP .content form .row .w_option_type a {
+  width: 140px;
+  height: 30px;
+  border: 1px solid #dcdcdc;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 10px;
+  padding: 5px 50px;
+  cursor: pointer;
+}
+.w_publish_IP .content form .row .w_option_type a.active {
+  background: #076bc1;
+  color: #fff;
+  border: none;
+}
+.w_publish_IP .content form .row .plan textarea {
+  width: 670px;
+  height: 210px;
+  resize: none;
+  padding-left: 10px;
+}
+.w_publish_IP .content form .row .w_linkInfo_w {
+  position: relative;
+}
+.w_publish_IP .content form .row .w_linkInfo_w i {
+  cursor: pointer;
+}
+.w_publish_IP .content form .row .w_linkInfo_w i img {
+  position: absolute;
+  right: 70px;
+  top: 15px;
+}
+.w_publish_IP .content form .row .col-sm-offset-3 button {
+  width: 140px;
+  height: 40px;
+  border: none;
+  background: red;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  margin-bottom: 30px;
+}
+.buyIpDetails {
+  clear: both;
+  margin-top: 20px;
+  min-height: 600px;
+  width: 1200px;
+  background: #f8f8f8;
+  margin-bottom: 30px;
+}
+.buyIpDetails .w_detailInfo h3 {
+  text-align: center;
+  padding-top: 10px;
+}
+.buyIpDetails .w_detailInfo .detail {
+  text-align: center;
+}
+.buyIpDetails .w_detailInfo .detail div {
+  display: inline-block;
+  margin-right: 78px;
+}
+.buyIpDetails .w_detailInfo .detail div p {
+  display: inline-block;
+}
+.buyIpDetails .w_detailInfo .detail div p:nth-of-type(2) {
+  font-weight: bold;
+}
+.buyIpDetails .w_detailInfo .detail div p span {
+  font-size: 14px;
+}
+.buyIpDetails section {
+  padding-left: 20px;
+  border-bottom: 1px solid #dcdcdc;
+  height: 50px;
+}
+.buyIpDetails section .share {
+  float: left;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+.buyIpDetails section .share img {
+  width: 25px;
+  height: 25px;
+}
+.buyIpDetails section .bdsharebuttonbox {
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.buyIpDetails .planUse {
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dcdcdc;
+}
+.buyIpDetails .planUse p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+.buyIpDetails .planUse div {
+  color: #333;
+  font-size: 14px;
+}
+.buyIpDetails .planUse .w_patentType2 {
+  height: 80px;
+}
+.buyIpDetails .planUse .w_patentType2 p {
+  padding-left: 20px;
+  display: inline-block;
+  width: 587px;
+  font-size: 16px;
+  height: 80px;
+  border-right: 1px solid #dcdcdc;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-top: 10px;
+}
+.buyIpDetails .planUse .w_patentType2 p span {
+  font-size: 16px;
+  font-weight: 100;
+  margin-top: 10px;
+  display: inline-block;
+}
+.buyIpDetails .planUse .w_patentType2 p:last-of-type {
+  border-right: 0px;
+}
+.buyIpDetails .pantent {
+  padding-bottom: 0px;
+}
+.buyIpDetails .financingDetail {
+  border-top: 1px solid #dcdcdc;
+}
+.buyIpDetails .detailRequire {
+  padding-left: 20px;
+}
+.buyIpDetails .detailRequire .w_content {
+  padding: 20px;
+}
+.buyIpDetails .detailRequire p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+.buyIpDetails .detailRequire div {
+  color: #333;
+  font-size: 14px;
+}
+.projectAnnex {
+  margin-bottom: 30px;
+}
+.projectAnnex .w_subTitle {
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dcdcdc;
+}
+.projectAnnex .w_content table tr td:first-of-type {
+  width: 90%;
+}
+.projectAnnex .w_content table tr td:last-of-type {
+  width: 10%;
+}
+.projectAnnex .w_content table tr td:last-of-type a {
+  width: 115px;
+  height: 40px;
+  color: #fff;
+}
+.projectAnnex .w_content table tr td:last-of-type a button {
+  border: none;
+  width: 115px;
+  height: 40px;
+  background: red;
+  color: #fff;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+}
+.assistsProject .container {
+  width: 1200px !important;
+}
+.assistsProject .ProjectBanner {
+  margin-top: 20px;
+}
+.assistsProject .ProjectBanner .asideLeft {
+  width: 900px;
+  float: left;
+}
+.assistsProject .ProjectBanner .asideLeft .sliderImg {
+  height: 340px;
+  width: 900px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 10px;
+}
+.assistsProject .ProjectBanner .asideLeft .sliderImg .sliderContent .item {
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+.assistsProject .ProjectBanner .asideLeft .sliderImg .sliderContent .item img {
+  width: 900px;
+  height: 340px;
+}
+.assistsProject .ProjectBanner .asideLeft .sliderImg .sliderContent .item.active {
+  left: 0;
+}
+.assistsProject .ProjectBanner .asideLeft .sliderImg .sliderInput {
+  position: absolute;
+  bottom: 7px;
+  right: 10px;
+  left: 40%;
+  list-style: none;
+}
+.assistsProject .ProjectBanner .asideLeft .sliderImg .sliderInput li {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  background: #000;
+  opacity: .5;
+  margin: 0 5px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.assistsProject .ProjectBanner .asideLeft .sliderImg .sliderInput li.active {
+  background: #076bc1;
+  border: none;
+}
+.assistsProject .ProjectBanner .asideLeft .sliderImg .sliderLeft {
+  cursor: pointer;
+}
+.assistsProject .ProjectBanner .asideLeft .sliderImg .sliderRight {
+  cursor: pointer;
+}
+.assistsProject .ProjectBanner .asideRight {
+  margin-left: 30px;
+  width: 270px;
+  float: left;
+}
+.assistsProject .ProjectBanner .asideRight .rightItem {
+  width: 270px;
+  height: 100px;
+  cursor: pointer;
+  line-height: 100px;
+  background: #0f6eb1;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.assistsProject .ProjectBanner .asideRight .rightItem .icon {
+  width: 94px;
+  float: left;
+  text-align: center;
+}
+.assistsProject .ProjectBanner .asideRight .rightItem .icon img {
+  width: 34px;
+  height: 33px;
+}
+.assistsProject .ProjectBanner .asideRight .rightItem p {
+  float: left;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+.assistsProject .projectContent {
+  margin-top: 40px;
+  clear: both;
+}
+.assistsProject .projectContent .enterpriseRecommend {
+  border-top: 1px solid #dcdcdc;
+  padding-top: 20px;
+  height: 200px;
+  clear: both;
+  position: relative;
+}
+.assistsProject .projectContent .enterpriseRecommend .more {
+  position: absolute;
+  font-size: 14px;
+  right: 0;
+  top: -20px;
+  color: #084d88;
+}
+.assistsProject .projectContent .enterpriseRecommend .title {
+  float: left;
+  width: 190px;
+  height: 160px;
+  text-align: center;
+  background: #00a3e0;
+  margin-bottom: 20px;
+  position: relative;
+}
+.assistsProject .projectContent .enterpriseRecommend .title img {
+  margin-top: 30px;
+}
+.assistsProject .projectContent .enterpriseRecommend .title p {
+  margin-top: 18px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+}
+.assistsProject .projectContent .enterpriseRecommend .title em {
+  display: block;
+  border-width: 8px;
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  border-style: solid dashed dashed;
+  border-color: transparent transparent transparent #076bc1 ;
+  font-size: 0;
+  line-height: 0;
+}
+.assistsProject .projectContent .enterpriseRecommend .detail {
+  float: left;
+  margin-left: 24px;
+  margin-bottom: 20px;
+}
+.assistsProject .projectContent .enterpriseRecommend .detail .item {
+  width: 239px;
+  height: 160px;
+  position: relative;
+  float: left;
+  margin-right: 10px;
+}
+.assistsProject .projectContent .enterpriseRecommend .detail .item:last-of-type {
+  margin-right: 0;
+}
+.assistsProject .projectContent .enterpriseRecommend .detail .item .itemPicture {
+  width: 239px;
+  height: 160px;
+}
+.assistsProject .projectContent .enterpriseRecommend .detail .item .itemPicture img {
+  width: 100%;
+  height: 100%;
+}
+.assistsProject .projectContent .enterpriseRecommend .detail .item .mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 42px;
+  padding-top: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  -moz-transition: background 0.5s;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+.assistsProject .projectContent .enterpriseRecommend .detail .item .mask p {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.assistsProject .projectContent .enterpriseRecommend:last-of-type {
+  border-bottom: 1px solid #dcdcdc;
+}
+.assistsProject .projectPlatform {
+  margin-top: 40px;
+  clear: both;
+}
+.assistsProject .projectPlatform .financingPlatform {
+  margin-top: 10px;
+  height: 80px;
+  overflow: hidden;
+}
+.assistsProject .projectPlatform .financingPlatform:last-of-type {
+  margin-bottom: 40px;
+}
+.assistsProject .projectPlatform .financingPlatform .titleIntro {
+  border-bottom: 1px solid #dcdcdc;
+}
+.assistsProject .projectPlatform .financingPlatform .titleIntro .title {
+  color: #084d88;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+}
+.assistsProject .projectPlatform .financingPlatform .titleIntro span {
+  float: right;
+  cursor: pointer;
+}
+.assistsProject .projectPlatform .financingPlatform .titleIntro span img {
+  transform: rotate(90deg);
+}
+.assistsProject .projectPlatform .financingPlatform .titleIntro span.active img {
+  transform: rotate(270deg);
+}
+.assistsProject .projectPlatform .financingPlatform.active {
+  height: auto;
+  overflow: inherit;
+}
+.assistsProject .projectPlatform .financingPlatform .content {
+  position: relative;
+  height: 28px;
+}
+.assistsProject .projectPlatform .financingPlatform .content.active {
+  height: auto;
+  overflow: inherit;
+}
+.assistsProject .projectPlatform .financingPlatform .content ul {
+  left: 0;
+  top: 10px;
+  padding-left: 0;
+  overflow: hidden;
+}
+.assistsProject .projectPlatform .financingPlatform .content ul li {
+  float: left;
+  padding-top: 10px;
+  margin-bottom: 20px;
+  margin-right: 82px;
+}
+.assistsProject .projectPlatform .financingPlatform .content ul li:last-of-type {
+  margin-right: 0;
+}
+.trainingDetail {
+  margin-top: 30px;
+  clear: both;
+}
+.trainingDetail .item {
+  width: 1200px;
+  height: 165px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 20px;
+  clear: both;
+}
+.trainingDetail .item .lectureImg {
+  float: left;
+  width: 175px;
+  height: 120px;
+  margin: 20px;
+}
+.trainingDetail .item .lectureImg img {
+  width: 100%;
+  height: 100%;
+}
+.trainingDetail .item .lectureIntro {
+  margin-left: 20px;
+  float: left;
+  width: 600px;
+  height: 200px;
+}
+.trainingDetail .item .lectureIntro p {
+  font-size: 16px;
+  color: #333;
+}
+.trainingDetail .item .lectureIntro p:first-of-type {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 30px;
+  color: #00a3e0;
+  font-weight: bold;
+}
+.trainingDetail .item .lectureIntro p:nth-of-type(2) {
+  margin-top: 20px;
+  height: 64px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.trainingDetail .item .lectureIntro p:nth-of-type(2) span {
+  margin-right: 30px;
+}
+.trainingDetail .item .look button {
+  width: 150px;
+  float: left;
+  height: 40px;
+  background: red;
+  margin-top: 80px;
+  margin-left: 160px;
+  color: #fff;
+  text-align: center;
+  border: none;
+}
+.setShare {
+  position: relative;
+}
+.setShare section {
+  position: absolute;
+  right: 0px;
+  margin-left: 20px;
+  width: 175px;
+}
+.setShare section .share {
+  float: left;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.setShare section .share img {
+  width: 25px;
+  height: 25px;
+}
+.setShare section .bdsharebuttonbox {
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.viewTrainingDetail {
+  margin-top: 40px;
+}
+.viewTrainingDetail .title {
+  width: 1200px;
+  line-height: 100px;
+  padding: 40px 80px;
+  background-color: #FBFBFB;
+  border: 1px solid #F1F1F1;
+}
+.viewTrainingDetail .title .titleImg {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+.viewTrainingDetail .title .titleImg img {
+  width: 100%;
+  height: 100%;
+}
+.viewTrainingDetail .title .name {
+  margin-left: 20px;
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+.viewTrainingDetail .companyIntro {
+  margin-top: 30px;
+}
+.viewTrainingDetail .companyIntro .companyTitle {
+  border-bottom: 1px solid #E7E7E7;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.viewTrainingDetail .companyIntro .companyTitle span {
+  display: inline-block;
+  background-color: #076BC1;
+  padding: 0 20px;
+}
+.viewTrainingDetail .companyIntro .content {
+  margin-top: 30px;
+}
+.viewTrainingDetail .companyIntro .content p {
+  color: #666;
+  font-size: 14px;
+  text-indent: 2em;
+}
+.viewTrainingDetail .companyIntro .content .picture {
+  margin: 30px auto;
+  width: 400px;
+  text-align: center;
+  height: 400px;
+}
+.viewTrainingDetail .companyIntro .content .picture img {
+  width: 100%;
+  height: 100%;
+}
+.activityDetail {
+  margin-top: 30px;
+  clear: both;
+}
+.activityDetail .clearfix {
+  padding-left: 0;
+}
+.activityDetail .item {
+  width: 1200px;
+  height: 160px;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 20px;
+  clear: both;
+}
+.activityDetail .item .lectureImg {
+  float: left;
+  width: 170px;
+  height: 120px;
+  margin: 20px;
+}
+.activityDetail .item .lectureImg img {
+  width: 100%;
+  height: 100%;
+}
+.activityDetail .item .lectureIntro {
+  margin-left: 20px;
+  float: left;
+  width: 760px;
+  height: 160px;
+}
+.activityDetail .item .lectureIntro p.title {
+  margin-top: 25px;
+  color: #00a3e0;
+  font-weight: bold;
+  font-size: 18px;
+}
+.activityDetail .item .lectureIntro p.briefing {
+  margin-top: 20px;
+  height: 50px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 16px;
+  color: #333;
+}
+.activityDetail .item .lectureIntro .detail p {
+  width: 250px;
+  font-size: 15px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.activityDetail .item .lectureIntro .detail p:first-of-type {
+  margin-left: 0;
+}
+.activityDetail .item .lectureIntro .detail p:nth-of-type(2) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.activityDetail .item .look {
+  float: left;
+}
+.activityDetail .item .look button {
+  width: 150px;
+  float: left;
+  height: 40px;
+  background: red;
+  margin-top: 80px;
+  margin-left: 20px;
+  color: #fff;
+  text-align: center;
+  border: none;
+}
+.viewActivityDetail {
+  margin-top: 30px;
+}
+.viewActivityDetail .title {
+  background: #f8f8f8;
+  border: 1px solid #E7E7E7;
+  padding: 30px 30px 10px 30px;
+}
+.viewActivityDetail .title p {
+  margin-bottom: 20px;
+  color: #E20315;
+}
+.viewActivityDetail .title p span {
+  margin-right: 100px;
+  color: #666;
+  font-size: 14px;
+}
+.viewActivityDetail .title p span:first-of-type {
+  color: #066BC3;
+  font-size: 20px;
+  font-weight: bold;
+}
+.viewActivityDetail .title p span.view_num {
+  float: right;
+  margin-right: 0;
+  line-height: 65px;
+}
+.viewActivityDetail .viewActivityContent {
+  margin-top: 30px;
+}
+.viewActivityDetail .viewActivityContent p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.viewActivityDetail .viewActivityContent p > .span {
+  margin-right: 100px;
+  width: 490px;
+  display: inline-block;
+}
+.viewActivityDetail .viewActivityContent p > .span .arrow_title {
+  text-align: center;
+  color: #ffffff;
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  margin-right: 10px;
+  background-image: url("/assets/images/assistsProject/arrow.png");
+}
+.viewActivityDetail .viewActivityContent p .activtyPlace {
+  width: 1180px;
+  display: inline-block;
+}
+.viewActivityDetail .viewActivityContent .detailContent {
+  margin-top: 30px;
+  font-size: 16px;
+}
+.viewActivityDetail .viewActivityContent .detailContent textarea {
+  width: 1200px;
+  height: 400px;
+}
+.viewActivityDetail .viewActivityContent .erweima .arrow_title {
+  text-align: center;
+  color: #ffffff;
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  margin-right: 10px;
+  font-size: 18px;
+  background-image: url("/assets/images/assistsProject/arrow.png");
+}
+.viewActivityDetail .viewActivityContent .erweima .arrow_title img {
+  margin-right: 10px;
+}
+.viewActivityDetail .viewActivityContent .erweima .code {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.viewActivityDetail .viewActivityContent .erweima .code div img {
+  width: 439px;
+  height: 437px;
+}
+.syBase {
+  width: 1200px;
+  height: 693px;
+  position: relative;
+  background: url('/assets/images/assistsProject/img03.png');
+}
+.syBase .detail {
+  position: absolute;
+  top: 100px;
+  left: 300px;
+}
+.syBase .detail .title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+.syBase .detail .content {
+  margin-top: 20px;
+}
+.syBase .detail .content p {
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+.projectGuidance {
+  width: 1200px;
+  height: 689px;
+  position: relative;
+  background: url('/assets/images/assistsProject/img04.png');
+}
+.projectGuidance .course {
+  position: absolute;
+  bottom: 18px;
+  left: 30px;
+}
+.projectGuidance .course .title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+.projectGuidance .course .content {
+  margin-top: 20px;
+}
+.projectGuidance .course .content p {
+  color: #fff;
+  margin-bottom: 5px;
+}
+.projectGuidance .course .content p span {
+  font-size: 16px;
+}
+.f_apply {
+  width: 1200px;
+  text-align: center;
+  height: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.f_apply button {
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  background: red;
+  color: #fff;
+  text-align: center;
+  border: none;
+  padding: 0px 10px;
+  font-size: 16px;
+}
+.f_apply button img {
+  margin-right: 10px;
+}
+#applySettledBase .content p input,
+#applyProjectGuidance .content p input,
+#applySettledBase .content .logo input,
+#applyProjectGuidance .content .logo input {
+  width: 400px;
+  height: 50px;
+  border: 1px solid #999999;
+}
+#applySettledBase .content p span,
+#applyProjectGuidance .content p span,
+#applySettledBase .content .logo span,
+#applyProjectGuidance .content .logo span {
+  font-size: 14px;
+  color: #333;
+}
+#applySettledBase .content p textarea,
+#applyProjectGuidance .content p textarea,
+#applySettledBase .content .logo textarea,
+#applyProjectGuidance .content .logo textarea {
+  vertical-align: top;
+  width: 400px;
+  height: 200px;
+}
+#applySettledBase .content p .picture,
+#applyProjectGuidance .content p .picture,
+#applySettledBase .content .logo .picture,
+#applyProjectGuidance .content .logo .picture {
+  display: inline-block;
+  vertical-align: top;
+  width: auto;
+  margin-left: 15px;
+}
+#applySettledBase .content p .picture img,
+#applyProjectGuidance .content p .picture img,
+#applySettledBase .content .logo .picture img,
+#applyProjectGuidance .content .logo .picture img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #dcdcdc;
+}
+#applySettledBase .content p button,
+#applyProjectGuidance .content p button,
+#applySettledBase .content .logo button,
+#applyProjectGuidance .content .logo button {
+  margin-left: 15px;
+  width: 125px;
+  height: 105px;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  border-radius: 0;
+}
+#applySettledBase .content p small,
+#applyProjectGuidance .content p small,
+#applySettledBase .content .logo small,
+#applyProjectGuidance .content .logo small {
+  display: inline-block;
+  margin-left: 130px;
+}
+.field {
+  margin-top: 20px;
+  clear: both;
+}
+.field .w_list {
+  margin-left: 0;
+  padding-left: 0;
+}
+.field .w_list li {
+  width: 585px;
+  height: 190px;
+  float: left;
+  margin-right: 30px;
+  background: #f8f8f8;
+  margin-bottom: 30px;
+  border: 1px solid #dcdcdc;
+}
+.field .w_list li:nth-of-type(2n) {
+  margin-right: 0;
+}
+.field .w_list li .picture {
+  width: 290px;
+  height: 170px;
+  margin: 10px;
+  float: left;
+}
+.field .w_list li .picture img {
+  width: 100%;
+  height: 100%;
+}
+.field .w_list li .w_details {
+  float: left;
+  margin-left: 20px;
+  width: 220px;
+}
+.field .w_list li .w_details img {
+  vertical-align: top;
+}
+.field .w_list li .w_details .w_name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 45px;
+  margin-left: 30px;
+}
+.field .w_list li .w_details .w_price b {
+  margin-left: 5px;
+  color: #00a3e0;
+  font-size: 18px;
+}
+.field .w_list li .w_details .w_amount {
+  margin-left: 30px;
+  margin-top: -30px;
+}
+.field .w_list li .w_details .w_amount b {
+  color: #00a3e0;
+  font-size: 18px;
+}
+.w_placeDetail .w_img_w {
+  width: 745px;
+  height: 430px;
+}
+.w_placeDetail .w_img_w img {
+  width: 100%;
+  height: 430px;
+  overflow: hidden;
+}
+.w_placeDetail .w_abstract {
+  padding-left: 30px;
+  width: 425px;
+}
+.w_placeDetail .w_abstract .w_h {
+  border-bottom: 1px solid #f8f8f8;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  padding-top: 50px;
+}
+.w_placeDetail .w_abstract .w_h .w_name {
+  font-weight: bold;
+  font-size: 30px;
+  color: #076bc1;
+  display: inline-block;
+  width: 175px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+}
+.w_placeDetail .w_abstract .w_h .w_rent .w_rent_num {
+  font-size: 30px;
+  font-weight: bold;
+  color: #e20414;
+  width: 85px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.w_placeDetail .w_abstract .w_h .w_rent i {
+  font-size: 18px;
+}
+.w_placeDetail .w_abstract .w_detail p {
+  padding-bottom: 20px;
+  font-size: 16px;
+}
+.w_placeDetail .w_abstract .w_detail p b {
+  font-size: 18px;
+}
+.w_placeDetail .w_content {
+  padding-top: 30px;
+}
+.personalCenter {
+  background-color: #fff;
+  position: relative;
+  min-height: 700px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.personalCenter .per_sidebar {
+  width: 180px;
+  float: left;
+  position: absolute;
+  height: 90%;
+}
+.personalCenter .per_sidebar .userCenter {
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #076bc1;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0px;
+}
+.personalCenter .per_sidebar .sidebar-menu {
+  list-style-type: none;
+  padding-left: 0;
+  background: #f8f8f8;
+  border: 1px solid #dcdcdc;
+}
+.personalCenter .per_sidebar .sidebar-menu li.nav-item {
+  width: 180px;
+  padding-left: 35px;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+}
+.personalCenter .per_sidebar .sidebar-menu li.nav-item a {
+  font-size: 16px;
+  margin-right: 50px;
+  z-index: 999;
+  position: relative;
+  color: #333;
+  padding-bottom: 5px;
+}
+.personalCenter .per_sidebar .sidebar-menu li.nav-item a:hover {
+  color: #076bc1;
+  border-bottom: 1px solid #076bc1;
+}
+.personalCenter .per_sidebar .sidebar-menu li.nav-item a:focus {
+  color: #076bc1;
+  border-bottom: 1px solid #076bc1;
+}
+.personalCenter .per_sidebar .sidebar-menu li.nav-item.active a {
+  color: #076bc1;
+  border-bottom: 1px solid #076bc1;
+}
+.personalCenter .per_content {
+  float: left;
+  width: 925px;
+  margin-left: 220px;
+  margin-bottom: 50px;
+}
+.personalCenter .per_content .toolbox {
+  background-color: #eeeeee;
+  padding: 20px 20px 10px 20px;
+  margin-bottom: 20px;
+}
+.personalCenter .per_content .toolbox .widget-group {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.personalCenter .per_content .toolbox .widget-group:last-child {
+  margin-right: 0;
+}
+.personalCenter .per_content .toolbox .widget-group label {
+  font-size: 14px;
+  font-weight: normal;
+}
+.personalCenter .per_content .toolbox .widget-group select.widget-select {
+  height: 35px;
+  width: 100px;
+  font-size: 14px;
+  border-color: #dcdcdc;
+  margin-right: 5px;
+}
+.personalCenter .per_content .toolbox .widget-group .input-daterange .time-input-control {
+  height: 35px;
+  font-size: 14px;
+  width: 125px;
+  border-color: #dcdcdc;
+  z-index: 0;
+}
+.personalCenter .per_content .toolbox .widget-group .input-daterange .input-group-addon {
+  width: auto;
+  border-color: #dcdcdc;
+  border-left: none;
+  border-right: none;
+}
+.personalCenter .per_content .toolbox .widget-group .widget-search {
+  width: 200px;
+}
+.personalCenter .per_content .toolbox .widget-group .widget-search input {
+  height: 35px;
+  border-color: #dcdcdc;
+  font-size: 14px;
+  border-right: none;
+  z-index: 0;
+}
+.personalCenter .per_content .toolbox .widget-group .widget-search .input-group-btn button {
+  height: 35px;
+  font-size: 14px;
+  border-color: #dcdcdc;
+  background-color: #67bcfd;
+}
+.personalCenter .per_content .toolbox .widget-group .widget-search .input-group-btn button:hover {
+  background-color: #448bc8;
+}
+.personalCenter .per_content .toolbox .widget-group .widget-search .input-group-btn button:focus {
+  border: none;
+  outline: none;
+}
+.personalCenter .per_content .toolbox .widget-group .widget-search .input-group-btn button i {
+  font-size: 18px;
+  color: #ffffff;
+}
+.personalCenter .per_content .table-responsive {
+  overflow-x: hidden;
+}
+.personalCenter .per_content .table-responsive .widget-btn-group {
+  position: relative;
+  background-color: #eeeeee;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+}
+.personalCenter .per_content .table-responsive .widget-btn-group .btn-add {
+  background-color: #448bc8;
+  color: #ffffff;
+}
+.personalCenter .per_content .table-responsive .widget-btn-group .btn-del {
+  background-color: #ed5565;
+  color: #ffffff;
+}
+.personalCenter .per_content .table-responsive .widget-btn-group input[type='file'] {
+  display: inline-block;
+  line-height: 30px;
+  cursor: pointer;
+}
+.personalCenter .per_content .table-responsive table {
+  table-layout: fixed;
+}
+.personalCenter .per_content .table-responsive table thead {
+  background-color: #dcdcdc;
+  color: #333333;
+  font-size: 15px;
+}
+.personalCenter .per_content .table-responsive table thead th {
+  border: none;
+  vertical-align: middle;
+  text-align: center;
+}
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) a {
+  color: #333333;
+  width: 58px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+.personalCenter .per_content .table-responsive table tbody tr td {
+  padding: 9px;
+  border: none;
+  vertical-align: middle;
+  text-align: center;
+}
+.personalCenter .per_content .table-responsive table tbody tr td a {
+  cursor: pointer;
+  display: block;
+}
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1),
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2),
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3),
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4),
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5),
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6),
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7),
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8),
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1).inlineShow,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2).inlineShow,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3).inlineShow,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4).inlineShow,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5).inlineShow,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6).inlineShow,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7).inlineShow,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8).inlineShow,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10).inlineShow {
+  overflow: inherit;
+}
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) input,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) input,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) input,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) input,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) input,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) input,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) input,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) input,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) input,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) select,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) select,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) select,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) select,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) select,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) select,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) select,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) select,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) select {
+  border-radius: 5px;
+  height: 40px;
+  font-size: 16px;
+  border: 1px solid #dcdcdc;
+  float: none;
+}
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) input:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) input:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) input:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) input:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) input:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) input:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) input:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) input:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) input:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) select:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) select:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) select:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) select:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) select:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) select:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) select:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) select:focus,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) select:focus {
+  border-color: #448bc8;
+}
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) a,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) a,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) a,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) a,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) a,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) a,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) a,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) a,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) a {
+  color: #333333;
+}
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) i,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) i,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) i,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) i,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) i,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) i,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) i,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) i,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) i {
+  font-size: 24px;
+  cursor: pointer;
+}
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) a.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) a.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) a.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) a.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) a.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) a.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) a.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) a.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) a.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) i.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) i.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) i.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) i.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) i.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) i.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) i.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) i.icon-delete,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) i.icon-delete {
+  color: #ed5565;
+}
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) a.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) a.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) a.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) a.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) a.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) a.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) a.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) a.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) a.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) i.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) i.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) i.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) i.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) i.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) i.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) i.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) i.icon-edit,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) i.icon-edit {
+  color: #448bc8;
+}
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) a.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) a.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) a.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) a.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) a.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) a.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) a.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) a.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) a.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) i.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) i.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) i.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) i.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) i.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) i.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) i.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) i.icon-templatedefault,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) i.icon-templatedefault {
+  color: #448bc8;
+}
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) a.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) a.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) a.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) a.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) a.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) a.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) a.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) a.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) a.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(1) i.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(2) i.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(3) i.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(4) i.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(5) i.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(6) i.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(7) i.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(8) i.icon-rejectedorder,
+.personalCenter .per_content .table-responsive table tbody tr td:nth-of-type(10) i.icon-rejectedorder {
+  color: #ed5565;
+}
+.personalCenter .per_content .table-responsive table tbody tr:nth-child(odd) td {
+  background-color: #ffffff;
+}
+.personalCenter .per_content .table-responsive table tbody tr:nth-child(even) td {
+  background-color: #f6f8fa;
+}
+.personalCenter .per_content .table-responsive .talentsTable thead tr th:nth-of-type(4),
+.personalCenter .per_content .table-responsive .talentsTable thead tr th:nth-of-type(5) {
+  width: 5%;
+}
+.personalCenter .per_content .table-responsive .talentsTable thead tr th:nth-of-type(6) {
+  width: 17%;
+}
+.personalCenter .per_content .table-responsive .talentsTable thead tr th:nth-of-type(7) {
+  width: 11%;
+}
+.personalCenter .per_content .wrapper-md .panel-body .form-group .widget-search input {
+  height: 35px;
+  border-color: #dcdcdc;
+  font-size: 14px;
+  border-right: none;
+  z-index: 0;
+}
+.personalCenter .per_content .wrapper-md .panel-body .form-group .widget-search .input-group-btn button {
+  height: 35px;
+  font-size: 14px;
+  background-color: #67bcfd;
+}
+.personalCenter .per_content .wrapper-md .panel-body .form-group .widget-search .input-group-btn button:hover {
+  background-color: #448bc8;
+}
+.personalCenter .per_content .wrapper-md .panel-body .form-group .widget-search .input-group-btn button:focus {
+  border: none;
+  outline: none;
+}
+.personalCenter .per_content .wrapper-md .panel-body .form-group .widget-search .input-group-btn button i {
+  font-size: 18px;
+  color: #ffffff;
+}
+.basicData .basicDataTitle {
+  color: #fff;
+  font-size: 15px;
+  background: #076bc1;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  margin-bottom: 0px;
+}
+.basicData .personalInfo {
+  width: 980px;
+  height: 250px;
+  background: #f8f8f8;
+}
+.basicData .personalInfo .personal {
+  margin-left: 20px;
+  font-size: 16px;
+  color: #076bc1;
+  padding-top: 20px;
+  font-weight: bold;
+}
+.basicData .personalInfo .left {
+  display: inline-block;
+  text-align: center;
+  width: 826px;
+  margin-top: 20px;
+}
+.basicData .personalInfo .left div {
+  margin-bottom: 20px;
+  position: relative;
+}
+.basicData .personalInfo .left div span {
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  left: 160px;
+  top: 10px;
+}
+.basicData .personalInfo .left div input {
+  width: 350px;
+  height: 40px;
+  border: 1px solid #dcdcdc;
+  padding-left: 10px;
+  color: #666;
+}
+.basicData .personalInfo .right {
+  float: right;
+  display: inline-block;
+  margin-right: 80px;
+}
+.basicData .personalInfo .right span {
+  color: #076bc1;
+  cursor: pointer;
+  font-size: 16px;
+}
+.basicData .entInfo {
+  margin-top: 30px;
+  width: 980px;
+  min-height: 465px;
+  background: #f8f8f8;
+}
+.basicData .entInfo .title {
+  margin-left: 20px;
+  font-size: 16px;
+  color: #076bc1;
+  padding-top: 20px;
+  font-weight: bold;
+}
+.basicData .entInfo .account {
+  margin-left: 20px;
+  font-size: 16px;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+.basicData .entInfo .account a {
+  display: inline-block;
+  color: red;
+}
+.basicData .entInfo .account span {
+  float: right;
+  color: #076bc1;
+  font-size: 16px;
+  cursor: pointer;
+}
+.basicData .entInfo .detailIntro {
+  margin-top: 20px;
+}
+.basicData .entInfo .detailIntro .companyName {
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+}
+.basicData .entInfo .detailIntro .content {
+  margin: 0 20px 20px 20px;
+  text-indent: 2em;
+}
+.basicData .entInfo .detailIntro .content img {
+  width: 800px;
+  height: 400px;
+}
+.collections .bottom {
+  border-bottom: 1px solid #dcdcdc;
+  width: 980px;
+}
+.collections .collectionsTitle {
+  color: #fff;
+  font-size: 15px;
+  background: #076bc1;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  margin-bottom: 0px;
+}
+.collections .collectContent {
+  width: 980px;
+  margin-top: 20px;
+}
+.collections .collectContent p {
+  color: #076bc1;
+  font-size: 16px;
+}
+.collections .collectContent p.buy:before {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 15px;
+  background: #076bc1;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.collections .collectContent .expertAchievements {
+  width: 980px;
+}
+.collections .collectContent .expertAchievements .item {
+  width: 980px;
+  height: 160px;
+  background: #f8f8f8;
+  border: 1px solid #dcdcdc;
+  clear: both;
+}
+.collections .collectContent .expertAchievements .item .lectureImg {
+  width: 175px;
+  height: 125px;
+  margin: 20px;
+  float: left;
+}
+.collections .collectContent .expertAchievements .item .lectureImg img {
+  width: 100%;
+  height: 100%;
+}
+.collections .collectContent .expertAchievements .item .lectureIntro {
+  width: 500px;
+  float: left;
+}
+.collections .collectContent .expertAchievements .item .lectureIntro p:first-of-type {
+  margin-bottom: 20px;
+}
+.collections .collectContent .expertAchievements .item .lectureIntro p:first-of-type span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.collections .collectContent .expertAchievements .item .lectureIntro p:last-of-type {
+  height: 57px;
+  color: #666;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 500px;
+}
+.collections .collectContent .expertAchievements .item .publishTime {
+  float: left;
+  margin-left: 43px;
+  width: 200px;
+  line-height: 155px;
+}
+.collections .collectContent .expertAchievements .item .publishTime span:first-of-type {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.collections .collectContent .expertAchievements .item .publishTime span:last-of-type {
+  color: red;
+  font-size: 16px;
+}
+.collections .collectContent .read {
+  margin-top: 20px;
+}
+.collections .collectContent .read .headContent {
+  height: 40px;
+  width: 980px;
+  background: #f8f8f8;
+  border: 1px solid #dcdcdc;
+}
+.collections .collectContent .read .headContent tr th {
+  text-align: center;
+  border-bottom: 0px;
+}
+.collections .collectContent .read .headContent tr th:first-of-type {
+  width: 680px;
+}
+.collections .collectContent .read .headContent tr th:nth-of-type(2),
+.collections .collectContent .read .headContent tr th:nth-of-type(3) {
+  width: 150px;
+}
+.collections .collectContent .read .detailContent {
+  margin-top: 20px;
+  width: 980px;
+  border: 1px solid #dcdcdc;
+}
+.collections .collectContent .read .detailContent table {
+  background: #f8f8f8;
+  table-layout: fixed;
+}
+.collections .collectContent .read .detailContent table tr td {
+  border-bottom: none;
+  text-align: center;
+  border-bottom: 1px solid #dcdcdc;
+  border-top: none;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+}
+.collections .collectContent .read .detailContent table tr td:first-of-type {
+  width: 680px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.collections .collectContent .read .detailContent table tr td:nth-of-type(2),
+.collections .collectContent .read .detailContent table tr td:nth-of-type(3) {
+  width: 150px;
+}
+.collections .collectContent .read .detailContent .table {
+  margin-bottom: 0px;
+  width: 980px;
+}
+.userInfo .editingEntperson .floorComplex .area {
+  margin-bottom: 15px;
+}
+.userInfo .editingEntperson .floorComplex .area input {
+  width: 230px;
+  height: 35px;
+  border: 1px solid #dcdcdc;
+  padding-left: 5px;
+}
+.userInfo .editingEntperson .floorComplex .area input.nameAndEmail {
+  margin-left: 42px;
+}
+.userInfo .editingEntperson .floorComplex .area .j_red {
+  color: red;
+}
+.userInfo .editingEntperson .floorComplex .area span {
+  color: #333;
+  font-size: 14px;
+}
+.userInfo .editingEntperson .floorComplex .area #edui1 {
+  width: 830px!important;
+}
+.userInfo .editingEntperson .floorComplex .area #edui1_iframeholder {
+  width: 830px!important;
+}
+.userInfo .editingEntperson .floorComplex .contact img {
+  width: 800px;
+  height: 300px;
+}
+.entCertification .modal-header {
+  text-align: center;
+}
+.entCertification .modal-header h3 {
+  display: inline-block;
+  color: red;
+  font-size: 22px;
+  font-weight: bold;
+}
+.entCertification .modal-header span {
+  cursor: pointer;
+  float: right;
+  display: inline-block;
+}
+.entCertification .modal-body .detail {
+  padding: 20px;
+}
+.entCertification .modal-body .detail p:first-of-type span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #076bc1;
+}
+.entCertification .modal-body .detail p:nth-of-type(2),
+.entCertification .modal-body .detail p:nth-of-type(3),
+.entCertification .modal-body .detail p:nth-of-type(4) {
+  margin-left: 30px;
+}
+.entCertification .modal-body .detail p:nth-of-type(2) span:first-of-type,
+.entCertification .modal-body .detail p:nth-of-type(3) span:first-of-type,
+.entCertification .modal-body .detail p:nth-of-type(4) span:first-of-type {
+  font-size: 16px;
+}
+.entCertification .modal-body .detail p:nth-of-type(2) span:last-of-type,
+.entCertification .modal-body .detail p:nth-of-type(3) span:last-of-type,
+.entCertification .modal-body .detail p:nth-of-type(4) span:last-of-type {
+  font-size: 16px;
+  font-weight: bold;
+}
+.entCertification .modal-body .detail p:nth-of-type(2) img,
+.entCertification .modal-body .detail p:nth-of-type(3) img,
+.entCertification .modal-body .detail p:nth-of-type(4) img {
+  vertical-align: top;
+  width: 360px;
+  height: 210px;
+}
+.entCertification .modal-body .detail .text {
+  padding: 20px;
+  color: #666;
+  font-size: 16px;
+}
+.entCertification .modal-body .detail .text .red {
+  color: red;
+}
+.personKnowledge {
+  width: 980px;
+}
+.personKnowledge .bottom {
+  border-bottom: 1px solid #dcdcdc;
+}
+.personKnowledge .knowLedgeTitle {
+  color: #fff;
+  font-size: 15px;
+  background: #076bc1;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  margin-bottom: 0px;
+}
+.personKnowledge .content p {
+  color: #076bc1;
+  font-size: 16px;
+  margin-top: 20px;
+}
+.personKnowledge .content p.buy:before {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 15px;
+  background: #076bc1;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.personKnowledge .content .headContent {
+  height: 40px;
+  width: 980px;
+  background: #f8f8f8;
+  border: 1px solid #dcdcdc;
+}
+.personKnowledge .content .headContent tr th {
+  text-align: center;
+  border-bottom: 0px;
+}
+.personKnowledge .content .headContent tr th:first-of-type {
+  width: 680px;
+}
+.personKnowledge .content .headContent tr th:nth-of-type(2),
+.personKnowledge .content .headContent tr th:nth-of-type(3) {
+  width: 150px;
+}
+.personKnowledge .content .detailContent {
+  margin-top: 20px;
+  width: 980px;
+  border: 1px solid #dcdcdc;
+}
+.personKnowledge .content .detailContent table {
+  background: #f8f8f8;
+  table-layout: fixed;
+}
+.personKnowledge .content .detailContent table tr td {
+  border-bottom: none;
+  text-align: center;
+  border-bottom: 1px solid #dcdcdc;
+  border-top: none;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+}
+.personKnowledge .content .detailContent table tr td:first-of-type {
+  width: 680px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.personKnowledge .content .detailContent table tr td:nth-of-type(2),
+.personKnowledge .content .detailContent table tr td:nth-of-type(3) {
+  width: 150px;
+}
+.personKnowledge .content .detailContent .table {
+  margin-bottom: 0px;
+  width: 980px;
+}
+.financing .bottom {
+  border-bottom: 1px solid #dcdcdc;
+}
+.financing .financingTitle {
+  color: #fff;
+  font-size: 15px;
+  background: #076bc1;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  margin-bottom: 0px;
+}
+.financing .publishFinancing {
+  float: right;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.financing .publishFinancing button {
+  width: 110px;
+  height: 40px;
+  background: red;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  border: none;
+}
+.financing .content {
+  margin-top: 20px;
+}
+.financing .content .headContent {
+  height: 40px;
+  width: 1200px;
+  background: #f8f8f8;
+}
+.financing .content .headContent tr th {
+  text-align: center;
+  border-bottom: 0px;
+}
+.financing .content table tbody tr td {
+  text-align: center;
+}
+.financing .content table tbody tr td .picture img {
+  width: 175px;
+  height: 125px;
+  margin: 15px;
+}
+.financing .content table tbody tr td .picture span {
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+  width: 42px;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.financing .content .detailContent table tr {
+  background: #f8f8f8;
+  margin-top: 20px;
+  height: 165px;
+  border: 1px solid #dcdcdc;
+}
+.financing .content .detailContent table tr td {
+  vertical-align: middle;
+  cursor: pointer;
+}
+.declare .bottom {
+  border-bottom: 1px solid #dcdcdc;
+}
+.declare .declareTitle {
+  color: #fff;
+  font-size: 15px;
+  background: #076bc1;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  margin-bottom: 0px;
+}
+.declare .content {
+  margin-top: 20px;
+}
+.declare .content .headContent {
+  height: 40px;
+  width: 1200px;
+  background: #f8f8f8;
+}
+.declare .content .headContent tr th {
+  text-align: center;
+  border-bottom: none;
+}
+.declare .content .detailContent table {
+  background: #f8f8f8;
+}
+.declare .content .detailContent table tr td {
+  border-bottom: none;
+  text-align: center;
+  border-bottom: 1px solid #dcdcdc;
+  border-top: none;
+  height: 40px;
+  line-height: 40px;
+}
+.modifyPassword .modifyPasswordTitle {
+  color: #fff;
+  font-size: 15px;
+  background: #076bc1;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  margin-bottom: 0px;
+}
+.modifyPassword .content {
+  border: 1px solid #dcdcdc;
+  height: 290px;
+  background: #f8f8f8;
+}
+.modifyPassword .content form {
+  margin-top: 20px;
+  margin-left: 312px;
+}
+.modifyPassword .content form .inputStyle {
+  margin-bottom: 20px;
+}
+.modifyPassword .content form .inputStyle input {
+  width: 370px;
+  height: 40px;
+  border: 1px solid #dcdcdc;
+  padding-left: 10px;
+}
+.modifyPassword .content form .inputStyle button {
+  margin-right: 20px;
+  width: 150px;
+  height: 40px;
+  color: #fff;
+  background: red;
+  text-align: center;
+  line-height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+}
+.enterpriseCertification {
+  width: 980px;
+}
+.enterpriseCertification .enterpriseCertificationTitle {
+  color: #fff;
+  font-size: 15px;
+  background: #076bc1;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  margin-bottom: 0px;
+}
+.enterpriseCertification .entCertificationContent {
+  border: 1px solid #dcdcdc;
+  min-height: 500px;
+  background: #f8f8f8;
+}
+.enterpriseCertification .entCertificationContent .detail {
+  margin: 20px;
+}
+.enterpriseCertification .entCertificationContent .detail p span,
+.enterpriseCertification .entCertificationContent .detail .upload span {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+}
+.enterpriseCertification .entCertificationContent .detail p input,
+.enterpriseCertification .entCertificationContent .detail .upload input {
+  margin-top: 10px;
+  padding-left: 10px;
+  width: 530px;
+  height: 40px;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+}
+.enterpriseCertification .entCertificationContent .detail .upload {
+  clear: both;
+}
+.enterpriseCertification .entCertificationContent .detail .upload .left {
+  float: left;
+  width: 530px;
+  height: 200px;
+  margin-top: 10px;
+  background: #fff;
+}
+.enterpriseCertification .entCertificationContent .detail .upload .left div {
+  text-align: center;
+  cursor: pointer;
+  margin-top: 50px;
+}
+.enterpriseCertification .entCertificationContent .detail .upload .left .imgPreview {
+  width: 530px;
+  height: 200px;
+}
+.enterpriseCertification .entCertificationContent .detail .upload .left .imgPreview img {
+  height: 100%;
+  width: 100%;
+}
+.enterpriseCertification .entCertificationContent .detail .upload .right {
+  float: left;
+  margin-left: 20px;
+}
+.enterpriseCertification .entCertificationContent .detail .upload .right p {
+  color: #666;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.enterpriseCertification .entCertificationContent .detail .upload .right p:first-of-type {
+  font-size: 16px;
+}
+.enterpriseCertification .entCertificationContent .detail div p {
+  font-size: 14px;
+  color: #666;
+}
+.enterpriseCertification .entCertificationContent .detail div p .red {
+  color: red;
+}
+.enterpriseCertification .entCertificationContent .detail div p .blue {
+  color: #076bc1;
+}
+.enterpriseCertification .submit {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.enterpriseCertification .submit button {
+  width: 215px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: bold ;
+  background: red;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  border: none;
+}
+.login {
+  margin-top: 30px;
+}
+.login .title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid #dcdcdc;
+  width: 465px;
+  height: 45px;
+  background: #076bc1;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  line-height: 45px;
+}
+.login .content {
+  height: 560px;
+  width: 1200px;
+  border: 1px solid #dcdcdc;
+  background: #f8f8f8;
+}
+.login .content .banner {
+  width: 707px;
+  margin: 20px;
+  height: 501px;
+  float: left;
+}
+.login .content .banner img {
+  width: 100%;
+  height: 100%;
+}
+.login .content .rightContent {
+  width: 440px;
+  float: left;
+}
+.login .content .rightContent form {
+  margin-top: 125px;
+  margin-left: 10px;
+}
+.login .content .rightContent form p span {
+  font-size: 16px;
+}
+.login .content .rightContent form p:last-of-type span {
+  margin-left: 15px;
+  font-size: 16px;
+}
+.login .content .rightContent form input[type='text'],
+.login .content .rightContent form input[type='password'] {
+  width: 350px;
+  height: 40px;
+  border: 1px solid #dcdcdc;
+  padding-left: 5px;
+}
+.login .content .rightContent form .password {
+  margin-left: 18px;
+}
+.login .content .rightContent form .loginBtn {
+  width: 440px;
+  margin-top: 20px;
+  text-align: center;
+}
+.login .content .rightContent form .loginBtn button {
+  width: 200px;
+  height: 40px;
+  background: red;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  border: none;
+}
+.login .content .rightContent .forgetPassword {
+  float: right;
+  margin-top: 20px;
+  color: red;
+  font-size: 16px;
+}
+.login .content .rightContent .register {
+  margin-top: 20px;
+  float: right;
+  clear: both;
+  font-size: 14px;
+}
+.login .content .rightContent .register a {
+  color: red;
+  cursor: pointer;
+}
+.validateCode {
+  width: 235px!important;
+  margin-left: 17px;
+}
+.getCode {
+  width: 120px;
+  height: 40px;
+  background: #076bc1;
+  border-radius: 0px 5px 5px 0px;
+  color: #fff;
+  text-align: center;
+  margin-left: -10px;
+  border: none;
+}
+.registerPassword {
+  margin-left: 33px;
+}
+.wrapCheck {
+  margin-left: 68px;
+}
+.wrapCheck .check {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: bottom;
+  background: url('/assets/images/login/icon1.png');
+}
+.wrapCheck .check.active {
+  background: url('/assets/images/login/icon2.png');
+}
+.wrapCheck .check input {
+  width: 20px;
+  height: 20px;
+  margin-top: 0px;
+  opacity: 0;
+  cursor: pointer;
+}
+.wrapCheck span {
+  font-size: 16px;
+  color: red;
+  font-weight: bold;
+}
+.registerBtn {
+  margin-left: 90px;
+  margin-top: 30px;
+}
+.registerBtn button {
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  background: red;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+.findPassword .forgetPasswordNavbar {
+  width: 1200px;
+  height: 40px;
+  text-align: center;
+  margin-top: 30px;
+}
+.findPassword .detailContent {
+  margin-left: 312px;
+}
+.findPassword .detailContent .sureAccount {
+  margin-top: 30px;
+}
+.findPassword .detailContent .sureAccount h3 {
+  font-weight: bold;
+  font-size: 18px;
+}
+.findPassword .detailContent .sureAccount .account {
+  width: 575px;
+  height: 40px;
+  padding-left: 10px;
+  border: 1px solid #dcdcdc;
+}
+.findPassword .detailContent .sureAccount .gap {
+  margin-top: 20px;
+}
+.findPassword .detailContent .sureAccount .validate {
+  margin-top: 20px;
+}
+.findPassword .detailContent .sureAccount .validate input {
+  width: 370px;
+  height: 40px;
+  border: 1px solid #dcdcdc;
+  padding-left: 10px;
+}
+.findPassword .detailContent .sureAccount .validate .v_container {
+  width: 200px;
+  display: inline-block;
+  height: 40px;
+  vertical-align: bottom;
+}
+.findPassword .detailContent .sureAccount .validate .v_container canvas {
+  width: 200px;
+  height: 40px;
+}
+.findPassword .detailContent .sureAccount .validate .picture {
+  display: inline-block;
+  margin-left: 25px;
+  cursor: pointer;
+}
+.findPassword .detailContent .sureAccount .validate .picture img {
+  width: 85px;
+  height: 39px;
+}
+.findPassword .detailContent .sureAccount .validate .picture span {
+  font-size: 16px;
+  color: #076bc1;
+  margin-left: 25px;
+  cursor: pointer;
+}
+.findPassword .detailContent .sureAccount .validate button {
+  width: 205px;
+  height: 40px;
+  border: 1px solid #dcdcdc;
+  background: #076bc1;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  vertical-align: top;
+  margin-left: -5px;
+}
+.findPassword .detailContent .securityValidate .phone {
+  width: 548px;
+  height: 40px;
+  border: 1px solid #dcdcdc;
+  padding-left: 10px;
+}
+.findPassword .detailContent .securityValidate .upAndDown {
+  display: inline-block;
+  height: 40px;
+  vertical-align: top;
+  margin-left: -4px;
+  cursor: pointer;
+}
+.findPassword .detailContent .securityValidate .upAndDown img {
+  width: 31px;
+  height: 20px;
+  margin-top: -3px;
+}
+.findPassword .detailContent .sure {
+  margin-top: 20px;
+}
+.findPassword .detailContent .sure button {
+  width: 370px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: red;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+}
+.findPassword .detailContent .sure a {
+  width: 87px;
+  height: 40px;
+  border: 1px solid red;
+  padding: 8px 30px;
+  vertical-align: bottom;
+  margin-left: 20px;
+  display: inline-block;
+}
+.findPassword .detailContent .sure a img {
+  text-align: center;
+}
+.findPassword .detailContent .textCenter {
+  margin-left: 100px;
+}
+.successFind div {
+  margin-top: 230px;
+  text-align: center;
+}
+.successFind div p {
+  color: #333;
+  width: 625px;
+  height: 43px;
+  text-align: center;
+  margin-left: 300px;
+}
+.successFind div p:first-of-type {
+  font-size: 16px;
+  border-bottom: 1px dashed #dcdcdc;
+  padding-bottom: 20px;
+}
+.successFind div p:first-of-type a {
+  font-size: 18px;
+  color: #076bc1;
+}
+.successFind div p:last-of-type {
+  font-size: 18px;
+  font-weight: bold;
+}
+.successFind div p:last-of-type span {
+  color: red;
+}

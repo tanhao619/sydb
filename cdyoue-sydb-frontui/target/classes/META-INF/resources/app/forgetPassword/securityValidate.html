@@ -1,0 +1,34 @@
+<div class="wrap">
+    <div class="layout">
+        <div class="login">
+            <div class="title">
+                找回密码
+            </div>
+            <div class="content findPassword">
+                <div class="forgetPasswordNavbar">
+                    <img src="/assets/images/login/forgetPassword2.png">
+                </div>
+                <div class="detailContent">
+                    <div class="securityValidate sureAccount">
+                        <h3>为了您的账号安全，请完成身份验证！</h3>
+                        <input  ng-model="vm.tel" readonly type="text" class="phone">
+                        <div class="upAndDown">
+                            <!--<img src="/assets/images/login/f1.jpg">-->
+                            <!--<br>-->
+                            <!--<img src="/assets/images/login/f2.jpg">-->
+                        </div>
+                        <div class="validate">
+                            <input type="text" ng-model="vm.captcha" placeholder="验证码">
+                            <button ng-click="vm.getCaptcha()" ng-disabled="vm.b" ng-bind = "vm.paracont">获取验证码</button>
+                        </div>
+                    </div>
+                    <div class="sure">
+                        <button ng-click="vm.checkCaptcha()">下一步</button>
+                        <a ui-sref="forgetPassword"><img src="/assets/images/login/spr301.png"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

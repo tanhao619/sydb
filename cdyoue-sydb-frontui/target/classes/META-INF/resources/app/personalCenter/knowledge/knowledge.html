@@ -1,0 +1,91 @@
+<div class="personKnowledge">
+    <div class="bottom">
+        <div class="knowLedgeTitle">
+            我的知产
+        </div>
+    </div>
+
+    <div class="content">
+        <p class="buy">求购</p>
+        <div>
+            <div class="headContent">
+                <table class="table table-responsive">
+                    <thead>
+                    <tr>
+                        <th>标题</th>
+                        <th>审核状态</th>
+                        <th>申报时间</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="detailContent">
+                <table class="table table-responsive">
+                    <tbody>
+                    <tr ng-repeat="item in vm.seeksPager.list" ui-sref="buyIPDetails({id:item.id})">
+                        <td>{{item.name}}</td>
+                        <td title="{{item.approveStatus|approveStatusFilter}}" ng-if="item.approveStatus == 0"><img src="/assets/images/personalCenter/icon2.png"></td>
+                        <td title="{{item.approveStatus|approveStatusFilter}}" ng-if="item.approveStatus == 1"><img src="/assets/images/personalCenter/icon3.png"></td>
+                        <td title="{{item.approveStatus|approveStatusFilter}}" ng-if="item.approveStatus == 2"><img src="/assets/images/personalCenter/icon4.png"></td>
+                        <td >{{item.publishTime|knowledgeTimeFilter}}</td>
+                    </tr>
+                    <!--<tr>
+                        <td>2017年第二批广西创新驱动发展专项（科技重大专项）项目</td>
+                        <td>审核中</td>
+                        <td>2019-01-01</td>
+                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+
+            <!--<div class="widget-page">
+                <youe-page pageinfo="vm.seeksPager" select-page="vm.selectSeeksPage" select-page-size="vm.selectSeeksPageSize"></youe-page>
+            </div>-->
+            <h4 class="text-danger" ng-if = "!vm.seeksPager.list.length">抱歉！暂无数据！</h4>
+            <div ng-if="vm.seeksPager.list.length" class="widget-page">
+                <youe-page pageinfo="vm.seeksPager" select-page="vm.selectSeeksPage" select-page-size="vm.selectSeeksPageSize"></youe-page>
+            </div>
+        </div>
+        <p class="buy">出售</p>
+        <div>
+            <div class="headContent">
+                <table class="table table-responsive">
+                    <thead>
+                    <tr>
+                        <th>标题</th>
+                        <th>审核状态</th>
+                        <th>申报时间</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="detailContent">
+                <table class="table table-responsive">
+                    <tbody>
+                    <tr ng-repeat="item in vm.salesPager.list" ui-sref="saleIPDetails({id:item.id,type:item.category})">
+                        <td>{{item.name}}</td>
+                        <td title="{{item.approveStatus|approveStatusFilter}}" ng-if="item.approveStatus == 0"><img src="/assets/images/personalCenter/icon2.png"></td>
+                        <td title="{{item.approveStatus|approveStatusFilter}}" ng-if="item.approveStatus == 1"><img src="/assets/images/personalCenter/icon3.png"></td>
+                        <td title="{{item.approveStatus|approveStatusFilter}}" ng-if="item.approveStatus == 2"><img src="/assets/images/personalCenter/icon4.png"></td>
+                        <!--<td>{{item.approveStatus|approveStatusFilter}}</td>-->
+                        <td>{{item.publishTime|knowledgeTimeFilter}}</td>
+                    </tr>
+                    <!--<tr>
+                        <td>2017年第二批广西创新驱动发展专项（科技重大专项）项目</td>
+                        <td>审核中</td>
+                        <td>2019-01-01</td>
+                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+
+            <!--<div class="widget-page">
+                <youe-page pageinfo="vm.salesPager" select-page="vm.selectSalesPage" select-page-size="vm.selectSalesPageSize"></youe-page>
+            </div>-->
+            <h4 class="text-danger" ng-if = "!vm.salesPager.list.length">抱歉！暂无数据！</h4>
+            <div ng-if="vm.salesPager.list.length" class="widget-page">
+                <youe-page pageinfo="vm.salesPager" select-page="vm.selectSalesPage" select-page-size="vm.selectSalesPageSize"></youe-page>
+            </div>
+        </div>
+    </div>
+</div>

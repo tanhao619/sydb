@@ -1,0 +1,55 @@
+<div class="bgGray wrap w_list_public">
+    <div class="layout w_innovation w_IP_buy">
+        <div class="breadcrumb">
+            <a ui-sref="assistsInnovation" href="">助力创新</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">专家库</span>
+        </div>
+        <div class="titleAndSearch">
+            <p class="secondActive">专家库</p>
+            <div class="search">
+                <input type="search" ng-model="vm.q" placeholder="关键字搜索">
+                <button ng-click="vm.query()">搜索</button>
+            </div>
+        </div>
+
+        <div class="f_deviceDetailContent">
+            <div class="industryCategory">
+                <p>行业分类：</p>
+                <div  class="deviceLibrary">
+                    <ul>
+                        <li ng-repeat="item in vm.industryList" ng-click="vm.selectIndustry(item.id)" ng-class="{active:vm.queryModel.industryType == item.id}">{{item.name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="min-height: 750px;">
+            <h4 class="text-danger" ng-if = "!vm.pager.list.length">抱歉！暂无数据！</h4>
+            <div class="expertReadDetail">
+                <div class="item" ng-repeat="item in vm.pager.list">
+                    <div class="lectureImg" ui-sref="expertInterpretationDetail({id:item.id})">
+                        <img src="{{SY_UploadBasePath}}{{item.headImgUrl}}">
+                    </div>
+                    <div class="lectureIntro">
+                        <p>
+                            <span title="{{item.name}}" ui-sref="expertInterpretationDetail({id:item.id})">{{item.name | lengthFilter:9:'…… '}}</span>
+                            <span title="{{item.job}}">{{item.job | lengthFilter:9:'……'}}</span>
+                        </p>
+                        <p>
+                            <span title="{{item.introduction}}">{{item.introduction| lengthFilter:48:'……'}}</span>
+                            <a ui-sref="expertInterpretationDetail({id:item.id})">查看详情</a>
+                        </p>
+                        <p>
+                           <!--<button class="btn btn-primary" data-toggle="modal" data-target="#expertContact" ng-click="vm.contact(item.id)">-->
+                            <button class="btn btn-primary" ng-click="vm.open(item.id,'md')">
+                            <img src="/assets/images/assistsInnovation/pic12.png">联系他</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="vm.pager.list.length" class="widget-page">
+            <youe-page pageinfo="vm.pager" select-page="vm.selectPage"></youe-page>
+        </div>
+    </div>
+</div>

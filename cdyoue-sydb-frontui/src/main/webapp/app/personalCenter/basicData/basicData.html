@@ -1,0 +1,40 @@
+<div class="basicData">
+    <p class="basicDataTitle">基本资料</p>
+    <div class="personalInfo">
+        <p class="personal">个人信息</p>
+        <div class="left">
+            <div>
+                <span>姓名</span>
+                <input type="text" ng-model="vm.basic.name" ng-disabled="true"/>
+            </div>
+            <div>
+                <span>联系电话</span>
+                <input type="text" ng-model="vm.basic.tel" ng-disabled="true"/>
+            </div>
+            <div>
+                <span>邮箱</span>
+                <input type="text" ng-model="vm.basic.email" ng-disabled="true"/>
+            </div>
+        </div>
+     <div class="right">
+       <span class="glyphicon glyphicon-edit"></span>
+       <span ng-click="vm.open(vm.entId,'lg',vm.basic)">编辑</span>
+     </div>
+    </div>
+    <div class="entInfo">
+        <p class="title">企业信息</p>
+        <div class="account">
+            <a ui-sref="" ng-click="vm.openModal('md')" href="">
+                {{vm.certification.val}}
+                <img src="/assets/images/personalCenter/icon1.png">
+            </a>
+        </div>
+        <div class="detailIntro">
+            <p class="companyName">{{vm.basic.name}}</p>
+            <div class="content">
+                <p ng-bind-html="vm.basic.enterpriseDetail | elementsIntro">
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

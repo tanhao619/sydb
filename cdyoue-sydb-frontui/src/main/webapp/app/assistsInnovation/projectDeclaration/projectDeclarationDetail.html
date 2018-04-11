@@ -1,0 +1,62 @@
+<div class="bgGray wrap w_list_public projecDeclarationDetail">
+    <div class="layout w_innovation w_IP_buy">
+        <div class="breadcrumb">
+            <a ui-sref="assistsInnovation" href="">助力创新</a>
+            <span>＞</span>
+            <a href="" ui-sref="projectDeclaration">项目申报</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">申报详情页</span>
+        </div>
+        <!--<div class="titleAndSearch">-->
+            <!--<p class="secondActive">申报详情页</p>-->
+        <!--</div>-->
+        <div class="declarTitle interTitle">
+            <div>
+                <p>{{vm.projectDeclarationDetail.name}}</p>
+            </div>
+            <div class="detail">
+                <p>发文号：{{vm.projectDeclarationDetail.projectNumber}}</p>
+                <p>信息来源：{{vm.projectDeclarationDetail.source}}</p>
+                <p>发布时间：{{vm.projectDeclarationDetail.publishTime}}</p>
+                <!--<p>浏览量:{{vm.projectDeclarationDetail.viewCount}}</p>-->
+
+            </div>
+            <section>
+                <a class="share"><img src="/assets/images/assistsInnovation/share.png"></a>
+                <div class="jiathis_style_32x32">
+                    <a class="jiathis_button_tsina"></a>
+                    <a class="jiathis_button_qzone"></a>
+                    <a class="jiathis_button_cqq"></a>
+                    <a class="jiathis_button_weixin"></a>
+                    <!--<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>-->
+                    <!--<a class="jiathis_counter_style"></a>-->
+                </div>
+                <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                <p>
+                    <button class="" ng-click="vm.checkLogin()">立即申报</button>
+                </p>
+            </section>
+        </div>
+        <div class="declarDetailIntro">
+            <div class="">
+                <p ng-bind-html="vm.projectDeclarationDetail.content | elementsIntro"></p>
+            </div>
+        </div>
+       <div class="declarProject">
+           <p>项目附件</p>
+           <div>
+               <table>
+                   <tr>
+                       <td>申请表格</td>
+                       <td>
+                           <a href="{{SY_UploadBasePath}}{{vm.projectDeclarationDetail.attachmentUrl}}"download=""><button class="">立即下载</button></a>
+                       </td>
+                   </tr>
+               </table>
+           </div>
+       </div>
+    </div>
+</div>
+
+<!--<script src="/vendor/share/share.js"></script>-->
+<script src="/vendor/share/share.js"></script>

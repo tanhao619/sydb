@@ -1,0 +1,41 @@
+<div class="bgGray wrap w_list_public projectInterpretationDetail">
+    <div class="layout w_innovation w_IP_buy">
+        <div class="breadcrumb">
+            <a ui-sref="assistsInnovation" href="">助力创新</a>
+            <span>＞</span>
+            <a ui-sref="projectInterpretation" href="">项目解读</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">{{vm.projectInterpretationDetail.title}}</span>
+        </div>
+        <!--<div class="titleAndSearch">-->
+            <!--<p class="secondActive">{{vm.projectInterpretationDetail.title}}</p>-->
+        <!--</div>-->
+      <div class="interTitle">
+          <p>{{vm.projectInterpretationDetail.title}}</p>
+          <p>
+              <span>发布时间:{{vm.projectInterpretationDetail.publishTime}}</span>
+              <!--<span>浏览量：{{vm.projectInterpretationDetail.viewCount}}</span>-->
+          </p>
+          <section>
+              <a class="share"><img src="/assets/images/assistsInnovation/share.png"></a>
+              <div class="jiathis_style_32x32">
+                  <a class="jiathis_button_tsina"></a>
+                  <a class="jiathis_button_qzone"></a>
+                  <a class="jiathis_button_cqq"></a>
+                  <a class="jiathis_button_weixin"></a>
+                  <!--<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>-->
+                  <!--<a class="jiathis_counter_style"></a>-->
+              </div>
+              <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+
+          </section>
+      </div>
+        <div class="interDetailIntro">
+            <div class="">
+                <p ng-bind-html="vm.projectInterpretationDetail.content | elementsIntro"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--<script src="/vendor/share/share.js"></script>-->

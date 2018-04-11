@@ -1,0 +1,67 @@
+
+    <div class="" role="document" id="declarationDetail">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>申请入驻基地</h4>
+                <span data-dismiss="modal" ng-click="vm.cancel()">X</span>
+            </div>
+            <div class="modal-body">
+                <div class="content_tips intro">
+                    {{vm.userName}}企业 您好， 很高兴收到您的基地入驻申请，请留下您的联系方式，我们会尽快联系您！
+                </div>
+              <form name="myForm">
+                <div class="content">
+                    <p>
+                        <span>企业联系人</span>
+                        <input type="text" ng-model="vm.enterpriseEntity.contactPeople" ng-maxlength="10" name="Name" ng-required="true">
+                        <br>
+                        <b style="color: red" ng-if="myForm.Name.$error.required && myForm.Name.$touched">联系人不能为空！</b>
+                        <b style="color: red" ng-if="myForm.Name.$error.maxlength && myForm.Name.$touched">联系人请限制在10个字符以内！</b>
+                    </p>
+                    <p>
+                        <span>联系电话</span>
+                        <input type="text" ng-model="vm.enterpriseEntity.contactNumber" ng-pattern="/(^1[34578]\d{9}$)$|(\d{3}-\d{8}|\d{4}-\d{7})/" name="tel" ng-required="true">
+                        <br>
+                        <b style="color: red" ng-if="myForm.tel.$error.required && myForm.tel.$touched">电话不能为空！</b>
+                        <b style="color: red" ng-if="myForm.tel.$error.pattern && myForm.tel.$touched">电话格式不正确！</b>
+                    </p>
+                    <p class="logo">
+                        <span>企业logo</span>
+                        <div style="margin-left: 123px" class="w_uploadImg_w w_saleIP_upload picture" ng-if="vm.myEnterprise.file || (!vm.myEnterprise.file && vm.enterpriseEntity.enterpriseLogo)" ng-hide="!vm.enterpriseEntity.enterpriseLogo">
+                            <img ngf-src="vm.myEnterprise.file" ngf-resize="{width: 110, quality: 0.9}" width="130"
+                                 ng-if="vm.myEnterprise.file">
+                            <img ng-if="!vm.myEnterprise.file && vm.enterpriseEntity.enterpriseLogo"  width="130"
+                                 ng-src="{{SY_UploadBasePath}}{{vm.enterpriseEntity.enterpriseLogo}}">
+
+                        </div>
+                        <button  class="uploadPicture" type="file" ngf-select="vm.uploadFile2()" ng-model="vm.myEnterprise.file" style="margin-left: 123px" ng-if="!vm.enterpriseEntity.enterpriseLogo" name="image">
+                            <img src="/assets/images/assistsInnovation/upload.png">
+                            <br>
+                            <span style="">点击上传</span>
+                        </button>
+                        <small ng-if="!vm.myEnterprise.file || !vm.enterpriseEntity.enterpriseLogo">可上传一张jpg/gif/png格式图片，建议像素8000*2000，大小<2M</small>
+                    </p>
+                    <p>
+                        <span>企业简介</span>
+                        <textarea ng-model="vm.enterpriseEntity.enterpriseInfo" name="content" ng-maxlength="200" ng-required="true"></textarea>
+                        <br>
+                        <b style="color: red" ng-if="myForm.content.$error.required && myForm.content.$touched">简介不能为空！</b>
+                        <b style="color: red" ng-if="myForm.content.$error.maxlength && myForm.content.$touched">简介内容请限制在200个字符以内！</b>
+                    </p>
+                    <p>
+                        <span>企业链接</span>
+                        <input type="url" ng-model="vm.enterpriseEntity.enterpriseUrl" name="myUrl" ng-required="true">
+                        <br>
+                        <b style="color: red" ng-if="myForm.myUrl.$error.required && myForm.myUrl.$touched">链接不能为空！</b>
+                        <b style="color: red" ng-if="myForm.myUrl.$error.url && myForm.myUrl.$touched">链接格式不正确！</b>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="" ng-click="vm.save()" data-dismiss="modal"ng-disabled=" myForm.$invalid || (vm.myEnterprise.file == null && (vm.enterpriseEntity.enterpriseLogo == '' || vm.enterpriseEntity.enterpriseLogo == null))">提交</button>
+                    <button class="" ng-click="vm.cancel()" data-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>

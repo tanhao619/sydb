@@ -1,0 +1,144 @@
+<section class="assistsProject">
+    <div class="container">
+        <div class="row">
+            <div class="ProjectBanner">
+                <div class="asideLeft">
+                    <div class="sliderImg" id="sliderImg">
+                        <div class="sliderContent">
+                            <div class="item " ng-class="{true:'active'}[$first]" ng-repeat="item in vm.sliderImg" ng-if="$index<3">
+                                <a href="{{item.link}}" title="{{item.title}}" target="_blank"><img ng-src="{{SY_UploadBasePath}}{{item.coverImg}}"></a>
+                                <!--链接是{{item.link}}-->
+                            </div>
+                        </div>
+                        <ul class="sliderInput">
+                            <li class="active" data-imgvalue="0">1</li>
+                            <li data-imgvalue="1" class="">2</li>
+                            <li data-imgvalue="2" class="">3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="asideRight">
+                    <div ui-sref="{{icon.href}}" class="rightItem" ng-repeat="icon in vm.iconAndText">
+                        <div class="icon">
+                            <img ng-src="{{icon.iconUrl}}">
+                        </div>
+                        <p>{{icon.title}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="projectContent">
+                <div class="enterpriseRecommend">
+                    <a ui-sref="settledEnterprise" class="more">更多&gt;&gt;</a>
+                    <div class="title">
+                        <img src="/assets/images/assistsProject/icon-enterprise.png">
+                        <p>相关企业推荐</p>
+                        <em></em>
+                    </div>
+                    <div class="detail">
+                        <div class="item" ng-repeat="item in vm.enterpriseRecommend">
+                            <div class="itemPicture">
+                                <a ui-sref="settledEnterpriseDetail({id:item.id})">
+                                <img ng-src="{{SY_UploadBasePath}}{{item.topImage}}">
+                                </a>
+                            </div>
+                            <div class="mask">
+                                <p title="{{item.name}}">{{item.name | lengthFilter:16}}</p>
+                                <p title="{{item.address | workPlaceDetailFilter}}">{{item.address | workPlaceDetailFilter | lengthFilter:16}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="enterpriseRecommend">
+                    <a ui-sref="trainingDetail" class="more">更多&gt;&gt;</a>
+                    <div class="title">
+                        <img src="/assets/images/assistsProject/icon-mechanism.png">
+                        <p>培训机构推荐</p>
+                        <em></em>
+                    </div>
+                    <div class="detail">
+                        <div class="item" ng-repeat="item in vm.trainingRecommend">
+                            <div class="itemPicture">
+                                <a ui-sref="viewTrainingDetail({id:item.id})">
+                                <img ng-src="{{SY_UploadBasePath}}{{item.topImage}}">
+                                </a>
+                            </div>
+                            <div class="mask">
+                                <p title="{{item.name}}">{{item.name | lengthFilter:16}}</p>
+                                <p title="{{item.address | workPlaceDetailFilter}}">{{item.address | workPlaceDetailFilter | lengthFilter:16}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="enterpriseRecommend">
+                    <a ui-sref="fieldsList" class="more">更多&gt;&gt;</a>
+                    <div class="title">
+                        <img src="/assets/images/assistsProject/icon-field.png">
+                        <p>场地推荐</p>
+                        <em></em>
+                    </div>
+                    <div class="detail">
+                        <div class="item" ng-repeat="item in vm.areaBanners">
+                            <a href="" ng-click="vm.getAreaDetails(item.id)">
+                            <div class="itemPicture">
+                                <img ng-src="{{SY_UploadBasePath}}{{item.topImg}}">
+                            </div>
+                            <div class="mask">
+                                <p title="{{item.name}}">{{item.name | siteNameFilter}}</p>
+                                <p title="{{item.address | workPlaceDetailFilter}}">{{item.address | workPlaceLimitFilter}}</p>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="enterpriseRecommend">
+                    <a ui-sref="ActivitiesList" class="more">更多&gt;&gt;</a>
+                    <div class="title">
+                        <img src="/assets/images/assistsProject/icon-activity.png">
+                        <p>路演活动</p>
+                        <em></em>
+                    </div>
+                    <div class="detail">
+                        <div class="item" ng-repeat="item in vm.activityBanners">
+                            <a href="" ng-click="vm.getActivityDetails(item.id)">
+                            <div class="itemPicture">
+                                <img ng-src="{{SY_UploadBasePath}}{{item.topImg}}">
+                            </div>
+                            <div class="mask">
+                                <p title="{{item.title}}">{{item.title | siteNameFilter}}</p>
+                                <p title="{{item.address | workPlaceDetailFilter}}">{{item.address | workPlaceLimitFilter}}</p>
+                            </div>
+                                </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="projectPlatform">
+                <div class="financingPlatform" ng-repeat="url in vm.urls" ng-class="{active:vm.show[$index]}">
+                    <div class="titleIntro">
+                        <p class="title">{{url.name}}</p>
+                        <span ng-class="{active:vm.show[$index]}" ng-click="vm.showAllClick($index)"><img src="/assets/images/assistsProject/more.png"></span>
+                        <div class="" style="clear: both;height: 0px;"></div>
+                    </div>
+
+                    <div class="content" ng-class="{active:vm.show[$index]}">
+                        <ul>
+                            <li ng-repeat="link in url.links track by $index"><div ng-bind-html="link | elementsIntro"></div></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<div class="" style="clear: both;height: 0px;"></div>-->
+                <!--<div class="financingPlatform">
+                    <p class="title">融资平台</p>
+                    <div class="content">
+                        <ul>
+                            <li ng-repeat="con in vm.projectPlatform track by $index">{{con}}</li>
+                        </ul>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../vendor/base/youeSlider.js"></script>

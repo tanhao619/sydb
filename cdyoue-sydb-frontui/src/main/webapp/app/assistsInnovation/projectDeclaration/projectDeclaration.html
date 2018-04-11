@@ -1,0 +1,100 @@
+<div class="bgGray wrap w_list_public">
+    <div class="layout w_innovation w_IP_buy">
+        <div class="breadcrumb">
+            <a ui-sref="assistsInnovation" href="">助力创新</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">项目申报库</span>
+        </div>
+        <div class="titleAndSearch">
+            <p class="secondActive">项目申报库</p>
+            <div class="search">
+                <input type="search" ng-model="vm.q" placeholder="项目标题">
+                <button ng-click="vm.query(vm.queryModel)">搜索</button>
+            </div>
+        </div>
+
+        <div>
+         <div class="f_projectDeclaration">
+             <div class="w_thead">
+                 <table>
+                     <tr>
+                         <th width="35%"><span>申报标题</span></th>
+                         <th width="10%">
+                             <select ng-model="vm.queryModel.time" ng-options="type.value as type.key for type in vm.projectTime"
+                                     ng-change="vm.goes()" ng-init="vm.queryModel.time">
+                             </select>
+                             <!--<select>-->
+                             <!--<option ng-selected="vm.goes(null)" value="null">发文时间</option>-->
+                             <!--<option ng-selected="vm.goes(latestWeek)" value="latestWeek">最近一周</option>-->
+                             <!--<option ng-selected="vm.goes(latestMonth)" value="latestMonth">最近一个月</option>-->
+                             <!--</select>-->
+                         </th>
+                         <th width="10%">发布部门</th>
+                         <th width="25%">申报起止时间</th>
+                         <th width="10%">附件</th>
+                         <th width="10%">操作</th>
+                     </tr>
+                 </table>
+             </div>
+             <div class="w_tbody">
+                 <table class="table">
+                     <tbody>
+                     <tr ng-repeat="item in vm.pager.list">
+                         <td width="35%" style="white-space: nowrap"><a ui-sref="projectDeclarationDetail({id:item.id})"><p title="{{item.name}}">{{item.name | lengthFilter:20}}</p></a></td>
+                         <td width="10%">{{item.publishTime}}</td>
+                         <td width="10%" style="white-space: nowrap"><span title="{{item.department}}">{{item.department | lengthFilter:8}}</span></td>
+                         <td width="25%">{{item.startTime}}至{{item.endTime}}</td>
+                         <td width="10%"><a href="{{SY_UploadBasePath}}{{item.attachmentUrl}}">附件</a></td>
+                         <!--<td width="10%"><a data-toggle="modal" data-target="#declaration" href="" class="immiDeclartion">立即申报</a></td>-->
+                         <td width="10%"><a href="" class="immiDeclartion" ng-click="vm.checkLogin(item.id)">立即申报</a></td>
+
+                     </tr>
+                     </tbody>
+
+                 </table>
+             </div>
+         </div>
+
+
+            <h4 class="text-danger" ng-if = "!vm.pager.list.length">抱歉！暂无数据！</h4>
+            <div ng-if="vm.pager.list.length" class="widget-page">
+                <youe-page pageinfo="vm.pager" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+            </div>
+        </div>
+        <!--<div class="w_noList" ng-if = 'vm.tipPop || !vm.pager.list.length > 0'>查询结果为空</div>-->
+    </div>
+</div>
+<!--<div class="modal" id="declaration">-->
+    <!--<div class="modal-dialog" role="document">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<h4>申报项目</h4>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<div class="">-->
+                    <!--XXXX企业您好，如需申请当前申报项目，请留下您的联系方式，并上传申报材料，我们将协助您申请！-->
+                <!--</div>-->
+                <!--<div class="content">-->
+                    <!--<p>-->
+                        <!--<span>联系人：</span>-->
+                        <!--<input type="text" ng-model="vm.entity.name">-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--<span>联系电话：</span>-->
+                        <!--<input type="text" ng-model="vm.entity.phoneNumber">-->
+                    <!--</p>-->
+
+                    <!--<p>-->
+                        <!--<span>上报申报材料：</span>-->
+                        <!--<input type="text" value="{{vm.project.imageUrl}}">-->
+                        <!--<button class="btn btn-primary" ngf-select="vm.uploadFile()" ng-model="vm.project.file">上传</button>-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+                <!--<button  class="btn btn-warning" ng-click="vm.closeApplyUse()" data-dismiss="modal" style="background: #fad733;color:#333;border:none;">取消</button>-->
+                <!--<button class="btn btn-success" ng-disabled="applyToUse.$invalid" class="btn" ng-click="vm.save()"data-dismiss="modal" style="background: #27c24c;color:#fff;border:none;" >确认</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

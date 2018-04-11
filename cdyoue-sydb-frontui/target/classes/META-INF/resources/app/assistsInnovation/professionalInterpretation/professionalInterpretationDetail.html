@@ -1,0 +1,48 @@
+
+<div class="bgGray wrap w_list_public projectInterpretationDetail">
+    <div class="layout w_innovation w_IP_buy">
+        <div class="breadcrumb">
+            <a ui-sref="assistsInnovation" href="">助力创新</a>
+            <span>＞</span>
+            <a ui-sref="professionalInterpretation"  href="">专家解读</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">专家解读详情</span>
+        </div>
+        <!--<div class="titleAndSearch">-->
+            <!--<p class="secondActive">{{vm.detail.name}}</p>-->
+        <!--</div>-->
+        <div class="interTitle moreHeight">
+            <p>{{vm.detail.name}}</p>
+            <p>
+                作者:<a ui-sref="expertInterpretationDetail({id:vm.detail.expertId})">{{vm.detail.author}}</a>
+            </p>
+            <p>
+                <span class="publishTime">发布时间:{{vm.detail.createTime | date:'yyyy-MM-dd'}}</span>
+                <!--<span>浏览量：{{vm.detail.viewCount}}</span>-->
+                <span>收藏：<span ng-class="{active:vm.detail.collected}" ng-click="vm.collect()"></span>{{vm.detail.collectCount}}</span>
+                <!--当前用户是否收藏{{vm.detail.collected}}，值为true/false-->
+            </p>
+            <section>
+                <a class="share"><img src="/assets/images/assistsInnovation/share.png"></a>
+                <!-- JiaThis Button BEGIN -->
+                <div class="jiathis_style_32x32">
+                    <a class="jiathis_button_tsina"></a>
+                    <a class="jiathis_button_qzone"></a>
+                    <a class="jiathis_button_cqq"></a>
+                    <a class="jiathis_button_weixin"></a>
+                    <!--<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>-->
+                    <!--<a class="jiathis_counter_style"></a>-->
+                </div>
+                <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                <!-- JiaThis Button END -->
+            </section>
+        </div>
+        <div class="interDetailIntro">
+            <div class="">
+                <p ng-bind-html="vm.detail.content | elementsIntro"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--<script src="/vendor/share/share.js"></script>-->

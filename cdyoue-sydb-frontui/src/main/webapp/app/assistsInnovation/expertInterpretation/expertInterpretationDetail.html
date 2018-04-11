@@ -1,0 +1,174 @@
+<div class="bgGray wrap w_list_public expertInterpretationDetail">
+    <div class="layout w_innovation w_IP_buy">
+        <div class="breadcrumb">
+            <a ui-sref="assistsInnovation" href="">助力创新</a>
+            <span>＞</span>
+            <a ui-sref="expertInterpretation" href="">专家库</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">专家库详情</span>
+        </div>
+        <!--<div class="titleAndSearch">-->
+            <!--<p class="secondActive">专家库详情</p>-->
+        <!--</div>-->
+        <div class="expertContent">
+            <div class="expertLeft">
+                <div class="item">
+                    <div class="itemPicture">
+                        <img ng-src="{{SY_UploadBasePath}}{{vm.baseDetail.headImgUrl}}">
+                    </div>
+                    <div class="mask">
+                        <!--<p>{{vm.baseDetail.name}}</p>
+                        <p>{{vm.baseDetail.job}}</p>-->
+                        <p title="{{vm.baseDetail.name}}">{{vm.baseDetail.name | lengthFilter:27}}</p>
+                        <p title="{{vm.baseDetail.job}}">{{vm.baseDetail.job | lengthFilter:27}}</p>
+                    </div>
+                </div>
+                <div class="contactHe">
+                    <button class="" data-toggle="" data-target="" ng-click="vm.open(vm.baseDetail.id,'md')">
+                        <img src="/assets/images/assistsInnovation/sprImg106.png">
+                        联系他
+                    </button>
+                </div>
+            </div>
+            <div class="expertRight">
+                <div class="baseNav">
+                    <ul>
+                        <li onclick="javascript:document.getElementById('baseInfo').scrollIntoView()" ng-click="vm.showActive(1)" ng-class="{active:vm.activeClass==1}">
+                            <a>基本信息</a>
+                        </li>
+                        <li onclick="javascript:document.getElementById('professionalExperience').scrollIntoView()" ng-click="vm.showActive(2)" ng-class="{active:vm.activeClass==2}">
+                            <a>职业经历</a>
+                        </li>
+                        <li onclick="javascript:document.getElementById('expertAchievementInfo').scrollIntoView()" ng-click="vm.showActive(3)" ng-class="{active:vm.activeClass==3}">
+                            <a>专家成果</a>
+                        </li>
+                        <li onclick="javascript:document.getElementById('expertProfessInti').scrollIntoView()" ng-click="vm.showActive(4)" ng-class="{active:vm.activeClass==4}">
+                            <a>专家解读</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="baseInfo" id="baseInfo">
+                    <p>基本信息</p>
+                    <div class="info">
+                        <table>
+                            <tr>
+                                <td>性别:{{vm.baseDetail.gender|genderFilter}}</td>
+                                <td>工作经验:{{vm.baseDetail.workYear}}</td>
+                                <td>所在行业：{{vm.baseDetail.industry}}</td>
+                                <!--<td>年龄：{{vm.baseDetail.age}}</td>-->
+                            </tr>
+                            <!--<tr>-->
+                                <!--<td>家乡:{{vm.baseDetail.homePlace}}</td>-->
+                                <!--<td>现居地：{{vm.baseDetail.livePlace}}</td>-->
+                            <!--</tr>-->
+
+                        </table>
+                        <div class="personalIntro">
+                            <p>个人简介</p>
+                            <p ng-bind-html="vm.baseDetail.content | elementsIntro"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="professionalExperience" id="professionalExperience">
+                    <p>职业经历</p>
+                    <div ng-if="!vm.careers.length">抱歉！暂无数据！</div>
+                    <div class="content all1" ng-class="{active:vm.showMore1}">
+                        <div class="item" ng-repeat="career in vm.careers">
+                            <p>
+                                {{career.brief}}
+                            </p>
+                            <p>
+                                {{career.detail}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="openAll" ng-class="{active:vm.getAll}" ng-click="vm.openAll(1)" ng-if=" vm.careers.length > 1">
+                        <span ng-if="!vm.showMore1">展开全部</span>
+                        <span ng-if="vm.showMore1">收起全部</span>
+                        <img src="/assets/images/assistsInnovation/sprImg107.png" ng-class="{active:vm.showMore1}">
+                    </div>
+                </div>
+                <div class="expertAchievementInfo" id="expertAchievementInfo">
+                    <p class="title">专家成果</p>
+                    <div ng-if="!vm.achievements.length">抱歉！暂无数据！</div>
+                    <div class="content all2" ng-class="{active:vm.showMore2}">
+                        <a class="item" ng-repeat="achievement in vm.achievements" ui-sref="expertAchievementDetail({id:achievement.id})">
+                            <div class="lectureImg">
+                                <img src="{{SY_UploadBasePath}}{{achievement.coverImgUrl}}">
+                            </div>
+                            <div class="lectureIntro">
+                                <p>
+                                    <span title="{{achievement.name}}">{{achievement.name | lengthFilter:18}}</span>
+                                    <span class="publishTime">发布时间: <span class="red">{{achievement.createTime | date:'yyyy-MM-dd'}}</span></span>
+                                </p>
+                                <p title="{{achievement.introduction}}">
+                                    {{achievement.introduction | lengthFilter:115}}
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="openAll" ng-class="{active:vm.getAll}" ng-click="vm.openAll(2)" ng-if="vm.achievements.length > 1">
+                        <span ng-if="!vm.showMore2">展开全部</span>
+                        <span ng-if="vm.showMore2">收起全部</span>
+                        <img src="/assets/images/assistsInnovation/sprImg107.png" ng-class="{active:vm.showMore2}">
+                    </div>
+                </div>
+                <div class="expertProfessInti" id="expertProfessInti" >
+                    <p>专家解读</p>
+                    <div ng-if="!vm.interpretations.length">抱歉！暂无数据！</div>
+                    <div class="w_head" ng-if="vm.interpretations.length>0">
+                        <table class="table table-responsive">
+                            <thead>
+                            <tr>
+                                <th>文章标题</th>
+                                <th>发布时间</th>
+                                <th>阅读量</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="w_tbody all3" ng-class="{active:vm.showMore3}" ng-if="vm.interpretations.length>0">
+                        <table class="table table-responsive">
+                            <tbody>
+                            <tr ng-repeat="interpretation in vm.interpretations">
+                                <td title="{{interpretation.name}}"><a ui-sref="professionalInterpretationDetail({id:interpretation.id})">{{interpretation.name | lengthFilter:15}}</a></td>
+                                <td>{{interpretation.createTime | date:'yyyy-MM-dd'}}</td>
+                                <td>{{interpretation.viewCount}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="openAll" ng-class="{active:vm.getAll}" ng-click="vm.openAll(3)" ng-if=" vm.interpretations.length >1">
+                        <span ng-if="!vm.showMore3">展开全部</span>
+                        <span ng-if="vm.showMore3">收起全部</span>
+                        <img src="/assets/images/assistsInnovation/sprImg107.png" ng-class="{active:vm.showMore3}">
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        //如果屏幕宽度>767px,设置导航栏效果
+//        alert(23);
+        var sw=document.body.offsetWidth;
+        var navOffset=$(".baseNav").offset().top;
+        if(sw>767){
+            $(window).scroll(function(){
+                var scrollPos=$(window).scrollTop();
+                if(scrollPos >=navOffset){
+                    $(".baseNav").addClass("fixed");
+                }else{
+                    $(".baseNav").removeClass("fixed");
+                }
+            });
+        }
+
+
+    });
+</script>

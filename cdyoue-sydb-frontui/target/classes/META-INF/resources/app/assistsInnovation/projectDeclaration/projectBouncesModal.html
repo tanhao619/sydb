@@ -1,0 +1,94 @@
+<!--<style>-->
+    <!--.top_div {-->
+        <!--background-color: #f5f5f5;-->
+        <!--padding: 1px 15px;-->
+        <!--border-radius: 4px;-->
+    <!--}-->
+    <!--.top_a_ele {-->
+        <!--color: #f18d0d;-->
+        <!--float: right;-->
+    <!--}-->
+    <!--.top_a_ele:hover {-->
+        <!--color: #000000;-->
+    <!--}-->
+<!--</style>-->
+<!--<div class="top_div">-->
+    <!--<h4> 申报项目<a ng-click="vm.cancel()" class="top_a_ele" style="cursor: pointer">×</a></h4>-->
+<!--</div>-->
+<!--<div class="wrapper-md" style="padding:20px 20px 50px 20px">-->
+    <!--<div class="panel panel-default">-->
+        <!--<div class="">-->
+            <!--{{vm.userName2}}企业您好，如需申请当前申报项目，请留下您的联系方式，并上传申报材料，我们将协助您申请！-->
+        <!--</div>-->
+        <!--<br><br>-->
+        <!--<div class="row wrapper">-->
+
+            <!--<form name="myForm">-->
+                <!--<div style="padding: 1px 15px;">-->
+                    <!--&lt;!&ndash;修改时显示&ndash;&gt;-->
+                    <!--<input type="hidden" ng-init="vm.entity.projectId = item.id ">-->
+                    <!--<p >&emsp;联系人：<input style="width: 500px" type="text" ng-model ="vm.entity.name" ng-maxlength="50" name="adName">-->
+                    <!--<br>-->
+                    <!--<p >联系电话：<input style="width: 500px" type="text" ng-model ="vm.entity.phoneNumber"></p>-->
+                    <!--<br>-->
+                    <!--<p>-->
+                    <!--上报申报材料：-->
+                       <!--<button class="btn btn-primary" ngf-select="vm.uploadFile()" ng-model="vm.project.file">上传</button>-->
+                        <!--<input type="text" value="{{vm.project.imageUrl}}">-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div style="float: right;">-->
+        <!--<button class="btn btn-lm btn-warn" type="button" ng-click="vm.cancel()">取消</button>-->
+        <!--<button class="btn btn-lm btn-warn" type="button" ng-click="vm.save()" ng-disabled="myForm.$invalid">提交</button>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+        <div class=""  id="declarationDetail">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>申报项目</h4>
+                    <span data-dismiss="modal" ng-click="vm.cancel()">X</span>
+                </div>
+                <form name="myForm">
+                <div class="modal-body">
+                    <div class="">
+                        {{vm.userName2}}企业您好，如需申请当前申报项目，请留下您的联系方式，并上传申报材料，我们将协助您申请！
+                    </div>
+
+                    <div class="content">
+                        <p>
+                            <span>联系人：</span>
+                            <input type="text" ng-model="vm.entity.name" ng-maxlength="10" name="Name" ng-required="true">
+                            <br>
+                            <b style="color: red" ng-if="myForm.Name.$error.required && myForm.Name.$touched">联系人不能为空！</b>
+                            <b style="color: red" ng-if="myForm.Name.$error.maxlength && myForm.Name.$touched">联系人请限制在10个字符以内！</b>
+                        </p>
+                        <p>
+                            <span>联系电话：</span>
+                            <input type="text" ng-model="vm.entity.phoneNumber" name="tel"  ng-pattern="/(^1[34578]\d{9}$)$|(\d{3}-\d{8}|\d{4}-\d{7})/" ng-required="true">
+                            <br>
+                            <b style="color: red" ng-if="myForm.tel.$error.required && myForm.tel.$touched">电话不能为空！</b>
+                            <b style="color: red" ng-if="myForm.tel.$error.pattern && myForm.tel.$touched">电话格式不正确！</b>
+                        </p>
+
+                        <p>
+                            <span>上报申报材料</span>
+                            <button class="" ngf-select="vm.uploadFile()" ng-model="vm.project.file" style="margin-left: 124px;" name="image">上传</button>
+                            <span class="red" ng-if="myForm.image.$touched" ng-show="!vm.project.imageUrl" style="line-height: 40px;
+    margin-left: 20px;color: red">请上传附件</span>
+                            <span class="red" ng-if="myForm.image.$touched" ng-show="vm.project.imageUrl" style="line-height: 40px;
+    margin-left: 20px;color: green">上传成功</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!--<button  class="btn btn-warning" ng-click="vm.closeApplyUse()" data-dismiss="modal" style="background: #fad733;color:#333;border:none;">取消</button>-->
+                    <button class="" ng-disabled="myForm.$invalid || (vm.project.file == null && (vm.project.imageUrl == '' || vm.project.imageUrl == null))" class="btn" ng-click="vm.save()" data-dismiss="modal"  >确认</button>
+                </div>
+                </form>
+            </div>
+        </div>

@@ -1,0 +1,435 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft YaHei";
+}
+a{
+  color:inherit;
+  text-decoration:none;
+  transition:all 0.4s;
+}
+a:hover{
+  text-decoration:none;
+}
+a:focus{
+  color:inherit;
+  text-decoration:none;
+  outline: none;
+}
+img{
+  border:none;
+}
+ul,ol,dl{
+  list-style:none;
+}
+input,select,button,textarea{
+  outline:none;
+  background:none;
+  box-shadow:none;
+}
+label{
+  cursor:pointer;
+}
+@headBg:#262629;
+@logoFC:#c8e6ff;
+@logoBorderC:#419cea;
+@logoActive:#448bc8;
+@image:"../images";
+.icon(@l:left;@t:top){
+  display:block;
+  background-image:url("/assets/images/header/logos.png");
+  background-repeat:no-repeat;
+  background-position:@arguments;
+}
+.myPublic();
+.myPublic(){
+  .wrap{
+    width:100%;
+    min-width:1200px;
+  }
+  .layout{
+    width:1200px;
+    margin:0 auto;
+  }
+
+}
+.header_w{
+  transition:all 0.5s;
+  position:static;
+  height:100px;
+  padding-top:17px;
+  //border-bottom:5px solid @logoBorderC;
+  background-color:#122d4b;
+  background: url('/assets/images/header/heards.png');
+
+}
+a.logo{
+  .icon{
+    float: left;
+    width:41px;
+    height:41px;
+    margin-left: -55px;
+    .icon(right,top);
+
+  }
+  &:hover{
+    color:@logoFC;
+  }
+  display:block;
+  color:@logoFC;
+  font-size: 16px;
+  width: 330px;
+  height: 50px;
+  img{
+    width:100%;
+    height:100%;
+  }
+
+  b{
+    display:block;
+    line-height: 21px;
+    font-size: 18px;
+  }
+}
+.logo_nav{
+  color:#e6e6e6;
+  font-size: 18px;
+  .navTitle{
+    height: 47px;
+  }
+  a{
+    display:block;
+    border-bottom:2px solid transparent;
+    position: relative;
+    padding-top: 1px;
+    vertical-align: bottom;
+    &:focus{
+      text-decoration:none;
+      color:inherit;
+      outline:none;
+    }
+  }
+  .active a,li:hover a{
+    color:#fff;
+    border-color:#FFF;
+  }
+  li{
+    float: left;
+    line-height: 57px;
+    margin-left: 40px;
+  }
+  li.header_log{
+    color:#419cea;
+    font-size: 16px;
+    font-weight: normal;
+    a{
+      display:inline-block;
+      border-color:transparent;
+      &:first-child{
+        max-width:68px;
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        vertical-align: middle;
+      }
+    }
+    span{
+      margin:0 5px;
+    }
+
+  }
+}
+#j_two_nav{
+  .j_ul{
+    position: absolute;
+    top: 57px;
+    left: -12px;
+    width: 140%;
+    max-width:100px ;
+    z-index: 100;
+    background: #262629;
+    display: none;
+    .j_li{
+      color: #fff;
+      float: none;
+      height: 40px;
+      line-height: 40px;
+      margin: 0;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 100;
+      &:hover{
+        background: #2598f2;
+        cursor: pointer;
+      }
+    }
+  }
+
+}
+//底部
+.footer_w{
+  height:110px;
+  padding-top: 27px;
+  background-color:#0d426f;
+  color:#fff;
+  text-align: center;
+}
+.footR{
+  padding-top: 10px;
+  font-size: 12px;
+  line-height: 30px;
+}
+//面包屑选中
+.breadcrumb{
+  background: none;
+  margin-top: 20px;
+  font-size: 14px;
+  padding: 0;
+}
+.breadcrumbActive{
+  color:#467aa6;
+}
+//分页
+.widget-page{
+  width: 1200px;
+  height: 81px;
+  margin-bottom: 30px;
+  text-align: center;
+  .pull-right{
+    float:none!important;
+    position: relative;
+    ul{
+      position: absolute;
+      left: 37%;
+    }
+  }
+}
+.titleAndSearch{
+  margin-bottom: 50px;
+  clear: both;
+  .secondActive{
+    color:#084d88;
+    font-size: 16px;
+    font-weight: bolder;
+
+    float: left;
+  }
+  .search{
+    width:310px;
+    height:30px;
+    float: right;
+    margin-top: -20px;
+    input{
+      width:230px;
+      height:30px;
+      border:1px solid #084d88;
+      padding-left: 5px;
+      border-radius: 5px 0 0 5px;
+    }
+    button{
+      padding: 0px 20px;
+      height: 30px;
+      line-height: 30px;
+      color: #fff;
+      font-size: 15px;
+      vertical-align: bottom;
+      border-radius: 0 5px 5px 0;
+      background: #084d88;
+      border: none;
+      margin-left: -4px;
+
+    }
+    .publishSaleIP{
+      width:115px;
+      height:35px;
+      background: red;
+      color:#fff;
+      text-align: center;
+      padding: 8px 15px;
+    }
+  }
+}
+////模态框
+.modal{
+  //position: fixed;
+  //z-index: 3;
+ .modal-dialog{
+   //width: 700px !important;
+   .modal-content{
+     border-radius: 0;
+     .modal-header{
+       text-align: center;
+       padding: 10px;
+       border-bottom: 1px solid #bcbcbc;
+       h4{
+         font-size: 30px;
+         color: #e20315;
+       }
+     }
+     .modal-body{
+       padding: 30px 40px;
+       .content_tips{
+         font-size: 18px;
+         padding-bottom: 15px;
+         .gray{
+           color: #9A9A9A;
+         }
+       }
+       .content{
+         p{
+           span{
+             font-size: 18px!important;
+             width: 110px;
+             display: inline-block;
+           }
+           input{
+             margin-left: 15px;
+             padding-left: 5px;
+           }
+           textarea{
+             margin-left: 15px;
+             padding-left: 5px;
+             resize: none;
+           }
+         }
+       }
+       .modal-footer{
+         border-top: none;
+         text-align: center;
+         button{
+           border: none;
+           width: 200px;
+           height: 55px;
+           color: #ffffff;
+           font-size: 24px;
+           border-radius: 0;
+           font-weight: normal;
+           background-color: #e20315;
+           &:hover{
+             background-color: #c90315;
+           }
+         }
+       }
+     }
+   }
+ }
+}
+//登录弹框
+#loginModal{
+ /// width:400px!important;
+  .modal-dialog{
+    width:300px!important;
+
+  }
+  .modal-content{
+    //width:400px!important;
+    .modal-header{
+      //border-bottom: none;
+      padding: 0px;
+      height: 40px;
+      h4{
+        display: inline-block;
+        //margin-top: -5px;
+        color: red;
+        //float: left;
+        font-size: 21px!important;
+        text-align: center;
+      }
+      span{
+        float: right;
+        color: #333;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-right: 10px;
+      }
+    }
+    .modal-body{
+      padding: 10px 40px;
+      h3{
+        text-align: center;
+        color:#666;
+      }
+    }
+    .modal-footer{
+      text-align: center;
+      border-top: none;
+      a{
+        width:130px;
+        height:40px;
+        border:none;
+        background: red;
+        color:#fff;
+        line-height: 40px;
+        text-align: center;
+        margin-left: 25px;
+        cursor: pointer;
+        padding: 8px 35px;
+        font-size: 16px;
+      }
+    }
+  }
+  .contentTips{
+    //width:300px!important;
+    .modal-header{
+      //background: #264a5c;
+      height: 40px;
+      h3{
+        display: inline-block;
+        margin-top: -5px;
+        color: red;
+        //float: left;
+        font-size: 21px!important;
+        text-align: center;
+      }
+      span{
+        float: right;
+        color: #333;
+        cursor: pointer;
+      }
+    }
+    .tips{
+      height:75px;
+      text-align: center;
+      div{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        //background: url(/assets/images/personalCenter/icons.jpg) no-repeat 2px 2px;
+        margin-top: 20px;
+      }
+      h3{
+        display: inline-block;
+        color:#666;
+        font-size: 18px!important;
+        vertical-align: bottom;
+        font-weight: bold;
+        margin-left: 6px;
+      }
+    }
+    .modal-footer{
+      padding: 2px;
+      border-top: none;
+      div{
+        border-top: 1px solid #ececec;
+      }
+      a{
+        width:130px;
+        height:40px;
+        border:none;
+        background: red;
+        color:#fff;
+        line-height: 40px;
+        text-align: center;
+        margin-left: 25px;
+        cursor: pointer;
+        padding: 6px 15px;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+
+}
+

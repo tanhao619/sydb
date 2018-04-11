@@ -1,0 +1,40 @@
+<div class="wrap bgGray">
+    <div class="layout w_detailPage w_placeDetail">
+        <div class="breadcrumb">
+            <a ui-sref="assistsProject">助力创业</a>
+            <span>＞</span>
+            <a ui-sref="fieldsList">场地服务</a>
+            <span class="breadcrumbActive">></span>
+            <span class="breadcrumbActive">场地详情</span>
+        </div>
+        <div class="clearfix">
+            <div class="pull-left w_img_w">
+                <img ng-src="{{SY_UploadBasePath}}{{vm.place.coverImgUrl}}" w-img-error>
+            </div>
+            <div class="pull-left w_abstract">
+                <p class="w_h">
+                    <span class="pull-right w_rent">
+                        <span class="w_rent_num" title="{{vm.place.rent | peaceFilter}}">{{vm.place.rent | peaceFilter}}</span>
+                        <i ng-if="vm.place.type == 1">
+                            元/m²/每天
+                        </i>
+                        <i ng-if="vm.place.type == 2">
+                            元/工位/每月
+                        </i>
+                    </span>
+                    <span class="w_name" title="{{vm.place.title}}">{{vm.place.title}}</span>
+                </p>
+                <div class="w_detail">
+                    <p><b>所属区域：</b>{{vm.place.address | areaFilter}}</p>
+                    <p><b>详细地址：</b><span class="w_address">{{vm.place.address | workPlaceDetailFilter}}</span></p>
+                    <p><b>在租工位：</b><span class="w_orange w_amount">{{vm.place.number}}</span>个</p>
+                    <p><b>联系人：</b>{{vm.place.contactor}}</p>
+                    <p><b>联系方式：</b><span class="w_orange">{{vm.place.contact}}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="w_content" ng-bind-html="vm.place.introduction | elementsIntro">
+        </div>
+
+    </div>
+</div>

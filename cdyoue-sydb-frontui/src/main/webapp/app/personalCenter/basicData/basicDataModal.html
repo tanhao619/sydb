@@ -1,0 +1,43 @@
+<form class="modal-content userInfo" name='myForm'>
+    <div class="modal-header">
+        <h3 class="modal-title">编辑</h3>
+    </div>
+    <div class="modal-body editingEntperson">
+        <div class="floorComplex" style="">
+            <div class="area">
+                <span><b class='j_red'>*</b> 姓名:</span>
+                <input type="text" ng-model="vm.enterAccountSumary.name" ng-maxlength="50" name="name" required class="nameAndEmail">
+                <span style="color: red" ng-if="myForm.name.$error.required">名称不能为空！</span>
+                <span ng-if="vm.enterAccountSumary.name.length>0">您还可以输入{{50 - vm.enterAccountSumary.name.length}}个字</span>
+                <span style="color: red" ng-if="myForm.name.$error.maxlength">名称请限制在50个字符以内！</span>
+            </div>
+            <div class="area">
+                <span><b class='j_red'>*</b> 邮箱:</span>
+                <input type="email" ng-model="vm.enterAccountSumary.email" name="email" ng-blur="vm.checkEmail()" required class="nameAndEmail">
+                <span style="color: red" ng-if="myForm.email.$error.required">邮箱不能为空！</span>
+                <span style="color: red" ng-if="myForm.email.$error.email">邮箱格式不正确！</span>
+                <span style="color: red" ng-if="vm.enterAccountSumary.checkEmail">邮箱已被占用！</span>
+            </div>
+            <div class="area contact">
+                <span><b class='j_red'>*</b> 联系人电话:</span><!--/(^1[34578]\d{9}$)$|(\d{3}-\d{8}|\d{4}-\d{7})/-->
+                <input type="text" ng-model="vm.enterAccountSumary.tel" name="tel" ng-blur="vm.checkTel()" ng-pattern="/(^1[34578]\d{9}$)$|(\d{3}-\d{8}|\d{4}-\d{7})/" required>
+                <span style="color: red" ng-if="myForm.tel.$error.required">电话不能为空！</span>
+                <span style="color: red" ng-if="myForm.tel.$error.pattern">电话格式不正确！</span>
+                <span style="color: red" ng-if="vm.enterAccountSumary.checkTel">电话已被占用！</span>
+            </div>
+        </div>
+
+        <div class="floorComplex" style="">
+            <div class="area contact">
+                <span><b class='j_red'>*</b> 企业信息：</span><span style="color: red" ng-if="vm.editShow">详细信息不能为空！</span><br/><br/>
+                <ueditor id="basicEditContainer" style="height: 250px"></ueditor>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer" style="text-align: center;">
+        <button class="btn btn-primary btn-del" type="button"  ng-click="vm.save()" ng-disabled="myForm.$invalid || (vm.enterAccountSumary.checkEmail || vm.enterAccountSumary.checkTel)" style="margin-right: 45px;">保存</button>
+        <!--ng-disabled='myForm.$invalid||!(vm.data.file || vm.entity.imageUrl)'-->
+        <button class="btn btn-success btn-del" type="button" ng-click="vm.cancel()">取消</button>
+    </div>
+</form>
+

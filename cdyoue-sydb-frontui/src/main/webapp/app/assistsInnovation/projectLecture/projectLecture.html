@@ -1,0 +1,46 @@
+<div class="bgGray wrap w_list_public">
+    <div class="layout w_innovation w_IP_buy">
+        <div class="breadcrumb">
+            <a ui-sref="assistsInnovation" href="">助力创新</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">项目讲座</span>
+        </div>
+        <div class="titleAndSearch">
+            <p class="secondActive">项目讲座</p>
+            <div class="search">
+                <input type="search" ng-model="vm.q" placeholder="项目讲座标题">
+                <button ng-click="vm.query(vm.queryModel)">搜索</button>
+            </div>
+        </div>
+
+        <div>
+           <div class="projectLecture">
+               <div class="item" ng-repeat="list in vm.pager.list">
+                   <div class="lectureImg">
+                       <img src="{{SY_UploadBasePath}}{{list.image}}">
+                   </div>
+                   <div class="lectureIntro">
+                       <p title="{{list.name}}">{{list.name | lengthFilter:30}}</p>
+                       <p>
+                           <span class="gap">
+                               <span class="bold">讲座时间：</span>
+                               {{list.time}}
+                           </span>
+                           <span><span class="bold">讲座地点：</span><span title="{{list.address}}">{{list.address | lengthFilter:15}}</span></span>
+                       </p>
+                       <div class="look">
+                           <button class="btn btn-primary" ng-click="vm.getLectureDetail(list.id)">查看详情</button>
+                       </div>
+                   </div>
+
+               </div>
+           </div>
+
+            <h4 class="text-danger" ng-if = "!vm.pager.list.length">抱歉！暂无数据！</h4>
+            <div ng-if="vm.pager.list.length" class="widget-page">
+                <youe-page pageinfo="vm.pager" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+            </div>
+        </div>
+        <!--<div class="w_noList" ng-if = 'vm.tipPop || !vm.pager.list.length > 0'>查询结果为空</div>-->
+    </div>
+</div>

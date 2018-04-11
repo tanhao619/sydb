@@ -1,0 +1,33 @@
+<div class="wrap">
+    <div class="layout">
+        <div class="login">
+            <div class="title">
+                用户登录
+            </div>
+            <div class="content">
+                <div class="banner">
+                    <img src="/assets/images/login/login.png">
+                </div>
+                <div class="rightContent">
+                    <form>
+                        <p>
+                            <span>手机号码</span>
+                            <input type="text" ng-model="vm.loginMessage.userName" placeholder="手机号">
+                        </p>
+                        <p>
+                            <span>密码  </span>
+                            <input type="password" ng-model="vm.loginMessage.passWord" class="password">
+                        </p>
+                        <div ng-if="vm.userNameOrPasswordError" style="color:red;margin-left: 70px;">用户名或密码错误</div>
+                        <div class="loginBtn">
+                            <button class="" ng-click="vm.login()">登录</button>
+                        </div>
+                        <div class="forgetPassword"><a ui-sref="forgetPassword" href="">忘记密码</a></div>
+                        <div class="register">没有账号？立即<a ui-sref="register">注册</a></div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

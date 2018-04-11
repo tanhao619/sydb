@@ -1,0 +1,22 @@
+<div class=""  id="loginModal">
+
+    <div class="contentTips">
+        <div class="modal-header">
+            <h3>提示</h3>
+            <span data-dismiss="modal" ng-click="vm.cancel()"><img src="/assets/images/assistsInnovation/sprImg012.png"></span>
+        </div>
+        <div class="tips">
+            <!--<div></div>-->
+            <h3>{{vm.messageTips}}</h3>
+        </div>
+        <div class="modal-footer">
+            <!--<a href="/#!/login" data-dismiss="modal" ng-click="vm.cancel()">登录</a>-->
+            <div ng-if="vm.messageTips == '退出成功'">
+                <a  ng-click="vm.close()">确定</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,43 @@
+<div class="" role="document" id="declarationDetail">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>申请设备</h4>
+                <span data-dismiss="modal" ng-click="vm.cancel()"><img src="/assets/images/assistsInnovation/sprImg012.png"></span>
+            </div>
+            <div class="modal-body">
+                <div class="">
+                    {{vm.name}}您好，如需申请设备，请留下您的联系方式。
+                </div>
+                <div class="content">
+                    <form name="myForm">
+                        <p>
+                            <span>所需设备数量</span>
+                            <input type="number" name="number" ng-model="vm.apply.count" required style="width:312px;">
+                            <span style="color:red!important;margin-top: 8px;margin-left: 5px;" ng-show="myForm.number.$dirty && myForm.number.$invalid">
+                                <span ng-show="myForm.number.$error.required" style="color:red;">数量是必填项</span>
+                            </span>
+                        </p>
+                        <p>
+                            <span>联系人</span>
+                            <input type="text" name="contacts" ng-model="vm.apply.contacts" required style="width:312px;">
+                            <span style="color:red!important;margin-top: 8px;margin-left: 5px;" ng-show="myForm.contacts.$dirty && myForm.contacts.$invalid">
+                                <span ng-show="myForm.contacts.$error.required" style="color:red;">用户名是必须的。</span>
+                            </span>
+                        </p>
+                        <p>
+                            <span>联系电话</span>
+                            <input type="text" name="phone" ng-model="vm.apply.phone" required  ng-pattern="/^1[3|5|8]{1}[0-9]{9}$/" style="width:312px;">
+                            <span style="color:red!important;margin-top: 8px;margin-left: 5px;" ng-show="myForm.phone.$dirty && myForm.phone.$invalid">
+                                <span ng-show="myForm.phone.$error.required" style="color:red;">电话是必须的</span>
+                                <span ng-show="myForm.phone.$error.pattern" style="color:red;">非法的电话号</span>
+                            </span>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button   data-dismiss="modal" ng-disabled="myForm.$invalid" ng-click="vm.applyEquipment()" >提交申请</button>
+                <button   data-dismiss="modal"  ng-click="vm.cancel()" >取消</button>
+            </div>
+        </div>
+</div>

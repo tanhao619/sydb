@@ -1,0 +1,43 @@
+<div class="bgGray wrap w_list_public">
+    <div class="layout w_innovation w_IP_buy">
+        <div class="breadcrumb">
+            <a ui-sref="assistsInnovation" href="">助力创新</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">项目解读</span>
+        </div>
+        <div class="titleAndSearch">
+            <p class="secondActive">项目解读</p>
+            <div class="search">
+                <input type="search" ng-model="vm.q" placeholder="项目解读标题">
+                <button ng-click="vm.query(vm.queryModel)">搜索</button>
+            </div>
+        </div>
+        <div>
+            <div class="f_projectDetail">
+                <div class="w_thead">
+                    <table>
+                        <tr>
+                            <th width="50%"><span>项目解读标题</span></th>
+                            <th width="50%"><span>发布时间</span></th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="w_tbody">
+                    <table>
+                        <tr ng-repeat="list in vm.pager.list">
+                            <td width="50%" style="white-space: nowrap"><a href="" ui-sref="projectInterpretationDetail({id:list.id})"><p title="{{list.title}}">{{list.title | lengthFilter:30}}</p></a></td>
+                            <td width="50%" class="w_orange" >{{list.publishTime}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+
+            <h4 class="text-danger" ng-if = "!vm.pager.list.length">抱歉！暂无数据！</h4>
+            <div ng-if="vm.pager.list.length" class="widget-page">
+                <youe-page pageinfo="vm.pager" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+            </div>
+        </div>
+        <!--<div class="w_noList" ng-if = 'vm.tipPop || !vm.pager.list.length > 0'>查询结果为空</div>-->
+    </div>
+</div>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh" ng-app="sydbApp" id="ng-app">
+<head>
+    <meta charset="UTF-8">
+    <title id="titleSH"></title>
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="vendor/fonts-css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="vendor/fonts-css/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="vendor/angular/angular-toaster/toaster.css" type="text/css" />
+    <link rel="stylesheet" href="vendor/angular/angular-scrollbar/ng-scrollbar.css" type="text/css" />
+    <link rel="stylesheet" href="vendor/loading-bar/loading-bar.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/application.css" type="text/css" />
+    <!--图标-->
+    <link rel="icon" type="image/x-icon" href="vendor/ico/favicon.ico">
+    <!--UE Editor-->
+    <script type="text/javascript" src="vendor/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="vendor/ueditor/ueditor.all.js"></script>
+</head>
+<body>
+<!--分享-->
+<!--<script src="http://share.baidu.com/static/base/js/new_share.js?v=de7d7bf0.js" async="ture"></script>-->
+<div>
+    <div ui-view="navbar"></div>
+    <div ui-view="content" style="min-height: 690px;"></div>
+    <div ui-view="foot"></div>
+</div>
+
+<!--初始化UEditor配置-->
+<script type="text/javascript" src="app/ueditor.init.js"></script>
+<!-- bootstrap -->
+<script type="text/javascript" src="vendor/base/jquery.min.js"></script>
+<script type="text/javascript" src="vendor/bootstrap/bootstrap.min.js"></script>
+
+<!--angularJS base-->
+<script type="text/javascript" src="vendor/base/angular.min.js"></script>
+<script type="text/javascript" src="vendor/base/angular-resource.min.js"></script>
+<script type="text/javascript" src="vendor/base/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="vendor/base/ui-bootstrap-tpls.min.js"></script>
+<script type="text/javascript" src="vendor/base/ueditor.directive.js"></script>
+<script type="text/javascript" src="vendor/loading-bar/loading-bar.min.js"></script>
+<script type="text/javascript" src="vendor/angular/ng-file-upload.js"></script>
+<script type="text/javascript" src="vendor/angular/ng-file-upload-all.min.js"></script>
+<script type="text/javascript" src="vendor/angular/angular-file-upload/angular-file-upload.min.js"></script>
+<script type="text/javascript" src="vendor/angular/angular-translate/angular-translate.js"></script>
+<script type="text/javascript" src="vendor/angular/angular-sanitize/angular-sanitize.js"></script>
+<script type="text/javascript" src="vendor/angular/angular-toaster/toaster.js"></script>
+<script type="text/javascript" src="vendor/angular-ui-select2/src/select2.js"></script>
+<!--模态框居中-->
+<!--<script type="text/javascript" src="vendor/modalCenter/modalCenter.js"></script>-->
+
+<!--按需加载-->
+<script type="text/javascript" src="vendor/angular/oclazyload/ocLazyLoad.js"></script>
+
+<!-- cookie-->
+<script type="text/javascript" src="vendor/base/jquery.cookie.js"></script>
+
+
+<!--自定义滚动条-->
+<script type="text/javascript" src="vendor/angular/angular-scrollbar/ng-scrollbar.min.js"></script>
+
+<!--app core-->
+<script type="text/javascript" src="app/app.module.js"></script>
+<script type="text/javascript" src="app/app.state.js"></script>
+<script type="text/javascript" src="app/app.directive.js"></script>
+<script type="text/javascript" src="app/app.constant.js"></script>
+<script type="text/javascript" src="app/app.filter.js"></script>
+<script type="text/javascript" src="app/app.intercept.js"></script>
+<script type="text/javascript" src="app/config/http.config.js"></script>
+<script type="text/javascript" src="app/config/load.config.js"></script>
+<script type="text/javascript" src="app/time.select.service.js"></script>
+<script type="text/javascript" src="app/common.service.js"></script>
+<script type="text/javascript" src="app/ueditor.directive.js"></script>
+
+<!--cdyoue-model-->
+<script type="text/javascript" src="vendor/cdyoue-angular/angular-deleteModel/angular-deleteModel.js"></script>
+
+<!--youepage-->
+<script type="text/javascript" src="vendor/page/page.directive.js"></script>
+
+<!--app base-->
+<script type="text/javascript" src="layouts/navbar/navbar.controller.js"></script>
+<script type="text/javascript" src="layouts/footer/foot.controller.js"></script>
+<script type="text/javascript" src="app/login/login.service.js"></script>
+<!--app state-->
+<script type="text/javascript" src="layouts/navbar/navbar.state.js"></script>
+<!--<script src="app/assistsInnovation/demo/d1.state.js"></script>-->
+
+<!--项目申报-->
+<script src="app/assistsInnovation/projectDeclaration/projectDeclaration.service.js"></script>
+<!--项目解读-->
+<script src="app/assistsInnovation/projectInterpretation/projectInterpretation.service.js"></script>
+<!--项目讲座-->
+<script src="app/assistsInnovation/projectLecture/projectLecture.service.js"></script>
+
+<!--知产求购-->
+<script src="app/assistsInnovation/knowledgeBuy/buyIP.state.js"></script>
+<script src="app/assistsInnovation/knowledgeBuy/knowledgeBuy.state.js"></script>
+<!--知产出售-->
+<script src="app/assistsInnovation/knowledgeSales/knowledgeSales.state.js"></script>
+<script src="app/assistsInnovation/knowledgeSales/saleIP.state.js"></script>
+<!--融资推荐详情-->
+<script src="app/assistsInnovation/assistsInnovation.state.js"></script>
+<!--<script src="app/assistsInnovation/knowledgeBuy/knowledgeBuy.controller.js"></script>-->
+<!--场地服务-->
+<script src="app/assistsProject/fieldDetail/field.state.js"></script>
+<!--活动详情-->
+<script src="app/assistsProject/activityDetail/activity.state.js"></script>
+<!--助力创业-->
+<script src="app/assistsProject/assistsProject.state.js"></script>
+<!--知产求购-->
+<script src="app/assistsInnovation/knowledgeAssess/assess.state.js"></script>
+<!--企业中心-->
+<script src="app/personalCenter/personalCenter.state.js"></script>
+<script src=""></script>
+<!--未登录弹框-->
+<script src="layouts/notLoginModal/notLoginModal.controller.js"></script>
+<script src="layouts/messageTips/messageTipsModal.controller.js"></script>
+
+</body>
+</html>

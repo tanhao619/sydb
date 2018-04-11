@@ -1,0 +1,229 @@
+<section class="assistsInnovation">
+    <div class="container">
+        <div class="row">
+            <div class="innovationBanner">
+                <div class="asideLeft">
+                    <div class="sliderImg" id="sliderImg">
+                        <div class="sliderContent">
+                            <div class="item " ng-class="{true:'active'}[$first]" ng-repeat="item in vm.sliderImg" ng-if="$index<3">
+                                <a href="{{item.link}}" title="{{item.title}}" target="_blank"><img ng-src="{{SY_UploadBasePath}}{{item.coverImg}}"></a>
+                                <!--链接是{{item.link}}-->
+                            </div>
+                        </div>
+                        <ul class="sliderInput">
+                            <li class="active" data-imgvalue="0">1</li>
+                            <li data-imgvalue="1" class="">2</li>
+                            <li data-imgvalue="2" class="">3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="asideRight">
+                   <div class="rightItem" ng-repeat="icon in vm.iconAndText" ui-sref="{{icon.href}}">
+                       <div class="icon">
+                           <img ng-src="{{icon.iconUrl}}">
+                       </div>
+                       <p>{{icon.title}}</p>
+                   </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="contentLeft">
+                    <div class="ExpertRecommendation">
+                       <div class="title">
+                           <p>专家推荐</p>
+                           <a ui-sref="expertInterpretation">更多&gt;&gt;</a>
+                       </div>
+                        <div class="recomentdationContent">
+                           <div class="item" ng-repeat="list in vm.expertRecommendation" ui-sref="expertInterpretationDetail({id:list.id})">
+                               <div class="itemPicture">
+                                   <img ng-src="{{SY_UploadBasePath}}{{list.topImgUrl}}">
+                               </div>
+                               <div class="mask">
+                                   <p title="{{list.name}}">{{list.name | lengthFilter:15:'…'}}</p>
+                                   <p title="{{list.job}}">{{list.job | lengthFilter:15:'…'}}</p>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="ExpertRecommendation professionalInterpretation">
+                        <div class="title">
+                            <p>专家解读</p>
+                            <a ui-sref="professionalInterpretation">更多&gt;&gt;</a>
+                        </div>
+                        <div class="recomentdationContent">
+                            <div class="readLeft">
+                                <div class="readImg">
+                                    <img ng-src="{{SY_UploadBasePath}}{{vm.professionalInterpretationRecommendation[0].topImgUrl}}" ng-if="vm.showPicture == 0" ui-sref="professionalInterpretationDetail({id:vm.professionalInterpretationRecommendation[0].id})">
+                                    <img ng-src="{{SY_UploadBasePath}}{{vm.professionalInterpretationRecommendation[1].topImgUrl}}" ng-if="vm.showPicture == 1" ui-sref="professionalInterpretationDetail({id:vm.professionalInterpretationRecommendation[1].id})">
+                                    <img ng-src="{{SY_UploadBasePath}}{{vm.professionalInterpretationRecommendation[2].topImgUrl}}" ng-if="vm.showPicture == 2" ui-sref="professionalInterpretationDetail({id:vm.professionalInterpretationRecommendation[2].id})">
+                                </div>
+                            </div>
+                            <div class="readRight">
+                                <div ng-mouseenter="vm.getFoucs($index)" ng-repeat="list in vm.professionalInterpretationRecommendation" ui-sref="professionalInterpretationDetail({id:list.id})">
+                                    <p class="listName" title="{{list.name}}">{{list.name | lengthFilter:29:'…'}}</p>
+                                    <p ng-if="vm.showPicture == $index" class="listIntro" title="{{list.introduction}}">{{list.introduction | lengthFilter:68:'…'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ExpertRecommendation projectLecture">
+                    <div class="title">
+                        <p>项目讲座</p>
+                        <a href="" ui-sref="projectLecture">更多&gt;&gt;</a>
+                    </div>
+                    <div class="recomentdationContent">
+                        <div class="projectLeft">
+                            <div class="readImg">
+                                <a ui-sref="projectLectureDetail({id:vm.projectLecture.id})"><img src="{{SY_UploadBasePath}}{{vm.projectLecture.topImage}}"></a>
+                            </div>
+                        </div>
+                        <div class="projectRight">
+                            <div ui-sref="projectLectureDetail({id:vm.projectLecture.id})">
+                               <p title="{{vm.projectLecture.name}}"><a ui-sref="projectLectureDetail({id:vm.projectLecture.id})">{{vm.projectLecture.name | lengthFilter:25}}</a></p>
+                                <p>{{vm.projectLecture.info}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="ExpertRecommendation">
+                        <div class="title">
+                            <p>项目解读</p>
+                            <a href="" ui-sref="projectInterpretation">更多&gt;&gt;</a>
+                        </div>
+                        <div class="recomentdationContent">
+                            <div class="projectRead">
+                              <ul>
+                                  <li ng-repeat="list in vm.projectInterpretation.list | limitTo:5">
+                                      <p title="{{list.title}}"><a ui-sref="projectInterpretationDetail({id:list.id})">{{list.title | lengthFilter:30}}</a></p>
+                                      <p>{{list.publishTime}}</p>
+                                  </li>
+                              </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="contentRight">
+                    <div class="expertAchievement">
+                        <div class="rightTitle">
+                            <p>专家成果</p>
+                            <a href="" ui-sref="expertAchievement">更多&gt;&gt;</a>
+                        </div>
+                        <div class="achievement" ng-repeat="list in vm.expertAchievementRecommendation" ui-sref="expertAchievementDetail({id:list.id})">
+                            <div class="achievementImg">
+                                <img ng-src="{{SY_UploadBasePath}}{{list.topImgUrl}}">
+                            </div>
+                            <div class="mask">
+                                <p title="{{list.name}}">{{list.name | lengthFilter:27:'…'}}</p>
+                                <p>{{list.createTime | date:'yyyy-MM-dd'}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="reportingItems expertAchievement projectDeclaration">
+                        <div class="rightTitle">
+                            <p>申报项目动态</p>
+                            <a ui-sref="projectDeclaration">更多&gt;&gt;</a>
+                        </div>
+                        <div class="reportProject">
+                            <ul class="projectList">
+                                <li ng-repeat="projectList in vm.projectDeclaration.list">
+                                    <a ui-sref="projectDeclarationDetail({id:projectList.id})"><p title="{{projectList.name}}">{{projectList.name | lengthFilter:30}}</p></a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="deviceRecommendation">
+                    <div class="title">
+                        <p>设备推荐</p>
+                        <a href="" ui-sref="deviceLibrary">更多&gt;&gt;</a>
+                    </div>
+                    <div class="deviceContent">
+                        <div class="deviceLeft">
+                            <!--<img src="/assets/images/assistsInnovation/pho-Device-recommendation-left.png">-->
+                            <img ng-src="{{SY_UploadBasePath}}{{vm.deviceCover.coverImg}}">
+                        </div>
+                        <div class="deviceRight">
+                            <div class="smallItem" ng-repeat="small in vm.deviceRecommendation">
+                                <a ui-sref="deviceLibraryDetail({id:small.id})">
+                                    <div class="itemPicture">
+                                        <!--<img ng-show="small.topImg" ng-src="{{SY_UploadBasePath}}{{small.topImg}}">
+                                        <img ng-show="!small.topImg && small.imgUrl" ng-src="{{SY_UploadBasePath}}{{small.imgUrl}}">-->
+                                        <img ng-src="{{SY_UploadBasePath}}{{small.topImg}}">
+                                    </div>
+                                    <div class="mask">
+                                        <p title="{{small.name}}">{{small.name | buyNameFilter}}</p>
+                                        <p ng-if="small.price != 0">租赁价格：<span class="colorMoney">{{small.price}}</span>元</p>
+                                        <p ng-if="small.price == 0">租赁价格：<span class="colorMoney">价格面议</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="knowledgeAndFinancing">
+                  <div class="assetBuy">
+                      <div class="title">
+                          <p>知产求购</p>
+                          <a  href="" ui-sref="buyIP">更多&gt;&gt;</a>
+                      </div>
+                      <div class="assetBuyContent">
+                          <div class="assetItem" ng-repeat="asset in vm.BuysBanner">
+                              <a href="" ng-click="vm.getDetails(asset.id)">
+                              <div class="itemImg">
+                                  <img ng-src="{{SY_UploadBasePath}}{{asset.topImg}}">
+                              </div>
+                              <div class="mask">
+                                  <p title="{{asset.name}}">{{asset.name | buyNameFilter}}</p>
+                              </div>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                    <div class="assetBuy">
+                        <div class="title">
+                            <p>知产出售</p>
+                            <a  ui-sref="knowledgeSales">更多&gt;&gt;</a>
+                        </div>
+                        <div class="assetBuyContent">
+                            <div class="assetItem" ng-repeat="asset in vm.SalesBanner">
+                                <a href="" ng-click="vm.getSaleDetails(asset.id,asset.category)">
+                                <div class="itemImg">
+                                    <img ng-src="{{SY_UploadBasePath}}{{asset.topImg}}">
+                                </div>
+                                <div class="mask">
+                                    <p title="{{asset.name}}">{{asset.name | buyNameFilter}}</p>
+                                    <p>转让价格：<span title="{{asset.price | PriceFilter}}" class="colorMoney">{{asset.price | SalePriceFilter}}</span>元</p>
+                                </div>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="FinancingRecommend assetBuy">
+                        <div class="title">
+                            <p>融资推荐</p>
+                            <a ui-sref="financingRecommendation">更多&gt;&gt;</a>
+                        </div>
+                        <div class="RecommendItem" id="{{vm.financing.id}}" ng-init="id = 1" ng-show="vm.financing">
+                            <a ui-sref="financingDetail({id:vm.financing.id})">
+                                <div class="itemImg">
+                                    <img ng-show="vm.financing.topImg" src="{{SY_UploadBasePath}}{{vm.financing.topImg}}">
+                                    <img ng-show="!vm.financing.topImg && vm.financing.imgUrl" src="{{SY_UploadBasePath}}{{vm.financing.topImg}}">
+                                </div>
+                                <div class="mask" >
+                                    <p title="{{vm.financing.name}}">{{vm.financing.name | buyNameFilter}}</p>
+                                    <p>融资需求：<span class="colorMoney">￥{{vm.financing.fund}}元</span></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script src="../vendor/base/youeSlider.js"></script>

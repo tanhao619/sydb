@@ -1,0 +1,40 @@
+
+    <div class="" role="document" id="declarationDetail">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>申请创业指导</h4>
+                <span data-dismiss="modal" ng-click="vm.cancel()">X</span>
+            </div>
+            <form name="myForm">
+            <div class="modal-body">
+                <div class="content_tips">
+                    <span class="gray">
+                        {{vm.userName}}企业 您好， 请留下您的联系方式，我们很高兴能为您提供创业指导！
+                    </span>
+                </div>
+                <div class="content">
+                    <p>
+                        <span>企业联系人</span>
+                        <input type="text" ng-model="vm.direction.contactPeople" ng-maxlength="10" name="Name" ng-required="true">
+                        <br>
+                        <b style="color: red" ng-if="myForm.Name.$error.required && myForm.Name.$touched">联系人不能为空！</b>
+                        <b style="color: red" ng-if="myForm.Name.$error.maxlength && myForm.Name.$touched">联系人请限制在10个字符以内！</b>
+                        <!--<b style="color: red" ng-if="myForm.Name.$error.pattern && myForm.Name.$touched">联系人不能有特殊字符！</b>-->
+                    </p>
+                    <p>
+                        <span>联系人电话</span>
+                        <input type="text" ng-model="vm.direction.contactNumber" ng-pattern="/(^1[34578]\d{9}$)$|(\d{3}-\d{8}|\d{4}-\d{7})/" name="tel" ng-required="true" style="width:385px;">
+                        <br>
+                        <b style="color: red" ng-if="myForm.tel.$error.required && myForm.tel.$touched">电话不能为空！</b>
+                        <b style="color: red" ng-if="myForm.tel.$error.pattern && myForm.tel.$touched">电话格式不正确！</b>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" ng-disabled="myForm.$invalid" ng-click="vm.saveDirection()">提交</button>
+                    <button  data-dismiss="modal" ng-click="vm.cancel()">取消</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

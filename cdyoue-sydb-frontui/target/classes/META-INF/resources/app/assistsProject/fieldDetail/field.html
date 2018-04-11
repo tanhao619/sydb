@@ -1,0 +1,56 @@
+<div class="wrap bgGray w_list_public">
+    <div class="layout w_innovation w_innovation_placeService">
+        <!--breadcrumb-->
+        <div class="breadcrumb">
+            <a ui-sref="assistsProject" href="">助力创业</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">场地服务</span>
+        </div>
+        <div class="titleAndSearch">
+            <p class="secondActive">场地服务</p>
+            <div class="search">
+                <input type="search" ng-model="vm.query.q" placeholder="装备制造业">
+                <button ng-click="vm.search()">搜索</button>
+            </div>
+        </div>
+        <div class="w_title">
+            <a ui-sref="releaseSpace"></a>
+        </div>
+        <div ng-if="vm.places.length>0" class="field">
+            <ul class="w_list clearfix">
+                <li  ng-repeat="place in vm.places">
+                    <div>
+                        <div class="picture">
+                            <a ui-sref="fieldDetail({id:place.id})"><img w-img-error ng-src="{{SY_UploadBasePath}}{{place.coverImgUrl}}" height="200" width="282"/></a>
+                        </div>
+
+                        <div class="w_details">
+                            <a ui-sref="fieldDetail({id:place.id})"><p class="w_name">{{place.title}}</p></a>
+                            <p class="w_price">
+                                <img src="/assets/images/assistsProject/sprites03.png">
+                                <b class="w_orange">{{place.rent | peaceFilter}}</b>
+                                <span ng-if="place.type == 1">元/m²·天</span>
+                                <span ng-if="place.type == 2">元/工位/月</span>
+                            </p>
+                            <p class="w_amount">
+                                <b class="w_orange">{{place.number}}</b>
+                                <span ng-if="place.type == 1">套房源</span>
+                                <span ng-if="place.type == 2">个工位可租</span>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+            <div class="widget-page">
+                <youe-page pageinfo="vm.pages" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+            </div>
+        </div>
+
+        <div class="w_noList" ng-if="vm.places.length<1">
+            <h4 class="text-danger">抱歉！暂无数据！</h4>
+            <!--{{vm.contentMsg}}-->
+        </div>
+    </div>
+</div>

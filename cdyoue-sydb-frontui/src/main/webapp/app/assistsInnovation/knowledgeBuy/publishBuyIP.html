@@ -1,0 +1,151 @@
+<!--&lt;!&ndash;未登录提示框&ndash;&gt;-->
+<!--<w-alert type="logIn" w-show="vm.alert" ng-init="vm.alert=true"></w-alert>-->
+<!--&lt;!&ndash;未登录提示框 end&ndash;&gt;-->
+<!--<w-alert  w-show="vm.sessionInvalid" confirm-event="vm.toLogIn()">登录超时,请重新登录！</w-alert>-->
+<!--&lt;!&ndash;登录超时提示框 end&ndash;&gt;-->
+<style>
+    #edui1_iframeholder{
+        width: 670px!important;
+    }
+</style>
+<div class="wrap bgGray w_distributeNews">
+    <div class="layout">
+        <div class="breadcrumb">
+            <a ui-sref="assistsInnovation" href="">助力创新</a>
+            <span>＞</span>
+            <a ui-sref="buyIP" href="">知产求购</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">发布知产求购</span>
+        </div>
+        <div class="titleAndSearch">
+            <p class="secondActive">发布知产求购</p>
+        </div>
+        <div class="bgWhite w_publish_IP">
+            <div class="content">
+                <form name="myForm">
+                    <div class="w_subTitle">知识产权类别</div>
+                    <div class="row">
+                        <div class="col-sm-2" ng-if="vm.editAction && vm.intellectual.category == '2' || !vm.editAction">
+                            <label class="w_radio" >
+                                <input type="radio" name="type" value="2" ng-model="vm.intellectual.category"/>
+                                <i class="w_icon_radio"></i>
+                                <span ng-if="vm.editAction && vm.intellectual.category == '2' || !vm.editAction">专利</span>
+                            </label>
+                        </div>
+                        <div class="col-sm-2" ng-if="vm.editAction && vm.intellectual.category == '1' || !vm.editAction">
+                            <label class="w_radio" >
+                                <input type="radio" ng-model="vm.intellectual.category" name="type" value="1" />
+                                <i class="w_icon_radio"></i>
+                                <span ng-if="vm.editAction && vm.intellectual.category == '1' || !vm.editAction">商标</span>
+                            </label>
+                        </div>
+                        <div class="col-sm-2" ng-if="vm.editAction && vm.intellectual.category == '3' || !vm.editAction">
+                            <label class="w_radio" >
+                                <input type="radio" ng-model="vm.intellectual.category" name="type" value="3" />
+                                <i class="w_icon_radio"></i>
+                                <span ng-if="vm.editAction && vm.intellectual.category == '3' || !vm.editAction">著作权</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="w_subTitle title">求购信息</div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <span><b class="w_required">*</b>求购内容</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" ng-model="vm.intellectual.title" ng-maxlength="50" required name="title">
+
+                        </div>
+                        <div class="col-sm-3">
+                            <span class="w_tips w_required" ng-if="myForm.title.$touched && myForm.title.$error.required">求购内容必填</span>
+                            <span class="w_tipsExist w_offset" ng-if="vm.intellectual.title.length>0">您还可以输入<b class="w_required">{{50 - vm.intellectual.title.length}}</b>个字</span>
+                        </div>
+                    </div>
+                    <div class="row w_option_type_w">
+                        <div class="col-sm-2">
+                            <span><b class="w_required">*</b>交易类型</span>
+                        </div>
+                        <div class="col-sm-4 w_option_type">
+                            <a ng-class="{active : (vm.intellectual.transactionType == 1)}" ng-click="vm.choose(4)">转让</a>
+                            <a ng-class="{active : (vm.intellectual.transactionType == 2)}" ng-click="vm.choose(5)">许可</a>
+                        </div>
+                    </div>
+                    <div class="row w_option_type_w" ng-if="vm.intellectual.category == 2">
+                        <div class="col-sm-2">
+                            <span><b class="w_required">*</b>求购专利类型</span>
+                        </div>
+                        <div class="col-sm-6 w_option_type">
+                            <a ng-class="{active:vm.intellectual.patentType == 1}" ng-click="vm.choose(1)">发明专利</a>
+                            <a ng-class="{active:vm.intellectual.patentType == 2}" ng-click="vm.choose(2)">实用新型专利</a>
+                            <a ng-class="{active:vm.intellectual.patentType == 3}" ng-click="vm.choose(3)">外观设计专利</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <span><b class="w_required">*</b>详细要求</span>
+                        </div>
+                        <div class="col-sm-8">
+                            <ueditor name="container" id="container" ng-model="vm.intellectual.content"></ueditor>
+                            <!--<textarea ueditor id="container"></textarea>-->
+                            <!--<span class="w_tips" ng-show="!vm.containerFlag">详细要求不能为空</span>-->
+                            <!--<textarea name="container" id="container" required ng-model="vm.intellectual.content"></textarea>-->
+                            <!--<span class="w_tips" ng-show="myForm.container.$touched && myForm.container.$error.required">详细要求必填</span>-->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <span><b class="w_required">*</b>计划用途</span>
+                        </div>
+                        <div class="col-sm-7 plan">
+                        <textarea required name="planContainer" ng-model="vm.intellectual.usage" ng-maxlength="200"
+                                  placeholder="申请高新认证等项目、申请政府补贴、评职称、考研加分等（专利）"></textarea>
+                        </div>
+                        <div class="col-sm-3">
+                             <span class="w_required" ng-if="myForm.planContainer.$touched && myForm.planContainer.$error.required">
+                            计划用途必填</span>
+                            <span class="w_tips" ng-if="vm.intellectual.usage.length>0">您还可以输入<b class="w_required">{{200-vm.intellectual.usage.length}}</b>个字符</span>
+                            <span class="w_tips w_required" ng-show="myForm.planContainer.$error.maxlength">计划用途最大长度为200</span>
+                        </div>
+                    </div>
+                    <div class="w_subTitle title">联系人信息</div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <span><b class="w_required">*</b>联系人</span>
+                        </div>
+                        <div class="col-sm-6 w_linkInfo_w">
+                            <input type="text" value="" ng-model="vm.intellectual.contact.person" required name="person" ng-maxlength="20">
+                            <i class="w_clear" ng-click="vm.intellectual.contact.person = ''"><img src="/assets/images/assistsInnovation/sprImg012.png"></i>
+                        </div>
+                        <div class="col-sm-3">
+                              <!--<span ng-show="myForm.person.$touched && myForm.person.$invalid">-->
+                            <span class="w_tips w_required" ng-show="myForm.person.$error.maxlength">联系人最大长度为20</span>
+                            <span class="w_tips w_required" ng-show="myForm.person.$touched && myForm.person.$error.required">联系人必填</span>
+                        <!--</span>-->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <span><b class="w_required">*</b>联系电话</span>
+                        </div>
+                        <div class="col-sm-6 w_linkInfo_w">
+                            <input type="text" ng-pattern="/(^1[34578]\d{9}$)$|(\d{3}-\d{8}|\d{4}-\d{7})/" value="" ng-model="vm.intellectual.contact.phone" required ng-maxlength="15" ng-minlength="7" maxlength="15" name="phone">
+                            <i class="w_clear" ng-click="vm.intellectual.contact.phone = ''"><img src="/assets/images/assistsInnovation/sprImg012.png"></i>
+                        </span>
+                        </div>
+                        <div class="col-sm-3">
+                            <span class="w_tips w_required" ng-show="myForm.phone.$touched && myForm.phone.$error.required">联系电话必填</span>
+                            <span style="color: red" ng-if="myForm.phone.$error.pattern && myForm.phone.$touched">电话格式不正确！</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-offset-3">
+                            <button class="button_orange w_button_submit" ng-click="vm.save()" ng-disabled="myForm.$invalid">发布</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+

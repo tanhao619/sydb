@@ -1,0 +1,50 @@
+<div class="wrap bgGray w_list_public">
+    <div class="layout w_innovation w_innovation_placeService">
+        <!--breadcrumb-->
+        <div class="breadcrumb">
+            <a ui-sref="assistsProject" href="">助力创业</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">路演活动</span>
+        </div>
+        <div class="titleAndSearch">
+            <p class="secondActive">路演活动</p>
+            <div class="search">
+                <input type="search" ng-model="vm.query.q" placeholder="装备制造业">
+                <button ng-click="vm.search()">搜索</button>
+            </div>
+        </div>
+        <div class="w_title">
+            <a ui-sref=""></a>
+        </div>
+        <div ng-if="vm.places.length>0" class="activityDetail">
+            <ul class="w_list clearfix">
+                <li  ng-repeat="place in vm.places" class="item">
+                        <div class="lectureImg">
+                            <img w-img-error ng-src="{{SY_UploadBasePath}}{{place.coverImgUrl}}" height="200" width="282"/>
+                        </div>
+                        <div class="w_details lectureIntro">
+                            <p class="title">{{place.title |lengthFilter:40:"..."}}</p>
+                            <p class="briefing">{{place.briefing | lengthFilter:92:'...'}}</p>
+                            <div class="detail">
+                                <p class="">活动时间:{{place.startTime | customDateFilter}}</p>
+                                <p class="" title="{{place.location | activityFilter}}">活动地点:{{place.location | activityFilter}}</p>
+                                <p class="">活动规模:{{place.peopleNumber}}人</p>
+                            </div>
+
+                            <!--<h1 ng-click="vm.goDetail(place.id)"><b>查看详情</b></h1>-->
+                        </div>
+                        <div class="look">
+                            <button ui-sref="ActivityDetail({id:place.id})">查看详情</button>
+                        </div>
+                </li>
+            </ul>
+            <div class="widget-page">
+                <youe-page pageinfo="vm.pages" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+            </div>
+        </div>
+        <div class="w_noList" ng-if="vm.places.length<1">
+            <h4 class="text-danger">抱歉！暂无数据！</h4>
+            <!--{{vm.contentMsg}}-->
+        </div>
+    </div>
+</div>

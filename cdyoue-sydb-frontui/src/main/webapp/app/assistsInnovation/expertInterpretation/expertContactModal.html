@@ -1,0 +1,40 @@
+<form class="modal-content userInfo" name='myForm' id="userInfoModal">
+    <div class="modal-header">
+        <h4>联系专家</h4>
+        <span data-dismiss="modal"  ng-click="vm.cancel()" >x</span>
+    </div>
+    <div class="modal-body">
+        <div class="">
+            {{vm.enterName}}   您好，如需联系专家，请留下您的联系方式及咨询内容。
+        </div>
+        <div class="content">
+            <p class="absoluteHeight">
+                <span>联系人：</span>
+                <input type="text" ng-model="vm.contactExpertModel.contactPeople" name="ren" ng-maxlength="10" required>
+                <br>
+                <b style="color: red" ng-if="myForm.ren.$error.required && myForm.ren.$touched">联系人不能为空！</b>
+                <b ng-if="vm.contactExpertModel.contactPeople.length>0">您还可以输入{{10 - vm.contactExpertModel.contactPeople.length}}个字</b>
+                <b style="color: red" ng-if="myForm.ren.$error.maxlength">联系人请限制在10个字符以内！</b>
+            </p>
+            <p class="absoluteHeight">
+                <span>联系电话：</span>
+                <input type="text" ng-model="vm.contactExpertModel.contactTel" name="tel"  ng-pattern="/(^1[34578]\d{9}$)$|(\d{3}-\d{8}|\d{4}-\d{7})/" required>
+                <br>
+                <b style="color: red" ng-if="myForm.tel.$error.required && myForm.tel.$touched">电话不能为空！</b>
+                <b style="color: red" ng-if="myForm.tel.$error.pattern">电话格式不正确！</b>
+            </p>
+            <p>
+                <span>咨询内容：</span>
+                <textarea style="width:385px;height:200px;margin-left: 126px;border:1px solid #dcdcdc;" ng-model="vm.contactExpertModel.consultationContent" name="content" ng-maxlength="140" required></textarea>
+                <br>
+                <b style="color: red" ng-if="myForm.content.$error.required && myForm.content.$touched">咨询内容不能为空！</b>
+                <b ng-if="vm.contactExpertModel.consultationContent.length>0">您还可以输入{{140 - vm.contactExpertModel.consultationContent.length}}个字</b>
+                <b style="color: red" ng-if="myForm.content.$error.maxlength">咨询内容请限制在140个字符以内！</b>
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <!--<button  class="btn btn-warning" ng-click="vm.cancel()" style="background: #fad733;color:#333;border:none;">取消</button>-->
+        <button ng-disabled="myForm.$invalid"  ng-click="vm.save()">提交</button>
+    </div>
+</form>

@@ -1,0 +1,28 @@
+<form class="modal-content entCertification modal1" name='myForm'>
+    <div class="modal-header">
+        <h3 class="modal-title">企业认证信息</h3>
+        <span data-dismiss="modal" ng-click="vm.cancel()"><img src="/assets/images/personalCenter/sprClose.png"></span>
+    </div>
+    <div class="modal-body editingEntperson">
+       <div class="detail">
+           <p>
+               <img src="/assets/images/personalCenter/spr201.png">
+               <span>恭喜您已通过认证</span>
+           </p>
+           <p>
+               <span>企业认证信息：</span>
+               <span>{{vm.certification.name}}</span>
+           </p>
+           <p>
+               <span>营业执照注册号：</span>
+               <span>{{vm.certification.cardNo}}</span>
+           </p>
+           <p>
+               <span>营业执照：</span>
+               <span><img ng-src="{{SY_UploadBasePath}}{{vm.certification.frontImg}}"></span>
+           </p>
+       </div>
+    </div>
+</form>
+
+

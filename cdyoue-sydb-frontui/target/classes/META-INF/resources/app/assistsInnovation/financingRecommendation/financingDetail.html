@@ -1,0 +1,104 @@
+<div class="wrap bgGray">
+    <div class="layout w_detailPage w_IPSale">
+        <!--breadcrumb-->
+        <div class="breadcrumb">
+            <a ui-sref="assistsInnovation" href="">助力创新</a>
+            <span>＞</span>
+            <a ui-sref="financingRecommendation" href="">技术融资</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">技术融资详情</span>
+        </div>
+        <!--breadcrumb  end-->
+        <div class="buyIpDetails">
+            <div class="w_detailInfo">
+                        <h3>{{vm.financingMessage.name}}</h3>
+             <div class="detail">
+                 <div>
+                     <p class="w_time">发布时间：
+                         <span class="w_orange">{{vm.financingMessage.createTime}}</span>
+                     </p>
+                 </div>
+                 <div>
+                     <p>浏览量</p>
+                     <p class="w_orange">{{vm.financingMessage.viewCount}}</p>
+                 </div>
+                 <div>
+                     <p>联系人</p>
+                     <p class="w_orange">
+                         {{vm.financingMessage.contacts}}
+                     </p>
+                 </div>
+                 <div>
+                     <p>联系电话</p>
+                     <p class="w_orange">{{vm.financingMessage.phone}}</p>
+                 </div>
+                 <div>
+                     <p>联系邮箱</p>
+                     <p class="w_orange">{{vm.financingMessage.email}}</p>
+                 </div>
+             </div>
+                <section>
+                    <a class="share"><img src="/assets/images/assistsInnovation/share.png" data-bd-imgshare-binded="1"></a>
+                    <div class="jiathis_style_32x32">
+                        <a class="jiathis_button_tsina"></a>
+                        <a class="jiathis_button_qzone"></a>
+                        <a class="jiathis_button_cqq"></a>
+                        <a class="jiathis_button_weixin"></a>
+                        <!--<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>-->
+                        <!--<a class="jiathis_counter_style"></a>-->
+                    </div>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                </section>
+                <div class="detailRequire ">
+                    <p class="w_subTitle">项目概述</p>
+                    <div class="w_content">
+                        {{vm.financingMessage.summary}}
+                    </div>
+                </div>
+                <div class="planUse pantent financingDetail">
+                    <div class="w_patentType2">
+                        <p>
+                            <b>知产类型</b>
+                            <br>
+                            <span ng-if="vm.financingMessage.type == 0">专利</span>
+                            <span ng-if="vm.financingMessage.type == 1">商标</span>
+                            <span ng-if="vm.financingMessage.type == 2">著作权</span>
+                        </p>
+                        <p>
+                            <b>专利号</b>
+                            <br>
+                            <span>{{vm.financingMessage.patentNum}}</span>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="detailRequire">
+                    <span>项目详情：</span><p ng-bind-html="vm.financingMessage.detail | elementsIntro"></p>
+                </div>
+
+            </div>
+
+            <!--<div class="w_buyIp_usage">-->
+             <!---->
+            <!--</div>-->
+
+
+        </div>
+        <div class="projectAnnex">
+            <p class="w_subTitle">项目附件</p>
+            <div class="w_content">
+                <table style="width:100%;">
+                    <tr>
+                        <td>商业计划书</td>
+                        <td>
+                            <a href="{{vm.financingMessage.file}}" download="{{vm.financingMessage.file}}">
+                                <button type="button"  value="" >下载附件</button>
+                                </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script src="/vendor/share/share.js"></script>-->

@@ -1,0 +1,89 @@
+<div class="wrap bgGray">
+    <div class="layout w_detailPage w_IPSale">
+        <!--breadcrumb-->
+        <div class="breadcrumb">
+            <a ui-sref="assistsInnovation" href="">助力创新</a>
+            <span>＞</span>
+            <a ui-sref="knowledgeSales" href="">知产出售</a>
+            <span class="breadcrumbActive">＞</span>
+            <span class="breadcrumbActive">知产出售详情</span>
+        </div>
+        <!--breadcrumb  end-->
+        <!--<div class="titleAndSearch">-->
+            <!--<p class="secondActive">{{vm.data.intellectual.title}}</p>-->
+        <!--</div>-->
+        <div class="buyIpDetails">
+            <div class="w_detailInfo">
+                        <h3>{{vm.data.intellectual.title}}</h3>
+                <div class="detail">
+                    <div>
+                        <p class="w_time">发布时间：
+                            <span class="w_orange">{{vm.data.publishTime}}</span>
+                        </p>
+                    </div>
+                    <div ng-switch="vm.data.intellectual.transactionType">
+                        <p>交易类型:</p>
+                        <p class="w_orange">
+                            <span ng-switch-when="1">转让</span>
+                            <span ng-switch-when="2">许可</span>
+                            <span ng-switch-default>待定</span>
+                        </p>
+                    </div>
+                    <div>
+                        <p>价格:</p>
+                        <p class="w_orange" style="color:red;">{{vm.data.intellectual.price | peaceFilter}}元</p>
+                    </div>
+                    <div>
+                        <p>联系人:</p>
+                        <p class="w_orange">{{vm.data.intellectual.contact.person}}</p>
+                    </div>
+                    <div>
+                        <p>联系电话:</p>
+                        <p class="w_orange">{{vm.data.intellectual.contact.phone}}</p>
+                    </div>
+                </div>
+                <section>
+                    <a class="share"><img src="/assets/images/assistsInnovation/share.png"></a>
+                    <div class="jiathis_style_32x32">
+                        <a class="jiathis_button_tsina"></a>
+                        <a class="jiathis_button_qzone"></a>
+                        <a class="jiathis_button_cqq"></a>
+                        <a class="jiathis_button_weixin"></a>
+                        <!--<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>-->
+                        <!--<a class="jiathis_counter_style"></a>-->
+                    </div>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                </section>
+                <div class="planUse pantent">
+                    <!--专利-->
+                    <div class="w_patentType2" ng-if="vm.type == 2">
+                        <p ng-switch="vm.data.intellectual.patentType">
+                            <b>专利类型</b>
+                            <br>
+                            <span ng-switch-when="1">发明专利</span>
+                            <span ng-switch-when="2">实用新型</span>
+                            <span ng-switch-when="3">外观设计专利</span>
+                        </p>
+                        <p>
+                            <b>专利号</b>
+                            <br>
+                            <span >{{vm.data.intellectual.patentNo}}</span>
+                        </p>
+                    </div>
+                    <!--商标-->
+                    <div ng-if="vm.type == 1" class="w_patentType1">
+                        <img ng-src="{{SY_UploadBasePath}}{{vm.data.intellectual.imageUrl}}" width="130" w-img-error />
+
+                    </div>
+                </div>
+                <div class="detailRequire">
+                    <div class="w_content">
+                        <div ng-bind-html="vm.data.intellectual.content | elementsIntro"></div>
+                        <!--<div ng-bind="vm.data.intellectual.content"></div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script src="/vendor/share/share.js"></script>-->

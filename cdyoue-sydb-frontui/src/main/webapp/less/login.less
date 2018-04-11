@@ -1,0 +1,310 @@
+//用户登录
+.login{
+  margin-top: 30px;
+  .title{
+    color:#fff;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #dcdcdc;
+    width:465px;
+    height:45px;
+    background: #076bc1;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    line-height: 45px;
+  }
+  .content{
+    height:560px;
+    width:1200px;
+    border:1px solid #dcdcdc;
+    background: #f8f8f8;
+    .banner{
+      width:707px;
+      margin: 20px;
+      height:501px;
+      float:left;
+      img{
+        width:100%;
+        height:100%;
+      }
+    }
+    .rightContent{
+      width:440px;
+      float:left;
+      form{
+        margin-top: 125px;
+        margin-left: 10px;
+        p{
+          span{
+            font-size: 16px;
+          }
+          &:last-of-type{
+            span{
+              margin-left: 15px;
+              font-size: 16px;
+            }
+          }
+        }
+        input[type='text'],input[type='password']{
+          width:350px;
+          height:40px;
+          border:1px solid #dcdcdc;
+          padding-left: 5px;
+        }
+        .password{
+          margin-left: 18px;
+        }
+        .loginBtn{
+          width:440px;
+          margin-top: 20px;
+          text-align: center;
+          button{
+            width:200px;
+            height:40px;
+            background: red;
+            text-align: center;
+            line-height: 40px;
+            color:#fff;
+            border:none;
+
+          }
+        }
+      }
+      .forgetPassword{
+        float: right;
+        margin-top: 20px;
+        color:red;
+        font-size: 16px;
+      }
+      .register{
+        margin-top: 20px;
+        float: right;
+        clear: both;
+        font-size: 14px;
+        a{
+          color:red;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+}
+.validateCode{
+  width: 235px!important;
+  margin-left: 17px;
+}
+.getCode{
+  width:120px;
+  height:40px;
+  background: #076bc1;
+  border-radius: 0px 5px 5px 0px;
+  color:#fff;
+  text-align: center;
+  margin-left: -10px;
+  border:none;
+
+}
+.registerPassword{
+  margin-left: 33px;
+}
+.wrapCheck{
+  margin-left: 68px;
+  .check{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: bottom;
+    background: url('/assets/images/login/icon1.png');
+    &.active{
+      background: url('/assets/images/login/icon2.png');
+    }
+    input{
+      width: 20px;
+      height: 20px;
+      margin-top: 0px;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+  span{
+    font-size: 16px;
+    color:red;
+    font-weight: bold;
+  }
+}
+.registerBtn{
+  margin-left: 90px;
+  margin-top: 30px;
+  button{
+   width:200px;
+    height:40px;
+    line-height: 40px;
+    background: red;
+    color:#fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border:none;
+  }
+}
+
+//找回密码
+.findPassword{
+  //margin-top: 20px;
+  .forgetPasswordNavbar{
+    width:1200px;
+    height:40px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  .detailContent{
+    //text-align: center;
+    margin-left: 312px;
+    .sureAccount{
+      margin-top: 30px;
+      h3{
+        font-weight: bold;
+        font-size: 18px;
+        //text-align: left;
+      }
+      .account{
+       width:575px;
+        height:40px;
+        padding-left: 10px;
+        border:1px solid #dcdcdc;
+      }
+      .gap{
+        margin-top: 20px;
+      }
+      .validate{
+        margin-top: 20px;
+        input{
+          width:370px;
+          height:40px;
+          border:1px solid #dcdcdc;
+          padding-left: 10px;
+        }
+        .v_container{
+          width:200px;
+          display: inline-block;
+          height: 40px;
+          vertical-align: bottom;
+          canvas{
+
+            width:200px;
+            height: 40px;
+          }
+        }
+        .picture{
+          display: inline-block;
+          margin-left: 25px;
+          cursor: pointer;
+          img{
+            width:85px;
+            height:39px;
+          }
+          span{
+            font-size: 16px;
+            color:#076bc1;
+            margin-left: 25px;
+            cursor: pointer;
+          }
+        }
+        button{
+          width:205px;
+          height:40px;
+          border:1px solid #dcdcdc;
+          background: #076bc1;
+          color:#fff;
+          line-height: 40px;
+          text-align: center;
+          font-size: 16px;
+          vertical-align: top;
+          margin-left: -5px;
+        }
+      }
+    }
+    .securityValidate{
+      .phone{
+        width:548px;
+        height:40px;
+        border:1px solid #dcdcdc;
+        padding-left: 10px;
+      }
+      .upAndDown{
+        display: inline-block;
+        height: 40px;
+        vertical-align: top;
+        margin-left: -4px;
+        cursor: pointer;
+        img{
+          width:31px;
+          height:20px;
+          margin-top: -3px;
+        }
+      }
+    }
+    .sure{
+      margin-top: 20px;
+      button{
+        width:370px;
+        height:40px;
+        line-height: 40px;
+        text-align: center;
+        background: red;
+        color:#fff;
+        font-size: 16px;
+        font-weight: bold;
+        border:none;
+      }
+      a{
+        width:87px;
+        height:40px;
+        border:1px solid red;
+        padding: 8px 30px;
+        vertical-align:bottom;
+        margin-left: 20px;
+        display: inline-block;
+        img{
+          text-align: center;
+
+        }
+      }
+    }
+    .textCenter{
+      margin-left: 100px;
+    }
+  }
+}
+//找回密码成功
+.successFind{
+div{
+  margin-top: 230px;
+  text-align: center;
+  p{
+    color: #333;
+    width: 625px;
+    height: 43px;
+    text-align: center;
+    margin-left: 300px;
+    &:first-of-type{
+      font-size: 16px;
+      border-bottom: 1px dashed #dcdcdc;
+      padding-bottom: 20px;
+      a{
+        font-size: 18px;
+        color:#076bc1;
+      }
+    }
+    &:last-of-type{
+      font-size: 18px;
+      font-weight: bold;
+      span{
+        color:red;
+      }
+    }
+  }
+}
+}

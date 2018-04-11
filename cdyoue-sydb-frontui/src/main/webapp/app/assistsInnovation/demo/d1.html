@@ -1,0 +1,64 @@
+<!--<div ></div>-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="formSearchDiv clearfix">
+                <div class="pull-left">
+                    <form class="form-inline" role="form">
+                        <div class="input-daterange input-group" id="datepicker">
+                            <input ng-model="vm.startTime" type="text" class="input-sm form-control time-input-control"
+                                   name="start" id="start" placeholder="请选择开始时间"/>
+                            <span class="input-group-addon">-</span>
+                            <input ng-model="vm.endTime" type="text" class="input-sm form-control time-input-control" name="end"
+                                   id="end" placeholder="请选择结束时间"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">上传图片：</label>
+                            <div class="col-sm-3">
+                                <img ngf-src="vm.data.file || vm.proNews.bannerImg" class="img-responsive img-banner"/>
+                                <button class="btn btn-lg btn-selectFile" ngf-select="vm.upload()"  ngf-multiple="false" ng-model="vm.data.file">上传图片</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="请输入搜索内容">
+                        </div>
+                        <button type="submit" class="btn btn-default formBtn"  style="border-radius: 4px;">查询</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <table class="table table-striped locationTable">
+                <thead>
+                <tr class="theadBg">
+                    <th style="min-width: 130px;" >ID<span class="glyphicon sortIcon"></span></th>
+                    <th style="min-width: 130px;" >企业名称<span class="glyphicon sortIcon"></span></th>
+                    <th style="min-width: 130px;">省份<span  class="glyphicon sortIcon"></span></th>
+                    <th style="min-width: 130px;">城市<span  class="glyphicon sortIcon"></span></th>
+                    <th style="min-width: 145px;">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="enterprise in vm.eList">
+                    <td>{{enterprise.id}}</td>
+                    <td>{{enterprise.enterpriseName}}</td>
+                    <td>{{enterprise.provinceName}}</td>
+                    <td>{{enterprise.cityName}}</td>
+                    <td class="tdNext">
+                        <a  href="#" target="_blank">新增</a>
+                        <a ng-click="vm.del(enterprise,id, enterprise.enterpriseName)">删除</a>
+                        <a >编辑</a>
+                        <a ng-click="vm.enterpriseDetail(enterprise.id)">详情</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--分页-->
+        <div class="col-xs-12">
+            <youe-page pageinfo="vm.pager" select-page="vm.selectPage" select-page-size="vm.selectPageSize"></youe-page>
+        </div>
+
+        <div id="showModel"></div>
+    </div>
+</div>

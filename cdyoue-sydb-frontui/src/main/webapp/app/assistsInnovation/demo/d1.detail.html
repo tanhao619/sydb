@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h4 class="modal-title" data-translate="login.title">demo详情</h4>
+</div>
+<div class="modal-body">
+    <div class="form-group clearfix">
+        <label for="inputEmail3" class="col-sm-2 control-label">ID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3"  ng-model="vm.enterprise.id">
+        </div>
+    </div>
+    <div class="form-group clearfix">
+        <label for="inputPassword3" class="col-sm-2 control-label">企业名称</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputPassword3"   ng-model="vm.enterprise.enterpriseName">
+        </div>
+    </div>
+    <div class="form-group clearfix">
+        <label for="inputPassword3" class="col-sm-2 control-label">省份</label>
+        <div class="col-sm-10 clearfix">
+            <input type="text" class="form-control" id="2"  ng-model="vm.enterprise.provinceName">
+        </div>
+    </div>
+    <div class="form-group clearfix">
+        <label for="inputPassword3" class="col-sm-2 control-label">城市</label>
+        <div class="col-sm-10 clearfix">
+            <input type="text" class="form-control" id="4"  ng-model="vm.enterprise.cityName">
+        </div>
+    </div>
+    <div class="form-group clearfix text-right">
+        <button class="btn btn-default" type="reset" ng-click="vm.cancel()">关闭</button>
+    </div>
+</div>
